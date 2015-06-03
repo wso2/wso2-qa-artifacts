@@ -29,4 +29,23 @@ change following configuration files
 6) Run the client. If the client can sucessfully access the service, the response should be
 <ns:echoStringResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>Hello Pavithra !!!!!!</return></ns:echoStringResponse>
 
+************
+Limitations
+************
+
+1) When running the client with jdk7, you'll observe following error.
+
+TID: [0] [ESB] [2015-06-03 14:13:10,490] ERROR {org.apache.axis2.transport.http.AxisServlet} -  sun.security.krb5.EncryptedData.reset([BZ)[B {org.apache.axis2.transport.http.AxisServlet}
+java.lang.NoSuchMethodError: sun.security.krb5.EncryptedData.reset([BZ)[B
+        at org.apache.ws.security.kerberos.KrbTicketDecoder.decryptTicket(KrbTicketDecoder.java:105)
+        at org.apache.ws.security.kerberos.KrbTicketDecoder.parseApReq(KrbTicketDecoder.java:90)
+        at org.apache.ws.security.kerberos.KrbTicketDecoder.parseServiceTicket(KrbTicketDecoder.java:67)
+        at org.apache.ws.security.kerberos.KrbTicketDecoder.getSessionKey(KrbTicketDecoder.java:50)
+        at org.apache.ws.security.processor.KerberosTokenProcessor.getSessionKey(KerberosTokenProcessor.java:493)
+        at org.apache.ws.security.processor.KerberosTokenProcessor.verifyXMLSignature(KerberosTokenProcessor.java:297)
+        at org.apache.ws.security.processor.SignatureProcessor.verifyXMLSignature(SignatureProcessor.java:308)
+        at org.apache.ws.security.processor.SignatureProcessor.handleToken(SignatureProcessor.java:124)
+
+So please make sure to run the client with jdk6.
+
 [1] http://wso2.com/library/articles/2012/07/kerberos-authentication-using-wso2-products/
