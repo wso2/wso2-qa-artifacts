@@ -2,10 +2,9 @@ NOTE : The client and the steps are same as mentioned in [1]
 
 1) Copy the config files found inside kerberos/IS/conf to the conf directory of Identity Server (IS 5.0.0).
 If you change the config files manually, there are changes in following files...
-	- jaas.conf
-	- krb5.con
-	- embedded-ldap.xml
-	- user-mgt.xml
+	- krb5.con : Change the encryption types, realm and domain names to match with our requirement.
+	- embedded-ldap.xml : Enable KDC server and preAuthenticationTimeStampEnabled property.
+	- user-mgt.xml : Enable KDC in default ldap userstore manager.
 
 2) Create a user in identity server
 e.g
@@ -20,9 +19,9 @@ password : wsxwsx
 Either copy the config files inside kerberos/ESB/conf to the conf directory of ESB
 or
 change following configuration files
-	- carbon.xml
-	- jaas.conf
-	- krb5.conf
+	- carbon.xml : Change the port offset
+	- jaas.conf : Add this file to ESB_HOME/repository/conf/security folder.
+	- krb5.conf : Add this file to ESB_HOME/repository/conf/security folder.
 
 5) Start ESB and secure echo service with kerberos authentication (policy no 16). provide "echo/localhost@WSO2.ORG" as service principla name and the correct password.
 
