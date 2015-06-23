@@ -1,0 +1,43 @@
+{
+    "theme" : {
+        "base" : "default",
+        "subtheme" : "modern"
+    },
+    "context" : "/publisher",
+    "enableRestrictByRoles" : "true",
+    "enableSelectedTenantSubscription" : "true",
+    "ssoConfiguration" : {
+        "enabled" : "true",
+        "issuer" : "API_PUBLISHER",
+        "identityProviderURL" : "https://is500km.wso2.com:9443/samlsso",
+        "keyStorePassword" : "wso2carbon",
+        "identityAlias" : "wso2carbon",
+        "responseSigningEnabled":"true",
+        "keyStoreName" :"repository/resources/security/wso2carbon.jks"
+    },
+
+    "oidcConfiguration" : {
+      "enabled" : "false",
+      "issuer" : "API_PUBLISHER",
+      "identityProviderURI" : "http://localhost:8080/openid-connect-server-webapp/",
+      "authorizationEndpointURI" : "http://localhost:8080/openid-connect-server-webapp/authorize",
+      "tokenEndpointURI" : "http://localhost:8080/openid-connect-server-webapp/token",
+      "userInfoURI" : "http://localhost:8080/openid-connect-server-webapp/userinfo",
+      "jwksURI" : "http://localhost:8080/openid-connect-server-webapp/jwk",
+      "clientConfiguration" : {
+        "clientId" : "client_am_publisher",
+        "clientSecret" : "secret",
+        "responseType" : "code",
+        "authorizationType" : "authorization_code",
+        "scope" : "phone email address openid profile",
+        "redirectURI" : "https://localhost:9443/publisher/jagg/jaggery_oidc_acs.jag"
+      }
+    },
+
+    "reverseProxy" : {
+        "enabled" : true,    // values true , false , "auto" - will look for  X-Forwarded-* headers
+        "host" : "publisher.apim.iskm.wso2.com", // If reverse proxy do not have a domain name use IP
+        "context":"/apimanager/publisher",
+      //"regContext":"" // Use only if different path is used for registry
+    },
+}
