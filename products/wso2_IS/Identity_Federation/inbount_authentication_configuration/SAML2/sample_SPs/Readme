@@ -1,0 +1,58 @@
+README
+======
+
+This jmeter script will be used to test Single Sign On and Single Sign Out.
+
+To run this Jmeter script there are few configurations to be done. Given below are the steps to be followed. 
+
+Step 1 - Deploy the web application
+
+1. Go to tomcat/webapps and deploy the given avis.com.war and travelocity.com.war
+2. Start the tomcat
+
+Step 2 - Configure SAML2 SSO using a sample service provider.
+
+1. Start the WSO2 IS carbon server and login to https://localhost:9443/carbon
+2. Since you are going to use SAML2 technology, once you login to carbon server which is after IS 4.7.0,
+
+Go to Home > Manage > Service Providers	 > Add > Enter Service Provider ID (travelocity) > SAML2 Web SSO Configuration
+
+3. A form appears. Register the new service provider by providing the following values.
+
+   > Issuer: travelocity.com
+    	
+   > This value should be same as the SAML.IssuerID value specified inside the travelocity.com/WEB-INF/classes/travelocity.properties file.
+
+     Assertion Consumer URL: http://localhost:8080/travelocity.com/home.jsp
+
+   > This value should be same as the SAML.ConsumerUrl value mentioned inside the travelocity.com/WEB-INF/classes/travelocity.properties file.
+   > NameID format: Enter the default value here (i.e., urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress)
+   > Use fully qualified username in the NameID: Set this as true by selecting the checkbox
+   > Enable Response Signing: Set this as true by selecting the checkbox
+   > Enable Assertion Signing: Set this as true by selecting the checkbox
+   > Enable Single Logout: Set this as true by selecting the checkbox
+
+4. Same as step 2 and 3, add the other service provider (avis.com)
+
+E.g., 
+
+  > Issuer: avis.com
+    	
+  > This value should be same as the SAML.IssuerID value specified inside the travelocity.com/WEB-INF/classes/avis.properties file.
+
+     Assertion Consumer URL: http://localhost:8080/avis.com/samlsso-home.jsp
+
+Step 3 - Jmeter script
+
+1. Up the jmeeter and run the script.
+
+By this Jmeter script following steps will be performed :
+
+1. Go to travelocity login page
+2. Login as Admin user
+3. Click on avis.com link in the travelocity home page
+4. User will be redirected to avis.com home page and already logged as admin.
+5. Log out from the avis.com
+6. Click the travelocity.com link. It should also be riderect to login page since the user should be already logged out.
+
+
