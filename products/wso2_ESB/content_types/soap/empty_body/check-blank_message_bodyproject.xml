@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="evanthikas-macbook-pro" resourceRoot="" soapui-version="4.6.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="CheckBodyProxySoap12Binding" type="wsdl" bindingName="{http://ws.apache.org/axis2}CheckBodyProxySoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://evanthikas-macbook-pro.local:8280/services/CheckBodyProxy?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsSoap12Endpoint</con:endpoint><con:endpoint>http://Evanthikas-MacBook-Pro.local:8280/services/CheckBodyProxy.CheckBodyProxyHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:mediate" name="mediate" bindingOperationName="mediate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy/getQuote</con:endpoint><con:request>&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   &lt;soap:Header/>
+   &lt;soap:Body/>
+&lt;/soap:Envelope></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getQuote" addDefaultAction="false"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="CheckBodyProxySoap11Binding" type="wsdl" bindingName="{http://ws.apache.org/axis2}CheckBodyProxySoap11Binding" soapVersion="1_1" anonymous="optional" definition="http://evanthikas-macbook-pro.local:8280/services/CheckBodyProxy?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://evanthikas-macbook-pro.local:8280/services/CheckBodyProxy?wsdl"><con:part><con:url>http://evanthikas-macbook-pro.local:8280/services/CheckBodyProxy?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ws.apache.org/axis2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://ws.apache.org/axis2" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types/>
+  <wsdl:message name="in"/>
+  <wsdl:message name="out"/>
+  <wsdl:portType name="CheckBodyProxyPortType">
+    <wsdl:operation name="mediate">
+      <wsdl:input message="tns:in" wsaw:Action="urn:mediate"/>
+      <wsdl:output message="tns:out" wsaw:Action="urn:mediateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckBodyProxySoap11Binding" type="tns:CheckBodyProxyPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="mediate">
+      <soap:operation soapAction="urn:mediate" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckBodyProxySoap12Binding" type="tns:CheckBodyProxyPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="mediate">
+      <soap12:operation soapAction="urn:mediate" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckBodyProxyHttpBinding" type="tns:CheckBodyProxyPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="mediate">
+      <http:operation location="mediate"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckBodyProxy">
+    <wsdl:port name="CheckBodyProxyHttpSoap11Endpoint" binding="tns:CheckBodyProxySoap11Binding">
+      <soap:address location="http://Evanthikas-MacBook-Pro.local:8280/services/CheckBodyProxy.CheckBodyProxyHttpSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="CheckBodyProxyHttpsSoap11Endpoint" binding="tns:CheckBodyProxySoap11Binding">
+      <soap:address location="https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="CheckBodyProxyHttpsSoap12Endpoint" binding="tns:CheckBodyProxySoap12Binding">
+      <soap12:address location="https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="CheckBodyProxyHttpSoap12Endpoint" binding="tns:CheckBodyProxySoap12Binding">
+      <soap12:address location="http://Evanthikas-MacBook-Pro.local:8280/services/CheckBodyProxy.CheckBodyProxyHttpSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="CheckBodyProxyHttpEndpoint" binding="tns:CheckBodyProxyHttpBinding">
+      <http:address location="http://Evanthikas-MacBook-Pro.local:8280/services/CheckBodyProxy.CheckBodyProxyHttpEndpoint"/>
+    </wsdl:port>
+    <wsdl:port name="CheckBodyProxyHttpsEndpoint" binding="tns:CheckBodyProxyHttpBinding">
+      <http:address location="https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsSoap11Endpoint</con:endpoint><con:endpoint>http://Evanthikas-MacBook-Pro.local:8280/services/CheckBodyProxy.CheckBodyProxyHttpSoap11Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:mediate" name="mediate" bindingOperationName="mediate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Action" value="urn:getQuote" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://Evanthikas-MacBook-Pro.local:8243/services/CheckBodyProxy.CheckBodyProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getQuote>
+         <!--Optional:-->
+         <ser:request>
+            <!--Optional:-->
+            <xsd:symbol>IBM</xsd:symbol>
+         </ser:request>
+      </ser:getQuote>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getQuote"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
