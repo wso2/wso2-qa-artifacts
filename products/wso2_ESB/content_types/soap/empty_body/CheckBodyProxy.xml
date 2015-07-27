@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="CheckBodyProxy"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <inSequence>
+         <log level="full"/>
+         <send>
+            <endpoint>
+               <address uri="http://10.100.0.148:9000/services/SimpleStockQuoteService"/>
+            </endpoint>
+         </send>
+      </inSequence>
+      <outSequence>
+         <log level="full"/>
+         <filter xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xpath="boolean(//soapenv:Body/*[1])">
+            <then>
+               <log level="custom">
+                  <property name="STATUS" value="Message Body Available"/>
+               </log>
+               <send/>
+            </then>
+            <else>
+               <log level="custom">
+                  <property name="STATUS" value="Message Body Blank"/>
+		  <!-- You can send a mail from here -->
+               </log>
+               <send/>
+            </else>
+         </filter>
+      </outSequence>
+   </target>
+   <description/>
+</proxy>
