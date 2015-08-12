@@ -1,0 +1,61 @@
+paths:
+  "/customerservice/customers/{id}":
+    get:
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: Unlimited
+      parameters:
+        - name: id
+          allowMultiple: false
+          type: string
+          required: true
+          in: path
+      responses:
+        "200": {}
+    delete:
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: Unlimited
+      parameters:
+        - name: id
+          allowMultiple: false
+          type: string
+          required: true
+          in: path
+      responses:
+        "200": {}
+    head:
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: Unlimited
+      parameters:
+        - name: id
+          allowMultiple: false
+          type: string
+          required: true
+          in: path
+      responses:
+        "200": {}
+  /customerservice/customers:
+    put:
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: Unlimited
+      parameters:
+        - name: body
+          type: string
+          required: false
+          in: body
+      responses:
+        "200": {}
+    post:
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: Unlimited
+      parameters:
+        - name: body
+          type: string
+          required: false
+          in: body
+      responses:
+        "200": {}
+swagger: "2.0"
+info:
+  title: EncryptionAPI3
+  description: EncryptionAPI3
+  version: 1.0.0

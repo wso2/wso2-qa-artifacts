@@ -1,0 +1,16 @@
+-- Happy path scenario
+curl -v -d @getQuote.xml -H "Content-type: text/xml" -H "SOAPAction:urn:getQuote"  http://localhost:8280/stockquote/test
+
+
+-- Error 1
+curl -v -d @getQuote.xml -H "Content-type: application/json" -H "SOAPAction:urn:getQuote"  http://localhost:8280/stockquote/test
+
+
+-- Error 2
+curl -v -d @getQuote.json -H "Content-type: application/json" http://localhost:8280/stockquote/jsontest
+
+curl -v -d @getQuote.json -H "Content-type: application/isuru" http://localhost:8280/stockquote/jsontest
+
+
+-- Error 3 HTML duel behaviour
+curl -v -d @getQuote.json -H "Content-type: text/xml" http://localhost:8280/stockquote/jsontest

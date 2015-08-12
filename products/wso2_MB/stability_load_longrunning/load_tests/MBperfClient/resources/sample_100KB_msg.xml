@@ -1,0 +1,4913 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Header/>
+    <soap:Body>
+
+
+
+
+
+                    <E1WVINI>
+
+                        <ZEILI>052</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10821</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMCREAMOFTATA100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>053</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10822</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMISABOOLKASAKASWHITE100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>13.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>054</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10823</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMMADINADATES500G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5014176003029</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>15.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>055</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10826</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMBARLY200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>13.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>056</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10827</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMKONDEGRAM500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>057</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10828</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMSEGO200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>058</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10829</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGINGERLYSEEDSINDIAN200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>2.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>059</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>1083</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>BABYCHERAMYHA/BODYOILALOE125ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4791111100463</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>5.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>060</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10831</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMINDIANSEGO200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>21.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>061</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10834</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMKASAKASA200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>15.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>062</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10838</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMAGARAGARPOWDER12G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5896658991259</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>8.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>063</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10841</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMPISTHARSTDSALTED100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>7.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>064</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10842</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMCHINAMOSS50G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>15.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>065</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10844</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREPOWERWHITE500ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792210104734</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>17.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>066</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10847</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMMOSSJELLY20G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>22.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>067</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10848</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGINGERPRESERVE200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>10.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>068</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10849</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMBREADCRUMBS500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>28.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>069</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10850</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>BONCAFEU/BLE.COFFEEFILTERBAG102</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>8888089219214</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>070</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10851</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMCHAWCHAW100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>5.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>071</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10852</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGREENGRAMDHALL500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>11.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>072</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10853</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMBLACKCURRANTS100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>073</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10854</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMMIXEDPEEL100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>12.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>074</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10855</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMWHITEULUNDU500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>12.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>075</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10856</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREDISHWASHLIME750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792210400102</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>076</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10859</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMREDCOWPEA500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>077</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>1086</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SOFTLOVEBABYDIAPERSLARGE4S</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>8992959304051</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>17.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>078</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10860</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMWHITECOWPEA500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>079</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10861</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMRAISINGS100G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>14.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>080</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10862</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMTOORDHALL500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>4.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>081</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10863</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMSOFTSUGAR500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>14.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>082</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10864</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGRAM500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>083</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10865</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMPLUM250G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>1.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>084</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10867</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>LUCKYLANDMARIEMILK90G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792158021407</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>085</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10868</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREGLASSCLEANER750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792270400104</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>5.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>086</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10870</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGRAMDHALL500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>087</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10873</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMGREENGRAM500G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>088</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10874</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>PELWATTEBROWNSUGAR1KG</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>089</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10879</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREALLPURPOSECLEANER750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792240400103</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>11.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>090</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10880</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMLUNCHSHEETJUMBO100S</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>15.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>091</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10881</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CARECARWASH750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792230400106</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>13.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>092</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10883</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOMARKSHERBALCREAMNORMAL25G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>8902443311427</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>2.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>093</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10884</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NJOYCOCONUTOIL3L</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4796000040004</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>1.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>094</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10886</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SETHUMCHERRY200G</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>15.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>095</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10891</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>MILGROMILKPOWDERINST400GPOUCH</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>9555246300083</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>36.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>096</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10892</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>ARMORALLWASHWAXCARWASH2L</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>9324054904086</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>097</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10893</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREJETCREAMECLEANER750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792260400107</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>19.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>098</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10894</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>ARMORALLCARPET/UPHOLTSCLEARN623G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>70612780911</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>099</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>109</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CURRYLEAFPOLKATTASAMBOMIX150G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>1090</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>100</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10901</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>ARMORALLWHEELCLEANER946ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>70612780119</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>101</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10908</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOMARKSHERBALCREAMDRY25G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>8902443311410</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>102</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10914</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>WAXPOLSILKYTOUCH300ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015580036</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>5.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>103</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10916</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>HEWAGEDHALL1KG</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>104</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10918</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>FABULARFARMKOHILADALU</MAKTX>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>105</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10925</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CARPLANTCUTORIG/COLO.RESTOR375ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5010373008096</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>4.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>106</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10926</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>KGM</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>YELLOWPEARSIMP</MAKTX>
+
+                        <SALES_PRICE>290.00</SALES_PRICE>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>KG</UNIT_CODE>
+
+                            <UNIT_ISOCODE>KGM</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>13.082</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>107</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>1093</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>MULTIBONDEPOXY4MINUTES35G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792136170271</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>108</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10935</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREPOWERWHITE750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792210104741</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>1.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>109</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10937</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>SOFTLOVEBABYDIAPERSMEDIUM36S</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>8992959304365</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>4.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>110</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10939</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>AVENTBABYBOTTOMBALM125ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5012909005692</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>6.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>111</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>1094</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>KANGAROORIDGECARBER.SOUVI750ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>98137880046</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>6.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>112</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10944</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOASDEVILLEDMIXTURE100G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015004495</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>11.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>113</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10947</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREAUTOMATICWASH/POWDER1KG</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792210200054</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>3.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>114</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10948</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOASMASALAPEANUTS100G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015004617</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>23.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>115</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10950</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOASSALTEDDHALL200G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015004587</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>13.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>116</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10951</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>NOASDEVILLEDPEANUTS200G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015004488</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>10.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>117</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10953</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>ACTIFITADULTDIAPERMEDIUM10S</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>6924293001428</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>9.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>118</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10955</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>AQUALETTEB/WIPET/PU/SCENT80S</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792091371003</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>119</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10956</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>AVENTFUTUREMOTHERB/SHOW.ESS.400ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5012909005937</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>120</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10957</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>WAXPOLTYRESHINE300ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4790015580050</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>IC</UNIT_CODE>
+
+                            <UNIT_ISOCODE>IC</UNIT_ISOCODE>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>0.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>121</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10958</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>AVENTSOOTHINGNIPPLECREAM30ML</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>5012909006491</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>CV</UNIT_CODE>
+
+                            <UNIT_ISOCODE>CS</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>6.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+                    <E1WVINI>
+
+                        <ZEILI>122</ZEILI>
+
+                        <QUALARTNR>006</QUALARTNR>
+
+                        <ARTNR>10959</ARTNR>
+
+                        <BSTAR>1</BSTAR>
+
+                        <ERFME>NO</ERFME>
+
+                        <WAERS>LKR</WAERS>
+
+                        <BTEXT>Warehouse</BTEXT>
+
+                        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+                        <E1WVI01>
+
+                            <EAN11>4792210200078</EAN11>
+
+                            <NUMTP>ZE</NUMTP>
+
+                            <HPEAN>X</HPEAN>
+
+                            <MEINH>NO</MEINH>
+
+                        </E1WVI01>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>DZ</UNIT_CODE>
+
+                            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+                            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WVI03>
+
+                            <UNIT_CODE>NO</UNIT_CODE>
+
+                            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+                            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+                            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+                        </E1WVI03>
+
+                        <E1WXX01>
+
+                            <FLDNAME>BOOK_QTY</FLDNAME>
+
+                            <FLDVAL>1.000</FLDVAL>
+
+                        </E1WXX01>
+
+                    </E1WVINI>
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+
+
+        <ZEILI>122</ZEILI>
+
+        <QUALARTNR>006</QUALARTNR>
+
+        <ARTNR>10959</ARTNR>
+
+        <BSTAR>1</BSTAR>
+
+        <ERFME>NO</ERFME>
+
+        <WAERS>LKR</WAERS>
+
+        <BTEXT>Warehouse</BTEXT>
+
+        <MAKTX>CAREAUTOMATICWASH/PWDR500G</MAKTX>
+
+        <E1WVI01>
+
+            <EAN11>4792210200078</EAN11>
+
+            <NUMTP>ZE</NUMTP>
+
+            <HPEAN>X</HPEAN>
+
+            <MEINH>NO</MEINH>
+
+        </E1WVI01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZN</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+
+        <E1WVI03>
+
+            <UNIT_CODE>NO</UNIT_CODE>
+
+            <UNIT_ISOCODE>NO</UNIT_ISOCODE>
+
+            <FLAG_BASE_UOM>X</FLAG_BASE_UOM>
+
+            <FLAG_SALES_UNIT>X</FLAG_SALES_UNIT>
+
+        </E1WVI03>
+
+        <E1WXX01>
+
+            <FLDNAME>BOOK_QTY</FLDNAME>
+
+            <FLDVAL>1.000</FLDVAL>
+
+        </E1WXX01>
+        <E1WVI03>
+
+            <UNIT_CODE>DZ</UNIT_CODE>
+
+            <UNIT_ISOCODE>DZ22222221231231231231</UNIT_ISOCODE>
+
+            <FLAG_PO_UNIT>X</FLAG_PO_UNIT>
+
+        </E1WVI03>
+    </soap:Body>
+</soap:Envelope>
