@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples">
+ <soapenv:Header/>
+ <soapenv:Body>
+    <ser:getSimpleQuote>
+       <ser:symbol>TTTTTTTTTTTTTTTTTTTTTTTTTTTT</ser:symbol>
+    </ser:getSimpleQuote>
+ </soapenv:Body>
+</soapenv:Envelope>
