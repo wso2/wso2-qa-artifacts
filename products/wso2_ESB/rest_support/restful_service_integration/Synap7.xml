@@ -1,0 +1,21 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="JAXRS" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+   <target>
+      <inSequence>
+         <property name="messageType" value="application/xml" scope="axis2"/>
+         <property name="ContentType" value="application/xml" scope="axis2"/>
+         <property name="uri.var.id" expression="$body/Customer/id"/>
+         <log level="full"/>
+         <log level="custom">
+            <property name="ID" expression="get-property('uri.var.id')"/>
+            <property name="$body" expression="$body/Customer/id"/>
+         </log>
+         <send>
+            <endpoint key="HttpEpGET"/>
+         </send>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <description></description>
+</proxy>

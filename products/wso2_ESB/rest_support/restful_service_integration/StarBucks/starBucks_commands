@@ -1,0 +1,446 @@
+1. vi order.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns="http://starbucks.example.org">
+  <drink>Caffe Misto</drink>
+</order>
+
+
+Placing New Orders
+2. curl -v -d @order.xml -H "Content-type: application/xml" http://localhost:8280/order
+
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> POST /order HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 118
+> 
+* upload completely sent off: 118out of 118 bytes
+< HTTP/1.1 201 Created
+< Location: http://127.0.0.1:8280/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 06:57:48 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<order xmlns="http://starbucks.example.org"><drink>Caffe Misto</drink><cost>8.99</cost><additions/><next xmlns="http://example.org/state-machine" rel="http://127.0.0.1:8280/payment" uri="http://127.0.0.1:8280/payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4" type="application/xml"/></order>
+
+
+Reviewing Orders
+3. curl -v http://localhost:8280/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 06:58:45 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<order xmlns="http://starbucks.example.org"><drink>Caffe Misto</drink><cost>8.99</cost><additions/><next xmlns="http://example.org/state-machine" rel="http://127.0.0.1:8280/payment" uri="http://127.0.0.1:8280/payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4" type="application/xml"/></order>
+
+
+4. curl -v http://localhost:8280/order/bogus-order-id
+curl -v http://localhost:8281/order/cad04be2-f2c4-4571-81d4-d98c89b1d366
+
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /order/cad04be2-f2c4-4571-81d4-d98c89b1d366 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 404 Not Found
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:00:03 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<message xmlns="http://starbucks.example.org"><text>No order exists by the specified ID</text></message>
+
+
+Making Payments
+5. vi payment.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<payment xmlns="http://starbucks.example.org">
+  <cardNo>1234-5678-9010</cardNo>
+  <expires>12/15</expires>
+  <name>Peter Parker</name>
+  <amount>600000.99</amount>
+</payment>
+
+
+6. curl -v -X PUT -d @payment.xml -H "Content-type: application/xml" http://localhost:8281/payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> PUT /payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 225
+> 
+* upload completely sent off: 225out of 225 bytes
+< HTTP/1.1 201 Created
+< Location: http://127.0.0.1:8280/payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:02:13 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<payment xmlns="http://starbucks.example.org/"><cardNo>1234-5678-9010</cardNo><expires>12/15</expires><name>Peter Parker</name><amount>61111111111111110000000</amount></payment>
+
+
+
+
+7. curl -v -X PUT -d @payment.xml -H "Content-type: application/xml" http://localhost:8281/payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> PUT /payment/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 208
+> 
+* upload completely sent off: 208out of 208 bytes
+< HTTP/1.1 403 Forbidden
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:03:17 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<paymentError xmlns="http://starbucks.example.org/"><errorCode>Duplicate Payment</errorCode></paymentError>
+
+
+
+8. curl -v -d @order.xml -H "Content-type: application/xml" http://localhost:8281/order
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+...............................................
+<order xmlns="http://starbucks.example.org"><drink>Caffe Misto</drink><cost>8.99</cost><additions/><next xmlns="http://example.org/state-machine" rel="http://127.0.0.1:8280/payment" uri="http://127.0.0.1:8280/payment/order/6167a30a-990d-4d5d-8635-5595cd47393b" type="application/xml"/></order>shashi@shashi-ThinkPad-T530:~/work_stuff/ESB/4.7.0/jun18$ 
+
+
+8 shashi@shashi-ThinkPad-T530:~/work_stuff/ESB/4.7.0/jun18$ curl -v -X PUT -d @payment2.xml -H "Content-type: application/xml" http://localhost:8281/payment/order/6167a30a-990d-4d5d-8635-5595cd47393b
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> PUT /payment/order/6167a30a-990d-4d5d-8635-5595cd47393b HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 203
+> 
+* upload completely sent off: 203out of 203 bytes
+< HTTP/1.1 403 Forbidden
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:05:41 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<paymentError xmlns="http://starbucks.example.org/"><errorCode>Insufficient Funds</errorCode></paymentError>
+
+
+
+9. curl -v http://localhost:8281/payment/order/627f7d04-3d39-41ee-ba1d-18850c095167
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /payment/order/627f7d04-3d39-41ee-ba1d-18850c095167 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:07:34 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<payment xmlns="http://starbucks.example.org/"><cardNo>1234-5678-9010</cardNo><expires>12/15</expires><name>Peter Parker</name><amount>600000.99</amount></payment>
+
+
+10. curl -v -X OPTIONS http://localhost:8281/order/627f7d04-3d39-41ee-ba1d-18850c095167
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> OPTIONS /order/627f7d04-3d39-41ee-ba1d-18850c095167 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Allow: GET,PUT
+< Content-Type: text/xml
+< Date: Thu, 20 Jun 2013 07:12:27 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<ns:getOrderResponse xmlns:ns="http://ws.starbucks.com"><ns:return xmlns:ax2516="http://ws.starbucks.com/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax2516:Order"><ax2516:additions/><ax2516:cost>8.99</ax2516:cost><ax2516:drinkName>Caffe Misto</ax2516:drinkName><ax2516:locked>false</ax2516:locked><ax2516:orderId>627f7d04-3d39-41ee-ba1d-18850c095167</ax2516:orderId><ax2516:timestamp>2013-06-20T12:34:05Z</ax2516:timestamp></ns:return></ns:getOrderResponse>
+
+
+vi update.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns="http://starbucks.example.org">
+  <drink>Caffe Misto</drink>
+  <additions>Milk</additions>
+</order>
+
+Update order
+11. curl -v -X PUT -d @update.xml -H "Content-type: application/xml" http://localhost:8281/order/627f7d04-3d39-41ee-ba1d-18850c095167
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> PUT /order/627f7d04-3d39-41ee-ba1d-18850c095167 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 147
+> 
+* upload completely sent off: 147out of 147 bytes
+< HTTP/1.1 200 OK
+< Location: http://127.0.0.1:8280/order/627f7d04-3d39-41ee-ba1d-18850c095167
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:41:57 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<order xmlns="http://starbucks.example.org"><drink>Caffe Misto</drink><cost>12.97</cost><additions>Milk</additions><next xmlns="http://example.org/state-machine" rel="http://127.0.0.1:8280/payment" uri="http://127.0.0.1:8280/payment/order/627f7d04-3d39-41ee-ba1d-18850c095167" type="application/xml"/></order>
+
+
+
+12. 
+curl -v http://localhost:8281/orders
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /orders HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Date: Thu, 20 Jun 2013 07:44:45 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>Drinks to make</title>
+   <link rel="self" href="http://127.0.0.1:8280/orders"/>
+   <updated>2013-06-20T01:14:45Z</updated>
+   <author>
+      <name>Barista System</name>
+   </author>
+   <id>urn:starbucks:barista:coffees-to-make</id>
+   <entry>
+      <id>http://127.0.0.1:8280/order/627f7d04-3d39-41ee-ba1d-18850c095167</id>
+      <title>Order ID - 627f7d04-3d39-41ee-ba1d-18850c095167</title>
+      <updated>2013-06-20T01:11:57Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/627f7d04-3d39-41ee-ba1d-18850c095167"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions>Milk</additions>
+            <cost>12.97</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/627f7d04-3d39-41ee-ba1d-18850c095167"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/89328d90-92e4-46f7-a832-e5b0fa61b491</id>
+      <title>Order ID - 89328d90-92e4-46f7-a832-e5b0fa61b491</title>
+      <updated>2013-06-20T12:05:20Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/89328d90-92e4-46f7-a832-e5b0fa61b491"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/89328d90-92e4-46f7-a832-e5b0fa61b491"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4</id>
+      <title>Order ID - cad04be2-f2c4-4571-81d4-d98c89b1d3d4</title>
+      <updated>2013-06-20T12:27:48Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/cad04be2-f2c4-4571-81d4-d98c89b1d3d4"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/9e7d99b4-da3c-4e4b-93b4-5a91fa53820d</id>
+      <title>Order ID - 9e7d99b4-da3c-4e4b-93b4-5a91fa53820d</title>
+      <updated>2013-06-20T11:59:38Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/9e7d99b4-da3c-4e4b-93b4-5a91fa53820d"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/9e7d99b4-da3c-4e4b-93b4-5a91fa53820d"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/ccba09c3-fb63-434b-95a2-f60189e16c26</id>
+      <title>Order ID - ccba09c3-fb63-434b-95a2-f60189e16c26</title>
+      <updated>2013-06-20T11:57:50Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/ccba09c3-fb63-434b-95a2-f60189e16c26"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/ccba09c3-fb63-434b-95a2-f60189e16c26"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/d9602ac3-1b4a-41ca-8c0e-c3c9a2e3b559</id>
+      <title>Order ID - d9602ac3-1b4a-41ca-8c0e-c3c9a2e3b559</title>
+      <updated>2013-06-20T12:06:39Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/d9602ac3-1b4a-41ca-8c0e-c3c9a2e3b559"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/d9602ac3-1b4a-41ca-8c0e-c3c9a2e3b559"/>
+      </content>
+   </entry>
+   <entry>
+      <id>http://127.0.0.1:8280/order/6167a30a-990d-4d5d-8635-5595cd47393b</id>
+      <title>Order ID - 6167a30a-990d-4d5d-8635-5595cd47393b</title>
+      <updated>2013-06-20T12:35:20Z</updated>
+      <link rel="alternate" type="application/xml" href="http://127.0.0.1:8280/order/6167a30a-990d-4d5d-8635-5595cd47393b"/>
+      <content type="application/xml">
+         <order xmlns="http://starbucks.example.org">
+            <drink>Caffe Misto</drink>
+            <additions/>
+            <cost>8.99</cost>
+         </order>
+         <link rel="edit" type="application/atom+xml" href="http://127.0.0.1:8280/barista/order/6167a30a-990d-4d5d-8635-5595cd47393b"/>
+      </content>
+   </entry>
+* Connection #0 to host localhost left intact
+* Closing connection #0
+
+
+
+
+13. curl -v http://localhost:8281/payment/order/6167a30a-990d-4d5d-8635-5595cd47393b
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /payment/order/6167a30a-990d-4d5d-8635-5595cd47393b HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 404 Not Found
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:47:46 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<paymentError xmlns="http://starbucks.example.org/"><errorCode>No payment resource found</errorCode></paymentError>shashi@shashi-ThinkPad-T530:~/work_stuff/ESB/4.7.0/jun18$ 
+
+
+
+14. 
+curl -v http://localhost:8281/payment/order/627f7d04-3d39-41ee-ba1d-18850c095167
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> GET /payment/order/627f7d04-3d39-41ee-ba1d-18850c095167 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:48:32 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<payment xmlns="http://starbucks.example.org/"><cardNo>1234-5678-9010</cardNo><expires>12/15</expires><name>Peter Parker</name><amount>600000.99</amount></payment>
+
+
+
+15. curl -v -X DELETE http://localhost:8281/barista/order/627f7d04-3d39-41ee-ba1d-18850c095167
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> DELETE /barista/order/627f7d04-3d39-41ee-ba1d-18850c095167 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/xml;charset=UTF-8
+< Date: Thu, 20 Jun 2013 07:50:40 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<message xmlns="http://starbucks.example.org">Order deleted</message>
+
+
+
+16. curl -v -d @payment.xml -H "Content-type: application/xml" http://localhost:8281/payment/order/ecbca311-09c2-44ca-96ff-e0751c364390
+* About to connect() to localhost port 8281 (#0)
+*   Trying 127.0.0.1... connected
+> POST /payment/order/ecbca311-09c2-44ca-96ff-e0751c364390 HTTP/1.1
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: localhost:8281
+> Accept: */*
+> Content-type: application/xml
+> Content-Length: 208
+> 
+* upload completely sent off: 208out of 208 bytes
+< HTTP/1.1 403 Forbidden
+< Host: 127.0.0.1:8281
+< Content-type: application/xml
+< Accept: */*
+< Date: Tue, 25 Jun 2013 05:22:00 GMT
+< Server: WSO2-PassThrough-HTTP
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+
+
+
+17, 

@@ -1,0 +1,17 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="JAXRSPUT" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+   <target>
+      <inSequence>
+         <property name="messageType" value="application/xml" scope="axis2"/>
+         <property name="ContentType" value="application/xml" scope="axis2"/>
+         <property name="uri.var.service" value="customers"/>
+         <log level="full"/>
+         <send>
+            <endpoint key="HttpEpPUT"/>
+         </send>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <description></description>
+</proxy>
