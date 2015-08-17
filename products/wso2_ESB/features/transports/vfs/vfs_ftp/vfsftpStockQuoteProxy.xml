@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="vfsftpStockQuoteProxy"
+       transports="vfs"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <endpoint>
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+      </endpoint>
+      <inSequence>
+         <header name="Action" value="urn:getQuote"/>
+      </inSequence>
+      <outSequence>
+         <property name="OUT_ONLY" value="true"/>
+         <send>
+            <endpoint>
+               <address uri="mailto:testerwso2@gmail.com"/>
+            </endpoint>
+         </send>
+      </outSequence>
+   </target>
+   <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+   <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+   <parameter name="transport.PollInterval">15</parameter>
+   <parameter name="transport.vfs.FileURI">vfs:ftp://wso2:wso2123@ftp.private.wso2.com/vfsTest/ori?vfs.passive=true</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">file://C:\Personal\VFS\Pass</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">file://C:\Personal\VFS\Failures</parameter>
+   <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
+   <parameter name="transport.vfs.ContentType">text/xml</parameter>
+</proxy>
