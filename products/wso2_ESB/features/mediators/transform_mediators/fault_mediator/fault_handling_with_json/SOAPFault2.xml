@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="SOAPFault2" transports="https http" startOnLoad="true" trace="disable">
+    <target>
+        <endpoint>
+            <address uri="http://10.100.0.122:9765/services/SimpleStockQuoteService"/>
+        </endpoint>
+        <outSequence>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING"/>
+            <xslt key="xslt"/>
+            <filter xmlns:s12="http://www.w3.org/2003/05/soap-envelope" xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/" source="local-name(s11:Body/child::*[fn:position()=1] | s12:Body/child::*[fn:position()=1])" regex="Fault">
+                <then>
+                    <enrich>
+                        <source type="inline" clone="true">
+                            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                                <soapenv:Body>
+                                    <Error xmlns="">
+                                        <Message>Fault from Backend</Message>
+                                    </Error>
+                                </soapenv:Body>
+                            </soapenv:Envelope>
+                        </source>
+                        <target type="envelope"/>
+                    </enrich>
+                </then>
+                <else/>
+            </filter>
+            <makefault version="soap11">
+                <code xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/" value="soap11Env:VersionMismatch"/>
+                <reason value="test"/>
+                <role/>
+            </makefault>
+            <send/>
+        </outSequence>
+    </target>
+    <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
+</proxy>

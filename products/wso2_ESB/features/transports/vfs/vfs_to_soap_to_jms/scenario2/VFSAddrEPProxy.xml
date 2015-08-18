@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="VFSAddrEPProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target faultSequence="fault">
+      <inSequence>
+         <property name="transport.vfs.ReplyFileName"
+                   expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')"
+                   scope="transport"/>
+         <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+         <property name="OUT_ONLY" value="true"/>
+         <send>
+            <endpoint>
+               <address uri="vfs:file:///C:\Personal\VFS\in"/>
+            </endpoint>
+         </send>
+      </inSequence>
+   </target>
+</proxy>

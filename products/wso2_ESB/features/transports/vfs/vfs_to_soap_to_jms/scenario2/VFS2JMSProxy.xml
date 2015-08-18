@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="VFS2JMSProxy"
+       transports="https http vfs"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <property name="OUT_ONLY" value="true"/>
+         <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+         <send>
+            <endpoint>
+               <address uri="jms:/ACTMQ?transport.jms.DestinationType=queue&amp;transport.jms.ContentTypeProperty=Content-Type&amp;java.naming.provider.url=tcp://localhost:61616&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory"/>
+            </endpoint>
+         </send>
+      </inSequence>
+   </target>
+   <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+   <parameter name="transport.PollInterval">5</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">file://C:\Personal\VFS\out</parameter>
+   <parameter name="transport.vfs.FileURI">file://C:\Personal\VFS\in</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">file://C:\Personal\VFS\Failures/</parameter>
+   <parameter name="transport.vfs.FileNamePattern">.*.xml</parameter>
+   <parameter name="transport.vfs.ContentType">text/xml</parameter>
+   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+</proxy>
