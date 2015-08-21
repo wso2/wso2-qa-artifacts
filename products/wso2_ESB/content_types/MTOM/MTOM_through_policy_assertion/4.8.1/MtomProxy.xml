@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="MtomProxy"
+       transports="https"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <outSequence>
+         <send/>
+      </outSequence>
+      <endpoint>
+         <address uri="http://pavithra-latitude-e6540:8280/services/echo"/>
+      </endpoint>
+   </target>
+   <publishWSDL uri="http://pavithra-latitude-e6540:8280/services/echo?wsdl"/>
+   <parameter name="ScenarioID">scenario1</parameter>
+   <enableSec/>
+   <policy key="conf:/repository/axis2/service-groups/MtomProxy/services/MtomProxy/policies/UTOverTransport"/>
+   <description/>
+</proxy>
+                                

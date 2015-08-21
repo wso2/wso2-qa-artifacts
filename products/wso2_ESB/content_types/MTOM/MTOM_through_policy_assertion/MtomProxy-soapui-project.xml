@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="428ebfc1-621c-4aac-b44d-74f050eb6cfe" activeEnvironment="Default" name="MtomProxy" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="435228e1-ff26-4f88-af8b-f59fad2b47a7" wsaVersion="NONE" name="MtomProxySoap12Binding" type="wsdl" bindingName="{http://echo.services.core.carbon.wso2.org}MtomProxySoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://pavithra-latitude-e6540:8280/services/MtomProxy?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint></con:endpoints><con:operation id="edd091ef-742c-43cf-a74b-2a8612fc0847" isOneWay="false" action="urn:echoInt" name="echoInt" bindingOperationName="echoInt" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9f365ff4-30fd-44a3-9e51-2987f9731d52" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8244/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soap:Header/>
+   <soap:Body>
+      <echo:echoInt>
+         <!--Optional:-->
+         <in>1</in>
+      </echo:echoInt>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:username>admin</con:username><con:password>admin</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoInt"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9fb25817-e2a4-4032-b926-63ff8038504a" isOneWay="false" action="urn:echoOMElement" name="echoOMElement" bindingOperationName="echoOMElement" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9749288f-835b-46d3-8a7f-66200421e065" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soap:Header/>
+   <soap:Body>
+      <echo:echoOMElement>
+         <!--Optional:-->
+         <omEle>?</omEle>
+      </echo:echoOMElement>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoOMElement"/></con:call></con:operation><con:operation id="e9cb9c96-b498-491e-bdfc-5ab409e7812e" isOneWay="false" action="urn:echoString" name="echoString" bindingOperationName="echoString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c6a10490-87bd-46cc-8e36-47497a268ef1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soap:Header/>
+   <soap:Body>
+      <echo:echoString>
+         <!--Optional:-->
+         <in>?</in>
+      </echo:echoString>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoString"/></con:call></con:operation><con:operation id="0ddd907e-8aef-4f91-a718-36a16b06bca1" isOneWay="false" action="urn:echoStringArrays" name="echoStringArrays" bindingOperationName="echoStringArrays" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f1bbfe70-51d4-45a7-b719-c6efe5447f62" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soap:Header/>
+   <soap:Body>
+      <echo:echoStringArrays>
+         <!--Zero or more repetitions:-->
+         <a>?</a>
+         <!--Zero or more repetitions:-->
+         <b>?</b>
+         <!--Optional:-->
+         <c>?</c>
+      </echo:echoStringArrays>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoStringArrays"/></con:call></con:operation><con:operation id="252f4c6f-5441-4961-afb7-d57bfa294fca" isOneWay="false" action="urn:throwAxisFault" name="throwAxisFault" bindingOperationName="throwAxisFault" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5e8ce719-5950-4607-9619-49bf3d259fc0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soap:Header/>
+   <soap:Body>
+      <echo:throwAxisFault/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:throwAxisFault"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="ebea72d5-042f-44fc-a845-ef0dffcc6725" wsaVersion="NONE" name="MtomProxySoap11Binding" type="wsdl" bindingName="{http://echo.services.core.carbon.wso2.org}MtomProxySoap11Binding" soapVersion="1_1" anonymous="optional" definition="http://pavithra-latitude-e6540:8280/services/MtomProxy?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://pavithra-latitude-e6540:8280/services/MtomProxy?wsdl"><con:part><con:url>http://pavithra-latitude-e6540:8280/services/MtomProxy?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://echo.services.core.carbon.wso2.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://echo.services.core.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://echo.services.core.carbon.wso2.org/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsp:Policy wsu:Id="UTOverTransport" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"/>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient"/>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:documentation>echo</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://echo.services.core.carbon.wso2.org/xsd">
+      <xs:complexType name="SimpleBean">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="a_r" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="b_r" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="c" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://echo.services.core.carbon.wso2.org" xmlns:ax22="http://echo.services.core.carbon.wso2.org/xsd">
+      <xs:import namespace="http://echo.services.core.carbon.wso2.org/xsd"/>
+      <xs:element name="echoOMElement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="omEle" nillable="true" type="xs:anyType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoOMElementResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoString">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="in" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoStringResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoInt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="in" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoIntResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="throwAxisFault">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="throwAxisFaultResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoStringArrays">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="a" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="b" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="c" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoStringArraysResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax21:SimpleBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echoStringRequest">
+    <wsdl:part name="parameters" element="ns:echoString"/>
+  </wsdl:message>
+  <wsdl:message name="echoStringResponse">
+    <wsdl:part name="parameters" element="ns:echoStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="throwAxisFaultRequest">
+    <wsdl:part name="parameters" element="ns:throwAxisFault"/>
+  </wsdl:message>
+  <wsdl:message name="throwAxisFaultResponse">
+    <wsdl:part name="parameters" element="ns:throwAxisFaultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="echoStringArraysRequest">
+    <wsdl:part name="parameters" element="ns:echoStringArrays"/>
+  </wsdl:message>
+  <wsdl:message name="echoStringArraysResponse">
+    <wsdl:part name="parameters" element="ns:echoStringArraysResponse"/>
+  </wsdl:message>
+  <wsdl:message name="echoOMElementRequest">
+    <wsdl:part name="parameters" element="ns:echoOMElement"/>
+  </wsdl:message>
+  <wsdl:message name="echoOMElementResponse">
+    <wsdl:part name="parameters" element="ns:echoOMElementResponse"/>
+  </wsdl:message>
+  <wsdl:message name="echoIntRequest">
+    <wsdl:part name="parameters" element="ns:echoInt"/>
+  </wsdl:message>
+  <wsdl:message name="echoIntResponse">
+    <wsdl:part name="parameters" element="ns:echoIntResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="MtomProxyPortType">
+    <wsdl:operation name="echoString">
+      <wsdl:input message="ns:echoStringRequest" wsaw:Action="urn:echoString"/>
+      <wsdl:output message="ns:echoStringResponse" wsaw:Action="urn:echoStringResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="throwAxisFault">
+      <wsdl:input message="ns:throwAxisFaultRequest" wsaw:Action="urn:throwAxisFault"/>
+      <wsdl:output message="ns:throwAxisFaultResponse" wsaw:Action="urn:throwAxisFaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="echoStringArrays">
+      <wsdl:input message="ns:echoStringArraysRequest" wsaw:Action="urn:echoStringArrays"/>
+      <wsdl:output message="ns:echoStringArraysResponse" wsaw:Action="urn:echoStringArraysResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="echoOMElement">
+      <wsdl:input message="ns:echoOMElementRequest" wsaw:Action="urn:echoOMElement"/>
+      <wsdl:output message="ns:echoOMElementResponse" wsaw:Action="urn:echoOMElementResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="echoInt">
+      <wsdl:input message="ns:echoIntRequest" wsaw:Action="urn:echoInt"/>
+      <wsdl:output message="ns:echoIntResponse" wsaw:Action="urn:echoIntResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MtomProxySoap11Binding" type="ns:MtomProxyPortType">
+    <wsp:PolicyReference URI="#UTOverTransport" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="echoString">
+      <soap:operation soapAction="urn:echoString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="throwAxisFault">
+      <soap:operation soapAction="urn:throwAxisFault" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoStringArrays">
+      <soap:operation soapAction="urn:echoStringArrays" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoOMElement">
+      <soap:operation soapAction="urn:echoOMElement" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoInt">
+      <soap:operation soapAction="urn:echoInt" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MtomProxySoap12Binding" type="ns:MtomProxyPortType">
+    <wsp:PolicyReference URI="#UTOverTransport" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="echoString">
+      <soap12:operation soapAction="urn:echoString" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="throwAxisFault">
+      <soap12:operation soapAction="urn:throwAxisFault" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoStringArrays">
+      <soap12:operation soapAction="urn:echoStringArrays" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoOMElement">
+      <soap12:operation soapAction="urn:echoOMElement" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoInt">
+      <soap12:operation soapAction="urn:echoInt" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MtomProxyHttpBinding" type="ns:MtomProxyPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="echoString">
+      <http:operation location="echoString"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="throwAxisFault">
+      <http:operation location="throwAxisFault"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoStringArrays">
+      <http:operation location="echoStringArrays"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoOMElement">
+      <http:operation location="echoOMElement"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echoInt">
+      <http:operation location="echoInt"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MtomProxy">
+    <wsdl:port name="MtomProxyHttpsSoap11Endpoint" binding="ns:MtomProxySoap11Binding">
+      <soap:address location="https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="MtomProxyHttpsSoap12Endpoint" binding="ns:MtomProxySoap12Binding">
+      <soap12:address location="https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="MtomProxyHttpsEndpoint" binding="ns:MtomProxyHttpBinding">
+      <http:address location="https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint></con:endpoints><con:operation id="6fdd1f59-cfa3-422c-8411-abfffa917fa0" isOneWay="false" action="urn:echoInt" name="echoInt" bindingOperationName="echoInt" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="538ee92d-610d-4837-a3f9-a345697cf7ce" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <echo:echoInt>
+         <!--Optional:-->
+         <in>1</in>
+      </echo:echoInt>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>admin</con:username><con:password>admin</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoInt"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1f08ba2c-3a55-4054-ae33-96981fbf5eb5" isOneWay="false" action="urn:echoOMElement" name="echoOMElement" bindingOperationName="echoOMElement" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="761163a8-186e-4969-bf8a-c36586f9d7c1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <echo:echoOMElement>
+         <!--Optional:-->
+         <omEle>?</omEle>
+      </echo:echoOMElement>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoOMElement"/></con:call></con:operation><con:operation id="c4466dbc-959e-449c-abad-95abec05ec18" isOneWay="false" action="urn:echoString" name="echoString" bindingOperationName="echoString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3bf2de0a-eac7-437b-866f-35c184c8de47" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <echo:echoString>
+         <!--Optional:-->
+         <in>?</in>
+      </echo:echoString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoString"/></con:call></con:operation><con:operation id="5db180f2-3a0a-4f51-8bb0-808e730b1b70" isOneWay="false" action="urn:echoStringArrays" name="echoStringArrays" bindingOperationName="echoStringArrays" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5416e730-75a1-4f9b-a262-d8a93b2e2f0e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <echo:echoStringArrays>
+         <!--Zero or more repetitions:-->
+         <a>?</a>
+         <!--Zero or more repetitions:-->
+         <b>?</b>
+         <!--Optional:-->
+         <c>?</c>
+      </echo:echoStringArrays>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:echoStringArrays"/></con:call></con:operation><con:operation id="14621148-f581-4ee8-855f-ccd50f746611" isOneWay="false" action="urn:throwAxisFault" name="throwAxisFault" bindingOperationName="throwAxisFault" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2cf85a1c-1e7c-41a7-a29d-5797aab6f669" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://pavithra-Latitude-E6540:8243/services/MtomProxy.MtomProxyHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:echo="http://echo.services.core.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <echo:throwAxisFault/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:throwAxisFault"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
