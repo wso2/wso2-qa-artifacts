@@ -1,0 +1,87 @@
+4.5.1
+
+HTTP/1.1 200 OK
+Content-Type: multipart/related; boundary="MIMEBoundary_e4a536ec2a628d6741c8a1b02d41be00bb21996e53ef3b6f"; type="application/xop+xml"; start="<0.f4a536ec2a628d6741c8a1b02d41be00bb21996e53ef3b6f@apache.org>"; start-info="application/soap+xml"
+Server: Synapse-HttpComponents-NIO
+Date: Fri, 21 Aug 2015 06:17:23 GMT
+Transfer-Encoding: chunked
+Connection: Keep-Alive
+
+--MIMEBoundary_e4a536ec2a628d6741c8a1b02d41be00bb21996e53ef3b6f
+Content-Type: application/xop+xml; charset=UTF-8; type="application/soap+xml"
+Content-Transfer-Encoding: binary
+Content-ID: <0.f4a536ec2a628d6741c8a1b02d41be00bb21996e53ef3b6f@apache.org>
+
+<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="true"><wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Timestamp-5"><wsu:Created>2015-08-21T06:17:23.135Z</wsu:Created><wsu:Expires>2015-08-21T06:22:23.135Z</wsu:Expires></wsu:Timestamp></wsse:Security></soapenv:Header><soapenv:Body><ns:echoIntResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>1</return></ns:echoIntResponse></soapenv:Body></soapenv:Envelope>
+--MIMEBoundary_e4a536ec2a628d6741c8a1b02d41be00bb21996e53ef3b6f--
+
+4.8.1 without patch
+
+
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=UTF-8; action="urn:echoIntResponse"
+Date: Fri, 21 Aug 2015 06:34:50 GMT
+Server: WSO2-PassThrough-HTTP
+Transfer-Encoding: chunked
+Connection: Keep-Alive
+
+--MIMEBoundary_9a74d24ca2e73aa566371e49e07233fc433065897ee45338
+Content-Type: application/xop+xml; charset=UTF-8; type="application/soap+xml"
+Content-Transfer-Encoding: binary
+Content-ID: <0.8a74d24ca2e73aa566371e49e07233fc433065897ee45338@apache.org>
+
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="true"><wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Timestamp-6"><wsu:Created>2015-08-21T06:34:50.033Z</wsu:Created><wsu:Expires>2015-08-21T06:39:50.033Z</wsu:Expires></wsu:Timestamp></wsse:Security></soapenv:Header><soapenv:Body><ns:echoIntResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>2</return></ns:echoIntResponse></soapenv:Body></soapenv:Envelope>
+--MIMEBoundary_9a74d24ca2e73aa566371e49e07233fc433065897ee45338--
+
+----------------
+
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset=UTF-8
+Date: Fri, 21 Aug 2015 06:38:19 GMT
+Server: WSO2-PassThrough-HTTP
+Transfer-Encoding: chunked
+Connection: Keep-Alive
+
+--MIMEBoundary_7f8bb5f6c4fcb24a2f78736f929d8e9e0e855a36528d26a3
+Content-Type: application/xop+xml; charset=UTF-8; type="text/xml"
+Content-Transfer-Encoding: binary
+Content-ID: <0.6f8bb5f6c4fcb24a2f78736f929d8e9e0e855a36528d26a3@apache.org>
+
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1"><wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Timestamp-1"><wsu:Created>2015-08-21T06:38:19.693Z</wsu:Created><wsu:Expires>2015-08-21T06:43:19.693Z</wsu:Expires></wsu:Timestamp></wsse:Security></soapenv:Header><soapenv:Body><ns:echoIntResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>1</return></ns:echoIntResponse></soapenv:Body></soapenv:Envelope>
+--MIMEBoundary_7f8bb5f6c4fcb24a2f78736f929d8e9e0e855a36528d26a3--
+
+
+4.9.0
+
+HTTP/1.1 200 OK
+Content-Type: multipart/related; boundary="MIMEBoundary_62215b33187ab74bda7716a69c53d6fdc75ce4cce1c6c812"; type="application/xop+xml"; start="<0.72215b33187ab74bda7716a69c53d6fdc75ce4cce1c6c812@apache.org>"; start-info="text/xml"
+Date: Fri, 21 Aug 2015 08:01:58 GMT
+Transfer-Encoding: chunked
+Connection: Keep-Alive
+
+--MIMEBoundary_62215b33187ab74bda7716a69c53d6fdc75ce4cce1c6c812
+Content-Type: application/xop+xml; charset=UTF-8; type="text/xml"
+Content-Transfer-Encoding: binary
+Content-ID: <0.72215b33187ab74bda7716a69c53d6fdc75ce4cce1c6c812@apache.org>
+
+<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1"><wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Timestamp-6"><wsu:Created>2015-08-21T08:01:58.503Z</wsu:Created><wsu:Expires>2015-08-21T08:06:58.503Z</wsu:Expires></wsu:Timestamp></wsse:Security></soapenv:Header><soapenv:Body><ns:echoIntResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>1</return></ns:echoIntResponse></soapenv:Body></soapenv:Envelope>
+--MIMEBoundary_62215b33187ab74bda7716a69c53d6fdc75ce4cce1c6c812--
+
+-----------------
+
+HTTP/1.1 200 OK
+Content-Type: multipart/related; boundary="MIMEBoundary_62215b33187ab74b1645a6a69c53d6fda75ce4cce1c6c812"; type="application/xop+xml"; start="<0.72215b33187ab74b1645a6a69c53d6fda75ce4cce1c6c812@apache.org>"; start-info="application/soap+xml"
+Date: Fri, 21 Aug 2015 08:07:33 GMT
+Transfer-Encoding: chunked
+Connection: Keep-Alive
+
+--MIMEBoundary_62215b33187ab74b1645a6a69c53d6fda75ce4cce1c6c812
+Content-Type: application/xop+xml; charset=UTF-8; type="application/soap+xml"
+Content-Transfer-Encoding: binary
+Content-ID: <0.72215b33187ab74b1645a6a69c53d6fda75ce4cce1c6c812@apache.org>
+
+<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="true"><wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Timestamp-9"><wsu:Created>2015-08-21T08:07:33.931Z</wsu:Created><wsu:Expires>2015-08-21T08:12:33.931Z</wsu:Expires></wsu:Timestamp></wsse:Security></soapenv:Header><soapenv:Body><ns:echoIntResponse xmlns:ns="http://echo.services.core.carbon.wso2.org"><return>1</return></ns:echoIntResponse></soapenv:Body></soapenv:Envelope>
+--MIMEBoundary_62215b33187ab74b1645a6a69c53d6fda75ce4cce1c6c812--
+
+
+
