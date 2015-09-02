@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<artifactType type="application/vnd.wso2-app+xml" shortName="app" singularLabel="App"
-              pluralLabel="Apps"
+<artifactType type="application/vnd.wso2-mobileapp+xml" shortName="mobileapp" singularLabel="MobileApp"
+              pluralLabel="MobileApps"
               hasNamespace="false" iconSet="10">
     <storagePath>/mobileapps/@{overview_provider}/@{overview_name}/@{overview_version}</storagePath>
     <nameAttribute>overview_name</nameAttribute>
