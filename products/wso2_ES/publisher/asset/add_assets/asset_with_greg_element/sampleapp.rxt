@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-sampleapp+xml" shortName="sampleapp" singularLabel="SampleApp"
+              pluralLabel="SampleApps"
+              hasNamespace="false" iconSet="10">
+    <storagePath>/sampleapp/@{overview_provider}/@{overview_name}/@{overview_version}</storagePath>
+    <nameAttribute>overview_name</nameAttribute>
+    <ui>
+        <list>
+            <column name="Provider">
+                <data type="path" value="overview_provider" href="@{storagePath}"/>
+            </column>
+            <column name="Name">
+                <data type="path" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Platform">
+                <data type="path" value="overview_platform" href="@{storagePath}"/>
+            </column>
+            <column name="Version">
+                <data type="path" value="overview_version" href="@{storagePath}"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name>Provider</name>
+            </field>
+            <field type="text" required="true">
+                <name>Name</name>
+            </field>
+            <field type="text" required="true">
+                <name>Version</name>
+            </field>
+            <field type="options">
+                <name label="Category">Category</name>
+                <values>
+                    <value>Business</value>
+                    <value>Games</value>
+                    <value>Weather</value>
+                    <value>Music</value>
+                </values>
+            </field>
+          
+            <field type="text-area">
+                <name>Description</name>
+            </field>
+        
+            <field type="text" required="true" readonly="true">
+                <name>PackageName</name>
+            </field>
+			
+			<field type="date"> 
+			      <name>From Date</name> 
+			</field>
+			
+			<field type="text" validate="^\d+$"> 
+			    <name>Age</name> 
+			</field>
+			
+			<field type="text" tooltip="Employee's location goes here"> 
+			     <name>Location</name>
+		    </field> 
+			
+			<field path="true" type="text" startsWith="/_system/governance/trunk/venues">
+               <name>Venue</name>
+            </field>
+			
+			<field type="text" url="true"> <name>URL</name> </field>
+            
+        </table>
+		
+		<table name="External Links" columns="3">
+           <subheading>
+              <heading>Document Type</heading><heading>URL</heading><heading>Comment</heading>
+           </subheading>
+                 <field type="text" url="true">
+                  <name>URL</name>
+                 </field>
+                 <field type="text" url="true">                
+                  <name>URL1</name>
+                 </field>
+                 <field type="text" url="true">
+                  <name>URL2</name>
+                 </field>
+       </table>
+		
+		
+        <table name="Images">
+            <field type="text" required="true">
+                <name>Icon</name>
+            </field>
+            <field type="text" required="true">
+                <name>Thumbnail</name>
+            </field>
+            <field type="text" required="true">
+                <name>Banner</name>
+            </field>
+        </table>
+    </content>
+
+</artifactType>
