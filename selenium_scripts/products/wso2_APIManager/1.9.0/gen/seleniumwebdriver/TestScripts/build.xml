@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." name="Project Builder" default="runTestNG">
+	<taskdef 
+	      resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
+	    <classpath>
+	      <pathelement location="src/main/resources/lib/aspectjtools.jar"/>
+	    </classpath>
+	  </taskdef>
+<property name="bin" location="target"/>
+<property name="extdir" location="src/main/resources/lib" />
+
+<path id="dist-classpath">
+		<fileset dir="src/main/resources/lib"/>
+		
+	</path>
+	<!-- Compile the imported source code to the temp folder -->
+	<target name="compile-generated-source" description="complie the sfuff in  the remp folder" >
+		  <iajc source="1.7" sourceroots="src/main/java" destDir="target"> 
+        		<classpath refid="dist-classpath"/>
+		</iajc>
+  		
+		<!--<javac destdir="bin" srcdir="src" >
+		        	 <classpath refid="dist-classpath" />  
+		        </javac>-->
+			
+	</target>
+
+<!-- Define <testng> task -->
+  <taskdef name="testng" classname="org.testng.TestNGAntTask">
+    <classpath>
+      <pathelement location="${extdir}/testng-6.1.1.jar"/>
+    </classpath>
+  </taskdef>
+ 
+ <!-- Directory name where the TestNG report will be saved. -->
+  <property name="testng.output.dir" value="testng_output"/>
+ 
+  <!-- Directory path of compiled classes(i.e *.class) -->
+  <path id="classes">
+     <pathelement location="target"/>
+	 <fileset dir="${extdir}">
+     </fileset>
+  </path>
+ 
+ <!--
+  Target to run TestNG. It will run according to what are defined in testng.xml.
+  The report will be saved at .../testng_output/index.html.
+  -->
+  <target name="runTestNG" depends="compile-generated-source">
+ 
+    <mkdir dir="${testng.output.dir}"  /><!-- Create the output directory. -->
+  <testng outputdir="${testng.output.dir}" classpathref="classes"  > 
+      <xmlfileset dir="." includes="test_suite.xml"/> 
+    </testng>
+	
+	 </target>
+	
+</project>

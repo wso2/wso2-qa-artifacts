@@ -1,0 +1,37 @@
+<!--Test_suite xml for running testng test-->
+<suite name="google" verbose="3">
+	<parameter name="selenium.host" value="localhost"></parameter>
+	<parameter name="selenium.port" value="4444"></parameter>
+	<parameter name="selenium.browser" value="*googleChrome"></parameter>
+	<parameter name="selenium.url" value="http://www.google.com"></parameter>
+	<test name="name2" preserve-order="true">
+		<classes><class name="com.testscripts.ts_drop_One">
+				<methods>
+					<include name="tc_Scenario_1"></include>
+					<include name="tc_Scenario_3"></include>
+					<include name="tc_CreateUserAndAssignRoles"></include>
+					<include name="tc_Scenario_2"></include>
+					<include name="tc_Scenario_4"></include>
+					<include name="tc_Scenario_5"></include>
+					<include name="tc_Scenario_6"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_drop_Two">
+				<methods>
+					<include name="tc_AdminAndTenantUserCreation"></include>
+					<include name="tc_Scenario_8"></include>
+					<include name="tc_Scenario_7"></include>
+					<include name="tc_Scenario_9"></include>
+					<include name="tc_Scenario_10"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_drop_Three">
+				<methods>
+					<include name="tc_UserCreation"></include>
+					<include name="tc_APICreation"></include>
+					<include name="tc_Scenario_11"></include>
+					<include name="tc_Scenario_12"></include>
+					<include name="tc_DeleteAPI"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
