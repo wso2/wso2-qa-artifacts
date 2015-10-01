@@ -85,6 +85,23 @@ TestCase(testCase) ::=<<
 TestStep(testStep) ::=<<
 
 <if(testStep.Passed)>
+
+    <if(testStep.ScreenShot)>
+        \<item
+		time="<testStep.time>"
+		level="<testStep.loglvl>"
+		category="<testStep.category>"
+		errimg="<testStep.errimg>"
+		errthumb="<testStep.errthumb>"\>
+		\<message\>
+			<testStep.message>
+		\</message\>
+		\<metainfo
+			codefile="<testStep.codefile>"
+			codeline="<testStep.codeline>"
+			loglvl="<testStep.loglvl>"/\>
+	     \</item>	
+    <else>
 	\<item
 		time="<testStep.time>"
 		level="<testStep.loglvl>"
@@ -96,7 +113,8 @@ TestStep(testStep) ::=<<
 			codefile="<testStep.codefile>"
 			codeline="<testStep.codeline>"
 			loglvl="<testStep.loglvl>"/\>
-	\</item\>	
+	\</item\>
+	<endif>	
 <else>
 	\<item
 		time="<testStep.time>"

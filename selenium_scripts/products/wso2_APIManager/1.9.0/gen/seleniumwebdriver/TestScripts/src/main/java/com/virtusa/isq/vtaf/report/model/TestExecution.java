@@ -14,6 +14,7 @@ package com.virtusa.isq.vtaf.report.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * The Class TestExecution.
  */
@@ -261,6 +262,17 @@ public class TestExecution {
         this.totalwarningcount += totalWarningCount;
     }
 
+    
+    /**
+     * Sets the totaltime.
+     * 
+     * @param totalTime
+     *            the new totaltime
+     */
+    public final void setTotaltime(final String totalTime) {
+        this.duration = totalTime;
+    }
+    
     /**
      * Sets the totalsuccesscount.
      * 

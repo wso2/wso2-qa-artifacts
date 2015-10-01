@@ -155,4 +155,14 @@ public class TestSuite {
         this.result = tsResult;
     }
 
+    /**
+     * Sets the totaltime.
+     * 
+     * @param totalTime
+     *            the new totaltime
+     */
+    public final void setTotaltime(final String totalTime) {
+        this.duration = totalTime;
+    }
+
 }

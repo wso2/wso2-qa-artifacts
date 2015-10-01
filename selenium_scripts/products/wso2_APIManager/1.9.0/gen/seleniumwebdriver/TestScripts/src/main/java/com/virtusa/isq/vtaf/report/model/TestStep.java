@@ -14,6 +14,7 @@ package com.virtusa.isq.vtaf.report.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 /**
  * The Class TestStep.
  */
@@ -48,6 +49,9 @@ public class TestStep {
 
     /** The is passed. */
     private boolean isPassed;
+    
+    /** The is screen shot. */
+    private boolean isScreenShot;
 
     /**
      * Success Test Step.
@@ -120,6 +124,19 @@ public class TestStep {
      */
     public final boolean isPassed() {
         return isPassed;
+    }
+    
+    /**
+     * Checks if is screen shot.
+     *
+     * @return true, if is screen shot
+     */
+    public final boolean isScreenShot() {
+        if (!("SCREENSHOT ".equals(this.getCategory()))) {
+            return isScreenShot;
+        }
+        isScreenShot = true;
+        return isScreenShot;
     }
 
     /**

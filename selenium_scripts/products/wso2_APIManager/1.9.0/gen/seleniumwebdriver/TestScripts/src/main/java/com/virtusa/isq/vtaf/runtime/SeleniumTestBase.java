@@ -1,4 +1,5 @@
-/**Copyright 2004 ThoughtWorks, Inc. Licensed under the Apache License, Version
+/**
+ * Copyright 2004 ThoughtWorks, Inc. Licensed under the Apache License, Version
  * 2.0 (the "License"); you may not use this file except in compliance with the
  * License. You may obtain a copy of the License at
  * http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
@@ -115,7 +116,6 @@ import com.virtusa.isq.vtaf.utils.ErrorMessageHandler;
 import com.virtusa.isq.vtaf.utils.KeyCodes;
 import com.virtusa.isq.vtaf.utils.PropertyHandler;
 
-
 // import com.virtusa.kbb.excel.reader.Main;
 
 /**
@@ -192,14 +192,16 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
      * (Same Origin Policy). If you need to open an URL on another domain, use
      * the Selenium Server <br>
      * to start a new browser session on that domain.
-     *
-     * @param objectName : Logical name of the object
-     * @param marginObj the margin obj
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            : Logical name of the object
+     * @param marginObj
+     *            the margin obj
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
-
- 
 
     public final void checkSameXAxis(final String objectName,
             final Object marginObj, final boolean stopOnFailure,
@@ -227,16 +229,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do check same x axix.
-     *
-     * @param objectLocators the object locators
-     * @param margin the margin
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectLocators
+     *            the object locators
+     * @param margin
+     *            the margin
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckSameXAxix(final List<ObjectLocator> objectLocators,
             final String margin, final boolean stopOnFailure,
             final Object[] customError) {
         String logName = "";
+        String locName = "";
         HashMap<String, String> nameMap = null;
         HashMap<String, Integer> valueMap = null;
         HashMap[] failedMap;
@@ -247,18 +254,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             boolean isFailed = false;
             ObjectLocator obLocator = objectLocators.get(0);
             WebElement element1 =
-                    checkElementPresence(obLocator
-                            .getActualLocator());
+                    checkElementPresence(obLocator.getActualLocator());
             base = element1.getLocation().getX();
             ArrayList<String> elements = new ArrayList();
             StringBuilder passedLog = new StringBuilder();
-            passedLog.append(obLocator.getLogicalName());
+            passedLog.append("Base Object : [" + obLocator.getLogicalName()
+                    + " with locator " + obLocator.getActualLocator() + "] \n");
 
             // store logical name, x difference wrt base
             // print logical name, xdifference wrt base, base name, base x
 
             for (int j = 1; j < objectLocators.size(); j++) {
                 logName = objectLocators.get(j).getLogicalName();
+                locName = objectLocators.get(j).getActualLocator();
 
                 WebElement element2 =
                         checkElementPresence(objectLocators.get(j)
@@ -280,7 +288,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     failedLog.add(failedMap);
 
                 } else {
-                    passedLog.append(", " + logName);
+                    passedLog.append("[" + logName + " with locator " + locName
+                            + "] ,\n ");
                 }
             }
 
@@ -332,22 +341,28 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 }
 
-                reportresult(true, "CHECK SAME X AXIS :", "FAILED", generateCustomError(customError)
-                        + " System generated Error : check same x axix : "
-                        + elements + "" + failedMessage);
+                reportresult(
+                        true,
+                        "CHECK SAME X AXIS :",
+                        "FAILED",
+                        generateCustomError(customError)
+                                + " System generated Error : check same x axix : "
+                                + elements + "" + failedMessage);
 
                 // stopOnFailure
                 checkTrue(false, stopOnFailure, failedMessage);
             } else {
                 reportresult(true, "CHECK SAME X AXIS :" + elements + "",
-                        "PASSED", "x values are within the margin ( " + margin
-                                + " )");
+                        "PASSED", "Elements  : \n " + passedLog
+                                + " - x values are within the margin ( "
+                                + margin + " )");
             }
 
         } catch (Exception e) {
-            reportresult(true, "CHECK SAME X AXIS :", "FAILED", generateCustomError(customError)
-                    + " System generated Error : check same x axis :"
-                    + "Can not detect UI elements (" + logName + ")");
+            reportresult(true, "CHECK SAME X AXIS :", "FAILED",
+                    generateCustomError(customError)
+                            + " System generated Error : check same x axis :"
+                            + "Can not detect UI elements (" + logName + ")");
             e.printStackTrace();
         }
 
@@ -359,11 +374,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Check same y axis.
-     *
-     * @param objectName the object name
-     * @param marginObj the margin obj
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            the object name
+     * @param marginObj
+     *            the margin obj
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     public final void checkSameYAxis(final String objectName,
             final Object marginObj, final boolean stopOnFailure,
@@ -391,16 +410,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do check same y axix.
-     *
-     * @param objectLocators the object locators
-     * @param margin the margin
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectLocators
+     *            the object locators
+     * @param margin
+     *            the margin
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckSameYAxix(final List<ObjectLocator> objectLocators,
             final String margin, final boolean stopOnFailure,
             final Object[] customError) {
         String logName = "";
+        String locName = "";
         HashMap<String, String> nameMap = null;
         HashMap<String, Integer> valueMap = null;
         HashMap[] failedMap;
@@ -412,18 +436,20 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             boolean isFailed = false;
             ObjectLocator obLocator = objectLocators.get(0);
             WebElement element1 =
-                    checkElementPresence(obLocator
-                            .getActualLocator());
+                    checkElementPresence(obLocator.getActualLocator());
             base = element1.getLocation().getY();
             ArrayList<String> elements = new ArrayList();
             StringBuilder passedLog = new StringBuilder();
-            passedLog.append(obLocator.getLogicalName());
+            // passedLog.append(obLocator.getLogicalName());
+            passedLog.append("Base Object : [" + obLocator.getLogicalName()
+                    + " with locator " + obLocator.getActualLocator() + "] \n");
 
             // store logical name, y difference wrt base
             // print logical name, ydifference wrt base, base name, base y
 
             for (int j = 1; j < objectLocators.size(); j++) {
                 logName = objectLocators.get(j).getLogicalName();
+                locName = objectLocators.get(j).getActualLocator();
 
                 WebElement element2 =
                         checkElementPresence(objectLocators.get(j)
@@ -445,7 +471,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     failedLog.add(failedMap);
 
                 } else {
-                    passedLog.append(", " + logName);
+                    passedLog.append(", [" + logName + " with locator "
+                            + locName + "] \n ");
                 }
             }
 
@@ -497,22 +524,31 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 }
 
-                reportresult(true, "CHECK SAME Y AXIS :", "FAILED", generateCustomError(customError)
-                        + " System generated Error :- check same y axix : "
-                        + elements + " :" + failedMessage);
+                reportresult(
+                        true,
+                        "CHECK SAME Y AXIS :",
+                        "FAILED",
+                        generateCustomError(customError)
+                                + " System generated Error :- check same y axix : "
+                                + elements + " :" + failedMessage);
 
                 // stopOnFailure
                 checkTrue(false, stopOnFailure, failedMessage);
             } else {
+                /* reportresult(true, "CHECK SAME Y AXIS :" + elements + "",
+                         "PASSED", "y values are within the margin ( " + margin
+                                 + " )");*/
                 reportresult(true, "CHECK SAME Y AXIS :" + elements + "",
-                        "PASSED", "y values are within the margin ( " + margin
-                                + " )");
+                        "PASSED", "Elements  : \n " + passedLog
+                                + " - y values are within the margin ( "
+                                + margin + " )");
             }
 
         } catch (Exception e) {
-            reportresult(true, "CHECK SAME Y AXIS :", "FAILED", generateCustomError(customError)
-                    + " System generated Error :- check same y axis :"
-                    + "Can not detect UI elements (" + logName + ")");
+            reportresult(true, "CHECK SAME Y AXIS :", "FAILED",
+                    generateCustomError(customError)
+                            + " System generated Error :- check same y axis :"
+                            + "Can not detect UI elements (" + logName + ")");
             e.printStackTrace();
         }
 
@@ -520,10 +556,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * checks whether the given objects have the same width.
-     *
-     * @param objectName the object name
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            the object name
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
 
     public final void checkSameWidth(final String objectName,
@@ -549,15 +588,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do check same width.
-     *
-     * @param objectLocators the object locators
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectLocators
+     *            the object locators
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckSameWidth(final List<ObjectLocator> objectLocators,
             final boolean stopOnFailure, final Object[] customError) {
 
         String logName = "";
+        String locName = "";
         HashMap<String, String> nameMap = null;
         HashMap<String, Integer> valueMap = null;
         HashMap[] failedMap;
@@ -569,18 +612,20 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             ObjectLocator obLocator = objectLocators.get(0);
             boolean isFailed = false;
             WebElement element1 =
-                    checkElementPresence(obLocator
-                            .getActualLocator());
+                    checkElementPresence(obLocator.getActualLocator());
             base = element1.getSize().getWidth();
             ArrayList<String> elements = new ArrayList();
             StringBuilder passedLog = new StringBuilder();
-            passedLog.append(obLocator.getLogicalName());
+            // passedLog.append(obLocator.getLogicalName());
+            passedLog.append("Base Object : [" + obLocator.getLogicalName()
+                    + " with locator " + obLocator.getActualLocator() + "] \n");
 
             // store logical name, y difference wrt base
             // print logical name, ydifference wrt base, base name, base y
 
             for (int j = 1; j < objectLocators.size(); j++) {
                 logName = objectLocators.get(j).getLogicalName();
+                locName = objectLocators.get(j).getActualLocator();
 
                 WebElement element2 =
                         checkElementPresence(objectLocators.get(j)
@@ -594,19 +639,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     valueMap = new HashMap<String, Integer>();
                     failedMap = new HashMap[2];
                     nameMap.put("name", logName);
-                    valueMap.put("value", (base - comparable));         
+                    valueMap.put("value", (base - comparable));
                     failedLog.add(failedMap);
                     failedMap[0] = nameMap;
                     failedMap[1] = valueMap;
                 } else {
-                    passedLog.append(", " + logName);
+
+                    passedLog.append("[" + logName + " with locator " + locName
+                            + "] ,\n ");
                 }
             }
             if (isFailed) {
 
                 String name;
                 int value;
-               
+
                 String baseName = objectLocators.get(0).getLogicalName();
                 String failedMessageTemplate = null;
                 String failedMessage = null;
@@ -630,7 +677,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     }
                     System.out.println("Name: " + name);
                     System.out.println("Value " + value);
-                    failedMessageTemplate = "Element(" + object1 + ")"
+                    failedMessageTemplate =
+                            "Element(" + object1 + ")"
                                     + " is wider than Element(" + object2
                                     + ") by " + Math.abs(value) + " pixels";
 
@@ -643,21 +691,29 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 }
 
-                reportresult(true, "CHECK SAME WIDTH :", "FAILED", generateCustomError(customError)
-                        + " System generated Error :- check same width : "
-                        + elements + " :" + failedMessage);
+                reportresult(
+                        true,
+                        "CHECK SAME WIDTH :",
+                        "FAILED",
+                        generateCustomError(customError)
+                                + " System generated Error :- check same width : "
+                                + elements + " :" + failedMessage);
 
                 // stopOnFailure
                 checkTrue(false, stopOnFailure, failedMessage);
             } else {
+                /*reportresult(true, "CHECK SAME WIDTH :" + elements + "",
+                        "PASSED", "widths of the elements are the same");*/
                 reportresult(true, "CHECK SAME WIDTH :" + elements + "",
-                        "PASSED", "widths of the elements are the same");
+                        "PASSED", " Widths of the elements :" + passedLog
+                                + " are the same.");
             }
 
         } catch (Exception e) {
-            reportresult(true, "CHECK SAME WIDTH :", "FAILED", generateCustomError(customError)
-                    + " System generated Error :- check same width :"
-                    + "Can not detect UI elements (" + logName + ")");
+            reportresult(true, "CHECK SAME WIDTH :", "FAILED",
+                    generateCustomError(customError)
+                            + " System generated Error :- check same width :"
+                            + "Can not detect UI elements (" + logName + ")");
             e.printStackTrace();
         }
 
@@ -665,10 +721,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * checks whether the given objects have the same height.
-     *
-     * @param objectName the object name
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            the object name
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
 
     public final void checkSameHeight(final String objectName,
@@ -694,15 +753,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do check same height.
-     *
-     * @param objectLocators the object locators
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectLocators
+     *            the object locators
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckSameHeight(final List<ObjectLocator> objectLocators,
             final boolean stopOnFailure, final Object[] customError) {
 
         String logName = "";
+        String locName = "";
         HashMap<String, String> nameMap = null;
         HashMap<String, Integer> valueMap = null;
         HashMap[] failedMap;
@@ -714,12 +777,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             int comparable = 0;
             boolean isFailed = false;
             WebElement element1 =
-                    checkElementPresence(obLocator
-                            .getActualLocator());
+                    checkElementPresence(obLocator.getActualLocator());
             base = element1.getSize().getHeight();
             ArrayList<String> elements = new ArrayList();
             StringBuilder passedLog = new StringBuilder();
-            
+
             passedLog.append(obLocator.getLogicalName());
 
             // store logical name, y difference wrt base
@@ -727,6 +789,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             for (int j = 1; j < objectLocators.size(); j++) {
                 logName = objectLocators.get(j).getLogicalName();
+                locName = objectLocators.get(j).getActualLocator();
 
                 WebElement element2 =
                         checkElementPresence(objectLocators.get(j)
@@ -748,7 +811,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     failedLog.add(failedMap);
 
                 } else {
-                    passedLog.append(", " + logName);
+                    passedLog.append("[" + logName + " with locator " + locName
+                            + "] ,\n ");
                 }
             }
 
@@ -761,7 +825,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 String name;
 
                 int value;
-                
+
                 String baseName = objectLocators.get(0).getLogicalName();
                 String failedMessageTemplate = null;
                 String failedMessage = null;
@@ -777,11 +841,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             Integer.parseInt(failedLog.get(i)[one].get("value")
                                     .toString());
                     if (value < 0) {
-                        object1 = name;
+
                         object2 = baseName;
+                        object1 = name;
                     } else {
-                        object1 = baseName;
+
                         object2 = name;
+                        object1 = baseName;
                     }
 
                     System.out.println("Name: " + name);
@@ -801,21 +867,29 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 }
 
-                reportresult(true, "CHECK SAME HIGHT :", "FAILED", generateCustomError(customError)
-                        + " System generated Error :- check same height : "
-                        + elements + "" + failedMessage);
+                reportresult(
+                        true,
+                        "CHECK SAME HIGHT :",
+                        "FAILED",
+                        generateCustomError(customError)
+                                + " System generated Error :- check same height : "
+                                + elements + "" + failedMessage);
 
                 // stopOnFailure
                 checkTrue(false, stopOnFailure, failedMessage);
             } else {
+                /*reportresult(true, "CHECK SAME HIGHT :" + elements + "",
+                        "PASSED", "heights of the elements are the same");*/
                 reportresult(true, "CHECK SAME HIGHT :" + elements + "",
-                        "PASSED", "heights of the elements are the same");
+                        "PASSED", " Heights of the elements :" + passedLog
+                                + " are the same.");
             }
 
         } catch (Exception e) {
-            reportresult(true, "CHECK SAME HIGHT :", "FAILED", generateCustomError(customError)
-                    + " System generated Error :- check same height :"
-                    + "Can not detect UI elements (" + logName + ")");
+            reportresult(true, "CHECK SAME HIGHT :", "FAILED",
+                    generateCustomError(customError)
+                            + " System generated Error :- check same height :"
+                            + "Can not detect UI elements (" + logName + ")");
             e.printStackTrace();
         }
 
@@ -823,14 +897,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * checks whether the given objects reside in the given box.
-     *
-     * @param objectName the object name
-     * @param topObj the top obj
-     * @param bottomObj the bottom obj
-     * @param leftObj the left obj
-     * @param rightObj the right obj
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            the object name
+     * @param topObj
+     *            the top obj
+     * @param bottomObj
+     *            the bottom obj
+     * @param leftObj
+     *            the left obj
+     * @param rightObj
+     *            the right obj
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
 
     public final void checkSameBox(final String objectName,
@@ -864,14 +945,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do check same box.
-     *
-     * @param objectLocators the object locators
-     * @param top the top
-     * @param bottom the bottom
-     * @param left the left
-     * @param right the right
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectLocators
+     *            the object locators
+     * @param top
+     *            the top
+     * @param bottom
+     *            the bottom
+     * @param left
+     *            the left
+     * @param right
+     *            the right
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckSameBox(final List<ObjectLocator> objectLocators,
             final float top, final float bottom, final float left,
@@ -886,7 +974,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 getDriver().manage().window().getSize();
         int height = d.getHeight();
         int width = d.getWidth();
-        
+
         final int valueHundred = 100;
         absTop = (height * top) / valueHundred;
         absBottom = height - (height * bottom) / valueHundred;
@@ -900,11 +988,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
         StringBuilder failedLog = new StringBuilder();
         StringBuilder passedLog = new StringBuilder();
         String logName = "";
+        String locName = "";
         String failedMessage = null;
         try {
             for (int i = 0; i < objectLocators.size(); ++i) {
 
                 logName = objectLocators.get(i).getLogicalName();
+                locName = objectLocators.get(i).getActualLocator();
                 WebElement element1 =
                         checkElementPresence(objectLocators.get(i)
                                 .getActualLocator());
@@ -912,33 +1002,35 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 Point elePoint = element1.getLocation();
                 org.openqa.selenium.Dimension diamnsion = element1.getSize();
                 int y = elePoint.getY(); // Double.valueOf((String)
-                                                      // comparableObjects.get(i).get("y"));
+                                         // comparableObjects.get(i).get("y"));
                 int x = elePoint.getX(); // Double.valueOf((String)
-                                                      // comparableObjects.get(i).get("x"));
+                                         // comparableObjects.get(i).get("x"));
 
                 eleHeight = diamnsion.getHeight(); // Double.valueOf((String)
-                                                           // comparableObjects.get(i).get("Height"));
-                eleWidth =  diamnsion.getWidth(); // Double.valueOf((String)
-                                                          // comparableObjects.get(i).get("Width"));
+                                                   // comparableObjects.get(i).get("Height"));
+                eleWidth = diamnsion.getWidth(); // Double.valueOf((String)
+                                                 // comparableObjects.get(i).get("Width"));
 
-                if (y >= absTop && x >= absLeft
-                        && (y + eleHeight) <= absBottom
+                if (y >= absTop && x >= absLeft && (y + eleHeight) <= absBottom
                         && (x + eleWidth) <= absRight) {
                     // passedLog
                     if (passedLog.length() == 0) {
                         passedLog.append(logName);
                     } else {
 
-                        passedLog.append(", " + logName);
+                        passedLog.append("[" + logName + " with locator "
+                                + locName + "] ,\n ");
                     }
 
                 } else {
 
                     float actualTop = (float) y * valueHundred / height;
                     float actualBottom =
-                            (float) (height - y - eleHeight) * valueHundred / height;
+                            (float) (height - y - eleHeight) * valueHundred
+                                    / height;
                     float actualLeft = (float) x * valueHundred / width;
-                    float actualRight = (float) (width - x) * valueHundred / width;
+                    float actualRight =
+                            (float) (width - x) * valueHundred / width;
 
                     isFailed = true;
                     if (failedLog.length() == 0) {
@@ -974,29 +1066,39 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 // actual location
 
-                reportresult(true, "CHECK SAME BOX :", "FAILED", generateCustomError(customError)
-                        + " System generated Error :- Check Same Box : "
-                        + failedLog + "" + failedMessage);
+                reportresult(
+                        true,
+                        "CHECK SAME BOX :",
+                        "FAILED",
+                        generateCustomError(customError)
+                                + " System generated Error :- Check Same Box : "
+                                + failedLog + "" + failedMessage);
                 // stopOnFailure
                 checkTrue(false, stopOnFailure, failedMessage);
             } else {
                 reportresult(true, "CHECK SAME BOX : " + passedLog + "",
-                        "PASSED", "Elements are in the defined area");
+                        "PASSED", "Elements " + passedLog
+                                + "are in the defined area");
             }
         } catch (Exception e) {
-            reportresult(true, "CHECK SAME BOX :", "FAILED", generateCustomError(customError)
-                    + " System generated Error :- Check Same Box :"
-                    + "Can not detect UI elements" + "(" + logName + ")");
+            reportresult(true, "CHECK SAME BOX :", "FAILED",
+                    generateCustomError(customError)
+                            + " System generated Error :- Check Same Box :"
+                            + "Can not detect UI elements" + "(" + logName
+                            + ")");
             e.printStackTrace();
         }
 
     }
 
+
     /**
      * Open.
-     *
-     * @param objectName the object name
-     * @param waitTime the wait time
+     * 
+     * @param objectName
+     *            the object name
+     * @param waitTime
+     *            the wait time
      */
     public final void open(final String objectName, final String waitTime) {
         open(objectName, "", waitTime);
@@ -1066,7 +1168,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 e.printStackTrace();
             }
 
-            reportresult(true, "OPEN : " + url + "", "PASSED", "Open url ["+url+"]");
+            reportresult(true, "OPEN : " + url + "", "PASSED", "Open url ["
+                    + url + "]");
         } catch (WebDriverException e) {
 
             String errorString = e.getMessage();
@@ -1194,7 +1297,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 super.sleep(Integer.parseInt(waitTime));
             }
             reportresult(true, "NAVIGATE TO URL Command :" + url + "",
-                    "PASSED", "Navigate to url ["+url+"]");
+                    "PASSED", "Navigate to url [" + url + "]");
         } catch (Exception e) {
             String errorString = e.getMessage();
             reportresult(true, "NAVIGATE TO URL :" + url + "", "FAILED",
@@ -1290,12 +1393,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 e.printStackTrace();
                 reportresult(true, "CLICKAT :" + objectName + "", "FAILED",
                         "CLICKAT coordinate string (" + coordinateString
-                                + ") for :Element (" + objectName + ") ["
-                                + objectID + "] is invalid");
+                                + ") for :Element [" + objectName
+                                + "] with Locator : " + objectID
+                                + " is invalid");
 
                 checkTrue(false, true, "CLICKAT coordinate string ("
-                        + coordinateString + ") " + "for :Element ("
-                        + objectName + ") [" + objectID + "] is invalid");
+                        + coordinateString + ") " + "for :Element ["
+                        + objectName + "] with Locator : " + objectID
+                        + " is invalid");
             }
             /*
              * START DESCRIPTION following while loop was added to make the
@@ -1318,8 +1423,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     clickAt.build().perform();
                     // if not exception is called consider and report the result
                     // as passed
-                    reportresult(true, "CLICKAT :" + locator.getLogicalName()
-                            + "", "PASSED", "Clicked at ["+coordinateString+"] on Element ["+locator.getLogicalName()+"]");
+                    reportresult(true, "CLICKAT :" + objectName + "", "PASSED",
+                            "Clicked at [" + coordinateString
+                                    + "] on Element [" + objectName
+                                    + "] with Locator : " + objectID);
                     // if the testcase passed move out from the loop
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
@@ -1333,11 +1440,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "CLICKAT :" + objectName + "",
                                 "FAILED",
-                                "CLICKAT command cannot access Element ("
-                                        + locator + ") [" + objectID + "] ");
+                                "CLICKAT command cannot access Element ["
+                                        + locator + "] with Locator : "
+                                        + objectID);
                         checkTrue(false, true,
-                                "CLICKAT command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "CLICKAT command cannot access Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID);
                     }
                 }
             }
@@ -1352,14 +1461,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              * VTAF result reporter call
              */
             reportresult(true, "CLICKAT :" + objectName + "", "FAILED",
-                    "CLICKAT command  :Element (" + objectName + ") ["
-                            + objectID + "] not present");
+                    "CLICKAT command   :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
 
             /*
              * VTAF specific validation framework reporting
              */
-            checkTrue(false, true, "CLICKAT command  :Element (" + objectName
-                    + ") [" + objectID + "] not present");
+            checkTrue(false, true, "CLICKAT command   :Element [ " + objectName
+                    + " ] with Locator : " + objectID + " not present");
         }
 
     }
@@ -1406,11 +1515,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     private void doClick(final ObjectLocator locator) {
         String objectID = "";
+        String locatorLogiName = "";
         int counter = getRetryCount();
         WebDriver driver = getDriver();
         try {
             // Retrieve the correct object locator from the object map
             objectID = locator.getActualLocator();
+            locatorLogiName = locator.getLogicalName();
             // first verify whether the element is present in the current web
             // page
             checkForNewWindowPopups();
@@ -1434,8 +1545,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     element.click();
                     // if not exception is called consider and report the result
                     // as passed
-                    reportresult(true, "CLICK :" + locator.getLogicalName()
-                            + "", "PASSED", "Clicked on Element ["+ locator.getLogicalName()+"]");
+                    reportresult(true, "CLICK :" + locatorLogiName + "",
+                            "PASSED", "Clicked on Element [" + locatorLogiName
+                                    + "] with Locator : " + objectID);
                     // if the test case passed move out from the loop
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
@@ -1447,8 +1559,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 (JavascriptExecutor) driver;
                         jsExecutor.executeScript("arguments[0].click();",
                                 element);
-                        reportresult(true, "CLICK :" + locator.getLogicalName()
-                                + "", "PASSED", "Clicked on Element ["+ locator.getLogicalName()+"]");
+                        reportresult(true, "CLICK :" + locatorLogiName + "",
+                                "PASSED", "Clicked on Element [ "
+                                        + locatorLogiName + "] with Locator : "
+                                        + objectID);
                         break;
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -1464,11 +1578,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "CLICK :" + objectName + "",
                                 "FAILED",
-                                "CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "CLICK command cannot access Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID);
                         checkTrue(false, true,
-                                "CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "CLICK command cannot access Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID);
                     }
                 }
             }
@@ -1484,14 +1600,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              * VTAF result reporter call
              */
             reportresult(true, "CLICK :" + objectName + "", "FAILED",
-                    "CLICK command  :Element (" + objectName + ") [" + objectID
-                            + "] not present");
-
+                    "CLICK command  :Element [" + objectName
+                            + "] with Locator : " + objectID);
             /*
              * VTAF specific validation framework reporting
              */
-            checkTrue(false, true, "CLICK command  :Element (" + objectName
-                    + ") [" + objectID + "] not present");
+            checkTrue(false, true, "CLICK command  :Element [" + objectName
+                    + "] with Locator : " + objectID);
         }
 
     }
@@ -1571,7 +1686,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 returnValue = element.getAttribute("value");
                 reportresult(true, "SET VARIABLE PROPERTY :" + locator + "",
-                        "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["+locator.getLogicalName()+"]");
+                        "PASSED", "Set Variable with Value [" + returnValue
+                                + "] of Element [" + locator.getLogicalName()
+                                + "] with Locator : " + objectID);
             } else if (component.startsWith("ATTR:")) {
 
                 returnValue =
@@ -1680,7 +1797,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
         String returnValue = "";
         // retrieve the actual object ID from object repository
         String objectID = locator.getActualLocator();
-        
+        String objectName = locator.getLogicalName();
 
         try {
             // Checking whether the element is present
@@ -1695,9 +1812,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 returnValue = element.getAttribute("value");
 
-                reportresult(true,
-                        "SET VARIABLE PROPERTY :" + locator.getLogicalName()
-                                + "", "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["+locator.getLogicalName()+"]");
+                reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "",
+                        "PASSED", "Set Variable with Value [" + returnValue
+                                + "] of Element [" + objectName
+                                + "] with Locator : " + objectID);
             } else if (component.startsWith("ATTR:")) {
 
                 returnValue =
@@ -1705,9 +1823,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 component);
             } else {
                 returnValue = validateObjectProperty(element, component);
-                reportresult(true,
-                        "SET VARIABLE PROPERTY :" + locator.getLogicalName()
-                                + "." + component, "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["+locator.getLogicalName()+"]");
+                reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "."
+                        + component, "PASSED", "Set Variable with Value ["
+                        + returnValue + "] of Element [" + objectName
+                        + "] with Locator : " + objectID);
             }
 
         } catch (Exception e) {
@@ -1717,24 +1836,31 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              * contains attribute report attribute failure else if e contains
              * element, report object not found
              */
-        
+
             if (e.getMessage().startsWith("Attribute")) {
                 String locatorName = locator.getLogicalName();
                 reportresult(true, "SET VARIABLE PROPERTY :" + locatorName
                         + "." + component, "FAILED",
                         " command setvarProperty()  :Atrribute (" + component
-                                + ") of  [" + locatorName + "] not present");
+                                + ") of  [" + locatorName
+                                + " ] with Locator : " + objectID
+                                + " not present");
                 checkTrue(false, true,
                         " command setvarProperty()  :Atrribute (" + component
-                                + ") of  [" + locatorName + "] not present");
+                                + ") of  [" + locatorName
+                                + " ] with Locator : " + objectID
+                                + " not present");
             } else if (e.getMessage().startsWith("Element")) {
                 String locatorName = locator.getLogicalName();
                 reportresult(true, "SET VARIABLE PROPERTY :" + locatorName
                         + "." + component, "FAILED",
-                        " command setvarProperty()  :Element (" + locatorName
-                                + ") [" + objectID + "] not present");
-                checkTrue(false, true, " command setvarProperty()  :Element ("
-                        + locatorName + ") [" + objectID + "] not present");
+                        " command setvarProperty()   :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " not present");
+                checkTrue(false, true,
+                        " command setvarProperty()   :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " not present");
             }
         }
         return returnValue;
@@ -1770,6 +1896,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
          * can be exited from the loop under 2 conditions 1. if the command
          * succeeded 2. if the RETRY count is exceeded
          */
+        String objectName = locator.getLogicalName();
+        String objectID = locator.getActualLocator();
         while (counter > 0) {
             try {
                 counter--;
@@ -1777,10 +1905,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 returnValue =
                         validateObjectProperty(element,
                                 component.substring(compSubstrIndex));
-                reportresult(true,
-                        "SET VARIABLE PROPERTY :" + locator.getLogicalName()
-                                + "." + component.substring(compSubstrIndex),
-                        "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["+locator.getLogicalName()+"]");
+                reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "."
+                        + component.substring(compSubstrIndex), "PASSED",
+                        "Set Variable with Value [" + returnValue
+                                + "] of Element [" + objectName
+                                + "] with Locator : " + objectID);
                 break;
             } catch (StaleElementReferenceException staleElementException) {
 
@@ -1801,11 +1930,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 " command setvarProperty()  :Atrribute ("
                                         + component.substring(compSubstrIndex)
                                         + ")of  [" + locator.getLogicalName()
-                                        + "] not present");
+                                        + "] with Locator : " + objectID
+                                        + " not present");
                         checkTrue(false, true,
                                 " command setvarProperty()  :Atrribute ("
                                         + component.substring(compSubstrIndex)
-                                        + ")of  [" + locator + "] not present");
+                                        + ")of  [" + locator
+                                        + "] with Locator : " + objectID
+                                        + " not present");
                     }
 
                 } else if (e.getMessage().startsWith("Element")) {
@@ -1813,13 +1945,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     String actualLocator = locator.getActualLocator();
                     reportresult(true, "SET VARIABLE PROPERTY :" + logicalName
                             + "." + component.substring(compSubstrIndex),
-                            "FAILED", " command setvarProperty()  :Element ("
-                                    + logicalName + ") [" + actualLocator
-                                    + "] not present");
+                            "FAILED", " command setvarProperty()  :Element ["
+                                    + logicalName + "] with Locator :"
+                                    + actualLocator + " not present");
                     checkTrue(false, true,
-                            " command setvarProperty()  :Element ("
-                                    + logicalName + ") [" + actualLocator
-                                    + "] not present");
+                            " command setvarProperty()  :Element ["
+                                    + logicalName + "] with Locator :"
+                                    + actualLocator + " not present");
                 }
             }
         }
@@ -1843,6 +1975,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
     private String getVarPropertyTextValue(final ObjectLocator locator,
             final WebElement element, final String component) {
         String returnValue;
+        String objectName = locator.getLogicalName();
+        String objectID = locator.getActualLocator();
         final int componentAttributes = 3;
         if (component.split(":").length == componentAttributes) {
             returnValue = element.getText();
@@ -1852,27 +1986,27 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 .split(":")[1].split("-")[0]),
                                 Integer.parseInt(component.split(":")[1]
                                         .split("-")[1]));
-                reportresult(true,
-                        "SET VARIABLE PROPERTY :" + locator.getLogicalName()
-                                + "", "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["
-                                		+locator.getLogicalName()+"]");
+                reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "",
+                        "PASSED", "Set Variable with Value [" + returnValue
+                                + "] of Element [" + objectName
+                                + "] with Locator : " + objectID);
             } else {
 
                 returnValue =
                         returnValue.substring(Integer.parseInt(component
                                 .split(":")[1]));
-                reportresult(true,
-                        "SET VARIABLE PROPERTY :" + locator.getLogicalName()
-                                + "", "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["
-                                		+locator.getLogicalName()+"]");
+                reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "",
+                        "PASSED", "Set Variable with Value [" + returnValue
+                                + "] of Element [" + objectName
+                                + "] with Locator : " + objectID);
             }
         } else {
             returnValue = element.getText();
 
-            reportresult(true,
-                    "SET VARIABLE PROPERTY :" + locator.getLogicalName() + "",
-                    "PASSED", "Set Variable with Value [" + returnValue+"] of Element ["
-                    		+locator.getLogicalName()+"]");
+            reportresult(true, "SET VARIABLE PROPERTY :" + objectName + "",
+                    "PASSED", "Set Variable with Value [" + returnValue
+                            + "] of Element [" + objectName
+                            + "] with Locator : " + objectID);
         }
         return returnValue;
     }
@@ -2340,7 +2474,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         focusToCurrentWindow(driver);
                         reportresult(true,
                                 "SELECT WINDOW :" + locator.getLogicalName()
-                                        + "", "PASSED", "Select Window ["+window.toString()+"]");
+                                        + "", "PASSED", "Select Window ["
+                                        + window + "]");
                         break;
                     } else {
                         throw new WebDriverException("Window Not Found"
@@ -2390,13 +2525,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Focus to current window.
-     *
-     * @param driver the driver
+     * 
+     * @param driver
+     *            the driver
      */
     private void focusToCurrentWindow(final WebDriver driver) {
 
         try {
-            
+
             if (driver.getPageSource().toLowerCase(Locale.getDefault())
                     .contains("<html")) {
                 JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -2533,6 +2669,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
         // Getting the actual object identification from the object map
 
         String objectID = locator.getActualLocator();
+        String objectName = locator.getLogicalName();
         try {
             // Check whether the element present
             checkForNewWindowPopups();
@@ -2560,9 +2697,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                     element.sendKeys(value);
 
-                    reportresult(true,
-                            "TYPE :" + locator.getLogicalName() + "", "PASSED",
-                            " Typed value [" + value + "] on Element ["+locator.getLogicalName()+"]");
+                    reportresult(true, "TYPE :" + objectName + "", "PASSED",
+                            " Typed value [" + value + "] on Element ["
+                                    + objectName + "] with Locator : "
+                                    + objectID);
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
 
@@ -2571,16 +2709,18 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     sleep(retryInterval);
                     if (!(counter > 0)) {
                         e.printStackTrace();
-                        String objectName = locator.getLogicalName();
+
                         reportresult(true, "TYPE :" + objectName + "",
                                 "FAILED",
                                 "TYPE command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "]"
-                                        + " [Input value = " + value + "]");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "]" + " [Input value = "
+                                        + value + "]");
                         checkTrue(false, true,
                                 "TYPE command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "]"
-                                        + " [Input value = " + value + "]");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "]" + " [Input value = "
+                                        + value + "]");
                     }
                 }
 
@@ -2592,13 +2732,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             // if any exception was raised, report a test failure
             e.printStackTrace();
-            String objectName = locator.getLogicalName();
+
             reportresult(true, "TYPE :" + objectName + "", "FAILED",
-                    "TYPE command  :Element (" + objectName + ") [" + objectID
+                    "TYPE command  :Element (" + objectName
+                            + ") with Locator : [" + objectID
                             + "] [Input value = " + value + "] not present");
             checkTrue(false, true, "TYPE command  :Element (" + objectName
-                    + ") [" + objectID + "] [Input value = " + value
-                    + "] not present");
+                    + ") with Locator : [" + objectID + "] [Input value = "
+                    + value + "] not present");
 
         }
 
@@ -2736,14 +2877,18 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                          */
 
                         reportresult(true, "SELECT :" + objectName + "",
-                                "PASSED", "Select Value [" + value+"] from Element ["+objectName+"]");
+                                "PASSED", "Select Value [" + value
+                                        + "] from Element [" + objectName
+                                        + "] with Locator : " + objectID);
                         break;
                     } else {
 
                         selectMultipleOptionFromActualDropDown(selectElement,
                                 value);
                         reportresult(true, "SELECT :" + objectName + "",
-                                "PASSED", "Select Value [" + value+"] from Element ["+objectName+"]");
+                                "PASSED", "Select Value [" + value
+                                        + "] from Element [" + objectName
+                                        + "] with Locator : " + objectID);
                     }
 
                 } catch (StaleElementReferenceException staleElementException) {
@@ -2759,10 +2904,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true, "SELECT :" + objectName + "",
                                 "FAILED",
                                 "SELECT command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                         checkTrue(false, true,
                                 "SELECT command cannot access  :Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                     }
                 }
             }
@@ -2800,47 +2947,47 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
      *            the expected selected value
      * @return true, if check selected option value
      */
-/*    private boolean checkSelectedOptionValue(final String objectID,
-            final String expectedSelectedValue) {
+    /*    private boolean checkSelectedOptionValue(final String objectID,
+                final String expectedSelectedValue) {
 
-        try {
-            WebElement element = checkElementPresence(objectID);
-            Select selectElement = new Select(element);
-            String selectedValue =
-                    selectElement.getFirstSelectedOption().getText();
+            try {
+                WebElement element = checkElementPresence(objectID);
+                Select selectElement = new Select(element);
+                String selectedValue =
+                        selectElement.getFirstSelectedOption().getText();
 
-            if (expectedSelectedValue.startsWith("regexp:")) {
+                if (expectedSelectedValue.startsWith("regexp:")) {
 
-                Pattern pattern =
-                        Pattern.compile(expectedSelectedValue.substring(
-                                expectedSelectedValue.indexOf(':') + 1,
-                                expectedSelectedValue.length()));
-                Matcher matcher = pattern.matcher(selectedValue);
-                return matcher.matches();
+                    Pattern pattern =
+                            Pattern.compile(expectedSelectedValue.substring(
+                                    expectedSelectedValue.indexOf(':') + 1,
+                                    expectedSelectedValue.length()));
+                    Matcher matcher = pattern.matcher(selectedValue);
+                    return matcher.matches();
 
-            } else if (expectedSelectedValue.startsWith("index=")) {
+                } else if (expectedSelectedValue.startsWith("index=")) {
 
-                int indexNo =
-                        Integer.parseInt(expectedSelectedValue.replace(
-                                "index=", ""));
-                List<WebElement> actualOptions = selectElement.getOptions();
-                List<String> stringOptions = new ArrayList<String>();
-                for (WebElement actualOption : actualOptions) {
-                    stringOptions.add(actualOption.getText());
+                    int indexNo =
+                            Integer.parseInt(expectedSelectedValue.replace(
+                                    "index=", ""));
+                    List<WebElement> actualOptions = selectElement.getOptions();
+                    List<String> stringOptions = new ArrayList<String>();
+                    for (WebElement actualOption : actualOptions) {
+                        stringOptions.add(actualOption.getText());
+                    }
+                    return selectedValue.equals(stringOptions.get(indexNo));
+
+                } else {
+
+                    return selectedValue.equals(expectedSelectedValue);
                 }
-                return selectedValue.equals(stringOptions.get(indexNo));
 
-            } else {
-
-                return selectedValue.equals(expectedSelectedValue);
+            } catch (WebDriverException e) {
+                return true;
+            } catch (Exception e) {
+                return true;
             }
-
-        } catch (WebDriverException e) {
-            return true;
-        } catch (Exception e) {
-            return true;
-        }
-    }*/
+        }*/
 
     /**
      * Select multiple option from actual drop down.
@@ -3005,7 +3152,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     dClick.build().perform();
                     /* selenium.doubleClick(objectID); */
                     reportresult(true, "DOUBLE CLICK :" + objectName + "",
-                            "PASSED", "Double Clicked on Element ["+ objectName +"]");
+                            "PASSED", "Double Clicked on Element ["
+                                    + objectName + "] with Locator : "
+                                    + objectID);
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
 
@@ -3018,11 +3167,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "DOUBLE CLICK :" + objectName + "",
                                 "FAILED",
-                                "DOUBLE CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "DOUBLE CLICK command cannot access Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID);
                         checkTrue(false, true,
-                                "DOUBLE CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "DOUBLE CLICK command cannot access Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID);
                     }
                 }
             }
@@ -3033,10 +3184,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // if object not found exception is raised fail the test cases
             e.printStackTrace();
             reportresult(true, "DOUBLE CLICK :" + objectName + "", "FAILED",
-                    "DOUBLE CLICK command  :Element (" + objectName + ") ["
-                            + objectID + "] not present");
-            checkTrue(false, true, "DOUBLE CLICK command  :Element ("
-                    + objectName + ") [" + objectID + "] not present");
+                    "DOUBLE CLICK command  :Element [" + objectName
+                            + "] with Locator : " + objectID + " not present");
+            checkTrue(false, true, "DOUBLE CLICK command  :Element ["
+                    + objectName + "] with Locator : " + objectID
+                    + " not present");
         }
 
     }
@@ -3150,11 +3302,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "CHECK : (" + option + ")"
                                 + objectName + "", "FAILED",
-                                "CHECK command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "]");
+                                "CHECK command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
                         checkTrue(false, true,
-                                "CHECK command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "]");
+                                "CHECK command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
                     }
                 }
 
@@ -3167,10 +3321,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // if any exception was raised, report a test failure
             e.printStackTrace();
             reportresult(true, "CHECK (" + option + "):" + objectName + "",
-                    "FAILED", "CHECK (" + option + ") (" + objectName + ") ["
-                            + objectID + "] element not present");
-            checkTrue(false, true, "CHECK (" + option + ") (" + objectName
-                    + ") [" + objectID + "] element not present");
+                    "FAILED", "CHECK (" + option + ") :Element [" + objectName
+                            + "]" + objectID + " not present");
+            checkTrue(false, true, "CHECK (" + option + ") :Element  ["
+                    + objectName + "]" + objectID + " not present");
 
         }
 
@@ -3263,12 +3417,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 reportresult(true, "DOUBLE CLICK AT :" + objectName + "",
                         "FAILED", "DOUBLE CLICK AT coordinate string ("
                                 + coordinateString + ") for :Element ("
-                                + objectName + ") [" + objectID
+                                + objectName + ") with Locator : [" + objectID
                                 + "] is invalid");
 
                 checkTrue(false, true, "DOUBLE CLICK AT coordinate string ("
                         + coordinateString + ") " + "for :Element ("
-                        + objectName + ") [" + objectID + "] is invalid");
+                        + objectName + ") with Locator : [" + objectID + "] is invalid");
             }
 
             /*
@@ -3290,9 +3444,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             .doubleClick();
                     doubleClickAt.build().perform();
 
-                    reportresult(true, "DOUBLE CLICK AT :" + objectName + "",
-                            "PASSED", "Double Clicked at ["+coordinateString+"] on Element ["
-                            		+locator.getLogicalName()+"]");
+                    reportresult(
+                            true,
+                            "DOUBLE CLICK AT :" + objectName + "",
+                            "PASSED",
+                            "Double Clicked at [" + coordinateString
+                                    + "] on Element ["
+                                    + locator.getLogicalName()
+                                    + "] with Locator : " + objectID);
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
 
@@ -3308,11 +3467,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true, "DOUBLE CLICK AT :" + objectName
                                 + "", "FAILED",
                                 "DOUBLE CLICK AT command  :Element ("
-                                        + objectName + ") [" + objectID
+                                        + objectName + ") with Locator : [" + objectID
                                         + "] not present");
                         checkTrue(false, true,
                                 "DOUBLE CLICK AT command  :Element ("
-                                        + objectName + ") [" + objectID
+                                        + objectName + ") with Locator : [" + objectID
                                         + "] not present");
                     }
                 }
@@ -3327,10 +3486,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // test case
             e.printStackTrace();
             reportresult(true, "DOUBLE CLICK AT :" + objectName + "", "FAILED",
-                    "DOUBLE CLICK AT command  :Element (" + objectName + ") ["
-                            + objectID + "] not present");
-            checkTrue(false, true, "DOUBLE CLICK AT command  :Element ("
-                    + objectName + ") [" + objectID + "] not present");
+                    "DOUBLE CLICK AT command  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
+            checkTrue(false, true, "DOUBLE CLICK AT command  :Element [ "
+                    + objectName + " ] with Locator : " + objectID
+                    + " not present");
         }
 
     }
@@ -3407,8 +3567,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             checkElementPresence(objectID);
 
             // if reached this point, test case should be passed
-            reportresult(true, "CHECK ELEMENT PRESENT :" + objectName + "",
-                    "PASSED", "Check Element Present on Element ["+locator.getLogicalName()+"]");
+            reportresult(
+                    true,
+                    "CHECK ELEMENT PRESENT :" + objectName + "",
+                    "PASSED",
+                    "Check Element Present on Element ["
+                            + locator.getLogicalName() + "] with Locator : "
+                            + objectID);
         } catch (Exception e) {
             // if any exception was thrown the faliure should be reported
             // but the continuation will be decided by stpoExecution
@@ -3420,15 +3585,17 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     "FAILED",
                     ""
                             + generateCustomError(customError)
-                            + " System generated Error : command checkElementPresent()  :Element ("
-                            + objectName + ") [" + objectID + "] not present");
+                            + " System generated Error : command checkElementPresent()  :Element ["
+                            + objectName + " ] with Locator : " + objectID
+                            + " not present");
             checkTrue(
                     false,
                     stopExecution,
                     ""
                             + generateCustomError(customError)
-                            + " System generated Error : command checkElementPresent()  :Element ("
-                            + objectName + ") [" + objectID + "] not present");
+                            + " System generated Error : command checkElementPresent()  :Element [ "
+                            + objectName + " ] with Locator : " + objectID
+                            + " not present");
 
         }
     }
@@ -3513,7 +3680,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 if (objectFound) {
                     reportresult(true,
                             "CHECK TEXT PRESENT :" + searchText + "", "PASSED",
-                            "Check  Text Present ["+objectID+"]");
+                            "Check  Text Present [" + objectID + "]");
                     break;
                 }
                 sleep(retryInterval);
@@ -3688,8 +3855,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     stopOnFailure, customError);
         } else if (propertyname.equals(ObjectValidationType.DISPLAY.toString())) {
 
-            checkElementDisplay(objectName, expectedvale,
-                    stopOnFailure, customError);
+            checkElementDisplay(objectName, expectedvale, stopOnFailure,
+                    customError);
         } else {
 
             checkObjectOtherProperty(objectName, propertyname, expectedvale,
@@ -3775,8 +3942,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             condition.trim())) {
                         reportresult(true, "CHECK OBJECT PROPERTY PRESENT :"
                                 + objectName + "." + property, "PASSED",
-                                "PROPERTY PRESENT of Element ["+objectName+"] | Expected ["
-                                		+condition+"] of Property ["+propertyName+"]");
+                                "PROPERTY PRESENT of Element [" + objectName
+                                        + "] with Locator : " + objectID + " | Expected [" + condition
+                                        + "] of Property [" + propertyName
+                                        + "]");
 
                         break;
                     } else {
@@ -3786,7 +3955,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                         + property,
                                 "FAILED",
                                 " command checkObjectProperty : "
-                                        + objectName
+                                        + objectName + " ] with Locator : " + objectID 
                                         + " OBJECT PROPERTY PRESENT : ["
                                         + property
                                         + "] condition is different from the expected. Actual : "
@@ -3797,7 +3966,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 false,
                                 stopOnFailure,
                                 " command checkObjectProperty : "
-                                        + objectName
+                                        + objectName + " ] with Locator : " + objectID 
                                         + " OBJECT PROPERTY PRESENT : ["
                                         + property
                                         + "] condition is different from the expected. Actual : "
@@ -3816,10 +3985,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(stopOnFailure, "CHECK OBJECT PROPERTY :"
                                 + objectName + "." + property, "FAILED",
                                 " command checkObjectProperty :Element : ["
-                                        + objectName + "] is not accessible");
+                                        + objectName + " ] with Locator : " + objectID + " is not accessible");
                         checkTrue(false, stopOnFailure,
                                 " command checkObjectProperty :Element : ["
-                                        + property + "] is not accessible");
+                                        + property + " ] with Locator : " + objectID + " is not accessible");
                     }
                 }
             }
@@ -3831,31 +4000,35 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             reportresult(stopOnFailure, "CHECK OBJECT PROPERTY :" + objectName
                     + "." + property, "FAILED",
                     " command checkObjectProperty :Element : [" + objectName
-                            + "] is not present");
+                            + " ] with Locator : " + objectID + " is not present");
             checkTrue(false, stopOnFailure,
                     " command checkObjectProperty :Element : [" + objectName
-                            + "] is not present");
+                            + " ] with Locator : " + objectID + " is not present");
         }
     }
 
     /**
      * Check element display.
-     *
-     * @param objectName the object name
-     * @param expectedvale the expectedvale
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param objectName
+     *            the object name
+     * @param expectedvale
+     *            the expectedvale
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void checkElementDisplay(final String objectName,
-            final String expectedvale,
-            final boolean stopOnFailure, final Object[] customError) {
+            final String expectedvale, final boolean stopOnFailure,
+            final Object[] customError) {
         int counter = getRetryCount();
         // retrieve the actual object ID from object repository
         /*
          * String objectID = ObjectMap.getObjectSearchPath(objectName,
          * locatorIdentifire);
          */
-       
+
         String isObjectDisplay = "false";
         String objectID =
                 ObjectMap.getObjectSearchPath(objectName, locatorIdentifire);
@@ -3878,7 +4051,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 isObjectDisplay = String.valueOf(element.isDisplayed());
                 if (isObjectDisplay.equalsIgnoreCase(expectedvale)) {
                     reportresult(true, "CHECK OBJECT PROPERTY :" + objectName
-                            + ".ELEMENTPRESENT", "PASSED", "DISPLAY of Element ["+ objectName+"] | Expected ["+expectedvale+"]");
+                            + ".ELEMENTPRESENT", "PASSED",
+                            "DISPLAY of Element [" + objectName
+                                    + " ] with Locator : " + objectID + " | Expected [" + expectedvale + "]");
                     break;
                 } else {
                     if (counter < 1) {
@@ -3898,8 +4073,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             ""
                                     + generateCustomError(customError)
                                     + " System generated Error :  command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [DISPLAY] condition is different from actual. Expected :"
+                                    + objectName + " ] with Locator : " + objectID
+                                    + " [DISPLAY] condition is different from actual. Expected :"
                                     + expectedvale + " Actual : "
                                     + isObjectDisplay + "");
                     checkTrue(
@@ -3908,8 +4083,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             ""
                                     + generateCustomError(customError)
                                     + " System generated Error :  command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [DISPLAY] condition is different from actual. Expected :"
+                                    + objectName + " ] with Locator : " + objectID
+                                    + " [DISPLAY] condition is different from actual. Expected :"
                                     + expectedvale + " Actual : "
                                     + isObjectDisplay + "");
                     break;
@@ -3918,12 +4093,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     reportresult(true, "CHECK OBJECT PROPERTY : " + objectName
                             + ".DISPLAY", "FAILED",
                             " command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [DISPLAY] is not accessible");
+                                    + objectName + " ] with Locator : " + objectID
+                                    + " [DISPLAY] is not accessible");
                     checkTrue(false, stopOnFailure,
                             " command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [DISPLAY] is not accessible");
+                                    + objectName + " ] with Locator : " + objectID
+                                    + " [DISPLAY] is not accessible");
                     break;
                 }
 
@@ -4031,7 +4206,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                             + " System generated Error :  command checkObjectProperty "
                                             + propertyname + ": OPTION :"
                                             + expectedvale + "  : of object ["
-                                            + objectName + "] is present");
+                                            + objectName + " ] with Locator : " + objectID + " is present");
                             checkTrue(
                                     false,
                                     stopOnFailure,
@@ -4040,14 +4215,16 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                             + " System generated Error :  command checkObjectProperty "
                                             + propertyname + ": OPTION :"
                                             + expectedvale + "  : of object ["
-                                            + objectName + "] is present");
+                                            + objectName + " ] with Locator : " + objectID + " is present");
                             break;
 
                         }
                     }
                     reportresult(true, "CHECK OBJECT PROPERTY :" + objectName
-                            + "." + propertyname, "PASSED", "MISSING OPTION of Element ["
-                            		+objectName+"] | Expected Missing ["+expectedvale+"]");
+                            + "." + propertyname, "PASSED",
+                            "MISSING OPTION of Element [" + objectName
+                                    + "] with Locator : " + objectID + " | Expected Missing [" + expectedvale
+                                    + "]");
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
                     element = checkElementPresence(objectID);
@@ -4064,14 +4241,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 ""
                                         + generateCustomError(customError)
                                         + " System generated Error :  command checkObjectProperty :Element : ["
-                                        + objectName + "] is not accessible");
+                                        + objectName + "] with Locator : " + objectID + " is not accessible");
                         checkTrue(
                                 false,
                                 stopOnFailure,
                                 ""
                                         + generateCustomError(customError)
                                         + " System generated Error :  command checkObjectProperty :Element : ["
-                                        + objectName + "] is not accessible");
+                                        + objectName + "] with Locator : " + objectID + " is not accessible");
 
                     }
                 }
@@ -4084,10 +4261,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             reportresult(stopOnFailure, "CHECK OBJECT PROPERTY :" + objectName
                     + "." + propertyname, "FAILED",
                     " command checkObjectProperty :Element : [" + objectName
-                            + "] is not present");
+                            + "] with Locator : " + objectID + " is not present");
             checkTrue(false, stopOnFailure,
                     " command checkObjectProperty :Element : [" + objectName
-                            + "] is not present");
+                            + "] with Locator : " + objectID + " is not present");
         }
     }
 
@@ -4112,10 +4289,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         int counter = getRetryCount();
         // retrieve the actual object ID from object repository
-        /*
-         * String objectID = ObjectMap.getObjectSearchPath(objectName,
-         * locatorIdentifire);
-         */
+        
+         String objectID = ObjectMap.getObjectSearchPath(objectName,
+         locatorIdentifire);
+         
 
         String isObjectFound = "false";
         /*
@@ -4134,7 +4311,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 isObjectFound = String.valueOf(checkElementPresent(objectName));
                 if (isObjectFound.equalsIgnoreCase(expectedvale)) {
                     reportresult(true, "CHECK OBJECT PROPERTY :" + objectName
-                            + ".ELEMENTPRESENT", "PASSED", "ELEMENT PRESENET of Element ["+ objectName+"] | Expected ["+expectedvale+"]");
+                            + ".ELEMENTPRESENT", "PASSED",
+                            "ELEMENT PRESENET of Element [" + objectName
+                                    + "] with Locator : " + objectID + " | Expected [" + expectedvale + "]");
                     break;
                 } else {
                     if (counter < 1) {
@@ -4155,8 +4334,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             ""
                                     + generateCustomError(customError)
                                     + " System generated Error :  command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [ELEMENTPRESENT] condition is different from actual. Expected :"
+                                    + objectName + "] with Locator : " 
+                                    + objectID + " [ELEMENTPRESENT] condition is different from actual. Expected :"
                                     + expectedvale + " Actual : "
                                     + isObjectFound + "");
                     checkTrue(
@@ -4165,8 +4344,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             ""
                                     + generateCustomError(customError)
                                     + " System generated Error :  command checkObjectProperty :Element : ["
-                                    + objectName
-                                    + "] [ELEMENTPRESENT] condition is different from actual. Expected :"
+                                    + objectName + "] with Locator : " 
+                                    + objectID + " [ELEMENTPRESENT] condition is different from actual. Expected :"
                                     + expectedvale + " Actual : "
                                     + isObjectFound + "");
                     break;
@@ -4176,11 +4355,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             + ".ELEMENTPRESENT", "FAILED",
                             " command checkObjectProperty :Element : ["
                                     + objectName
-                                    + "] [ELEMENTPRESENT] is not accessible");
+                                    + "] with Locator : " + objectID + " [ELEMENTPRESENT] is not accessible");
                     checkTrue(false, stopOnFailure,
                             " command checkObjectProperty :Element : ["
                                     + objectName
-                                    + "] [ELEMENTPRESENT] is not accessible");
+                                    + "] with Locator : " + objectID + " [ELEMENTPRESENT] is not accessible");
                     break;
                 }
 
@@ -4254,8 +4433,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 "FAILED",
                                 ""
                                         + generateCustomError(customError)
-                                        + " System generated Error : CHECK OBJECT PROPERTY :Element ("
-                                        + objectName + ") Error Str:"
+                                        + " System generated Error : CHECK OBJECT PROPERTY :Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID + " Error Str:"
                                         + verificationErrors);
 
                         // VTAF specific validation framework reporting
@@ -4265,14 +4445,17 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 ""
                                         + generateCustomError(customError)
                                         + " System generated Error : CHECK OBJECT PROPERTY :Element ("
-                                        + objectName + ") Error Str:"
+                                        + objectName + "] with Locator : "
+                                        + objectID + " Error Str:"
                                         + verificationErrors);
                         break;
 
                     } else {
                         reportresult(true, "CHECK OBJECT PROPERTY :"
                                 + objectName + "." + propertyname, "PASSED",
-                                "ALL OPTIONS in Element ["+objectName+"] | Expected [" +expectedvale+"]");
+                                "ALL OPTIONS in Element [" + objectName
+                                        + "] with Locator : " + objectID
+                                        + " | Expected [" + expectedvale + "]");
                         break;
                     }
 
@@ -4291,13 +4474,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(stopOnFailure,
                                 "CHECK ALL SELECT OPTIONS :" + objectName + "."
                                         + propertyname, "FAILED",
-                                " command checkObjectProperty()  :Element ("
-                                        + objectName + ") [" + objectID
-                                        + "] not present");
+                                " command checkObjectProperty()   :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
                         checkTrue(false, stopOnFailure,
-                                " command checkObjectProperty()  :Element ("
-                                        + objectName + ") [" + objectID
-                                        + "] not present");
+                                " command checkObjectProperty()   :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
                     }
                 }
             }
@@ -4314,11 +4497,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             e.printStackTrace();
             reportresult(stopOnFailure, "CHECK ALL SELECT OPTIONS :"
                     + objectName + "." + propertyname, "FAILED",
-                    " command checkObjectProperty()  :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()   :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
             checkTrue(false, stopOnFailure,
-                    " command checkObjectProperty()  :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()   :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
         }
     }
 
@@ -4473,7 +4656,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                         reportresult(true, "CHECK OBJECT PROPERTY :"
                                 + objectName + "." + propertyname, "PASSED",
-                                "SELECTED OPTION of Element [" + objectName +"] | Expected Selected [" + expectedvale+"]");
+                                "SELECTED OPTION of Element [" + objectName
+                                        + "] with Locator : " + objectID
+                                        + " | Expected Selected ["
+                                        + expectedvale + "]");
                         break;
                     } else {
 
@@ -4509,11 +4695,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 + objectName + "." + propertyname, "FAILED",
                                 " command checkObjectProperty()  :Element ("
                                         + "[" + objectName
-                                        + "] cannot access element");
+                                        + "] with Locator : " + objectID
+                                        + " cannot access element");
                         checkTrue(false, stopOnFailure,
                                 " command checkObjectProperty()  :Element ("
                                         + "[" + objectName
-                                        + "] cannot access element");
+                                        + "] with Locator : " + objectID
+                                        + " cannot access element");
                     }
                 }
             }
@@ -4524,11 +4712,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             reportresult(stopOnFailure, "CHECK OBJECT PROPERTY :" + objectName
                     + "." + propertyname, "FAILED",
-                    " command checkObjectProperty()  :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
             checkTrue(false, stopOnFailure,
-                    " command checkObjectProperty()  :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
         }
     }
 
@@ -4577,7 +4765,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     if (attributeValue.trim().equals(expectedvale.trim())) {
                         reportresult(true, "CHECK OBJECT PROPERTY :"
                                 + objectName + "." + propertyname, "PASSED",
-                                "["+propertyname+"] of Element ["+ objectName +"] | Expected ["+ expectedvale+"]");
+                                "[" + propertyname + "] of Element ["
+                                        + objectName + "] with Locator : "
+                                        + objectID + " | Expected ["
+                                        + expectedvale + "]");
                         break;
                     } else {
 
@@ -4624,22 +4815,24 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                             + "." + propertyname, "FAILED",
                                     " command checkObjectProperty() :Atrribute ("
                                             + propertyname + ")of ["
-                                            + objectName + "] not present");
+                                            + objectName + " ] with Locator : "
+                                            + objectID + " not present");
                             checkTrue(false, stopOnFailure,
                                     " command checkObjectProperty() :Atrribute ("
                                             + propertyname + ")of ["
-                                            + objectName + "] not present");
+                                            + objectName + " ] with Locator : "
+                                            + objectID + " not present");
                         } else if (e.getMessage().startsWith("Element")) {
                             reportresult(stopOnFailure,
                                     "CHECK OBJECT PROPERTY :" + objectName
                                             + "." + propertyname, "FAILED",
-                                    " command checkObjectProperty() :Element ("
-                                            + objectName + ") [" + objectID
-                                            + "] not present");
+                                    " command checkObjectProperty()  :Element [ "
+                                            + objectName + " ] with Locator : "
+                                            + objectID + " not present");
                             checkTrue(false, stopOnFailure,
-                                    " command checkObjectProperty() :Element ("
-                                            + objectName + ") [" + objectID
-                                            + "] not present");
+                                    " command checkObjectProperty()  :Element [ "
+                                            + objectName + " ] with Locator : "
+                                            + objectID + " not present");
                         }
                     }
                 }
@@ -4656,11 +4849,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              */
             reportresult(stopOnFailure, "CHECK OBJECT PROPERTY :" + objectName
                     + "." + propertyname, "FAILED",
-                    " command checkObjectProperty() :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
             checkTrue(false, stopOnFailure,
-                    " command checkObjectProperty() :Element (" + objectName
-                            + ") [" + objectID + "] not present");
+                    " command checkObjectProperty()  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
         }
     }
 
@@ -5090,24 +5283,28 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // Call the relavant internal method based on the
             // TableValidationType provided by the user
             try {
-                if (TableValidationType.ROWCOUNT.toString().equals(validationType)) {
+                if (TableValidationType.ROWCOUNT.toString().equals(
+                        validationType)) {
 
                     validateTableRowCount(element, objectID, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.COLCOUNT.toString().equals(validationType)) {
+                } else if (TableValidationType.COLCOUNT.toString().equals(
+                        validationType)) {
 
                     validateTableColCount(element, objectID, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.TABLEDATA.toString().equals(validationType)) {
+                } else if (TableValidationType.TABLEDATA.toString().equals(
+                        validationType)) {
 
                     compareTableData(element, objectID, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.RELATIVE.toString().equals(validationType)) {
+                } else if (TableValidationType.RELATIVE.toString().equals(
+                        validationType)) {
 
                     validateTableOffset(element, objectID, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.TABLECELL
-                        .toString().equals(validationType)) {
+                } else if (TableValidationType.TABLECELL.toString().equals(
+                        validationType)) {
 
                     validateCellValue(element, objectID, expectedvale,
                             stopOnFaliure, customError);
@@ -5138,11 +5335,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 // failure to the exact cause.
 
                 reportresult(true, "CHECK TABLE :" + validationType + " :"
-                        + objectName + "", "FAILED", objectName
+                        + objectName + "", "FAILED", "command checkTable()  :Element [" + objectName
+                        + " ] with Locator : " + objectID
                         + " is not accessible");
                 checkTrue(false, stopOnFaliure,
-                        " command checkTable()  :Element (" + objectName
-                                + ") [" + objectID + "] is not accessible");
+                        " command checkTable()  :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " is not accessible");
 
             }
         } catch (Exception e) {
@@ -5150,9 +5349,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // error
             e.printStackTrace();
             reportresult(true, "CHECK TABLE :" + validationType + " :"
-                    + objectName + "", "FAILED", objectName + " not present");
-            checkTrue(false, stopOnFaliure, " command checkTable()  :Element ("
-                    + objectName + ") [" + objectID + "] not present");
+                    + objectName + "", "FAILED", " :Element [ " 
+            + objectName + " ] with Locator : " + objectID + " not present");
+            checkTrue(false, stopOnFaliure,
+                    " command checkTable()  ] with Locator :Element [ " 
+            + objectName + " ] with Locator : " + objectID + " not present");
         }
 
     }
@@ -5229,9 +5430,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             driver.findElements(getLocatorType(objectID));
                     objectCount = elements.size();
                     reportresult(true, "GET OBJECT COUNT :" + objectName + "",
-                            "PASSED", "Get Object Count on Element ["
-                                    + objectName + "] (" + objectID + ") "
-                                    + " | Count : [" + objectCount+"]");
+                            "PASSED", "Get Object Count on :Element [ "
+                                    + objectName + " ] with Locator : "
+                                    + objectID + " " + " | Count : ["
+                                    + objectCount + "]");
                     break;
                 } catch (Exception e) {
                     sleep(retryInterval);
@@ -5240,11 +5442,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "GET OBJECT COUNT :" + objectName
                                 + "", "FAILED",
-                                "getObjectCount command cannot access :Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "getObjectCount command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID);
                         checkTrue(false, true,
-                                "getObjectCount command cannot access  :Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                "getObjectCount command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID);
                     }
                 }
             }
@@ -5259,18 +5463,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             if (!(counter > 0)) {
                 e.printStackTrace();
                 reportresult(true, "SELECT :" + objectName + "", "FAILED",
-                        "GET OBJECT COUNT command  :Element (" + objectName
-                                + ") [" + objectID + "] not present");
-                checkTrue(false, true, "GET OBJECT COUNT command  :Element ("
-                        + objectName + ") [" + objectID + "] not present");
+                        "GET OBJECT COUNT command  :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " not present");
+                checkTrue(false, true, "GET OBJECT COUNT command  :Element [ "
+                        + objectName + " ] with Locator : " + objectID
+                        + " not present");
             } else if ("Element".equalsIgnoreCase(e.getMessage())) {
                 e.printStackTrace();
                 reportresult(true, "GET OBJECT COUNT :" + objectName + "",
-                        "FAILED", "GET OBJECT COUNT command  :Element ("
-                                + objectName + ") [" + objectID
-                                + "] not present");
-                checkTrue(false, true, "GET OBJECT COUNT command  :Element ("
-                        + objectName + ") [" + objectID + "] not present");
+                        "FAILED", "GET OBJECT COUNT command  :Element [ "
+                                + objectName + " ] with Locator : " + objectID
+                                + " not present");
+                checkTrue(false, true, "GET OBJECT COUNT command  :Element [ "
+                        + objectName + " ] with Locator : " + objectID
+                        + " not present");
 
             }
 
@@ -5382,8 +5589,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         } else {
 
-            reportresult(true, "CHECK TABLE :TABLE CELL", "PASSED", "CHECK TABLE :TABLE CELL ("
-            		+objectName+ ") | Expected [" + expectedvalue+"]");
+            reportresult(true, "CHECK TABLE :TABLE CELL", "PASSED",
+                    "CHECK TABLE :TABLE CELL (" + objectName + ") | Expected ["
+                            + expectedvalue + "]");
         }
 
     }
@@ -5466,8 +5674,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         } else {
 
-            reportresult(true, "CHECK TABLE :RELATIVE", "PASSED","CHECK TABLE :RELATIVE ("+objectName
-                    + ") | Expected [" + expectedvalue+"]");
+            reportresult(true, "CHECK TABLE :RELATIVE", "PASSED",
+                    "CHECK TABLE :RELATIVE (" + objectName + ") | Expected ["
+                            + expectedvalue + "]");
         }
 
     }
@@ -5559,8 +5768,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             if (rowCount == Integer.parseInt(expectedValue)) {
                 reportresult(true, "CHECK TABLE :ROW COUNT", "PASSED",
-                        "CHECK TABLE :ROW COUNT (" +tableName
-                                + ") | Expected [" + expectedValue+"]");
+                        "CHECK TABLE :ROW COUNT (" + tableName
+                                + ") | Expected [" + expectedValue + "]");
 
             } else {
 
@@ -5625,17 +5834,18 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             if (actualdValue == Integer.parseInt(expectedValue)) {
                 reportresult(true, "CHECK TABLE :COLUMN COUNT ", "PASSED",
-                        " CHECK TABLE :COLUMN COUNT (" +tableName
-                                + ") | Expected [" + expectedValue+"]");
+                        " CHECK TABLE :COLUMN COUNT (" + tableName
+                                + ") | Expected [" + expectedValue + "]");
 
             } else {
 
                 reportresult(fail, "CHECK TABLE :COLUMN COUNT", "FAILED", ""
-                        + generateCustomError(customError)
-                        + " System generated Error : Expected :"
+                        + generateCustomError(customError) + "Table :("
+                        + tableName + ") System generated Error : Expected :"
                         + expectedValue + " |Actual : " + actualdValue);
                 checkTrue(false, fail, "" + generateCustomError(customError)
-                        + " System generated Error : Expected :"
+                        + "Table :(" + tableName
+                        + ") System generated Error : Expected :"
                         + expectedValue + " |Actual : " + actualdValue);
 
             }
@@ -5808,8 +6018,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             if (actualTableStr.contains(inputTableStr)) {
 
-                reportresult(true, "CHECK TABLE :TABLE DATA ", "PASSED","CHECK TABLE :TABLE DATA ("
-                        +objectName + ") | Expected [" + expectedvale+"]");
+                reportresult(true, "CHECK TABLE :TABLE DATA ", "PASSED",
+                        "CHECK TABLE :TABLE DATA (" + objectName
+                                + ") | Expected [" + expectedvale + "]");
 
             } else {
                 String inputTableString = inputTable.toString();
@@ -6485,9 +6696,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
     public final void goBack(final String waitTime) {
         WebDriver driver = getDriver();
         try {
+            String oldUrl = driver.getCurrentUrl();
             driver.navigate().back();
             super.sleep(Integer.parseInt(waitTime));
-            reportresult(true, "GO BACK :", "PASSED", "Go Back from url ["+driver.getCurrentUrl()+"]");
+            reportresult(true, "GO BACK :", "PASSED", "Go Back from url ["
+                   + oldUrl + "] to url : [" + driver.getCurrentUrl() + "]");
         } catch (Exception e) {
             String errorString = e.getMessage();
             reportresult(true, "GO BACK  :", "FAILED", errorString);
@@ -6554,7 +6767,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             }
 
             reportresult(true, "RETRIEVE Value : " + type + " " + key + " :",
-                    "PASSED", "Retrieved value ["+value+"] from key ["+key+"]");
+                    "PASSED", "Retrieved value [" + value + "] from key ["
+                            + key + "]");
 
         } catch (FileNotFoundException e) {
 
@@ -6721,7 +6935,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             fos = new FileOutputStream(projectPropertiesLocation);
             prop.store(fos, "project settings");
             reportresult(true, "STORE Value : " + value + " " + type + " "
-                    + key + " :", "PASSED", "Stored value ["+value+"] to key ["+key+"]");
+                    + key + " :", "PASSED", "Stored value [" + value
+                    + "] to key [" + key + "]");
 
         } catch (IOException e) {
             String errorString = e.getMessage();
@@ -6826,7 +7041,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         forceHandlePopup(getRobot(), inputStringp.split("%")[1]);
                         reportresult(true,
                                 "HANDLE POPUP :" + inputStringp + "", "PASSED",
-                                "Handle PopUp ["+inputStringp+"]");
+                                "Handle PopUp [" + inputStringp + "]");
                     } catch (Exception e) {
                         e.printStackTrace();
                         reportresult(true, "HANDLE POPUP :", "FAILED",
@@ -6863,7 +7078,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                     actualAlertText);
                     if (verificationErrors.isEmpty()) {
                         reportresult(true, "HANDLE POPUP :" + actualAlertText
-                                + "", "PASSED", "Handle PopUp ["+inputStringp+"]");
+                                + "", "PASSED", "Handle PopUp [" + inputStringp
+                                + "]");
                     } else {
                         reportresult(true, "HANDLE POPUP : failed", "FAILED",
                                 "Errors : " + verificationErrors + "");
@@ -7164,7 +7380,122 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
      * @param value
      *            : value to be typed in the object
      */
+    public final void typekey(final String objectName, final String identifire,
+            final Object value) {
+        this.locatorIdentifire = identifire;
+        typeKey(objectName, value);
+        this.locatorIdentifire = "";
+    }
 
+    /**
+     * Type key.
+     * 
+     * @param objectName
+     *            the object name
+     * @param objValue
+     *            the obj value
+     */
+    public final void typeKey(final String objectName, final Object objValue) {
+
+        String value = checkNullObject(objValue, "TYPEKEY");
+        WebDriver driver = getDriver();
+        int counter = getRetryCount();
+
+        String[] valueStringsArr = value.split("(?!^)");
+
+        // Getting the actual object identification from the object map
+        String objectID =
+                ObjectMap.getObjectSearchPath(objectName, locatorIdentifire);
+        try {
+            // Check whether the element present
+            checkForNewWindowPopups();
+            WebElement element = checkElementPresence(objectID);
+            /*
+             * START DESCRIPTION following for loop was added to make the
+             * command more consistent try the command for give amount of time
+             * (can be configured through class variable RETRY) command will be
+             * tried for "RETRY" amount of times or until command works. any
+             * exception thrown within the tries will be handled internally.
+             * 
+             * can be exited from the loop under 2 conditions 1. if the command
+             * succeeded 2. if the RETRY count is exceeded
+             */
+
+            try {
+                element.clear();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            while (counter > 0) {
+                try {
+                    counter--;
+
+                    // Calling the actual command
+                    element.sendKeys("");
+                    Actions getFocus = new Actions(driver);
+                    getFocus.moveToElement(element).build().perform();
+
+                    for (int strLocation = 0; strLocation < valueStringsArr.length; strLocation++) {
+                        if (!valueStringsArr[strLocation].isEmpty()) {
+                            super.sleep(Integer.parseInt("500"));
+                            String[] charArr =
+                                    valueStringsArr[strLocation]
+                                            .split("(?<!\\\\)\\+");
+                            type(charArr);
+                        }
+                    }
+
+                    reportresult(true, "TYPEKEY :" + objectName + "", "PASSED",
+                            "Type Key on Element [ " + objectName
+                                    + " ] with Locator : " + objectID
+                                    + " | Input Value [" + value + "]");
+                    break;
+                } catch (StaleElementReferenceException staleElementException) {
+                    element = checkElementPresence(objectID);
+                } catch (Exception e) {
+                    sleep(retryInterval);
+
+                    if (!(counter > 0)) {
+                        e.printStackTrace();
+                        reportresult(true, "TYPEKEY :" + objectName + "",
+                                "FAILED",
+                                "TYPEKEY command cannot access  :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " [Input Value = " + value
+                                        + "]");
+                        checkTrue(false, true,
+                                "TYPEKEY command cannot access  :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " [Input Value = " + value
+                                        + "]");
+                    }
+                }
+            }
+            /*
+             * END DESCRIPTION
+             */
+        } catch (Exception e) {
+
+            // if any exception was raised, report a test failure
+            e.printStackTrace();
+            reportresult(true, "TYPEKEY :" + objectName + "", "FAILED",
+                    "TYPEKEY command  :Element [ " + objectName
+                            + " ] with Locator : " + objectID + " not present");
+            checkTrue(false, true, "TYPEKEY command  :Element [ " + objectName
+                    + " ] with Locator : " + objectID + " not present");
+        }
+    }
+
+    /**
+     * Key press.
+     * 
+     * @param objectName
+     *            the object name
+     * @param identifire
+     *            the identifire
+     * @param value
+     *            the value
+     */
     public final void keyPress(final String objectName,
             final String identifire, final Object value) {
         this.locatorIdentifire = identifire;
@@ -7233,7 +7564,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     }
 
                     reportresult(true, "KEYPRESS :" + objectName + "",
-                            "PASSED", "Key Press on Element ["+objectName+"] | Input Value ["+value+"]");
+                            "PASSED", "Key Press on Element [ " + objectName
+                                    + " ] with Locator : " + objectID
+                                    + " | Input Value [" + value + "]");
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
                     element = checkElementPresence(objectID);
@@ -7244,13 +7577,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         e.printStackTrace();
                         reportresult(true, "KEYPRESS :" + objectName + "",
                                 "FAILED",
-                                "KEYPRESS command cannot access :Element ("
-                                        + objectName + ") [" + objectID
-                                        + "] [Input Value = " + value + "]");
+                                "KEYPRESS command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + "  [Input Value = "
+                                        + value + "]");
                         checkTrue(false, true,
-                                "KEYPRESS command cannot access :Element ("
-                                        + objectName + ") [" + objectID
-                                        + "] [Input Value = " + value + "]");
+                                "KEYPRESS command cannot access:Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + "  [Input Value = "
+                                        + value + "]");
                     }
                 }
             }
@@ -7262,12 +7597,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // if any exception was raised, report a test failure
             e.printStackTrace();
             reportresult(true, "KEYPRESS :" + objectName + "", "FAILED",
-                    "KEYPRESS command  :Element (" + objectName + ") ["
-                            + objectID + "] [Input Value = " + value
-                            + "] not present");
-            checkTrue(false, true, "KEYPRESS command  :Element (" + objectName
-                    + ") [" + objectID + "] [Input Value = " + value
-                    + "] not present");
+                    "KEYPRESS command  :Element [" + objectName
+                            + "] with Locator : " + objectID
+                            + " [Input Value = " + value + "] not present");
+            checkTrue(false, true, "KEYPRESS command  :Element [" + objectName
+                    + "] with Locator : " + objectID + " [Input Value = "
+                    + value + "] not present");
         }
     }
 
@@ -7424,7 +7759,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true,
                                 "CHECKPATTERN :" + locator.getLogicalName()
                                         + "Input Value = " + pattern, "PASSED",
-                                "Check Pattern ["+ pattern+"] on Element ["+objectID+"]" );
+                                "Check Pattern [" + pattern + "] on Element ["
+                                        + objectID + "]");
                         break;
                     } else {
 
@@ -7467,7 +7803,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 ""
                                         + generateCustomError(customError)
                                         + " System generated Error : CHECKPATTERN command cannot access :Element ("
-                                        + objectLogicalName + ") [" + objectID
+                                        + objectLogicalName
+                                        + ") with Locator : [" + objectID
                                         + "] pattern = [" + pattern + "]");
                         checkTrue(
                                 false,
@@ -7475,7 +7812,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 ""
                                         + generateCustomError(customError)
                                         + " System generated Error : CHECKPATTERN command cannot access :Element ("
-                                        + objectLogicalName + ") [" + objectID
+                                        + objectLogicalName
+                                        + ") with Locator : [" + objectID
                                         + "] pattern = [" + pattern + "]");
 
                     }
@@ -7492,11 +7830,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             reportresult(true, "CHECKPATTERN :" + objectLogicalName + "",
                     "FAILED", "CHECKPATTERN command  :Element ("
-                            + objectLogicalName + ") [" + objectID
-                            + "] pattern = [" + pattern + "] not present");
+                            + objectLogicalName + ") with Locator : ["
+                            + objectID + "] pattern = [" + pattern
+                            + "] not present");
             checkTrue(false, true, "CHECKPATTERN command  :Element ("
-                    + objectLogicalName + ") [" + objectID + "] pattern = ["
-                    + pattern + "] not present");
+                    + objectLogicalName + ") with Locator : [" + objectID
+                    + "] pattern = [" + pattern + "] not present");
 
         }
     }
@@ -7559,8 +7898,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             fos = new FileOutputStream(getPropertiesLocation());
             prop.setProperty("tcComment", "\n" + message);
             prop.store(fos, null);
-            reportresult(true, "WRITE TO REPORT : ", "PASSED", " Report Message :[" + message
-                    + "]");
+            reportresult(true, "WRITE TO REPORT : ", "PASSED",
+                    " Report Message :[" + message + "]");
         } catch (FileNotFoundException e) {
             reportresult(true, "WRITE TO REPORT : ", "FAILED", " [" + message
                     + "]");
@@ -7660,7 +7999,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     // if not exception is called consider and report the result
                     // as passed
                     reportresult(true, "MOUSE OVER :" + objectName + "",
-                            "PASSED", "Mouse Over Element ["+objectName+"]");
+                            "PASSED", "Mouse Over Element [" + objectName
+                                    + "] with Locator : [" + objectID + "] ");
                     // if the testcase passed move out from the loop
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
@@ -7673,10 +8013,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true, "MOUSE OVER :" + objectName + "",
                                 "FAILED",
                                 "MOUSE OVER command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                         checkTrue(false, true,
                                 "MOUSE OVER command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                     }
                 }
             }
@@ -7691,14 +8033,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              * VTAF result reporter call
              */
             reportresult(true, "MOUSE OVER :" + objectName + "", "FAILED",
-                    "MOUSE OVER command  :Element (" + objectName + ") ["
-                            + objectID + "] not present");
+                    "MOUSE OVER command  :Element (" + objectName
+                            + ") with Locator : [" + objectID + "] not present");
 
             /*
              * VTAF specific validation framework reporting
              */
             checkTrue(false, true, "MOUSE OVER command  :Element ("
-                    + objectName + ") [" + objectID + "] not present");
+                    + objectName + ") with Locator : [" + objectID
+                    + "] not present");
         }
 
     }
@@ -7800,7 +8143,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     }
 
                     reportresult(true, "SELECT FRAME :" + locator + "",
-                            "PASSED", "Select Frame ["+locator.getLogicalName()+"]");
+                            "PASSED",
+                            "Select Frame [ " + locator.getLogicalName()
+                                    + " ] with Locator : " + objectID);
                     break;
                 } catch (Exception e) {
 
@@ -7811,10 +8156,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true, "SELECT FRAME :" + locator + "",
                                 "FAILED",
                                 "SELECT FRAME command cannot access :Frame ("
-                                        + locator + ") [" + objectID + "]");
+                                        + locator + ") with Locator : ["
+                                        + objectID + "]");
                         checkTrue(false, true,
                                 "SELECT FRAME command cannot access :Frame ("
-                                        + locator + ") [" + objectID + "]");
+                                        + locator + ") with Locator : ["
+                                        + objectID + "]");
                     }
                 }
 
@@ -7823,10 +8170,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             ex.printStackTrace();
             reportresult(true, "SELECT FRAME :" + locator + "", "FAILED",
-                    "SELECT FRAME command  :Frame (" + locator + ") ["
-                            + objectID + "] not present");
+                    "SELECT FRAME command  :Frame (" + locator
+                            + ") with Locator : [" + objectID + "] not present");
             checkTrue(false, true, "SELECT FRAME command  :Frame (" + locator
-                    + ") [" + objectID + "] not present");
+                    + ") with Locator : [" + objectID + "] not present");
 
         }
         /*
@@ -7931,8 +8278,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             sleep(retryInterval);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
             reportresult(true, "MOUSE MOVE AND CLICK : ", "PASSED",
-                    "Mouse Move and Click at Coordinate ["+xCordinateAutual+","
-                    		+yCordinateAutual+"] on Screen Resolution [" + res+"]");
+                    "Mouse Move and Click at Coordinate [" + xCordinateAutual
+                            + "," + yCordinateAutual
+                            + "] on Screen Resolution [" + res + "]");
 
         } else if ("dclick".equals(command.toLowerCase(Locale.getDefault()))) {
 
@@ -8470,7 +8818,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             .valueOf(targetWindow != null))) {
 
                         reportresult(true, "CHECK WINDOW PROPERTY:"
-                                + propertyname + "", "PASSED", "");
+                                + propertyname + "", "PASSED", "Window ["
+                                        + windowName + "] [" + window + "]");
                     } else {
 
                         /*
@@ -9013,7 +9362,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     ScreenRegion targetImage = isImagePresent(imagePath, false);
                     if (targetImage != null) {
                         forceHandlePopup(getRobot(), inputStringp);
-                        reportresult(true, "HANDLE IMAGE POPUP :", "PASSED", "Handle Image PopUp");
+                        reportresult(true, "HANDLE IMAGE POPUP :", "PASSED",
+                                "Handle Image PopUp");
                     }
                 } catch (FileNotFoundException f) {
 
@@ -9091,7 +9441,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             isElementPresent = isImagePresent(path, isRotatable) != null;
             if (isElementPresent) {
-                reportresult(true, "CHECK IMAGE PRESENT:", "PASSED", "Check Image Present with ["+path+"]");
+                reportresult(true, "CHECK IMAGE PRESENT:", "PASSED",
+                        "Check Image Present with [" + path + "]");
 
             } else {
 
@@ -9260,7 +9611,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 isPresent = existsPdf(filePath, pageNumberRange, inputString);
             } else {
 
-                reportresult(true, "CHECK DOCUMENT :" + verifyType + " :",
+                reportresult(true, "CHECK DOCUMENT - PDF [" + verifyType + "] :",
                         "FAILED", "Unknown verify type passed :" + " "
                                 + verifyType + ". Accepted verify types : "
                                 + "EXIST, RELATIVE");
@@ -9270,14 +9621,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             }
 
             if (isPresent) {
-                reportresult(true, "CHECK DOCUMENT :", "PASSED",
+                reportresult(true, "CHECK DOCUMENT - PDF [" + verifyType + "] :", "PASSED",
                         "CheckDocument command: Verified text as expected. Expected Value : "
                                 + inputString);
             } else {
 
                 reportresult(
                         true,
-                        "CHECK DOCUMENT :",
+                        "CHECK DOCUMENT - PDF [" + verifyType + "] :",
                         "FAILED",
                         ""
                                 + generateCustomError(customError)
@@ -9298,7 +9649,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             reportresult(
                     true,
-                    "CHECK DOCUMENT :",
+                    "CHECK DOCUMENT - PDF [" + verifyType + "] :",
                     "FAILED",
                     ""
                             + generateCustomError(customError)
@@ -9316,7 +9667,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         } catch (NumberFormatException e) {
 
-            reportresult(true, "CHECK DOCUMENT :", "FAILED",
+            reportresult(true, "CHECK DOCUMENT - PDF [" + verifyType + "] :", "FAILED",
                     "CheckDocument command: Invalid argument for page range : "
                             + pageNumberRange);
             checkTrue(false, stopOnFaliure,
@@ -9325,7 +9676,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         } catch (Exception e) {
 
-            reportresult(true, "CHECK DOCUMENT :", "FAILED", ""
+            reportresult(true, "CHECK DOCUMENT - PDF [" + verifyType + "] :", "FAILED", ""
                     + generateCustomError(customError)
                     + " System generated Error : "
                     + "CheckDocument command: Text Verification failed: "
@@ -9484,12 +9835,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         } else if ("xml".equalsIgnoreCase(docType)) {
 
-            xmlVerify(filePath, verifyType, inputString,
-                    stopOnFaliure);
+            xmlVerify(filePath, verifyType, inputString, stopOnFaliure);
         } else if ("text".equalsIgnoreCase(docType)) {
 
-            textFileVerify(filePath, verifyType, inputString,
-                    stopOnFaliure);
+            textFileVerify(filePath, verifyType, inputString, stopOnFaliure);
         } else {
             reportresult(true, "CHECK DOCUMENT :" + docType + " :", "FAILED",
                     "Unknown doc type passed :" + " " + docType
@@ -9720,7 +10069,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     rClick.build().perform();
                     /* selenium.doubleClick(objectID); */
                     reportresult(true, "RIGHT CLICK :" + objectName + "",
-                            "PASSED", "Right Clicked on Element ["+ objectName +"]");
+                            "PASSED", "Right Clicked on Element [" + objectName
+                                    + "] with Locator : [" + objectID + "] ");
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
 
@@ -9732,10 +10082,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         reportresult(true, "RIGHT CLICK :" + objectName + "",
                                 "FAILED",
                                 "RIGHT CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                         checkTrue(false, true,
                                 "RIGHT CLICK command cannot access Element ("
-                                        + objectName + ") [" + objectID + "] ");
+                                        + objectName + ") with Locator : ["
+                                        + objectID + "] ");
                     }
                 }
             }
@@ -9746,10 +10098,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             // if object not found exception is raised fail the test cases
             e.printStackTrace();
             reportresult(true, "RIGHT CLICK :" + objectName + "", "FAILED",
-                    "RIGHT CLICK command  :Element (" + objectName + ") ["
-                            + objectID + "] not present");
+                    "RIGHT CLICK command  :Element (" + objectName
+                            + ") with Locator : [" + objectID + "] not present");
             checkTrue(false, true, "RIGHT CLICK command  :Element ("
-                    + objectName + ") [" + objectID + "] not present");
+                    + objectName + ") with Locator : [" + objectID
+                    + "] not present");
         }
 
     }
@@ -9839,7 +10192,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             reportresult(true, "CHECK FILE INFORMATION : EXIST", "FAILED",
                     "File root path does not exist");
             checkTrue(false, stopOnFailure, "File root path does not exist");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -9876,12 +10229,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             File[] files = new File(root).listFiles();
             if (files != null) {
-            for (File file : files) {
+                for (File file : files) {
 
-                if (file.isFile()) {
-                    fileNameListWithEx.add(file.getName());
-                }
-            } // end add file in to list
+                    if (file.isFile()) {
+                        fileNameListWithEx.add(file.getName());
+                    }
+                } // end add file in to list
             }
 
             StringBuilder errors = new StringBuilder();
@@ -10081,11 +10434,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                         reportresult(true, "CHECK SORTING :" + objectName + "",
                                 "FAILED",
-                                "CHECK SORTING command cannot access  : Element ("
-                                        + objectName + ") not present");
+                                "CHECK SORTING command cannot access   :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
                         checkTrue(false, stopOnFailure,
-                                "CHECK SORTING command cannot access  : Element ("
-                                        + objectName + ") not present");
+                                "CHECK SORTING command cannot access   :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID + " not present");
 
                     }
                 }
@@ -10102,21 +10457,25 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 e.printStackTrace();
 
                 reportresult(true, "CHECK SORTING :" + objectName + "",
-                        "FAILED", "CHECK SORTING command  : Element ("
-                                + objectName + ") not present");
+                        "FAILED", "CHECK SORTING command   :Element [ "
+                                + objectName + " ] with Locator : " + objectID
+                                + " not present");
                 checkTrue(false, stopOnFailure,
-                        "CHECK SORTING command  : Element (" + objectName
-                                + ") not present");
+                        "CHECK SORTING command   :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " not present");
 
             } else if ("Element".equalsIgnoreCase(e.getMessage())) {
                 e.printStackTrace();
 
                 reportresult(true, "CHECK SORTING :" + objectName + "",
-                        "FAILED", "CHECK SORTING command  : Element ("
-                                + objectName + ") not present");
+                        "FAILED", "CHECK SORTING command   :Element [ "
+                                + objectName + " ] with Locator : " + objectID
+                                + " not present");
                 checkTrue(false, stopOnFailure,
-                        "CHECK SORTING command  : Element (" + objectName
-                                + ") not present");
+                        "CHECK SORTING command   :Element [ " + objectName
+                                + " ] with Locator : " + objectID
+                                + " not present");
 
             }
 
@@ -11109,14 +11468,21 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Insight custom command. Checks insight charts content values.
-     *
-     * @param chartName the chart name
-     * @param identifire the identifire
-     * @param vendor the vendor
-     * @param type the type
-     * @param lData the l data
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param chartName
+     *            the chart name
+     * @param identifire
+     *            the identifire
+     * @param vendor
+     *            the vendor
+     * @param type
+     *            the type
+     * @param lData
+     *            the l data
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
 
     public final void checkChartContent(final String chartName,
@@ -11134,13 +11500,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Check chart content.
-     *
-     * @param chartName the chart name
-     * @param vendor the vendor
-     * @param type the type
-     * @param lData the l data
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param chartName
+     *            the chart name
+     * @param vendor
+     *            the vendor
+     * @param type
+     *            the type
+     * @param lData
+     *            the l data
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     public final void checkChartContent(final String chartName,
             final String vendor, final String type, final String lData,
@@ -11153,13 +11525,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Check chart content.
-     *
-     * @param locator the locator
-     * @param vendor the vendor
-     * @param type the type
-     * @param lData the l data
-     * @param stopOnFailure the stop on failure
-     * @param customError the custom error
+     * 
+     * @param locator
+     *            the locator
+     * @param vendor
+     *            the vendor
+     * @param type
+     *            the type
+     * @param lData
+     *            the l data
+     * @param stopOnFailure
+     *            the stop on failure
+     * @param customError
+     *            the custom error
      */
     private void doCheckChartContent(final ObjectLocator locator,
             final String vendor, final String type, final String lData,
@@ -11369,10 +11747,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Insight pie chart content check.
-     *
-     * @param chartWebElement the chart web element
-     * @param chartnames the chartnames
-     * @param chartvalues the chartvalues
+     * 
+     * @param chartWebElement
+     *            the chart web element
+     * @param chartnames
+     *            the chartnames
+     * @param chartvalues
+     *            the chartvalues
      * @return the string buffer
      */
     private StringBuilder insightPieChartContentCheck(
@@ -11434,9 +11815,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         jsExecutor
                                 .executeScript(
                                         "var evObj = document.createEvent('MouseEvents');"
-                                + "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0," 
-                                + " false, false, false, false, 0, null);"
-                                + "arguments[0].dispatchEvent(evObj);",
+                                                + "evObj.initMouseEvent(\"mouseover\",true,"
+                                                + " false, window, 0, 0, 0, 0, 0,"
+                                                + " false, false, false, false, 0, null);"
+                                                + "arguments[0].dispatchEvent(evObj);",
                                         subTextElements.get(0));
 
                     } else {
@@ -11444,9 +11826,10 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         jsExecutor
                                 .executeScript(
                                         "var evObj = document.createEvent('MouseEvents');"
-                       + "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, "
-                       + "false, false, false, false, 0, null);"
-                       + "arguments[0].dispatchEvent(evObj);",
+                                                + "evObj.initMouseEvent(\"mouseover\",true,"
+                                                + " false, window, 0, 0, 0, 0, 0, "
+                                                + "false, false, false, false, 0, null);"
+                                                + "arguments[0].dispatchEvent(evObj);",
                                         element);
                     }
                 } catch (IndexOutOfBoundsException e1) {
@@ -11473,8 +11856,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 } catch (WebDriverException e1) {
                     counElementName++;
                     if (counElementName == 1) {
-                     
-                        String notPresentEror = "Not Present actualWebElementValue";
+
+                        String notPresentEror =
+                                "Not Present actualWebElementValue";
                         logs.error(notPresentEror);
                         // verificationErrors
                         // .append(" Not Present actualWebElementName ");
@@ -11496,8 +11880,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                 } catch (WebDriverException e1) {
                     countElementValue++;
-                   
-                    String notPresentErorr = "Not Present actualWebElementValue";
+
+                    String notPresentErorr =
+                            "Not Present actualWebElementValue";
                     if (countElementValue == 1) {
                         logs.error(notPresentErorr);
                         // verificationErrors
@@ -11735,9 +12120,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Insight bar chart content check.
-     *
-     * @param chartWebElement the chart web element
-     * @param chartBarTextNames the chart bar text names
+     * 
+     * @param chartWebElement
+     *            the chart web element
+     * @param chartBarTextNames
+     *            the chart bar text names
      * @return the string buffer
      */
     private StringBuffer insightBarChartContentCheck(
@@ -11956,15 +12343,17 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         /** The maximize. */
         MAXIMIZE, /** The resize. */
- RESIZE,
+        RESIZE,
 
     };
 
     /**
      * Resize application.
-     *
-     * @param action the action
-     * @param screenSize the screen size
+     * 
+     * @param action
+     *            the action
+     * @param screenSize
+     *            the screen size
      */
     public final void resizeApplication(final Object action,
             final String screenSize) {
@@ -11973,21 +12362,23 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do resize application.
-     *
-     * @param action the action
-     * @param screenSize the screen size
+     * 
+     * @param action
+     *            the action
+     * @param screenSize
+     *            the screen size
      */
     private void doResizeApplication(final Object action,
             final String screenSize) {
 
         try {
-            
+
             if (resizeApplicationType.MAXIMIZE.toString().equals(action)) {
                 WebDriver driver = getDriver();
                 if (driver != null) {
                     driver.manage().window().maximize();
-                    reportresult(true, "MANAGE BROWSER : ", "PASSED",
-                            "[" + action + "] Application");
+                    reportresult(true, "MANAGE BROWSER : ", "PASSED", "["
+                            + action + "] Application");
                 }
             } else if (resizeApplicationType.RESIZE.toString().equals(action)) {
                 int width = Integer.parseInt(screenSize.split("\\,")[0]);
@@ -12000,8 +12391,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                             .setSize(
                                     new org.openqa.selenium.Dimension(width,
                                             height));
-                    reportresult(true, "MANAGE BROWSER : ", "PASSED",
-                            "["+ action + "] Application to ["+screenSize+"]");
+                    reportresult(true, "MANAGE BROWSER : ", "PASSED", "["
+                            + action + "] Application to [" + screenSize + "]");
                 }
             } else {
                 reportresult(true, "MANAGE BROWSER :" + action + "", "FAILED",
@@ -12032,9 +12423,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * get Element Infomation.
-     *
-     * @param objectName the object name
-     * @param identifier the identifier
+     * 
+     * @param objectName
+     *            the object name
+     * @param identifier
+     *            the identifier
      * @return true, if successful
      */
 
@@ -12049,8 +12442,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Gets the element info.
-     *
-     * @param objectName the object name
+     * 
+     * @param objectName
+     *            the object name
      * @return the element info
      */
     public final int[] getElementInfo(final String objectName) {
@@ -12059,12 +12453,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Do get element info.
-     *
-     * @param locator the locator
+     * 
+     * @param locator
+     *            the locator
      * @return the int[]
      */
     private int[] doGetElementInfo(final ObjectLocator locator) {
-        
+
         final int four = 4;
         int[] objVal = new int[four];
 
@@ -12094,10 +12489,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     int zero = 0;
                     int one = 1;
                     int two = 2;
-                    //final int threee = 3;
+                    // final int threee = 3;
                     final int three = 3;
                     Point eleGetLocation = element.getLocation();
-                    org.openqa.selenium.Dimension eleGetSize = element.getSize();
+                    org.openqa.selenium.Dimension eleGetSize =
+                            element.getSize();
                     objVal[0] = eleGetSize.height;
 
                     objVal[1] = eleGetSize.width;
@@ -12105,16 +12501,16 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                     objVal[2] = eleGetLocation.x;
 
                     objVal[three] = eleGetLocation.y;
-                  
+
                     counter--;
                     // Calling the actual command
-                    reportresult(true,
-                            "GET ELEMENT INFO :" + locator.getLogicalName()
-                                    + "", "PASSED",
-                            " Element Info of Element ["+ locator.getLogicalName()+"] Height [" 
-                                    + objVal[zero] + "] Width [" + objVal[one]
-                                    + "] Xcordinate [" + objVal[two]
-                                    + "] Ycordinate [" + objVal[one + two] + "]");
+                    reportresult(true, "GET ELEMENT INFO :" + objectName + "",
+                            "PASSED", " Element Info of Element [" + objectName
+                                    + "] with Locator : " + objectID
+                                    + " Height [" + objVal[zero] + "] Width ["
+                                    + objVal[one] + "] Xcordinate ["
+                                    + objVal[two] + "] Ycordinate ["
+                                    + objVal[one + two] + "]");
                     break;
                 } catch (StaleElementReferenceException staleElementException) {
 
@@ -12126,11 +12522,13 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
                         reportresult(true, "GET ELEMENT INFO :" + objectName
                                 + "", "FAILED",
-                                "GET ELEMENT INFO command cannot access :Element "
-                                        + objectName);
+                                "GET ELEMENT INFO command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID);
                         checkTrue(false, true,
-                                "GETELEMENTINFO command cannot access :Element "
-                                        + objectName);
+                                "GETELEMENTINFO command cannot access :Element [ "
+                                        + objectName + " ] with Locator : "
+                                        + objectID);
                     }
                 }
 
@@ -12144,10 +12542,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             e.printStackTrace();
 
             reportresult(true, "GET ELEMENT INFO :" + objectName + "",
-                    "FAILED", "GETELEMENTINFO command  :Element " + objectName
+                    "FAILED", "GETELEMENTINFO command  :Element [ "
+                            + objectName + " ] with Locator : " + objectID
                             + " not present");
-            checkTrue(false, true, "GET ELEMENT INFO command  :Element "
-                    + objectName + "] not present");
+            checkTrue(false, true, "GET ELEMENT INFO command  :Element [ "
+                    + objectName + " ] with Locator : " + objectID
+                    + " not present");
 
         }
         return objVal;
@@ -12156,16 +12556,20 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Adds the values from excel.
-     *
-     * @param path the path
-     * @param index the index
+     * 
+     * @param path
+     *            the path
+     * @param index
+     *            the index
      * @return the string[][]
-     * @throws IOException Signals that an I/O exception has occurred.
-     * @throws InvalidFormatException the invalid format exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     * @throws InvalidFormatException
+     *             the invalid format exception
      */
     public final String[][] addValuesFromExcel(final String path,
             final String index) throws IOException, InvalidFormatException {
-        
+
         String cellStringValue = null;
         double cellDoubleValue = 0;
         Boolean cellBooleanValue;
@@ -12215,11 +12619,11 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 Double.toString(cellDoubleValue);
                     }
                 }
-             
+
             }
         } finally {
             if (((InputStream) workbook) != null) {
-            ((InputStream) workbook).close();
+                ((InputStream) workbook).close();
             }
         }
         return arrExcelContent;
@@ -12227,13 +12631,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Verify excel.
-     *
-     * @param path the path
-     * @param index the index
-     * @param validationType the validation type
-     * @param expectedvale the expectedvale
-     * @param stopOnFaliure the stop on faliure
-     * @param customError the custom error
+     * 
+     * @param path
+     *            the path
+     * @param index
+     *            the index
+     * @param validationType
+     *            the validation type
+     * @param expectedvale
+     *            the expectedvale
+     * @param stopOnFaliure
+     *            the stop on faliure
+     * @param customError
+     *            the custom error
      */
     public final void verifyExcel(final String path, final String index,
             final String validationType, final Object expectedvale,
@@ -12270,37 +12680,44 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Doverify excel.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param validationTypeS the validation type s
-     * @param objExpectedvale the obj expectedvale
-     * @param stopOnFaliure the stop on faliure
-     * @param customError the custom error
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param validationTypeS
+     *            the validation type s
+     * @param objExpectedvale
+     *            the obj expectedvale
+     * @param stopOnFaliure
+     *            the stop on faliure
+     * @param customError
+     *            the custom error
      */
-    private void doverifyExcel(final String[][] arrExcelContent, final String validationTypeS,
-            final Object objExpectedvale, final boolean stopOnFaliure,
-            final Object[] customError) {
+    private void doverifyExcel(final String[][] arrExcelContent,
+            final String validationTypeS, final Object objExpectedvale,
+            final boolean stopOnFaliure, final Object[] customError) {
         String validationType = validationTypeS;
         String expectedvale =
                 checkNullObject(objExpectedvale, "CHECK DOCUMENT");
         try {
             try {
-                if (TableValidationType.ROWCOUNT.toString().equals(validationType)) {
+                if (TableValidationType.ROWCOUNT.toString().equals(
+                        validationType)) {
                     validateExcelRowCount(arrExcelContent, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.COLCOUNT.toString().equals(validationType)) {
+                } else if (TableValidationType.COLCOUNT.toString().equals(
+                        validationType)) {
                     validateExcelColCount(arrExcelContent, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.TABLEDATA
-                        .toString().equals(validationType)) {
+                } else if (TableValidationType.TABLEDATA.toString().equals(
+                        validationType)) {
                     compareExcelData(arrExcelContent, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.RELATIVE
-                        .toString().equals(validationType)) {
+                } else if (TableValidationType.RELATIVE.toString().equals(
+                        validationType)) {
                     validateExcelOffset(arrExcelContent, expectedvale,
                             stopOnFaliure, customError);
-                } else if (TableValidationType.TABLECELL
-                        .toString().equals(validationType)) {
+                } else if (TableValidationType.TABLECELL.toString().equals(
+                        validationType)) {
                     validateExcelCellValue(arrExcelContent, expectedvale,
                             stopOnFaliure, customError);
                 } else {
@@ -12345,11 +12762,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Validate excel row count.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param expectedValue the expected value
-     * @param fail the fail
-     * @param customError the custom error
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param expectedValue
+     *            the expected value
+     * @param fail
+     *            the fail
+     * @param customError
+     *            the custom error
      * @return the int
      */
     private int validateExcelRowCount(final String[][] arrExcelContent,
@@ -12389,11 +12810,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Validate excel col count.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param expectedValue the expected value
-     * @param fail the fail
-     * @param customError the custom error
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param expectedValue
+     *            the expected value
+     * @param fail
+     *            the fail
+     * @param customError
+     *            the custom error
      * @return the int
      */
     private int validateExcelColCount(final String[][] arrExcelContent,
@@ -12458,9 +12883,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             reportresult(fail, "CHECK DOCUMENT :COLUMN COUNT", "FAILED",
                     noe.getMessage());
             checkTrue(false, fail, noe.getMessage());
-            
+
         } catch (Exception e) {
-        
+
             e.printStackTrace();
             reportresult(fail, "CHECK DOCUMENT :COLUMN COUNT", "FAILED",
                     e.getMessage());
@@ -12472,10 +12897,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Gets the document data table.
-     *
-     * @param arrExcelContent the arr excel content
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
      * @return the document data table
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     private ArrayList<String> getDocumentDataTable(
             final String[][] arrExcelContent) throws Exception {
@@ -12498,11 +12925,15 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Compare excel data.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param expectedvale the expectedvale
-     * @param fail the fail
-     * @param customError the custom error
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param expectedvale
+     *            the expectedvale
+     * @param fail
+     *            the fail
+     * @param customError
+     *            the custom error
      */
     private void compareExcelData(final String[][] arrExcelContent,
             final String expectedvale, final boolean fail,
@@ -12552,12 +12983,17 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Validate excel offset.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param expectedvalue the expectedvalue
-     * @param fail the fail
-     * @param customError the custom error
-     * @throws Exception the exception
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param expectedvalue
+     *            the expectedvalue
+     * @param fail
+     *            the fail
+     * @param customError
+     *            the custom error
+     * @throws Exception
+     *             the exception
      */
     private void validateExcelOffset(final String[][] arrExcelContent,
             final String expectedvalue, final boolean fail,
@@ -12617,11 +13053,14 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Gets the document table row.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param row the row
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param row
+     *            the row
      * @return the document table row
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     private ArrayList<String> getDocumentTableRow(
             final String[][] arrExcelContent, final int row) throws Exception {
@@ -12641,12 +13080,17 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Validate excel cell value.
-     *
-     * @param arrExcelContent the arr excel content
-     * @param expectedvalue the expectedvalue
-     * @param fail the fail
-     * @param customError the custom error
-     * @throws Exception the exception
+     * 
+     * @param arrExcelContent
+     *            the arr excel content
+     * @param expectedvalue
+     *            the expectedvalue
+     * @param fail
+     *            the fail
+     * @param customError
+     *            the custom error
+     * @throws Exception
+     *             the exception
      */
     private void validateExcelCellValue(final String[][] arrExcelContent,
             final String expectedvalue, final boolean fail,
@@ -12708,7 +13152,9 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 failedOnce = true;
                 StringBuilder buf = new StringBuilder();
                 buf.append(result + "|Expected Column : " + verifyIndex);
-                result = buf.append(" cannot be found in the actual table \n").toString();
+                result =
+                        buf.append(" cannot be found in the actual table \n")
+                                .toString();
             }
         }
         if (failedOnce) {
@@ -12730,15 +13176,18 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Xml verify.
-     *
-     * @param filePath the file path
-     * @param verifyType the verify type
-     * @param inputString the input string
-     * @param stopOnFaliure the stop on faliure
+     * 
+     * @param filePath
+     *            the file path
+     * @param verifyType
+     *            the verify type
+     * @param inputString
+     *            the input string
+     * @param stopOnFaliure
+     *            the stop on faliure
      */
-    private void xmlVerify(final String filePath,
-            final String verifyType, final String inputString,
-            final boolean stopOnFaliure) {
+    private void xmlVerify(final String filePath, final String verifyType,
+            final String inputString, final boolean stopOnFaliure) {
         String verifyCategory = verifyType;
         String verifySubCategory = "";
         if (verifyType.contains("|")) {
@@ -12746,8 +13195,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             verifyCategory = verifyTypeSeperate[0];
             verifySubCategory = verifyTypeSeperate[1];
         }
-        DocumentBuilderFactory docFactory =
-                DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         if ("NODECOUNT".equalsIgnoreCase(verifyCategory)) {
             try {
                 String[] inputStringSeperate = inputString.split("\\|");
@@ -12757,17 +13205,16 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
                 Document doc = docBuilder.parse(filepath);
                 NodeList list = doc.getElementsByTagName(nodeName);
-                int numOfNodes =  Integer.parseInt(nodeCount);
+                int numOfNodes = Integer.parseInt(nodeCount);
                 int listLength = list.getLength();
                 if (listLength == Integer.parseInt(nodeCount)) {
-                    reportresult(true, "CHECK DOCUMENT :", "PASSED",
+                    reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "PASSED",
                             "CheckDocument command: Verified count as expected. Expected Count : "
                                     + numOfNodes);
                 } else {
-                    reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                    reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                             "CheckDocument command NODECOUNT : Node count for the node "
-                                    + nodeName + " is incorrect. Expected count : "
-                                    + numOfNodes + " Actual count : " + listLength);
+                    + nodeName + " is incorrect. Expected count : " + numOfNodes + " Actual count : " + listLength);
                     checkTrue(false, stopOnFaliure,
                             "CheckDocument command NODECOUNT : Node count for the node "
                                     + nodeName + " is incorrect. Expected count : "
@@ -12775,35 +13222,35 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 }
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :",  "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false,  stopOnFaliure,
+                checkTrue(false, stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(false,  stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (SAXException e) {
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false,  stopOnFaliure,
+                checkTrue(false, stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Execption occured. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
                         "CheckDocument command NODECOUNT : Execption occured. Actual error : "
-                               + e.getMessage());
+                                + e.getMessage());
             }
         } else if ("NODEVALUE".equalsIgnoreCase(verifyCategory)) {
             try {
@@ -12812,41 +13259,44 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 String expectedValue = inputStringSeperate[1]; // Setup the parser
                 /*DocumentBuilderFactory builderFactory =
                         DocumentBuilderFactory.newInstance();*/
-                DocumentBuilder builder = docFactory.newDocumentBuilder(); // Read the XML file
+                DocumentBuilder builder = docFactory.newDocumentBuilder(); 
+                // Read the XML file
                 File inputFile = new File(filePath);
-                InputStream inputStream = new FileInputStream(inputFile); // Parse the XML file
+                InputStream inputStream = new FileInputStream(inputFile); 
+                // Parse the XML file
                 Document doc = builder.parse(inputStream); // Create an XPath instance
                 XPath xPath = XPathFactory.newInstance().newXPath(); // Evaluate simple expressions
                 if ("EXACTNODE".equalsIgnoreCase(verifySubCategory)) {
                     String expression1 = retriveXpath;
                     String actualValue = xPath.evaluate(expression1, doc);
                     if (actualValue.equalsIgnoreCase(expectedValue)) {
-                        reportresult(true, "CHECK DOCUMENT :", "PASSED",
-                                "CheckDocument command NODEVALUE|EXACTNODE : " 
-                               + "Verified value as expected. Expected value : " + expectedValue);
+                        reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "PASSED",
+                        "CheckDocument command NODEVALUE|EXACTNODE : "
+                        + "Verified value as expected. Expected value : " + expectedValue);
                     } else {
-                        reportresult(true, "CHECK DOCUMENT :", "FAILED",
-                                 "CheckDocument command NODEVALUE|EXACTNODE : "
-                                + "Excpected value does not match the actual. " 
-                                + "Expected value : " + expectedValue + " Actual Value : " + actualValue);
-                        checkTrue(false,  stopOnFaliure,
-                                "CheckDocument command NODEVALUE|EXACTNODE : " 
-                                + "Excpected value does not match the actual. " 
-                                + "Expected value : " + expectedValue + " Actual Value : "
-                                        + actualValue);
+                        reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                                "CheckDocument command NODEVALUE|EXACTNODE : "
+                                        + "Excpected value does not match the actual. "
+                                        + "Expected value : " + expectedValue
+                                        + " Actual Value : " + actualValue);
+                        checkTrue(false, stopOnFaliure,
+                                "CheckDocument command NODEVALUE|EXACTNODE : "
+                                        + "Excpected value does not match the actual. "
+                                        + "Expected value : " + expectedValue
+                                        + " Actual Value : " + actualValue);
                     }
-                } 
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false,  stopOnFaliure,
+                checkTrue(false, stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (XPathExpressionException e) {
                 e.printStackTrace();
-                reportresult(true,  "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot evaluate the given xpath. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -12854,7 +13304,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 + e.getMessage());
             } catch (SAXException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -12862,7 +13312,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 + e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -12870,7 +13320,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 + e.getMessage());
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -12878,7 +13328,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                                 + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Execption occured. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -12890,16 +13340,19 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Text file verify.
-     *
-     * @param filePath the file path
-     * @param verifyType the verify type
-     * @param inputString the input string
-     * @param stopOnFaliure the stop on faliure
+     * 
+     * @param filePath
+     *            the file path
+     * @param verifyType
+     *            the verify type
+     * @param inputString
+     *            the input string
+     * @param stopOnFaliure
+     *            the stop on faliure
      */
-    private void textFileVerify(final String filePath,
-            final String verifyType,
+    private void textFileVerify(final String filePath, final String verifyType,
             final String inputString, final boolean stopOnFaliure) {
-       
+
         if ("EXISTS".equalsIgnoreCase(verifyType)) {
 
             String[] inputStringSeperate = inputString.split("\\|");
@@ -12910,52 +13363,55 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 if (lines.toString().contains(expectedValue)) {
                     reportresult(
                             true,
-                            "CHECK DOCUMENT :",
+                            "CHECK DOCUMENT - TEXT [" + verifyType + "] :",
                             "PASSED",
-                            "CheckDocument command TEXT : TEXTCONTENT : " 
-                           + "Verified value as expected. Expected value : "
+                            "CheckDocument command TEXT : TEXTCONTENT : "
+                                    + "Verified value as expected. Expected value : "
                                     + expectedValue);
                 } else {
                     reportresult(
                             true,
-                            "CHECK DOCUMENT :",
+                            "CHECK DOCUMENT - TEXT [" + verifyType + "] :",
                             "FAILED",
-                            "CheckDocument command TEXTCONTENT : " 
-                            + "Excpected value cannot be found in the file. "
-                            + "Expected value : "
-                                    + expectedValue);
+                            "CheckDocument command TEXTCONTENT : "
+                                    + "Excpected value cannot be found in the file. "
+                                    + "Expected value : " + expectedValue);
                     checkTrue(
                             false,
                             stopOnFaliure,
-                            "CheckDocument command TEXTCONTENT : " 
-                           + "Excpected value cannot be found in the file. "
-                           + "Expected value : "
-                                    + expectedValue);
+                            "CheckDocument command TEXTCONTENT : "
+                                    + "Excpected value cannot be found in the file. "
+                                    + "Expected value : " + expectedValue);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
                 reportresult(
                         true,
-                        "CHECK DOCUMENT :",
+                        "CHECK DOCUMENT - TEXT [" + verifyType + "] :",
                         "FAILED",
-                        "CheckDocument command TEXTCONTENT : " 
-                        + "Cannot read the given xml file. Actual error : "
+                        "CheckDocument command TEXTCONTENT : "
+                                + "Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
                 checkTrue(
                         false,
                         stopOnFaliure,
-                        "CheckDocument command TEXTCONTENT : " 
-                        + "Cannot read the given xml file. Actual error : "
+                        "CheckDocument command TEXTCONTENT : "
+                                + "Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT :", "FAILED",
-                        "CheckDocument command NODECOUNT : " 
-                       + "Execption occured. Actual error : "
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - TEXT [" + verifyType + "] :",
+                        "FAILED",
+                        "CheckDocument command NODECOUNT : "
+                                + "Execption occured. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
-                        "CheckDocument command NODECOUNT :" 
-                        + " Execption occured. Actual error : "
+                checkTrue(
+                        false,
+                        stopOnFaliure,
+                        "CheckDocument command NODECOUNT :"
+                                + " Execption occured. Actual error : "
                                 + e.getMessage());
             }
         }
@@ -12963,10 +13419,12 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
     /**
      * Read text file.
-     *
-     * @param filePath the file path
+     * 
+     * @param filePath
+     *            the file path
      * @return the list
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
      */
     private List<String> readTextFile(final String filePath) throws IOException {
 

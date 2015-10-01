@@ -645,7 +645,7 @@
        <tr>
       <td>
         <i class="field">
-          Language <b>
+          Browser <b>
             <xsl:value-of select="@language"/>
           </b>
         </i>

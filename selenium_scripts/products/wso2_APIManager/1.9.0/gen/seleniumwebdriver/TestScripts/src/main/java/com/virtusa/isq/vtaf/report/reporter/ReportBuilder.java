@@ -13,16 +13,20 @@ package com.virtusa.isq.vtaf.report.reporter;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang3.time.StopWatch;
 
 import com.virtusa.isq.vtaf.report.model.TestCase;
 import com.virtusa.isq.vtaf.report.model.TestExecution;
 import com.virtusa.isq.vtaf.report.model.TestStep;
 import com.virtusa.isq.vtaf.report.model.TestSuite;
+import com.virtusa.isq.vtaf.utils.PropertyHandler;
 
 /**
  * The Class ReportBuilder.
@@ -49,6 +53,12 @@ public class ReportBuilder {
 
     /** The reported test cases. */
     private Set<Integer> reportedTestCases;
+
+    /** The stop watch. */
+    private StopWatch stopWatch = new StopWatch();
+
+    /** The time start. */
+    private long timeStart = 0;
 
     /**
      * Instantiates a new report builder.
@@ -101,6 +111,8 @@ public class ReportBuilder {
      */
     public final void addNewTestSuite(final String testSuiteName,
             final String duration) {
+        timeStart = System.currentTimeMillis();
+
         String iterationcount = "1";
         String maxchildren = "0";
         String type = "folder";
@@ -118,19 +130,25 @@ public class ReportBuilder {
      * Adds the new test execution.
      */
     public final void addNewTestExecution() {
+        stopWatch.start();
 
         String host = "UNKNOWN";
         String user = "UNKNOWN";
         String osversion = "UNKNOWN";
-        String language = "EN-US";
+        String language = "UNKNOWN";
         String screenresolution = "UNKNOWN";
         String timestamp = "UNKNOWN";
         String duration = "UNKNOWN";
 
         try {
+            PropertyHandler propHandler =
+                    new PropertyHandler("runtime.properties");
+            String browser = propHandler.getRuntimeProperty("BROWSER");
             user = System.getProperty("user.name");
-            host = InetAddress.getLoopbackAddress().getHostName();
-            osversion = System.getProperty("os.version");
+            language = (browser.toUpperCase(Locale.ENGLISH)).replace("*", "");
+            host = user; // InetAddress.getLoopbackAddress().getHostName();
+            osversion = System.getProperty("os.name"); // system.getproperty(
+                                                       // os.version )
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             screenresolution = screenSize.width + "X" + screenSize.height;
 
@@ -228,10 +246,45 @@ public class ReportBuilder {
                     }
                 }
             }
+
         }
 
+        long millisTotal = stopWatch.getTime();
+        String hmsEx =
+                String.format(
+                        "%02d:%02d:%02d",
+                        TimeUnit.MILLISECONDS.toHours(millisTotal),
+                        TimeUnit.MILLISECONDS.toMinutes(millisTotal)
+                                - TimeUnit.HOURS
+                                        .toMinutes(TimeUnit.MILLISECONDS
+                                                .toHours(millisTotal)),
+                        TimeUnit.MILLISECONDS.toSeconds(millisTotal)
+                                - TimeUnit.MINUTES
+                                        .toSeconds(TimeUnit.MILLISECONDS
+                                                .toMinutes(millisTotal)));
+        System.out.println(hmsEx);
+
+        testExecution.setTotaltime(hmsEx + " HH:MM:SS");
         System.out.println("Report created successfully to the folder "
                 + getReportFolderLocation());
+
+        long timeTsEnd = System.currentTimeMillis();
+        long tsTime = timeTsEnd - timeStart;
+        String hms =
+                String.format(
+                        "%02d:%02d:%02d",
+                        TimeUnit.MILLISECONDS.toHours(tsTime),
+                        TimeUnit.MILLISECONDS.toMinutes(tsTime)
+                                - TimeUnit.HOURS
+                                        .toMinutes(TimeUnit.MILLISECONDS
+                                                .toHours(tsTime)),
+                        TimeUnit.MILLISECONDS.toSeconds(tsTime)
+                                - TimeUnit.MINUTES
+                                        .toSeconds(TimeUnit.MILLISECONDS
+                                                .toMinutes(tsTime)));
+        System.out.println("Time for TestSuite : " + hms);
+        testSuite.setTotaltime(hms);
+
     }
 
     /**

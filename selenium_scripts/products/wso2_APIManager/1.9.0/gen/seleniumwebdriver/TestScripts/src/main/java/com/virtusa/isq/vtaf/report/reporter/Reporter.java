@@ -141,7 +141,18 @@ public class Reporter {
             final String stacktrace) {
 
         if (isPassed) {
-            builder.addNewTestStep(isPassed, category, message, loglvl);
+            
+            if ("SCREENSHOT ".equals(category)) {
+                String screenShot =
+                        saveScreenShot(builder.getReportFolderLocation());
+                String thumbScreenShot = saveScreenshotThumb(screenShot);
+                builder.addNewTestStep(isPassed, category, "images"
+                        + File.separator + screenShot, thumbScreenShot, message,
+                        stacktrace, "Success"); 
+            } else {
+                builder.addNewTestStep(isPassed, category, message, loglvl);
+            }
+            
         } else {
 
             String screenShot =

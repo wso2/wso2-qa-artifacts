@@ -7,7 +7,7 @@ package com.virtusa.isq.vtaf.runtime.pages;
 
 public enum APIStorePrototypedAPIs {
 
-        ele_lblAPIName("//a[text()='<param_APIName> (<param_Virsion>)']"), ele_lblNoPrototypeAPIMessage("//strong[text()='No Prototyped APIs available']");
+        ele_lblAPIName("//a[text()='<param_APIName> (<param_Virsion>)']"), ele_lblNoPrototypeAPIMessage("//strong[text()='No Prototyped APIs available']"), lnk_APIName("//a[@title='<param_APIName>']");
 
     private String searchPath;
   
