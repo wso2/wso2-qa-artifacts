@@ -10,6 +10,6 @@ CreateRESTService.jmx - Creates a REST service in Governance Registry. User must
 
 CreateWSDL.jmx - Creates a WSDL artifact in Governance Registry. User must update User Defined Variables prior to the execution. 'ID' variable adds the prefix for created filename. Update the counter 'Start' parameter for each execution, otherwise it will try to create duplicate artifacts.
 
-PublisherStoreLogin.jmx - Logs in to publisher and store section of Governance Registry. Please update the User defined variables accorgindly, prior to the execution.
+PublisherStoreLogin.jmx - Logs in to publisher and store section of Governance Registry. Please update the User defined variables accorgindly, prior to the execution. Please void using 'localhost' as the server variable value, as saml sso redirects require the IP address when running in a stand alone pack.
 
 
