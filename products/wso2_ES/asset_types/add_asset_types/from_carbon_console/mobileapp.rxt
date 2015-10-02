@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-mobileapp+xml" shortName="mobileapp" singularLabel="MobileApp"
+              pluralLabel="MobileApps"
+              hasNamespace="false" iconSet="10">
+    <storagePath>/mobileapps/@{overview_provider}/@{overview_name}/@{overview_version}</storagePath>
+    <nameAttribute>overview_name</nameAttribute>
+    <ui>
+        <list>
+            <column name="Provider">
+                <data type="path" value="overview_provider" href="@{storagePath}"/>
+            </column>
+            <column name="Name">
+                <data type="path" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Platform">
+                <data type="path" value="overview_platform" href="@{storagePath}"/>
+            </column>
+            <column name="Version">
+                <data type="path" value="overview_version" href="@{storagePath}"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name>Provider</name>
+            </field>
+            <field type="text" required="true">
+                <name>Name</name>
+            </field>
+            <field type="text" required="true">
+                <name>Version</name>
+            </field>
+            <field type="options">
+                <name label="Category">Category</name>
+                <values>
+                    <value>Business</value>
+                    <value>Games</value>
+                    <value>Weather</value>
+                    <value>Music</value>
+                </values>
+            </field>
+            <field type="options">
+                <name label="Platform">Platform</name>
+                <values>
+                    <value>Android</value>
+                    <value>Apple</value>
+                    <value>Windows</value>
+                </values>
+            </field>
+            <field type="text-area">
+                <name>Description</name>
+            </field>
+        
+            <field type="text" required="true">
+                <name>PackageName</name>
+            </field>
+        
+            <field type="text" required="true">
+                <name>AppID</name>
+            </field>
+            <field type="text" required="true">
+                <name>Application</name>
+            </field>
+            <field type="text">
+                <name>Createdtime</name>
+            </field>
+            
+        </table>
+        <table name="Images">
+            <field type="text" required="true">
+                <name>Icon</name>
+            </field>
+            <field type="text" required="true">
+                <name>Thumbnail</name>
+            </field>
+            <field type="text" required="true">
+                <name>Banner</name>
+            </field>
+        </table>
+    </content>
+
+</artifactType>

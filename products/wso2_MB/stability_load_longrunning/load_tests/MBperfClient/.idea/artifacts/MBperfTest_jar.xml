@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="MBperfTest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MBperfTest_jar</output-path>
+    <root id="archive" name="MBperfTest.jar">
+      <element id="module-output" name="MBperfTest" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/andes-client-0.13.wso2v10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/geronimo-jms_1.1_spec-1.1.0.wso2v1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/org.wso2.carbon.event.client-4.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/org.wso2.carbon.event.client.stub-4.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/slf4j-1.5.10.wso2v1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

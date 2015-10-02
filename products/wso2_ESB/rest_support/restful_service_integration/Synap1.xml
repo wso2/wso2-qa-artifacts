@@ -1,0 +1,11 @@
+<endpoint xmlns="http://ws.apache.org/ns/synapse" name="HTTPEndPoint">
+   <http uri-template="https://localhost:9100/{uri.var.path}/{uri.var.name}" method="POST">
+      <suspendOnFailure>
+         <progressionFactor>1.0</progressionFactor>
+      </suspendOnFailure>
+      <markForSuspension>
+         <retriesBeforeSuspension>0</retriesBeforeSuspension>
+         <retryDelay>0</retryDelay>
+      </markForSuspension>
+   </http>
+</endpoint>

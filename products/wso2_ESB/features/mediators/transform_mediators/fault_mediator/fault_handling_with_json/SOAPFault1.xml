@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="SOAPFault1" transports="https http" startOnLoad="true" trace="disable">
+    <target>
+        <endpoint>
+            <address uri="http://10.100.0.122:9765/services/SimpleStockQuoteService"/>
+        </endpoint>
+        <outSequence>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING"/>
+            <xslt key="xslt"/>
+            <makefault version="soap11">
+                <code xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/" value="soap11Env:VersionMismatch"/>
+                <reason value="test"/>
+                <role/>
+            </makefault>
+            <send/>
+        </outSequence>
+    </target>
+    <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
+</proxy>

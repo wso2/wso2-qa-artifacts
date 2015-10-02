@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="RuleProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <target>
+      <endpoint>
+         <address uri="http://10.100.1.114:9763/services/GreetingService/"/>
+      </endpoint>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+</proxy>
