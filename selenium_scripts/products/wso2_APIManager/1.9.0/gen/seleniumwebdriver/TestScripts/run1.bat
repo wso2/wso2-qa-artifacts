@@ -1,3 +1,0 @@
-@echo off
-echo running...
-ant -buildfile build1.xml
