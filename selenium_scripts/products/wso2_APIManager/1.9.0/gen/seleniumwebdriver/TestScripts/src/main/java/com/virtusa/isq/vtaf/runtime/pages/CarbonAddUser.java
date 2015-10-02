@@ -1,0 +1,28 @@
+package com.virtusa.isq.vtaf.runtime.pages;
+
+/**
+ *  Class CarbonAddUser implements corresponding UI page
+ *  UI objects in the page are stored in the class.
+ */
+
+public enum CarbonAddUser {
+
+        tf_UserName("//input[@name='username']"), tf_password("//input[@name='password']"), tf_retypePassword("//input[@name='retype']"), btn_next("//input[@value='Next >']"), chk_Role("//input[@value='<userRole>']"), btn_finish("//input[@value='Finish']"), btn_Ok("//button[text()='OK']"), lnk_ChangeMyPassword("link=Change My Password"), tf_CurrentPassword("//input[@name='currentPassword']"), tf_NewPassword("//input[@name='newPassword']"), tf_ReapeatPassword("//input[@name='checkPassword']"), btn_Change("//input[@type='submit']"), btn_OKChangePassword("//button[contains(text(),'OK')]");
+
+    private String searchPath;
+  
+    /**
+    *  Page CarbonAddUser.
+    */
+    private CarbonAddUser(final String psearchPath) {
+        this.searchPath = psearchPath;
+    }
+    
+    /**
+     *  Get search path.
+     * @param searchPath search path.
+     */
+    public final String getSearchPath() {
+        return searchPath;
+    }
+}

@@ -1,0 +1,176 @@
+<!--Test_suite xml for running testng test-->
+<suite name="google" verbose="3">
+	<parameter name="selenium.host" value="localhost"></parameter>
+	<parameter name="selenium.port" value="4444"></parameter>
+	<parameter name="selenium.browser" value="*firefox"></parameter>
+	<parameter name="selenium.url" value="http://www.google.com"></parameter>
+	<test name="name2" preserve-order="true">
+		<classes><class name="com.testscripts.ts_APIConsole">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_APILifecycleManagement">
+				<methods>
+					<include name="tc_APILifeCycleManagement"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_APIOverview">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_APIResources">
+				<methods>
+					<include name="tc_URLTemplates"></include>
+					<include name="tc_ThrottlingInfo"></include>
+					<include name="tc_URLMappings"></include>
+					<include name="tc_Resource_level_Security"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_UserCreation">
+				<methods>
+					<include name="tc_Tenant_Creation"></include>
+					<include name="tc_Tenant_UserCreation"></include>
+					<include name="tc_Admin_UserCreation"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_APIStatistics">
+				<methods>
+					<include name="tc_API_Store_Statistics"></include>
+					<include name="tc_Admin_Dashboard_Functionality"></include>
+					<include name="tc_API_Publisher_Statistics"></include>
+					<include name="tc_Events"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_DevelopAPIs">
+				<methods>
+					<include name="tc_DesignNewAPI"></include>
+					<include name="tc_DesignAPIFromSOAPEndpoint"></include>
+					<include name="tc_DesignAPIFromSwaggerDefinition"></include>
+					<include name="tc_DeleteAPIs"></include>
+					<include name="tc_UpdateAPIs"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Design_API_From_SOAP_Endpoint">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_ManageAPIs">
+				<methods>
+					<include name="tc_TagManagement"></include>
+					<include name="tc_Handlers"></include>
+					<include name="tc_DefaultAPIVersions"></include>
+					<include name="tc_MediationPolicies"></include>
+					<include name="tc_APISearch_Of_Publisher"></include>
+					<include name="tc_APITemplates"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_ResponseCaching">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_APIStoreTypes">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_APIVersioning">
+				<methods>
+					<include name="tc_LifeCycle"></include>
+					<include name="tc_API_Versionin"></include>
+					<include name="tc_default_Version"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_APIVisibility">
+				<methods>
+					<include name="tc_Visible_To_Everyone"></include>
+					<include name="tc_Visible_To_All_Users_In_specific_Domain"></include>
+					<include name="tc_Visible_Only_To_Specified_Roles_In_Tenant_Domain"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_API_Manager">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_ApplicationManagement">
+				<methods>
+					<include name="tc_Add_Edit_Delete_Manage_Applications"></include>
+					<include name="tc_ApplicationSharing"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Customisability">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_EndpointManagement">
+				<methods>
+					<include name="tc_EndPointTypes"></include>
+					<include name="tc_Advanced_Option_Verification"></include>
+					<include name="tc_Endpoint_Security"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_JWTCaching">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_KeyGeneration">
+				<methods>
+					<include name="tc_Key_Generation_With_Scopes"></include>
+					<include name="tc_Regenerate_Keys"></include>
+					<include name="tc_Key_Generation_With_Domains"></include>
+					<include name="tc_Key_Expiration_Verification"></include>
+					<include name="tc_New_Key_Generation"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_ListSearchAPIsofStore">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_ManageDeveloperCommunity">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_OAuth2GrantTypes">
+				<methods>
+					<include name="tc_Password"></include>
+					<include name="tc_ClientCredentials"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_PublishAPIs">
+				<methods>
+					<include name="tc_PrototypeAPIs"></include>
+					<include name="tc_To_Multiple_Gateways"></include>
+					<include name="tc_Sample_API_Verification"></include>
+					<include name="tc_To_External_UserStores"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Publish_Different_Types_Of_APIs">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_Scopes">
+				<methods>
+					<include name="tc_Scope"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Subscription">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_SubscriptionManagement">
+				<methods>
+					<include name="tc_DeprecatedAPIs"></include>
+					<include name="tc_Domain_And_Visibility_Based_Subscriptions"></include>
+					<include name="tc_SubscriptionBlocking"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Throttling">
+				<methods>
+					<include name="tc_ApplicationLevel"></include>
+					<include name="tc_APILevel"></include>
+					<include name="tc_ResourceLevel"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_TierManagement">
+				<methods>
+				</methods>
+			</class><class name="com.testscripts.ts_WorkflowIntegration">
+				<methods>
+					<include name="tc_Application_Registration"></include>
+					<include name="tc_APICreation"></include>
+					<include name="tc_UserSignup"></include>
+					<include name="tc_APISubscription"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_APIDocumentation">
+				<methods>
+					<include name="tc_AddVerify_Documents"></include>
+					<include name="tc_UpdateDocuments"></include>
+					<include name="tc_DeleteDocuments"></include>
+					<include name="tc_Edit_Existing_DocContent"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_APIStore">
+				<methods>
+					<include name="tc_Subscription"></include>
+					<include name="tc_APIConsole"></include>
+					<include name="tc_API_Overview"></include>
+					<include name="tc_API_Store_Types"></include>
+					<include name="tc_Self_Signup"></include>
+					<include name="tc_List_Search_APIs_of_Store"></include>
+				</methods>
+			</class><class name="com.testscripts.ts_Community_Features">
+				<methods>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

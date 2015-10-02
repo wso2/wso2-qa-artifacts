@@ -1,0 +1,138 @@
+group Report;
+
+Content() ::= <<
+
+\<report\>	
+	<report.testExecution:TestExecution()>
+\</report\>
+>>
+
+
+TestExecution(testExecution) ::= <<
+\<activity
+user="<testExecution.user>"
+host="<testExecution.host>"
+osversion="<testExecution.osversion>"
+language="<testExecution.language>"
+screenresolution="<testExecution.screenresolution>"
+timestamp="<testExecution.timestamp>"
+result="<testExecution.result>"
+duration="<testExecution.duration>"
+type="<testExecution.type>"
+totalerrorcount="<testExecution.totalerrorcount>"
+totalwarningcount="<testExecution.totalwarningcount>"
+totalsuccesscount="<testExecution.totalsuccesscount>"
+totalfailedcount="<testExecution.totalfailedcount>"
+totalblockedcount="<testExecution.totalblockedcount>"\>
+\<detail\>
+	Test Execution Report
+\</detail\>
+\<activity
+		testsuitename="VTAF Test Execution Report"
+		runconfigname=""
+		runlabel=""
+		maxchildren="0"
+		result="<testExecution.result>"
+		duration="<testExecution.duration>"
+		type="test suite"
+		rid="a106eb7a56abd88"\>
+		
+		<testExecution.testSuites:TestSuite();separator="\n">
+\</activity\>
+\</activity\>
+
+>>
+
+TestSuite(testSuite) ::=<<
+\<activity
+		foldername="<testSuite.testsuitename>"
+		result="<testSuite.result>"
+		duration="<testSuite.duration>"
+		type="<testSuite.type>"
+		rid="<testSuite.rid>"\>
+		\<params/\>
+		
+		<testSuite.testCases:TestCase();separator="\n">
+\</activity\>
+>>
+
+TestCase(testCase) ::=<<
+\<activity
+	testcasename="<testCase.modulename>"
+	datasource=""
+	iterationcount="1"
+	maxchildren="0"
+	result="<testCase.result>"
+	duration="<testCase.duration>"
+	type="test case"
+	rid="<testCase.rid>"\>
+	\<activity
+		modulename="<testCase.modulename>"
+		moduletype="<testCase.moduletype>"
+		result="<testCase.result>"
+		duration="<testCase.duration>"
+		type="<testCase.type>"
+		rid="<testCase.rid>"\>
+		
+		\<datarow\>
+		\</datarow\>
+				
+		<testCase.testSteps:TestStep();separator="\n">
+	\</activity\>
+\</activity\>
+>>
+
+TestStep(testStep) ::=<<
+
+<if(testStep.Passed)>
+
+    <if(testStep.ScreenShot)>
+        \<item
+		time="<testStep.time>"
+		level="<testStep.loglvl>"
+		category="<testStep.category>"
+		errimg="<testStep.errimg>"
+		errthumb="<testStep.errthumb>"\>
+		\<message\>
+			<testStep.message>
+		\</message\>
+		\<metainfo
+			codefile="<testStep.codefile>"
+			codeline="<testStep.codeline>"
+			loglvl="<testStep.loglvl>"/\>
+	     \</item>	
+    <else>
+	\<item
+		time="<testStep.time>"
+		level="<testStep.loglvl>"
+		category="<testStep.category>"\>
+		\<message\>
+			<testStep.message>
+		\</message\>
+		\<metainfo
+			codefile="<testStep.codefile>"
+			codeline="<testStep.codeline>"
+			loglvl="<testStep.loglvl>"/\>
+	\</item\>
+	<endif>	
+<else>
+	\<item
+		time="<testStep.time>"
+		level="<testStep.loglvl>"
+		category="<testStep.category>"
+		errimg="<testStep.errimg>"
+		errthumb="<testStep.errthumb>"\>
+		\<message\>
+			<testStep.message>
+		\</message\>
+		\<metainfo
+			stacktrace="<testStep.stacktrace>"
+			codefile="<testStep.codefile>"
+			codeline="<testStep.codeline>"
+			loglvl="<testStep.loglvl>"/\>
+	\</item>	
+<endif>
+
+>>
+
+
