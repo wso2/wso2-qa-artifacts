@@ -1,0 +1,22 @@
+README 
+======
+
+1. This test artifact is a real use case use with salesforce connector in esb.
+2. This api query salesforce user information and transform a json object using payload factory mediator.
+3. This can be used to test   <payloadFactory media-type="json">
+
+Steps :
+
+1. Salesforce connector should be installed and enabled
+2. MySFConfig local entry should have been created with salesforce credentials
+E.g.,
+
+<salesforce.init>
+    <username>xxxx@abc.com</username>
+    <password>xxxxx</password>
+    <loginUrl>https://login.salesforce.com/services/Soap/u/34.0</loginUrl>
+</salesforce.init>
+
+3. Users should have been created in the salesforce account and profile id should be set in the below property
+
+<property name="ProfileId" value="00e90000001aVwiAAE" scope="default" type="STRING"/>
