@@ -10,11 +10,12 @@ documentation
         virtusa_docs
         wso2_docs
 products
-        Wso2_ESB
-        Wso2_MB
-        Wso2_BPS
-        Wso2_IS
-        Wso2_DAS
+        wso2_apimanager
+        wso2_esb
+        wso2_mb
+        wso2_bps
+        wso2_is
+        wso2_das
     …….
     …...
 
