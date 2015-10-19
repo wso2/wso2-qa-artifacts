@@ -1,0 +1,3 @@
+   <p:echoInt xmlns:p="http://echo.services.core.carbon.wso2.org">
+      <in>6</in>
+   </p:echoInt>

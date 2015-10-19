@@ -1,0 +1,33 @@
+<api xmlns="http://ws.apache.org/ns/synapse" name="cpleads1" context="/cpleads1">
+   <resource methods="GET">
+      <inSequence>
+         <property name="LeadQuery" value="Select u.Username, u.ProfileId, u.Name, u.LastName, u.Email From User u where ProfileId='" scope="default" type="STRING"/>
+         <property name="Apostrophe" value="'" scope="default" type="STRING"/>
+         <property name="ProfileId" value="00e90000001aVwiAAE" scope="default" type="STRING"/>
+         <property name="CompleteLeadQuery" expression="fn:concat($ctx:LeadQuery, $ctx:ProfileId, $ctx:Apostrophe)" scope="default" type="STRING"/>
+         <salesforce.getUserInfo configKey="MySFConfig"/>
+         <salesforce.query>
+            <batchSize>1</batchSize>
+            <queryString>{$ctx:CompleteLeadQuery}</queryString>
+         </salesforce.query>
+         <property xmlns:ns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" name="Name" expression="//ns:queryResponse/ns:result/ns:records/sf:Name/text()" scope="default" type="STRING"/>
+         <property xmlns:ns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" name="Username" expression="//ns:queryResponse/ns:result/ns:records/sf:Username/text()" scope="default" type="STRING"/>
+         <property xmlns:ns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" name="LastName" expression="//ns:queryResponse/ns:result/ns:records/sf:LastName/text()" scope="default" type="STRING"/>
+         <property xmlns:ns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" name="Email" expression="//ns:queryResponse/ns:result/ns:records/sf:Email/text()" scope="default" type="STRING"/>
+         <log level="full" separator=","/>
+         <payloadFactory media-type="json">
+            <format>{ "ProfileId": { "source": "SALESFORCE", "id": "$1" },   "Name": "$2", "Username": "$3", "LastName":   "$4", "Email": "$5"   }</format>
+            <args>
+               <arg evaluator="xml" expression="$ctx:ProfileId"/>
+               <arg evaluator="xml" expression="$ctx:Name"/>
+               <arg evaluator="xml" expression="$ctx:Username"/>
+               <arg evaluator="xml" expression="$ctx:LastName"/>
+               <arg evaluator="xml" expression="$ctx:Email"/>
+            </args>
+         </payloadFactory>
+         <property name="messageType" value="application/json" scope="axis2" type="STRING"/>
+         <respond/>
+      </inSequence>
+   </resource>
+</api>
+       

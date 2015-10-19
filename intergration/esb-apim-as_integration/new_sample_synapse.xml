@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://ws.apache.org/ns/synapse">
+   <registry provider="org.wso2.carbon.mediation.registry.WSO2Registry">
+      <parameter name="cachableDuration">15000</parameter>
+   </registry>
+   <proxy name="CacheProxy" transports="https http" startOnLoad="true" trace="disable">
+      <description/>
+      <target>
+         <inSequence>
+            <property name="CLIENT_KEY" expression="get-property('transport','ClientKey')"
+                      scope="default"
+                      type="STRING"/>
+            <property name="CLIENT_SECRET" expression="get-property('transport','ClientSecret')"
+                      scope="default"
+                      type="STRING"/>
+            <property xmlns:ns="http://org.apache.synapse/xsd" name="Authorization"
+                      expression="fn:concat('Basic ', base64Encode(fn:concat(get-property('CLIENT_KEY'),':',get-property('CLIENT_SECRET'))))"
+                      scope="transport"/>
+            <cache id="TOKEN_CACHE" scope="per-host" collector="false"
+                   hashGenerator="org.wso2.caching.digest.DOMHASHGenerator"
+                   timeout="60">
+               <implementation type="memory" maxSize="1000"/>
+            </cache>
+            <log level="full">
+               <property name="CacheProxy_IN" value="~~~~CacheProxy inSequence~~~~"/>
+            </log>
+            <send>
+               <endpoint>
+                  <address uri="http://localhost:8280/services/KeyServiceProxySOAP" format="soap11"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <cache id="TOKEN_CACHE" scope="per-host" collector="true"/>
+            <log level="full">
+               <property name="CacheProxy_OUT" value="~~~~CacheProxy outSequence~~~~"/>
+            </log>
+            <send/>
+         </outSequence>
+      </target>
+   </proxy>
+   <proxy name="KeyServiceProxySOAP" transports="https http local" startOnLoad="true"
+          trace="disable">
+      <description/>
+      <target>
+         <inSequence>
+            <log level="full">
+               <property name="KeyServiceProxySOAP_IN" value="~~~~KeyServiceProxySOAP inSequence~~~~"/>
+            </log>
+            <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"
+                      type="STRING"/>
+            <property name="ContentType" value="application/x-www-form-urlencoded" scope="axis2"
+                      type="STRING"/>
+            <property name="CONTENT_TYPE" value="application/x-www-form-urlencoded" scope="axis2"
+                      type="STRING"/>
+            <payloadFactory media-type="xml">
+               <format>
+                  <mediate>
+                     <grant_type>client_credentials</grant_type>
+                     <scope>PRODUCTION</scope>
+                  </mediate>
+               </format>
+               <args/>
+            </payloadFactory>
+            <log level="full">
+               <property name="KeyServiceProxySOAP_IN_Forwarding"
+                         value="~~~~KeyServiceProxySOAP Forwarding to Token API~~~~"/>
+            </log>
+            <send>
+               <endpoint>
+                  <address uri="https://localhost:9445/oauth2/token" format="rest"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <log level="full">
+               <property name="KeyServiceProxySOAP_OUT_Receiving"
+                         value="~~~~KeyServiceProxySOAP Receiving from Token API~~~~"/>
+            </log>
+            <property name="token" expression="//access_token"/>
+            <enrich>
+               <source type="inline" clone="true">
+                  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                     <soapenv:Body/>
+                  </soapenv:Envelope>
+               </source>
+               <target type="envelope"/>
+            </enrich>
+            <payloadFactory media-type="xml">
+               <format>
+                  <m:access_token xmlns:m="http://wso2.org">$1</m:access_token>
+               </format>
+               <args>
+                  <arg evaluator="xml" expression="get-property('token')"/>
+               </args>
+            </payloadFactory>
+            <property name="Content-Type" value="text/xml" scope="transport" type="STRING"/>
+            <log level="full">
+               <property name="KeyServiceProxySOAP_OUT_Sending"
+                         value="~~~~KeyServiceProxySOAP outSequence~~~~"/>
+            </log>
+            <send/>
+         </outSequence>
+      </target>
+   </proxy>
+   <sequence name="ApiSender">
+      <log level="full">
+         <property name="ApiSender_IN" value="~~~~ApiSender_IN_Received~~~~"/>
+      </log>
+      <property xmlns:ns="http://org.apache.synapse/xsd" name="ACCESS_TOKEN"
+                expression="//access_token"
+                scope="default"
+                type="STRING"/>
+      <property xmlns:ns="http://org.apache.synapse/xsd" name="Authorization"
+                expression="fn:concat('Bearer ', get-property('ACCESS_TOKEN'))"
+                scope="transport"/>
+      <property xmlns:ns="http://org.apache.synapse/xsd" name="API_URL"
+                expression="fn:concat('http://localhost:8282',get-property('API_URL_CTXT'))"/>
+      <header xmlns:ns="http://org.apache.synapse/xsd" name="To"
+              expression="get-property('API_URL')"/>
+      <property name="messageType" value="application/xml" scope="axis2"/>
+      <enrich>
+         <source type="property" clone="true" property="ORIG_REQ"/>
+         <target type="body"/>
+      </enrich>
+      <log level="full">
+         <property name="ApiSender_Middle" value="########came here 1#######"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd" name="ENDPOINT_APIM"
+                   expression="get-property('To')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd" name="AUTHORIZATION_APIM"
+                   expression="get-property('Authorization')"/>
+      </log>
+      <log level="full">
+         <property name="ApiSender_OUT" value="~~~~ApiSender_OUT_Sending~~~~"/>
+      </log>
+      <property name="POST_TO_URI" value="true" scope="axis2"/>
+      <send>
+         <endpoint>
+            <default format="rest"/>
+         </endpoint>
+      </send>
+   </sequence>
+   <sequence name="fault">
+      <log level="full">
+         <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+      </log>
+      <drop/>
+   </sequence>
+   <sequence name="main">
+      <in>
+         <log level="full"/>
+         <filter source="get-property('To')" regex="http://localhost:9000.*">
+            <send/>
+         </filter>
+      </in>
+      <out>
+         <send/>
+      </out>
+      <description>The main sequence for the message mediation</description>
+   </sequence>
+   <api name="reqAPI" context="/reqapi">
+      <resource methods="POST GET DELETE OPTIONS PUT" url-mapping="/*">
+         <inSequence>
+            <log level="full">
+               <property name="ApiSender_IN" value="~~~~ApiSender_inSequence~~~~"/>
+               <property name="REST_URL_POSTFIX" expression="get-property('axis2','REST_URL_POSTFIX')"/>
+               <property name="CLIENT_KEY" expression="get-property('transport','ClientKey')"/>
+               <property name="CLIENT_SECRET" expression="get-property('transport','ClientSecret')"/>
+            </log>
+            <property name="API_URL_CTXT" expression="get-property('axis2','REST_URL_POSTFIX')"/>
+            <enrich>
+               <source type="body" clone="true"/>
+               <target type="property" property="ORIG_REQ"/>
+            </enrich>
+            <send receive="ApiSender">
+               <endpoint>
+                  <address uri="http://localhost:8280/services/CacheProxy"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <property name="messageType" value="application/xml" scope="axis2"/>
+            <log level="full">
+               <property name="ApiSender_OUT" value="~~~~ApiSender_outSequence~~~~"/>
+            </log>
+            <send/>
+         </outSequence>
+      </resource>
+   </api>
+</definitions>

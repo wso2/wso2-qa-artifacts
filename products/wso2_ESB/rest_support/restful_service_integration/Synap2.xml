@@ -1,0 +1,15 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="TestProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+   <target>
+      <inSequence>
+         <property name="uri.var.path" value="services"/>
+         <property name="uri.var.name" value="SimpleStockQuoteService"/>
+         <send>
+            <endpoint key="HTTPEndPoint"/>
+         </send>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <description></description>
+</proxy>

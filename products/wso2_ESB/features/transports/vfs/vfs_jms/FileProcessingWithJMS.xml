@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?><proxy xmlns="http://ws.apache.org/ns/synapse" name="FileProcessingWithJMS" statistics="disable" trace="disable" transports="http,https,vfs,jms">
+        <target>
+            <inSequence>
+                <log category="INFO" level="full" separator="," />
+            </inSequence>
+            <endpoint>
+                <address statistics="disable" trace="disable" uri="jms:/FileProcessingWithJMS?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue">
+                    <timeout>
+                        <duration>0</duration>
+                        <action>discard</action>
+                    </timeout>
+                    <markForSuspension>
+                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        <retryDelay>0</retryDelay>
+                    </markForSuspension>
+                    <suspendOnFailure>
+                        <initialDuration>0</initialDuration>
+                        <maximumDuration>0</maximumDuration>
+                        <progressionFactor>1.0</progressionFactor>
+                    </suspendOnFailure>
+                </address>
+            </endpoint>
+            <outSequence>
+                <property action="remove" name="TRANSPORT_HEADERS" scope="axis2" />
+                <log category="DEBUG" level="full" separator="," />
+                <property action="set" expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')" name="transport.vfs.ReplyFileName" scope="transport" type="STRING" />
+                <property action="set" name="OUT_ONLY" scope="default" type="STRING" value="true" />
+                <send>
+                    <endpoint>
+                        <address statistics="disable" trace="disable" uri="vfs:file:C:/Personal/out">
+                            <timeout>
+                                <duration>0</duration>
+                                <action>discard</action>
+                            </timeout>
+                            <markForSuspension>
+                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                <retryDelay>0</retryDelay>
+                            </markForSuspension>
+                            <suspendOnFailure>
+                                <initialDuration>0</initialDuration>
+                                <maximumDuration>0</maximumDuration>
+                                <progressionFactor>1.0</progressionFactor>
+                            </suspendOnFailure>
+                        </address>
+                    </endpoint>
+                </send>
+                <log category="INFO" level="full" separator="," />
+            </outSequence>
+        </target>
+        <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl" />
+        <parameter name="transport.vfs.FileURI">file:C:/Personal/Original</parameter>
+        <parameter name="transport.vfs.ContentType">text/xml</parameter>
+        <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
+        <parameter name="transport.PollInterval">15</parameter>
+        <parameter name="transport.vfs.MoveAfterProcess">file:C:/Personal/Pass</parameter>
+        <parameter name="transport.vfs.MoveAfterFailure">file:C:/Personal/Failures</parameter>
+        <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+        <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+    </proxy>
