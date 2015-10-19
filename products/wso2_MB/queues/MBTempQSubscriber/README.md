@@ -1,11 +1,13 @@
 WSO2 Message Broker Temporary Queue Subscriber
 ==============================================
 
-Building the project: run the following command from the project root 
+**Building the project** 
+
+Run the following command from the project root 
 
 mvn clean install
 
-Running the subscriber:
+**Running the subscriber**
 
 **With Default parameters**
 
