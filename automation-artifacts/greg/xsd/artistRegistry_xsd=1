@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.1 in JDK 6. --><xs:schema xmlns:tns="http://samples.soamoa.yesso.eu/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://samples.soamoa.yesso.eu/">
+
+<xs:complexType name="artist">
+<xs:sequence>
+<xs:element name="address" type="tns:address" minOccurs="0"></xs:element>
+<xs:element name="artType" type="tns:artType" minOccurs="0"></xs:element>
+<xs:element name="famousWorks" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="firstName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="lastName" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="country" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="houseNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="street" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="zipCode" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="artType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ACTOR"></xs:enumeration>
+<xs:enumeration value="DIRECTOR"></xs:enumeration>
+<xs:enumeration value="AUTHOR"></xs:enumeration>
+<xs:enumeration value="PAINTER"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="artistArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:artist" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

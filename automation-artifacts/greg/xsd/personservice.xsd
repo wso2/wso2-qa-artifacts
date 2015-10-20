@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <xs:schema xmlns:ns="http://ws.apache.org/axis4" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/axis2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="getPersonResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="false" type="xs:string" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setPerson">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="person" nillable="false">
+						<xs:simpleType>
+						<xs:restriction base="xs:string">
+						<xs:enumeration value="Sumedha"/>
+						<xs:enumeration value="Azeez"/>
+						<xs:enumeration value="Amila"/>
+						</xs:restriction>
+						</xs:simpleType>
+						</xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    
