@@ -2,13 +2,13 @@
 <wsdl:definitions name="BizService" targetNamespace="http://foo.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://foo.com" xmlns:p="http://bar.org/purchasing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://foo.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<xsd:import namespace="http://schemas.datacontract.org/2004/07/System" schemaLocation="https://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/test_a.xsd">
+<xsd:import namespace="http://schemas.datacontract.org/2004/07/System" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/test_a.xsd">
 </xsd:import>
-<xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="https://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/test_b.xsd">
+<xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/test_b.xsd">
 </xsd:import>
-<xsd:import namespace="http://tempuri.org/" schemaLocation="https://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/test_c.xsd">
+<xsd:import namespace="http://tempuri.org/" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/test_c.xsd">
 </xsd:import>
-<xsd:import namespace="http://schemas.microsoft.com/2003/12/Serialization/" schemaLocation="https://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/test_d.xsd">
+<xsd:import namespace="http://schemas.microsoft.com/2003/12/Serialization/" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/test_d.xsd">
 </xsd:import>
 
 </xsd:schema>

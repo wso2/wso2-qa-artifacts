@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.company.org" xmlns="http://www.company.org" elementFormDefault="qualified">
-    <xsd:include targetNamespace="http://www.company.org.person" schemaLocation="http://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/schema/org/company/www/person/Person.xsd"/>
-    <xsd:include targetNamespace="http://www.company.org.product" schemaLocation="http://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/greg/xsd/schema/org/company/www/product/Product.xsd"/>
+    <xsd:include targetNamespace="http://www.company.org.person" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/schema/org/company/www/person/Person.xsd"/>
+    <xsd:include targetNamespace="http://www.company.org.product" schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/xsd/schema/org/company/www/product/Product.xsd"/>
    <xsd:element name="Company">
         <xsd:complexType>
             <xsd:sequence>
