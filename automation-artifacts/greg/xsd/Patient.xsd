@@ -1,0 +1,1205 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ihc.org/xsd?patient" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ihc.org/xsd?patient">
+<xs:complexType name="keyType">
+<xs:sequence>
+<xs:element ref="CWE"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Patient">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="systemAttributions">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="recordedUserLocation" type="xs:string"/>
+<xs:element name="recordedActivity">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="A04"/>
+<xs:enumeration value="A08"/>
+<xs:enumeration value="A18"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="recordedTime">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="RT"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="recordedUser">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="RU"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element minOccurs="0" name="multipleBirthInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="congregation">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="languageCommunication">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+<xs:element minOccurs="0" name="communicationMode">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="CWE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="proficiencyLevel">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="CWE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="preferenceInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="CWE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="patientExternalId">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataIIType"/>
+<xs:element minOccurs="0" name="assigningAuthority">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="externalIdType">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="nonUniqueInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="citizenship">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="birthPlace">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" name="personName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="prefixName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="middleName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="personNameStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="suffixName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="titleName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="familyName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="givenName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="voorvoegselName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="preferenceInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="personNameUse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="administrativeEthnicGroup">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="religion">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="roleStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="telecom">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="telecomStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="telecomScheme">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="telecomUse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="telecomType">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="disability">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="birthDate">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+<xs:element minOccurs="0" name="verified" type="verifiedType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="cadavericDonorInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="deceasedIndicator">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="erroneousIdentification">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="multipleBirthOrderNumber">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataINTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="patientImportance">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="administrativeRace">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="veteranMilitaryStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="administrativeGender">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="nationality">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="address">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element minOccurs="0" name="careOf">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="postalCode">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="county">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="state">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressLine4">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressLine3">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressLine2">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="postalBoxNumber">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressLine1">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="country">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="city">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressUse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="addressType">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="preferenceInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="adoptionInfo">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="administrativeMaritalStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="nationalAssignedIdentifier">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataIIType"/>
+<xs:element minOccurs="0" name="assigningAuthority">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="nationalAssignedIdentifierType">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="verified" type="verifiedType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="deceasedDate">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="creatingUser">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="modifyingUser">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="instanceID">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataIIType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="creationTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="modificationTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="group">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="type">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="version">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataINTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sourceSystemIdentification">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="sourceSystemID" type="xs:string"/>
+<xs:element minOccurs="0" name="sourceSystemRecordID">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="SSRI"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="systemAttributions">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="recordedUserLocation" type="xs:string"/>
+<xs:element minOccurs="0" name="recordedActivity">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="RCT"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="recordedTime">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="RT"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="recordedUser">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="RU"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="INT">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="operator">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="value" type="xs:integer"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CNE">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="originalText">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="translation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="originalText">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="codeSystem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="codeSystemVersion">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TS">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="operator">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="value">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="timeZone">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ST">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="II">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="displayable">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="extensionString" type="xs:string"/>
+<xs:element minOccurs="0" name="root">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="extension">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CWE">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="originalText">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="singleTranslation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="originalText">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="codeSystem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="codeSystemVersion">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="code">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="DataINTType">
+<xs:sequence>
+<xs:element ref="INT"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DataCNEType">
+<xs:sequence>
+<xs:element ref="CNE"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DataTSType">
+<xs:sequence>
+<xs:element ref="TS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DataSTType">
+<xs:sequence>
+<xs:element ref="ST"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DataIIType">
+<xs:sequence>
+<xs:element ref="II"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DataCWEType">
+<xs:sequence>
+<xs:element ref="CWE"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="verifiedType">
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="reason">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="participant">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="role">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="individualPerson">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="personIdentifier">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataIIType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="personName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element minOccurs="0" name="startTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="prefixName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="middleName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="personNameStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="suffixName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="titleName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="familyName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="givenName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="voorvoegselName">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataSTType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="preferenceInd">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCNEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="personNameUse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="providerLocation">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="endTime">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataTSType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="patientLocation">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="actionMethod">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="keyType"/>
+<xs:element name="data" type="DataCWEType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+

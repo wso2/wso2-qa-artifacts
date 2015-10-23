@@ -1,0 +1,27 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bar.org/purchasing" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://schemas.datacontract.org/2004/07/System">
+<element name="productQuery">
+<complexType>
+<sequence>
+<element maxOccurs="unbounded" name="queryItem" type="tns:queryItemType"/>
+</sequence>
+</complexType>
+</element>
+<element name="productQueryResult">
+<complexType>
+<sequence>
+<element maxOccurs="unbounded" name="resultItem">
+<complexType>
+<attribute name="productId" type="string"/>
+<attribute name="price" type="int"/>
+</complexType>
+</element>
+</sequence>
+</complexType>
+</element>
+<complexType name="queryItemType">
+<attribute name="productId" type="string"/>
+<attribute name="qty" type="int"/>
+</complexType>
+<element name="invalidProductId" type="string"/>
+<element name="invalidQty" type="int"/>
+</schema>
