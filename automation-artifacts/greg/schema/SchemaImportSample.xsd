@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:listing3">
     <xsd:import namespace="urn:listing4"
-                schemaLocation="https://svn.wso2.org/repos/wso2/carbon/platform/trunk/platform-integration/platform-automated-test-suite/org.wso2.carbon.automation.test.repo/src/main/resources/artifacts/GREG/schema/LinkedSchema.xsd"/>
+                schemaLocation="https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/schema/LinkedSchema.xsd"/>
     <xsd:complexType name="Phone">
         <xsd:sequence>
             <xsd:element name="areaCode" type="xsd:int"/>
