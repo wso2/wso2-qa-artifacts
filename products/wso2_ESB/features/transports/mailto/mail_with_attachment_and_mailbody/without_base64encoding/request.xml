@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+       <ms11:text xmlns:ms11="http://ws.apache.org/commons/ns/payload">IBM</ms11:text>
+   </soapenv:Body>
+</soapenv:Envelope>
