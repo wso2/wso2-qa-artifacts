@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventReceiver name="jms_event" statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventreceiver">
+    <from eventAdapterType="jms">
+        <property name="transport.jms.DestinationType">topic</property>
+        <property name="transport.jms.Destination">test_topic</property>
+        <property name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</property>
+        <property name="java.naming.provider.url">tcp://localhost:61616</property>
+        <property name="transport.jms.SubscriptionDurable">false</property>
+        <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+        <property encrypted="true" name="transport.jms.Password">kuv2MubUUveMyv6GeHrXr9il59ajJIqUI4eoYHcgGKf/BBFOWn96NTjJQI+wYbWjKW6r79S7L7ZzgYeWx7DlGbff5X3pBN2Gh9yV0BHP1E93QtFqR7uTWi141Tr7V7ZwScwNqJbiNoV+vyLbsqKJE7T3nP8Ih9Y6omygbcLcHzg=</property>
+        <property name="transport.jms.UserName">admin</property>
+    </from>
+    <mapping customMapping="disable" type="xml"/>
+    <to streamName="inStream" version="1.0.0"/>
+</eventReceiver>
