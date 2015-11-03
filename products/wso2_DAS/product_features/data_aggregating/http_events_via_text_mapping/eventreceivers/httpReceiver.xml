@@ -1,0 +1,40 @@
+<eventReceiver name="httpReceiver" statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventreceiver">
+    <from eventAdapterType="http">
+        <property name="transports">all</property>
+    </from>
+    <mapping customMapping="enable" type="text">
+        <property>
+            <from regex="([^,^:][199]\d+[^,])"/>
+            <to name="meta_timestamp" type="long"/>
+        </property>
+        <property>
+            <from regex="(false|true)"/>
+            <to name="meta_isPowerSaverEnabled" type="bool"/>
+        </property>
+        <property>
+            <from regex="(100|101|103)"/>
+            <to name="meta_sensorId" type="int"/>
+        </property>
+        <property>
+            <from regex="([a-z]+ure)"/>
+            <to name="meta_sensorName" type="string"/>
+        </property>
+        <property>
+            <from regex="(20.44345)"/>
+            <to name="correlation_longitude" type="double"/>
+        </property>
+        <property>
+            <from regex="(\d+[\.]*\d+\s)"/>
+            <to name="correlation_latitude" type="double"/>
+        </property>
+        <property>
+            <from regex="(8.9)"/>
+            <to name="humidity" type="float"/>
+        </property>
+        <property>
+            <from regex="(\d+[\.]*\d+$)"/>
+            <to name="sensorValue" type="double"/>
+        </property>
+    </mapping>
+    <to streamName="org.wso2.event.sensor.stream" version="1.0.0"/>
+</eventReceiver>
