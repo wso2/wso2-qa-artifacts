@@ -1,0 +1,44 @@
+{
+  "name": "org.wso2.event.sensor.stream",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "metaData": [
+    {
+      "name": "timestamp",
+      "type": "LONG"
+    },
+    {
+      "name": "isPowerSaverEnabled",
+      "type": "BOOL"
+    },
+    {
+      "name": "sensorId",
+      "type": "INT"
+    },
+    {
+      "name": "sensorName",
+      "type": "STRING"
+    }
+  ],
+  "correlationData": [
+    {
+      "name": "longitude",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "latitude",
+      "type": "DOUBLE"
+    }
+  ],
+  "payloadData": [
+    {
+      "name": "humidity",
+      "type": "FLOAT"
+    },
+    {
+      "name": "sensorValue",
+      "type": "DOUBLE"
+    }
+  ]
+}
