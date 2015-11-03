@@ -1,6 +1,6 @@
 Scenario
 =========
-DAS will collect all HTTP type events that are sent to the event stream InputStream_1.0.0. The events are then sent to the execution planner. Within the execution plan the file downloaded-ml-model will be queried and processing will be done according to that model. Once the processing is done those events will be passed to PredictionStream1_1.0.0 and published on the console using the logger publisher
+DAS will collect all HTTP type events that are sent to the event stream InputStream_1.0.0. The events are then sent to the execution planner. Within the execution plan the file downloaded-ml-model will be queried and processing will be done according to that model. Once the processing is done those events will be passed to OutStream_1.0.0 and published on the console using the logger publisher
 
 Preconditions
 =============
@@ -16,7 +16,7 @@ ML Siddhi Extension
 
 2.Place the downloaded-ml-model in any folder path
 
-3.DAS should be started using -DdisableMLSparkCtx=true
+3.DAS should be started using -DdisableMLSparkCtx=true ex: sh wso2server.sh -DdisableMLSparkCtx=true
 
 Steps
 ======
