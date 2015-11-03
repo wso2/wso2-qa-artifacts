@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher name="rdbms" statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="outStream" version="1.0.0"/>
+  <mapping customMapping="disable" type="map"/>
+  <to eventAdapterType="rdbms">
+    <property name="datasource.name">DASDS</property>
+    <property name="update.keys">id</property>
+    <property name="execution.mode">update-or-insert</property>
+    <property name="table.name">tbldata</property>
+  </to>
+</eventPublisher>

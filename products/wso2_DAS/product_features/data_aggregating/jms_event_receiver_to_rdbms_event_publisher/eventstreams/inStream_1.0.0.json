@@ -1,0 +1,28 @@
+{
+  "name": "inStream",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "metaData": [
+    {
+      "name": "id",
+      "type": "INT"
+    }
+  ],
+  "correlationData": [
+    {
+      "name": "id",
+      "type": "INT"
+    }
+  ],
+  "payloadData": [
+    {
+      "name": "id",
+      "type": "INT"
+    },
+    {
+      "name": "name",
+      "type": "STRING"
+    }
+  ]
+}

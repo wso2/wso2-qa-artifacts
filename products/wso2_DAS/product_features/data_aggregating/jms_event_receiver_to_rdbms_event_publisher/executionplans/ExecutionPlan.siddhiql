@@ -1,0 +1,22 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('ExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+
+
+@Import('inStream:1.0.0')
+define stream inStream (meta_id int, correlation_id int, id int, name string);
+
+@Export('outStream:1.0.0')
+define stream outStream (meta_id int, correlation_id int, id int, userName string);
+
+from inStream#window.time(1 min)
+select meta_id,correlation_id,id,convert(name, 'string') as userName
+insert expired events into outStream
+
+                    
