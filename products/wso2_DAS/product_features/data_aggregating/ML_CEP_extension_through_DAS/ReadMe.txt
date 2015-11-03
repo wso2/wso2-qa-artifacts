@@ -24,7 +24,7 @@ Steps
 
 2.Add the event receiver ex: mlReceiver.xml to <das-home>/repository/deployment/server/eventreceiver
 
-3.Add the execution planner  ex: ExecutionPlanML.siddhiql to <das-home>/repository/deployment/server/executionplans
+3.Add the execution planner  ex: ExecutionPlan.siddhiql to <das-home>/repository/deployment/server/executionplans
 Note: update the path to the downloaded-ml-model based on your folder location
 
 /* Enter a unique ExecutionPlan */
