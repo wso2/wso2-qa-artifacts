@@ -1,6 +1,6 @@
 Scenario
 =========
-DAS will collect all HTTP type events that are sent to the event stream InputStream_1.0.0. The events are then sent to the execution planner. Within the execution plan the file downloaded-ml-model will be queried and processing will be done according to that model. Once the processing is done those events will be passed to PredictionStream1_1.0.0 and published on the console using the logger publisher
+DAS will collect all HTTP type events that are sent to the event stream InputStream_1.0.0. The events are then sent to the execution planner. Within the execution plan the file downloaded-ml-model will be queried and processing will be done according to that model. Once the processing is done those events will be passed to OutStream_1.0.0 and published on the console using the logger publisher
 
 Preconditions
 =============
@@ -16,19 +16,19 @@ ML Siddhi Extension
 
 2.Place the downloaded-ml-model in any folder path
 
-3.DAS should be started using -DdisableMLSparkCtx=true
+3.DAS should be started using -DdisableMLSparkCtx=true ex: sh wso2server.sh -DdisableMLSparkCtx=true
 
 Steps
 ======
-1.Add the event streams InputStream_1.0.0.json and PredictionStream1_1.0.0.json to path <das-home>/repository/deployment/server/eventstreams
+1.Add the event streams InputStream_1.0.0.json and OutStream_1.0.0.json to path <das-home>/repository/deployment/server/eventstreams
 
-2.Add the event receiver ex: mlReceiver.xml to <das-home>/repository/deployment/server/eventreceiver
+2.Add the event receiver ex: receiver.xml to <das-home>/repository/deployment/server/eventreceiver
 
 3.Add the execution planner  ex: ExecutionPlan.siddhiql to <das-home>/repository/deployment/server/executionplans
-Note: update the path to the downloaded-ml-model based on your folder location
+Note: update the path to the downloaded-ml-model based on your folder location given in step 2
 
 /* Enter a unique ExecutionPlan */
-@Plan:name('ExecutionPlanML')
+@Plan:name('ExecutionPlan')
 
 @Plan:trace('true')
 
@@ -44,7 +44,7 @@ select *
 insert into OutStream;
 
 
-4.Add the mlLogger.xml to <das-home>/repository/deployment/server/eventpublisher
+4.Add the logger.xml to <das-home>/repository/deployment/server/eventpublisher
 
 5.Send a request using JMeter or curl to the event receiver
 
@@ -63,23 +63,4 @@ insert into OutStream;
     </event>
 </events>
 
-6.Check the logger publisher
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+6.Check the logger publisher all published events should be listed to the user on the console
