@@ -22,13 +22,13 @@ Steps
 ======
 1.Add the event streams InputStream_1.0.0.json and PredictionStream1_1.0.0.json to path <das-home>/repository/deployment/server/eventstreams
 
-2.Add the event receiver ex: mlReceiver.xml to <das-home>/repository/deployment/server/eventreceiver
+2.Add the event receiver ex: receiver.xml to <das-home>/repository/deployment/server/eventreceiver
 
 3.Add the execution planner  ex: ExecutionPlan.siddhiql to <das-home>/repository/deployment/server/executionplans
 Note: update the path to the downloaded-ml-model based on your folder location
 
 /* Enter a unique ExecutionPlan */
-@Plan:name('ExecutionPlanML')
+@Plan:name('ExecutionPlan')
 
 @Plan:trace('true')
 
@@ -44,7 +44,7 @@ select *
 insert into OutStream;
 
 
-4.Add the mlLogger.xml to <das-home>/repository/deployment/server/eventpublisher
+4.Add the logger.xml to <das-home>/repository/deployment/server/eventpublisher
 
 5.Send a request using JMeter or curl to the event receiver
 
