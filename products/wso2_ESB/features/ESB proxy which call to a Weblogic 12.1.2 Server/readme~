@@ -1,0 +1,25 @@
+This test scenario explains of the Simple ESB proxy which forwards the call to a Weblogic 12.1.2 Server.
+
+Steps are like below.
+
+1.Start the Weblogic server and deploy the HelloWorld.war file.
+
+2.Start the ESB and create the HelloWorldProxy and enable it's wire logs.
+
+3.Invoke the ESB proxy using below curl command.
+
+curl -v -X GET "http://nayomi-ThinkPad-T540p:8280/services/HelloProxy"
+
+4.ESB logs should display the response as below.
+
+[2015-11-02 13:55:05,909]  INFO - LogMediator To: http://www.w3.org/2005/08/addressing/anonymous, WSAction: , SOAPAction: , MessageID: urn:uuid:ae31a2be-b80f-4930-be15-0ac24936b35b, Direction: response, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><html>
+<head>
+<title>Hello World (Servlet Example)</title>
+</head>
+<body>
+<h1 align="center">Hello World (Servlet Example)</h1>
+<p>Hello World</p>
+</body>
+</html></soapenv:Body></soapenv:Envelope>
+
+5.
