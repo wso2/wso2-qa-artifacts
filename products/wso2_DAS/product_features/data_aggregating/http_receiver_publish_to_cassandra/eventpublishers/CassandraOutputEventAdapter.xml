@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher name="CassandraOutputEventAdapter" statistics="disable"
+  trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="streamx" version="1.0.0"/>
+  <mapping customMapping="disable" type="map"/>
+  <to eventAdapterType="cassandra">
+    <property name="key.space.name">KS_001</property>
+    <property name="replication.factor">3</property>
+    <property encrypted="true" name="password">kuv2MubUUveMyv6GeHrXr9il59ajJIqUI4eoYHcgGKf/BBFOWn96NTjJQI+wYbWjKW6r79S7L7ZzgYeWx7DlGbff5X3pBN2Gh9yV0BHP1E93QtFqR7uTWi141Tr7V7ZwScwNqJbiNoV+vyLbsqKJE7T3nP8Ih9Y6omygbcLcHzg=</property>
+    <property name="port">9160</property>
+    <property name="hosts">localhost</property>
+    <property name="strategy.class">SimpleStrategy</property>
+    <property name="user.name">admin</property>
+    <property name="indexed.columns">key1,key2</property>
+    <property name="column.family.name">COLF_001</property>
+  </to>
+</eventPublisher>
