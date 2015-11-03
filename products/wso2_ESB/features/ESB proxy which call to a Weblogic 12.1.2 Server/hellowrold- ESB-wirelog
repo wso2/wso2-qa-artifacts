@@ -1,0 +1,37 @@
+DEBUG - wire >> "GET /services/CalendarProxy HTTP/1.1[\r][\n]"
+[2015-11-02 13:55:05,895] DEBUG - wire >> "User-Agent: curl/7.35.0[\r][\n]"
+[2015-11-02 13:55:05,895] DEBUG - wire >> "Host: nayomi-ThinkPad-T540p:8280[\r][\n]"
+[2015-11-02 13:55:05,895] DEBUG - wire >> "Accept: */*[\r][\n]"
+[2015-11-02 13:55:05,895] DEBUG - wire >> "[\r][\n]"
+[2015-11-02 13:55:05,897]  INFO - LogMediator To: /services/CalendarProxy, MessageID: urn:uuid:9b6c6a02-459a-4f8d-badc-1a529f195486, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body/></soapenv:Envelope>
+[2015-11-02 13:55:05,900] DEBUG - wire << "GET /mytomcat-helloworld/servlet/MyHelloWorldServlet HTTP/1.1[\r][\n]"
+[2015-11-02 13:55:05,900] DEBUG - wire << "Accept: */*[\r][\n]"
+[2015-11-02 13:55:05,900] DEBUG - wire << "Host: 10.100.7.88:7001[\r][\n]"
+[2015-11-02 13:55:05,900] DEBUG - wire << "Connection: Keep-Alive[\r][\n]"
+[2015-11-02 13:55:05,900] DEBUG - wire << "User-Agent: Synapse-PT-HttpComponents-NIO[\r][\n]"
+[2015-11-02 13:55:05,901] DEBUG - wire << "[\r][\n]"
+[2015-11-02 13:55:05,901] DEBUG - wire >> "HTTP/1.1 200 OK[\r][\n]"
+[2015-11-02 13:55:05,901] DEBUG - wire >> "Date: Mon, 02 Nov 2015 08:25:05 GMT[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "Content-Length: 172[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "Content-Type: text/html[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "X-Powered-By: Servlet/2.5 JSP/2.1[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "<html>[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "<head>[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "<title>Hello World (Servlet Example)</title>[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "</head>[\r][\n]"
+[2015-11-02 13:55:05,902] DEBUG - wire >> "<body>[\r][\n]"
+[2015-11-02 13:55:05,903] DEBUG - wire >> "<h1 align="center">Hello World (Servlet Example)</h1>[\r][\n]"
+[2015-11-02 13:55:05,903] DEBUG - wire >> "<p>Hello World</p>[\r][\n]"
+[2015-11-02 13:55:05,903] DEBUG - wire >> "</body>[\r][\n]"
+[2015-11-02 13:55:05,903] DEBUG - wire >> "</html>[\r][\n]"
+[2015-11-02 13:55:05,909]  INFO - LogMediator To: http://www.w3.org/2005/08/addressing/anonymous, WSAction: , SOAPAction: , MessageID: urn:uuid:ae31a2be-b80f-4930-be15-0ac24936b35b, Direction: response, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><html>
+<head>
+<title>Hello World (Servlet Example)</title>
+</head>
+<body>
+<h1 align="center">Hello World (Servlet Example)</h1>
+<p>Hello World</p>
+</body>
+</html></soapenv:Body></soapenv:Envelope>
+
