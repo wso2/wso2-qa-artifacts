@@ -20,12 +20,12 @@ ML Siddhi Extension
 
 Steps
 ======
-1.Add the event streams InputStream_1.0.0.json and PredictionStream1_1.0.0.json to path <das-home>/repository/deployment/server/eventstreams
+1.Add the event streams InputStream_1.0.0.json and OutStream_1.0.0.json to path <das-home>/repository/deployment/server/eventstreams
 
 2.Add the event receiver ex: receiver.xml to <das-home>/repository/deployment/server/eventreceiver
 
 3.Add the execution planner  ex: ExecutionPlan.siddhiql to <das-home>/repository/deployment/server/executionplans
-Note: update the path to the downloaded-ml-model based on your folder location
+Note: update the path to the downloaded-ml-model based on your folder location given in step 2
 
 /* Enter a unique ExecutionPlan */
 @Plan:name('ExecutionPlan')
@@ -63,23 +63,4 @@ insert into OutStream;
     </event>
 </events>
 
-6.Check the logger publisher
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+6.Check the logger publisher all published events should be listed to the user on the console
