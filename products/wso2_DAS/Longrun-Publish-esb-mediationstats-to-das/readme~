@@ -1,0 +1,22 @@
+These test artifacts can use for the long running testings of publishing mediation statistics from ESB to DAS.
+
+1.First, enable the mediation statistics of ESB_HOME/repository/conf/carbon.xml file.
+
+2.Then start the ESB server and create a proxy as in the attached ESB_proxy file.
+
+3.Configure the Mediation Data Publisher Configuration in ESB to connect with the DAS server.
+
+4.Create a JMeter script to invoke the ESB proxy as the attached esb-proxy-invoke-script.jmx file.
+
+5.Send a single request from ESB to DAS and you will see a stream has published into das as attached bam_mediation_stats_data_publisher_1.0.0.json file.Then persist it.
+Create another stream as the attached esb_bam_mediation_stats_data_publisher_1.0.0.json file.
+
+the reason we create two streams because, esb publishes an attribute called "count" to DAS. The count attribute cannot be used in spark script since spark uses it as a keyword inside.
+Therefore what we do is, create another stream similar to that and do an advanced mapping via the receiver.The second stream also should be the same as first stream publishing from ESB to DAS and only the count attribute name should be changed to another name.Then using the seocnd stream we can do spark scripts.
+
+6.Create a receiver in DAS and do an advanced mapping between bam_mediation_stats_data_publisher_1.0.0 stream and esb_bam_mediation_stats_data_publisher_1.0.0 streams.
+use the attached esb_mediation_stat_receiver.xml file.
+
+7.Create a spark script to get the "IN" and "OUT" message counts as attached esb_mediation_stat_count_script file.
+
+
