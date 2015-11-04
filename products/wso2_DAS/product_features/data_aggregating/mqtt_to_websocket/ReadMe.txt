@@ -1,6 +1,6 @@
 Scenario
 ===========
-In this scenario, DAS collects events that are sent to the MQTT event receiver, these events are then pushed to the mystream_in stream and the execution planner will collect a up to 5 events and pass the events to the out stream.
+In this scenario, DAS collects events that are sent to the MQTT event receiver, these events are then pushed to the mystream_in stream and the execution planner will collect a up to 5 events and pass the events to the out stream. The event publisher will connect to the external web socket consumer and publish the events.
 
 Preconditions
 =============
@@ -46,3 +46,5 @@ name2:data2,
 name3:data3,
 name4:data2,
 name5:data1
+
+Note: All published events should be visible on the websocket console
