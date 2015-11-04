@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher name="websocket" statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="mystream_out" version="1.0.0"/>
+  <mapping customMapping="disable" type="text"/>
+  <to eventAdapterType="websocket">
+    <property name="websocket.server.url">ws://localhost:9099/events/</property>
+  </to>
+</eventPublisher>
