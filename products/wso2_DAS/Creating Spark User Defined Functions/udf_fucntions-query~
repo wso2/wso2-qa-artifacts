@@ -1,0 +1,13 @@
+CREATE TEMPORARY TABLE temp_Employee USING CarbonAnalytics OPTIONS (tableName "wso2emp_details");
+
+SELECT id, concat(firstname,lastname) as fullname FROM temp_Employee;
+
+SELECT id, numtot(month_salary) as addedsal FROM temp_Employee;
+
+SELECT id, addtot(addedsalary) as saltot FROM temp_Employee;
+
+SELECT id, multitot(multiplesalary) as multiplesal FROM temp_Employee;
+
+SELECT id, divitot(dividedsalary) as dividedsal FROM temp_Employee;
+
+
