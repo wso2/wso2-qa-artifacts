@@ -1,0 +1,80 @@
+{
+  "name": "mystream_out",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "metaData": [
+    {
+      "name": "id",
+      "type": "INT"
+    }
+  ],
+  "payloadData": [
+    {
+      "name": "id",
+      "type": "INT"
+    },
+    {
+      "name": "val1",
+      "type": "INT"
+    },
+    {
+      "name": "val2",
+      "type": "INT"
+    },
+    {
+      "name": "val3",
+      "type": "INT"
+    },
+    {
+      "name": "val4",
+      "type": "INT"
+    },
+    {
+      "name": "val5",
+      "type": "INT"
+    },
+    {
+      "name": "val6",
+      "type": "INT"
+    },
+    {
+      "name": "val7",
+      "type": "INT"
+    },
+    {
+      "name": "val8",
+      "type": "INT"
+    },
+    {
+      "name": "val9",
+      "type": "INT"
+    },
+    {
+      "name": "val10",
+      "type": "INT"
+    },
+    {
+      "name": "name1",
+      "type": "STRING"
+    },
+    {
+      "name": "name2",
+      "type": "STRING"
+    },
+    {
+      "name": "name3",
+      "type": "STRING"
+    },
+    {
+      "name": "name4",
+      "type": "STRING"
+    },
+    {
+      "name": "name5",
+      "type": "STRING"
+    }
+  ]
+}
+    
+
