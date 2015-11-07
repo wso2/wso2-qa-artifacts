@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cf0ee23e-a2cf-4723-8360-01441aeb76bd" activeEnvironment="Default" name="REST Project 1" resourceRoot="" soapui-version="5.2.0-beta" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="d946472f-6513-46ef-ba17-d4cd0845bcca" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost</con:endpoint></con:endpoints><con:resource name="" path="" id="106285ef-3c22-48cc-a166-93fe72678762"><con:settings/><con:parameters/><con:method name="" id="00eb8a2c-f2ae-426b-bd4d-825f88f5cad8" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" id="e891941b-903a-4cb7-b602-414ba8561ec3" mediaType="application/json"><con:settings/><con:endpoint>http://localhost</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:restMockService id="1026fd9b-4891-4a3f-ab67-89ae5bc9009d" port="5555" path="/" host="nayomi-ThinkPad-T540p" name="mockservice1" docroot=""><con:settings/><con:properties/><con:onRequestScript>import javax.servlet.http.HttpServletResponse
+import com.eviware.soapui.support.Tools
+
+
+def response = mockRequest.httpResponse
+File file = new File("/home/nayomi/Downloads/wso2esb-4.9.0-ALPHA5/jsonresponse.json")
+FileInputStream fin = new FileInputStream(file)
+response.setStatus( HttpServletResponse.SC_OK )
+long length = file.length();
+response.setContentLength( ( int )length );
+response.setContentType("application/json;charset=utf-8" );
+Tools.readAndWrite( fin, length, response.getOutputStream() );
+fin.close();
+
+return new com.eviware.soapui.impl.wsdl.mock.WsdlMockResult(mockRequest)
+</con:onRequestScript></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

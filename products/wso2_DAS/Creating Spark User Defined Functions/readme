@@ -1,0 +1,31 @@
+This DasUdfs.jar jar contains the below methods and operations.
+
+method               operation
+========             ================
+concat		     Perform string concatination.
+numtot               Multiply an integer value pass to this method by 2
+addtot               Add a 1000 to the Long value passes to this method
+multitot             Multiply a double value by 0.25, that is passing to this method
+divitot              Divide a Float value by 2, that is passing to this method. 
+
+
+Now do the below steps to test spark user defined functions in DAS.
+
+1.Create a stream in DAS and persist it.You can use the attached wso2emp_details:1.0.0 stream file.
+
+2.Add the DasUdfs.jar file to <DAS_HOME/repository/components/lib directory.
+
+3.Add the newly created custom UDF to the <DAS_HOME>/repository/conf/analytics/spark/spark-udf-config.xml file as shown in the example below.
+
+<udf-configuration>
+    <custom-udf-classes>
+        <class-name>com.das.udfmethods.DasUdfMethods</class-name>
+        </custom-udf-classes>
+</udf-configuration>
+
+
+com.das.udfmethods.DasUdfMethods is the qualified name of the java class we created + the class name.
+
+4.Now you can publish some data into wso2emp_details stream and run a spark query to try out the methods in the udfs.You can use udf_fucntions-query file as the spark query.
+
+Therefore in the same way, you can create your own user defined functions and apply them in spark queries.
