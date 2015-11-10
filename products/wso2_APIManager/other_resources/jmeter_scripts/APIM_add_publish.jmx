@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -15,7 +15,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -36,17 +36,17 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="server" elementType="Argument">
               <stringProp name="Argument.name">server</stringProp>
-              <stringProp name="Argument.value">www.apim.wso2.com</stringProp>
+              <stringProp name="Argument.value">192.168.118.1</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="port" elementType="Argument">
               <stringProp name="Argument.name">port</stringProp>
-              <stringProp name="Argument.value">9543</stringProp>
+              <stringProp name="Argument.value">9443</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="apiname" elementType="Argument">
               <stringProp name="Argument.name">apiname</stringProp>
-              <stringProp name="Argument.value">evanapis</stringProp>
+              <stringProp name="Argument.value">evanapitest</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -231,7 +231,7 @@
                   </elementProp>
                   <elementProp name="endpoint" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">http://192.168.18.189:9763/jaxrs_basic/services/customers</stringProp>
+                    <stringProp name="Argument.value">http://192.168.118.1:9763/jaxrs_basic/services/customers</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">endpoint</stringProp>
@@ -340,6 +340,41 @@
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">resourceMethodThrottlingTier-1</stringProp>
+                  </elementProp>
+                  <elementProp name="endpoint_type" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">http</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">endpoint_type</stringProp>
+                  </elementProp>
+                  <elementProp name="endpoint_config" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;production_endpoints&quot;:{&quot;url&quot;:&quot;https://localhost:9443/${apiname}${lcount}&quot;,&quot;config&quot;:null},&quot;sandbox_endpoints&quot;:{&quot;url&quot;:&quot;https://localhost:9443/${apiname}${lcount}&quot;,&quot;config&quot;:null},&quot;implementation_status&quot;:&quot;managed&quot;,&quot;endpoint_type&quot;:&quot;http&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">endpoint_config</stringProp>
+                  </elementProp>
+                  <elementProp name="production_endpoints" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">https://${server}:${port}/${apiname}${lcount}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">production_endpoints</stringProp>
+                  </elementProp>
+                  <elementProp name="sandbox_endpoints" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">https://${server}:${port}/${apiname}${lcount}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">sandbox_endpoints</stringProp>
+                  </elementProp>
+                  <elementProp name="endpointType" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">nonsecured</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">endpointType</stringProp>
                   </elementProp>
                 </collectionProp>
               </elementProp>
@@ -623,7 +658,6 @@
               <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
-              <threadCounts>true</threadCounts>
               <sampleCount>true</sampleCount>
             </value>
           </objProp>
@@ -657,7 +691,6 @@
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
-              <threadCounts>true</threadCounts>
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
