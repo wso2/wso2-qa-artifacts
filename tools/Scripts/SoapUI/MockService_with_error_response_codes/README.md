@@ -18,7 +18,7 @@ e.g : http://10.100.5.112:8080/get_507
 
 **Invoking a GET resource with HTTP 500 Response.**
 
-http://localhost:8080/get_500
+`http://localhost:8080/get_500`
 
 Following response body will be sent
 
@@ -26,13 +26,15 @@ Following response body will be sent
 
 **Invoking a GET resource with HTTP 501 Response.**
 
-http://localhost:8080/get_501
+`http://localhost:8080/get_501`
 
 Following response body will be sent as the respon with the response code
 
 *Not Implemented - CODE 501 is Sent as the Response*
 
 **Sending a POST request for HTTP 500 response**
+
+`http://localhost:8080/post_500`
 
 Following response body will be sent with the body along with the status code.
 
