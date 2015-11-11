@@ -1,0 +1,32 @@
+{
+   "geometry":{
+      "location":{
+         "lat":-33.867260,
+         "lng":151.1958130
+      }
+   },
+   "icon":"bar-71.png",
+   "id":"7eaf7",
+   "name":"Biaggio Cafe",
+   "opening_hours":{
+      "open_now":true
+   },
+   "photos":[
+      {
+         "height":600,
+         "html_attributions":[
+         ],
+         "photo_reference":"CoQBegAAAI",
+         "width":900
+      }
+   ],
+   "price_level":1,
+   "reference":"CnRqAAAAtz",
+   "types":[
+      "bar",
+      "restaurant",
+      "food",
+      "establishment"
+   ],
+   "vicinity":"48 Pirrama Road, Pyrmont"
+}
