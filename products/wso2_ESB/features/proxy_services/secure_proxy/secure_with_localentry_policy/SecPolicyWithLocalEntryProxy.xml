@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="SecPolicyWithLocalEntryProxy"
+       transports="https"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <endpoint>
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+      </endpoint>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <policy key="server-policy"/>
+   <policy key="conf:/repository/axis2/service-groups/SecPolicyWithLocalEntryProxy/services/SecPolicyWithLocalEntryProxy/policies/UTOverTransport"/>
+   <parameter name="ScenarioID">scenario1</parameter>
+   <enableSec/>
+</proxy>
