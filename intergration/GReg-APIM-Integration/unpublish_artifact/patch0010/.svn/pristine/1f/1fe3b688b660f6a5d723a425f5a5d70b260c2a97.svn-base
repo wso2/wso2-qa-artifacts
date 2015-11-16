@@ -1,13 +1,3 @@
-This artifact is used to test the scenario where user can publish a custom artifact type to API-M publisher via G-Reg and then using a custom lifecycle in G-reg, user should be able to unpublish the artifact from API-M publisher section. Please find the testing steps below.
-
- Author:- Chanaka Jayasena
- Updated by :- Pubudu
-
- What was changed:-
- - Reverse engineered the com.fmr.pwi.governance.registry.extentions-1.0.0.jar file provided originally with the project and cleaned up the code to remove irrelevant references/comments provided.
-
- Build path for jar file:- unpublish_artifact/Project/org.wso2.carbon.governance.registry.extensions_4.6.1/META-INF/maven/org.wso2.carbon.governance/Unpublish
-
 Reproducing the issue
 -----------------------
 1 - Download Greg 5.1.0 pack ( <GREG-HOME> )
@@ -125,6 +115,16 @@ After checking items from the "Check List" click on the "publish" button.
 Now navigate to API Managers ( Publisher ) API Listing page ( https://<your-ip>:9443/publisher/). There you will be able to see an api added. ( It's better to use two different browsers for GREG and APIM )
 
 Now go back to the GREG lifecycle view ( screen3.png ). After checking items from the "Check List" click on the "Unpublish" button.
+Now you will be able to see an exception on the screen. Also the api added to API Manager is not removed.
 
-User should be able to successfully unpublish the artifact from API-M once it's been updated via lifecycle in G-Reg.
 
+
+Validating the fix
+=================================================
+=================================================
+1 - Apply the patch WSO2-CARBON-PATCH-4.4.1-0010 from [1]
+2 - Check the same senario given in the step 22 ( You don't need to create the asset again after applying the patch. Just hitting on the "unpublish" will do )
+
+Note: The exception in the teminal will be gone and you will be able to see the api added to APIM Publisher is removed.
+
+[1] - https://svn.wso2.com/wso2/custom/projects/projects/carbon/wilkes/4.4.1/patches/patch0010/WSO2-CARBON-PATCH-4.4.1-0010.zip
