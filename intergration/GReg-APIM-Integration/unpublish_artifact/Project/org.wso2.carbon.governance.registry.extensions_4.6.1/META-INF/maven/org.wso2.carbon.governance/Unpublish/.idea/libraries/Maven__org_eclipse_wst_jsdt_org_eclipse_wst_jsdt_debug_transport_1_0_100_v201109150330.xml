@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.wst.jsdt:org.eclipse.wst.jsdt.debug.transport:1.0.100.v201109150330">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.transport/1.0.100.v201109150330/org.eclipse.wst.jsdt.debug.transport-1.0.100.v201109150330.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.transport/1.0.100.v201109150330/org.eclipse.wst.jsdt.debug.transport-1.0.100.v201109150330-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.transport/1.0.100.v201109150330/org.eclipse.wst.jsdt.debug.transport-1.0.100.v201109150330-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
