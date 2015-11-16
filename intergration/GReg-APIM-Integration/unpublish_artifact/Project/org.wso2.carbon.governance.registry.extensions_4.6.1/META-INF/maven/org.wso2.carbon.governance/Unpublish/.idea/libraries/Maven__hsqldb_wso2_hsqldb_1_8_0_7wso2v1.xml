@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: hsqldb.wso2:hsqldb:1.8.0.7wso2v1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/hsqldb/wso2/hsqldb/1.8.0.7wso2v1/hsqldb-1.8.0.7wso2v1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/hsqldb/wso2/hsqldb/1.8.0.7wso2v1/hsqldb-1.8.0.7wso2v1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/hsqldb/wso2/hsqldb/1.8.0.7wso2v1/hsqldb-1.8.0.7wso2v1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
