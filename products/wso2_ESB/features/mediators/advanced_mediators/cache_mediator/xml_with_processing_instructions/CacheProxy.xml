@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="CacheProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+    <description/>
+    <target>
+        <inSequence>
+            <cache scope="per-host"
+                   collector="false"
+                   hashGenerator="org.wso2.caching.digest.DOMHASHGenerator"
+                   timeout="60">
+                <onCacheHit>
+                    <log level="full"/>
+                    <property name="messageType" value="application/xml" scope="axis2"/>
+                    <respond/>
+                </onCacheHit>
+                <implementation type="memory" maxSize="100"/>
+            </cache>
+            <send>
+                <endpoint>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <b>
+                        <?xml-multiple array?>
+                        <xyz>
+                            <a xmlns="">after cache</a>
+                        </xyz>
+                    </b>
+                </format>
+                <args/>
+            </payloadFactory>
+            <cache scope="per-host" collector="true"/>
+            <property name="messageType" value="application/xml" scope="axis2"/>
+            <send>
+                <endpoint>
+                    <default/>
+                </endpoint>
+            </send>
+        </outSequence>
+    </target>
+</proxy>
