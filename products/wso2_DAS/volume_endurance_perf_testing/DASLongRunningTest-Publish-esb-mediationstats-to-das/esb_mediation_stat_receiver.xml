@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventReceiver name="esb_mediation_stat_receiver" statistics="disable"
+    trace="disable" xmlns="http://wso2.org/carbon/eventreceiver">
+    <from eventAdapterType="wso2event">
+        <property name="events.duplicated.in.cluster">false</property>
+    </from>
+    <mapping customMapping="enable" type="wso2event">
+        <from streamName="bam_mediation_stats_data_publisher" version="1.0.0"/>
+        <property>
+            <from dataType="meta" name="host"/>
+            <to name="meta_host" type="string"/>
+        </property>
+        <property>
+            <from dataType="payload" name="direction"/>
+            <to name="direction" type="string"/>
+        </property>
+        <property>
+            <from dataType="payload" name="timestamp"/>
+            <to name="timestamp" type="long"/>
+        </property>
+        <property>
+            <from dataType="payload" name="resource_id"/>
+            <to name="resource_id" type="string"/>
+        </property>
+        <property>
+            <from dataType="payload" name="stats_type"/>
+            <to name="stats_type" type="string"/>
+        </property>
+        <property>
+            <from dataType="payload" name="max_processing_time"/>
+            <to name="max_processing_time" type="long"/>
+        </property>
+        <property>
+            <from dataType="payload" name="avg_processing_time"/>
+            <to name="avg_processing_time" type="double"/>
+        </property>
+        <property>
+            <from dataType="payload" name="min_processing_time"/>
+            <to name="min_processing_time" type="long"/>
+        </property>
+        <property>
+            <from dataType="payload" name="fault_count"/>
+            <to name="fault_count" type="int"/>
+        </property>
+        <property>
+            <from dataType="payload" name="count"/>
+            <to name="number" type="int"/>
+        </property>
+    </mapping>
+    <to streamName="esb_bam_mediation_stats_data_publisher" version="1.0.0"/>
+</eventReceiver>
