@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="Simple_Stock_Quote_Service_Proxy"
+       transports="https,http"
+       statistics="enable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <inSequence>
+         <log level="full"/>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+      <endpoint>
+         <address uri="http://localhost:9768/services/SimpleStockQuoteService/"/>
+      </endpoint>
+   </target>
+   <description/>
+</proxy>
