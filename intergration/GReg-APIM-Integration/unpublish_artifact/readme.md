@@ -1,9 +1,19 @@
+This artifact is used to test the scenario where user can publish a custom artifact type to API-M publisher via G-Reg and then using a custom lifecycle in G-reg, user should be able to unpublish the artifact from API-M publisher section. Please find the testing steps below.
+
+ Author:- Chanaka Jayasena
+ Updated by :- Pubudu Priyashan
+
+ What was changed (By Pubudu):-
+ - Reverse engineered the com.fmr.pwi.governance.registry.extentions-1.0.0.jar file provided originally with the project and cleaned up the code to remove irrelevant references/comments provided.
+
+ Build path for jar file:- unpublish_artifact/Project/org.wso2.carbon.governance.registry.extensions_4.6.1/META-INF/maven/org.wso2.carbon.governance/Unpublish
+
 Reproducing the issue
 -----------------------
 1 - Download Greg 5.1.0 pack ( <GREG-HOME> )
 2 - Set the port offset to 2000
-3 - Copy gregproperties.xml to <GREG-HOME>/repository/conf/
-4 - Copy the jar files from lib/ to <GREG-HOME>/repository/components/lib/
+3 - Copy resources/gregproperties.xml to <GREG-HOME>/repository/conf/
+4 - Copy all the jar files that are inside resource/lib to <GREG-HOME>/repository/components/lib/
 
 5 - Add the following entry to <GREG-HOME>/repository/conf/datasources/master-datasources.xml
 
@@ -95,6 +105,9 @@ Reproducing the issue
 		</Configuration>
 
 10 - Start greg 5.1.0 with -Dsetup option
+
+* NOTE: Since you have changed the default offset to 2000, you will have to change the port accordingly in wso2greg-5.1.0/repository/conf/identity/sso-idp-config.xml orelse you will not be able to login to publisher
+
 -------------------
 11 - Download wso2am-1.9.0
 12 - Start APIM 1.9.0 with the default configurations.
@@ -115,16 +128,6 @@ After checking items from the "Check List" click on the "publish" button.
 Now navigate to API Managers ( Publisher ) API Listing page ( https://<your-ip>:9443/publisher/). There you will be able to see an api added. ( It's better to use two different browsers for GREG and APIM )
 
 Now go back to the GREG lifecycle view ( screen3.png ). After checking items from the "Check List" click on the "Unpublish" button.
-Now you will be able to see an exception on the screen. Also the api added to API Manager is not removed.
 
+The API that was published from G-Reg to API Manager should be removed from API Manager Publisher node.
 
-
-Validating the fix
-=================================================
-=================================================
-1 - Apply the patch WSO2-CARBON-PATCH-4.4.1-0010 from [1]
-2 - Check the same senario given in the step 22 ( You don't need to create the asset again after applying the patch. Just hitting on the "unpublish" will do )
-
-Note: The exception in the teminal will be gone and you will be able to see the api added to APIM Publisher is removed.
-
-[1] - https://svn.wso2.com/wso2/custom/projects/projects/carbon/wilkes/4.4.1/patches/patch0010/WSO2-CARBON-PATCH-4.4.1-0010.zip
