@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspect name="SOMAapiLifeCycle" class="org.wso2.carbon.governance.registry.extensions.aspects.DefaultLifeCycle">
+    <configuration type="literal">
+        <lifecycle>
+            <scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.2" initialstate="Candidate">
+                <state id="Candidate">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="Technical and/or Business Contact" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.CustomContactsValidator">
+                                        <parameter name="mapName" value="contacts_entry" />
+                                        <parameter name="attributes" value="Technical Owner:Technical Owner Email:Technical Owner CorpId,Business Owner:Business Owner Email" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+							<item name="Business Requirements Link (AIP or BRD)" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="AIP,BRD" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+							<item name="Functional Requirement/SDS Link" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="SDS" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+                        </data>
+                    </datamodel>
+                    <transition event="Promote LC" target="Specified" />
+                </state>
+                <state id="Specified">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="ITAM Application ID" forEvent="Promote LC">
+                            </item>
+							<item name="PID(Protocol Interface Document) or WSID(WebService Interface Document) Link" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="PID,WSID" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+                            <item name="Digital Domain Model(DDM)" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="DDM" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+                        </data>
+                    </datamodel>
+                    <transition event="Promote LC" target="RealizationReview" />
+                    <transition event="Demote LC" target="Candidate" />
+                </state>
+                <state id="RealizationReview">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="Completed Code Review" forEvent="Promote LC" />
+                            <item name="SONAR Link Provided and Compliance Level > 80" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="SONAR" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+                            <item name="UnitTest/Service Virtualization Setup Reviewed" forEvent="Promote LC" />
+                            <item name="Technical Documentation(TSD) Reviewed and Published" forEvent="Promote LC">
+                                <validations>
+                                    <validation forEvent="Promote LC" class="org.qatest.pi.governance.registry.extensions.validators.MapUrlAttributeExistenceValidator">
+                                        <parameter name="mapName" value="docLinks_entry" />
+                                        <parameter name="attributes" value="TSD" />
+                                        <parameter name="atLeastOne" value="true" />
+                                    </validation>
+                                </validations>
+                            </item>
+							<item name="Documented Performance Characterization Requirements" forEvent="Promote LC" />
+                        </data>
+                    </datamodel>
+                    <transition event="Promote LC" target="Realized-Non-Prod" />
+                    <transition event="Demote LC" target="Specified" />
+                </state>
+                <state id="Realized-Non-Prod">
+                    <datamodel>
+                        <data name="checkItems">
+                                                        <item name="DIT" forEvent="">                                                    
+                                                        </item>
+							<item name="FAC" forEvent="">
+							</item>
+							<item name="PAC" forEvent="">
+							</item>
+					    </data>
+                        <data name="transitionExecution">
+                           <execution forEvent="Publish" class="org.qatest.pi.governance.registry.executor.MultiNodeExecutor">
+                              <parameter name="apim.endpoint" value="http://apistore-dev1.fmr.com:11763/,https://apipubfmrqa1.fmr.com/,https://apipubfmrlc4.fmr.com/"/>
+                              <parameter name="apim.username" value="srvAP109794Test" />
+                              <parameter name="apim.password" value="Smt14478790" />
+							  <!-- Should be matched with ‘Endpoint’ values under Environments on the RXT -->
+                              <parameter name="apim.env" value="DEV,UAT(QA1),PERFORMANCE" />
+							  <parameter name="mapName" value="endpoints_entry"/>
+                           </execution>
+						   <execution forEvent="Unpublish" class="org.qatest.pi.governance.registry.executor.MultiNodeDeleteExecutor">
+                              <parameter name="apim.endpoint" value="http://apistore-dev1.fmr.com:11763/,https://apipubfmrqa1.fmr.com/,https://apipubfmrlc4.fmr.com/"/>
+				<parameter name="apim.username" value="srvAP109794Test" />
+                              <parameter name="apim.password" value="Smt14478790" />							  <!-- Should be matched with ‘Endpoint’ values under Environments on the RXT -->
+                              <parameter name="apim.env" value="DEV,UAT(QA1),PERFORMANCE" />
+                           </execution>
+						   
+                        </data>
+                    </datamodel>
+                    <transition event="Promote LC" target="Production-Readiness-Review" />
+                    <transition event="Demote LC" target="RealizationReview" />
+					<transition event="Publish" target="Realized-Non-Prod"/>
+					<transition event="Unpublish" target="Realized-Non-Prod"/>
+                </state>
+                <state id="Production-Readiness-Review">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="Capacity and Performance QA Sign-off" forEvent="Promote LC" />
+                            <item name="Functional QA Sign-off" forEvent="Promote LC" />
+                            <item name="Operational Readiness Sign-off" forEvent="Promote LC" />
+                        </data>
+				    </datamodel>
+                    <transition event="Promote LC" target="Realized-Production" />
+                    <transition event="Demote LC" target="Realized-Non-Prod" />
+                </state>
+                <state id="Realized-Production">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="PRODUCTION" forEvent=""/>
+                        </data>
+						<data name="transitionExecution">
+                           <execution forEvent="Publish" class="org.qatest.pi.governance.registry.executor.MultiNodeExecutor">
+                              <parameter name="apim.endpoint" value="https://apipublisher.fmr123.com/" />
+                              <parameter name="apim.username" value="" />
+                              <parameter name="apim.password" value="" />
+							  <!-- Should be matched with ‘Endpoint’ values under Environments on the RXT -->
+                              <parameter name="apim.env" value="PRODUCTION" />
+							  <parameter name="mapName" value="endpoints_entry"/>
+                           </execution>
+						   <execution forEvent="Unpublish" class="org.qatest.pi.governance.registry.executor.MultiNodeDeleteExecutor">
+                              <parameter name="apim.endpoint" value="https://apipublisher.fmr123.com/" />
+                              <parameter name="apim.username" value="" />
+                              <parameter name="apim.password" value="" />
+							  <!-- Should be matched with ‘Endpoint’ values under Environments on the RXT -->
+                              <parameter name="apim.env" value="PRODUCTION" />
+                           </execution>
+					
+                        </data>
+                    </datamodel>
+                    <transition event="Deprecate" target="Deprecated" />
+                    <transition event="Demote LC" target="Production-Readiness-Review" />
+					<transition event="Publish" target="Realized-Production"/>
+					<transition event="Unpublish" target="Realized-Production"/>
+                </state>
+                <state id="Deprecated">
+                    <datamodel>
+                        <data name="checkItems">
+                            <item name="Existing consumers notified" forEvent="Retire" />
+                            <item name="Service retired" forEvent="Retire" />
+                        </data>
+                    </datamodel>
+                    <transition event="Retire" target="Retired" />
+                    <transition event="Demote LC" target="Realized-Production" />
+                </state>
+                <state id="Retired">
+				<transition event="Demote LC" target="Deprecated" />
+				</state>
+            </scxml>
+        </lifecycle>
+    </configuration>
+</aspect>
