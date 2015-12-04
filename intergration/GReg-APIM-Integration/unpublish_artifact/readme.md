@@ -62,7 +62,7 @@ Reproducing the issue
 
 	Note: Update the username and password with your mysql username and password
 
-7 - Create two mysql databases ( regfiveREG and regfiveUM )
+7 - Create two mysql databases ( regfiveREG and regfiveUM ). You can use the resources/mysql.sql script to create the DBs.
 
 8 - Add the following settings to <GREG-HOME>/repository/conf/registry.xml
 
