@@ -1,7 +1,7 @@
-drop database regfiveREG;
+drop database regfiveREG1;
 create database regfiveREG;
-GRANT ALL ON regfiveREG.* TO regfiveREG@'%' IDENTIFIED BY "regfiveREG";
-GRANT ALL ON regfiveREG.* TO regfiveREG@'localhost' IDENTIFIED BY "regfiveREG";
+GRANT ALL ON regfiveREG1.* TO regfiveREG1@'%' IDENTIFIED BY "regfiveREG1";
+GRANT ALL ON regfiveREG1.* TO regfiveREG1@'localhost' IDENTIFIED BY "regfiveREG1";
 
 drop database regfiveUM;
 create database regfiveUM;
