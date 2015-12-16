@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="slowServiceProxy"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <inSequence>
+         <iterate xmlns:ser="http://service.wso2.com"
+                  id="iterator1"
+                  preservePayload="true"
+                  attachPath="//ser:echoString1"
+                  expression="//ser:echoString1/ser:x"
+                  sequential="true">
+            <target>
+               <sequence>
+                  <property name="uri.var.port1"
+                            expression="//ser:echoString1/ser:x/text()"
+                            scope="default"
+                            type="STRING"/>
+                  <send>
+                     <endpoint>
+                        <http method="post"
+                              uri-template="http://10.100.5.40:{uri.var.port1}/services/SimpleStockQuoteService/"/>
+                     </endpoint>
+                  </send>
+               </sequence>
+            </target>
+         </iterate>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <description/>
+</proxy>
+                                
