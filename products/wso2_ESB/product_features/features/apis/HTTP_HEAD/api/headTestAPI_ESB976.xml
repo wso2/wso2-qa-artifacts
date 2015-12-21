@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="headTestAPI_ESB976"
+     context="/testAPI_ESB976">
+   <resource methods="OPTIONS HEAD GET" uri-template="*">
+      <inSequence>
+         <send>
+            <endpoint>
+               <address uri="http://localhost:9764/jaxrs_basic/services/customers/"/>
+            </endpoint>
+         </send>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </resource>
+</api>
