@@ -20,16 +20,3 @@ Follow 'https://docs.wso2.com/display/AS521/Building+and+Running+JAX-RS+Samples'
 
 3. Replace the variables under 'Variables' of each back end service specific thread group with appropriate values.
 
-##Token related Invocations:##
-
-The section 'Token Related Invocations' contain the following
-`- Generate Access token based on Resource Owner Grant type
-- Generate Access token based on Client Credentials Grant type
-- Generate Access token based on SAML2 Bearer token
-- Refresh access token
-- Revoke access token`
-Enable token related invocations based on the requirement.
-
-
-
-
