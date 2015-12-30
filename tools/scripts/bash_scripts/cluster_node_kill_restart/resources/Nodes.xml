@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<nodes>
+	<node>
+		<ip>192.168.48.202</ip>
+		<username>debian</username>
+		<keypath>/WSO2/RESOURCES/internal-cloud-keys/evanthika.pem</keypath>
+		<keyword>org.wso2.carbon</keyword>
+	</node>
+	<node>
+		<ip>192.168.48.202</ip>
+		<username>debian</username>
+		<keypath>/WSO2/RESOURCES/internal-cloud-keys/evanthika.pem</keypath>
+		<keyword>org.wso2.carbon</keyword>
+	</node>
+</nodes>
