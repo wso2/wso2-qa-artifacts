@@ -1,0 +1,3 @@
+@echo off
+echo running...
+ant
