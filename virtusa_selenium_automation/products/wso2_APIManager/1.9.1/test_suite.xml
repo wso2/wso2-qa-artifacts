@@ -1,0 +1,123 @@
+<!--Test_suite xml for running testng test-->
+<suite name="WSO2_APIManager" verbose="3">
+	
+	<test name="WSO2_APIManager" preserve-order="true">
+		<classes>
+		<class name="com.wso2_apimanager.ts_UserCreation">
+				<methods>
+					<include name="tc_Tenant_Creation"></include>
+					<include name="tc_Tenant_UserCreation"></include>
+					<include name="tc_Admin_UserCreation"></include>
+				</methods>
+			</class>
+		
+		<class name="com.wso2_apimanager.ts_APILifecycleManagement">
+				<methods>
+					<include name="tc_APILifeCycleManagement"></include>
+					<include name="tc_APIStates_Created"></include>
+					<include name="tc_APIStates_Retired"></include>
+					<include name="tc_APIStates_Deprecated"></include>
+					<include name="tc_APIStates_Blocked"></include>
+					<include name="tc_APIStates_Prototyped"></include>
+					<include name="tc_APIStates_Published"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_CreateAPIForExistingSoapEndpoint">
+				<methods>
+					<include name="tc_CreateAPIForExistingSoapEndpoint"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_APIResources">
+				<methods>
+					<include name="tc_URLTemplates"></include>
+					<include name="tc_Resource_level_Security"></include>
+					<include name="tc_URLMappings"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_DevelopAPIs">
+				<methods>
+					<include name="tc_DesignNewAPI"></include>
+					<include name="tc_UpdateAPIs"></include>
+					<include name="tc_SwaggerEditorFunctionality"></include>
+					<include name="tc_CustomAttributeHandling"></include>
+					<include name="tc_DesignAPIFromSwaggerDefinition"></include>
+					<include name="tc_DesignAPIFromSOAPEndpoint"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_ManageAPIs">
+				<methods>
+					<include name="tc_TagManagement"></include>
+					<include name="tc_APISearch_Of_Publisher"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_APIVersioning">
+				<methods>
+					<include name="tc_LifeCycle"></include>
+					<include name="tc_default_Version"></include>
+					<include name="tc_PluggableVersionContext"></include>
+					<include name="tc_WithoutDefaultVersion"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_APIVisibility">
+				<methods>
+					<include name="tc_Visible_To_Everyone"></include>
+					<include name="tc_Visible_To_All_Users_In_specific_Domain"></include>
+					<include name="tc_Visible_Only_To_Specified_Roles_In_Tenant_Domain"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_ApplicationManagement">
+				<methods>
+					<include name="tc_Add_Edit_Delete_Manage_Applications"></include>
+					<include name="tc_ApplicationSharing"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_EndpointManagement">
+				<methods>
+					<include name="tc_EndPointTypes"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_KeyGeneration">
+				<methods>
+					<include name="tc_Key_Generation_With_Scopes"></include>
+					<include name="tc_New_Key_Generation"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_PublishAPIs">
+				<methods>
+					<include name="tc_PrototypeAPIs"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_Scopes">
+				<methods>
+					<include name="tc_Scope"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_SubscriptionManagement">
+				<methods>
+					<include name="tc_DeprecatedAPIs"></include>
+					<include name="tc_Domain_And_Visibility_Based_Subscriptions"></include>
+					<include name="tc_SubscriptionBlocking"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_WorkflowIntegration">
+				<methods>
+					<include name="tc_APISubscription"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_APIDocumentation">
+				<methods>
+					<include name="tc_AddVerify_Documents"></include>
+					<include name="tc_UpdateDocuments"></include>
+					<include name="tc_DeleteDocuments"></include>
+					<include name="tc_Edit_Existing_DocContent"></include>
+					<include name="tc_DocumentVisibility"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_APIStore">
+				<methods>
+					<include name="tc_Subscription"></include>
+					<include name="tc_Self_Signup"></include>
+					<include name="tc_Search_APIs_of_Store"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_Community_Features">
+				<methods>
+					<include name="tc_Forums"></include>
+					<include name="tc_Comments"></include>
+					<include name="tc_Ratings"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_SubscriptionRemoval">
+				<methods>
+					<include name="tc_SubscriptionRemoval"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.ts_test">
+				<methods>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
