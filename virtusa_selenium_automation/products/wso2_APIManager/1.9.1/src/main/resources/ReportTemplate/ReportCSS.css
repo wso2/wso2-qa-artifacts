@@ -1,0 +1,820 @@
+/*
+*
+*   Please make your customizations at the end of this document.
+*
+*/
+
+    html, body {
+        color: black;
+        background: #ebebeb url(ReportImg.png) left -60px no-repeat;
+        font-size: 12px;
+        font-family: Verdana;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    body, html, div, p, i, strong, table {
+        color:#606060;
+    }
+    img {
+        border:0px;
+    }
+    div#Content img {
+        margin: 7px 0;
+    }
+    p, i {
+        margin: 0;
+        padding: 3px 0px;
+    }
+    div#Content table {
+        font-size: 12px;
+        margin: 0px;
+    }
+    table td {
+        padding: 3px 4px;
+        margin: 0;
+    }
+	
+	.module-report table td /* needed to fix word-wrap error in all browsers */
+	{
+		max-width: 0px;
+	}
+	
+	.reporttable
+	{
+		width: 100%;
+		table-layout: fixed;
+	}
+	
+    a:link {
+        color: #c11111;
+    }
+    a:visited {
+        color: #db4848;
+    }
+    a:active {
+        color: #c11111;
+    }
+    a:hover {
+        color: black;
+    }
+    #header-top {
+        height: 70px;
+    }
+    #header-top #logo {
+        width: 950px;
+        text-align: left;
+        margin: 0 auto;
+    }
+    #header-top #logo a {
+        display: block;
+        height: 32px;
+        margin: 20px 0 0 15px;
+		color: #d0d0d0;
+		font-size: 18pt;        
+    }
+    #header-top #logo a em {
+        display: none;
+    }
+    div#page {
+        text-align: left;
+        margin: 0 auto;
+        width: 950px;
+        padding: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+    div#container {
+        padding: 20px 0 0 0;        
+    }
+    div#Content {
+        float: none;        
+        margin: 0 35px 10px 35px;
+        padding: 0 0 12px 0;
+        width: auto;
+    }
+    * html div#Content {
+        height: 1em;
+        margin: 0 35px 10px 35px;
+        padding: 0 0 12px 0;
+    }
+    h1 {
+		color: gray;
+        font-size: 13pt;
+    }
+    table {
+        border-collapse: separate;
+    }
+    th {
+        background-color: #eee;
+        text-align: left;
+        padding: 5px;
+        border-bottom: 1px solid #fff;
+    }
+    td {
+        padding: 5px 3px;
+    }
+    fieldset {
+        clear: both;
+        font-size: 100%;
+        border-color: #000000;
+        border-width: 0;
+        border-style: solid none none none;
+        padding: 5px;
+        margin: 3px 2px 10px 2px;
+    }
+    fieldset legend {
+        font-size: 10pt;
+        color: #555;
+        font-weight: bold;
+        margin: 0 0 0 -7px;
+        padding: 10px 0 0 0;
+    }
+    label {
+        float: left;
+        text-align: right;
+        width: auto;
+        margin-right: 0em;
+        padding: 2px 0;
+    }
+    <!-- input {
+        margin-right: 10px;
+        font-size: 11px;
+    }
+    --> tr.Debug {
+        color: gray;
+    }
+    tr.Warn {
+        color: #333;
+        background-color: #fffea7;
+    }
+    tr.Error {
+        color: #fff;
+        background-color: #d80000;
+        font-weight: bold;
+    }
+    tr.Failure {
+        color: #fff;
+        background-color: #d80000;
+        font-weight: bold;
+    }
+    tr.Success {
+        color: green;
+    }
+    .ui-icon, .ui-status-icon, .ui-testcase-icon, .ui-module-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url(ReportImg.png);
+        background-repeat:no-repeat;
+        display: inline-block;
+		vertical-align: middle;	
+		margin-right: 5px;		
+    }
+    .ui-icon-minus {
+        background-position: -16px 0;
+        cursor:pointer;
+        cursor:hand;
+        background-color: #eee
+    }
+    .ui-icon-plus {
+        background-position: 1 1;
+        cursor: hand;
+        background-color: #eee
+    }
+    .ui-icon-circle-triangle-e {
+        background-position: -32px 0;
+    }
+    .ui-icon-circle-triangle-s {
+        background-position: -48px 0;
+    }
+    .ui-status-icon {	    
+        margin-top: -1px;
+    }
+    h3.module-title a span.ui-status-icon {
+        
+    }
+    .ui-testcase-icon {
+        background-position: -144px 0;
+        width: 20px;
+        height: 20px;
+        margin-top: -2px;
+    }
+    .ui-module-icon {
+        
+    }
+    .ui-module-icon.Recording {
+        background-position: -164px 0;
+    }
+    .ui-module-icon.UserCode {
+        background-position: -180px 0;
+    }
+    .ui-module-icon.warn, .ui-icon.warn {
+        background-position: -196px 0;
+    }
+    .ui-icon.modulegroup {
+        background-position: -249px 0;     
+    }
+    .ui-icon.folder {
+        background-position: -230px -2px;
+    }
+    .ui-treeList {
+        list-style-type:none;
+        position:relative;
+        margin:0px 0px 0px 0px;
+        padding:15px 5px 5px 5px;
+    }
+    .ui-treeList ul {
+        list-style-type:none;
+        margin:0px 0px 0px 0px;
+        padding:15px 5px 15px 5px;
+    }
+    /* customization */
+    .ui-treeList {
+        border:0;
+        margin:0;
+        padding:0;
+    }
+    .ui-treeList li {
+        margin: 15px 0 15px 0;
+        padding: 0;
+        position:relative;
+    }
+    .ui-treeList li ul {
+        margin-bottom: 20px;
+    }
+    .ui-treeList li ul li {
+        padding-left: 20px;
+    }
+    /*.ui-treeList li:first-letter {margin:5px 0px 0px 25px;}*/
+    .ui-treeList li.ui-treeList-item, .ui-treeList li.ui-state-active, .ui-treeList li.ui-state-hover {
+    }
+    .ui-treeList li.ui-treeList-item ul, .ui-treeList li.ui-state-active ul {
+        padding: 0;
+    }
+    .ui-treeList li.ui-treeList-item.Success ul {
+        display:none;
+    }
+    .ui-treeList li.ui-state-hover {
+    }
+    #treeList em {
+        display:inline;
+        padding: 0;
+        margin: 0px;
+        color: #CC0000;
+    }
+    .ui-treeList li div.ui-treeList-toggle {
+        width:17px;
+        height:17px;
+        margin: -25px 0 0 11px;
+        padding:0;
+        position:relative;
+        background-color: #fff;
+        display:block;
+		vertical-align: middle;
+    }
+    .ui-treeList li h2, .ui-treeList li h2.Failed {
+        padding: 5px 30px;
+        margin: 5px 0 0px 5px;
+        font-size: 15px;
+        background-color: #ddd;
+        color: darkred;
+        cursor:pointer;
+        cursor:hand;
+    }
+    .ui-treeList li h2.Success {
+        color: darkgreen
+    }
+    .ui-treeList li h2.Ignored {
+        color: #777
+    }
+    .ui-treeList li.iteration h2, .ui-treeList li.setup-teardown h2 {
+        padding: 4px 30px;
+        font-size: 13px;
+        background-color: #d6dbee;
+    }
+    .ui-treeList li.iteration div.ui-treeList-toggle, .ui-treeList li.setup-teardown div.ui-treeList-toggle {
+        margin-top: -21px;
+    }
+    .ui-treeList li.setup-teardown h2 {
+        background-color: #f4f8d9;
+        font-style:italic;
+    }
+    .ui-treeList li h2 a.description {
+        font-size: 11px;
+        font-weight: 100;
+        color: #777;
+        margin-left: 7px;
+        display:inline overflow:hidden;
+        white-space:nowrap;
+    }
+    .duration {
+        font-size:11px;
+        position: absolute;
+        right: 10px;
+        color: #999;
+        font-weight: 100;
+        margin-top: 2px;
+    }
+    h2.module {
+        margin: 12px 0;
+        font-size: 13px;
+        color: darkred;
+    }
+    h3.module-title {
+        background-color: #fff;
+        margin: 7px 0px 7px 5px;
+        border: 1px solid #bbb;
+        font-size: 12px;
+    }
+    h3.module-title a {
+        text-decoration: none;
+        display: block;
+        padding: 3px;
+    }
+    h3.module-title a i {
+        font-size: 11px;
+        font-weight: 100;
+        color: #777;
+    }
+    h3.module-title span.ui-icon {
+        cursor:pointer;
+        cursor:hand
+    }
+    h2.Failed span.ui-status-icon, h3.module-title.Failed a span.ui-status-icon, h2.Active span.ui-status-icon, h3.module-title.Active a span.ui-status-icon, h2.module.Failed span.ui-status-icon {
+        background-position: -80px 0;
+    }
+    h2.Success span.ui-status-icon, h3.module-title.Success a span.ui-status-icon, h2.module.Success span.ui-status-icon {
+        background-position: -64px 0;
+    }
+    h2.Ignored span.ui-status-icon, h3.module-title.Ignored a span.ui-status-icon, h2.module.Ignored span.ui-status-icon {
+        background-position: -128px 0;
+    }
+    h3.module-title.Success a, h3.module-title.Success a:active, h3.module-title.Success a:visited, h2.module.Success {
+        color: darkgreen
+    }
+    h3.active {
+        background-position: left bottom;
+        border-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    .module-container {
+        /*background-color: #f4f4f4;*/
+        display:none;
+        padding: 10px;
+        margin:0;
+        border: 1px solid #bbb;
+        border-top: 0px;
+        margin: 0 0px 10px 5px;
+    }
+    .module-report {
+        display:block;
+        <!-- max-height: 300px; -->
+        overflow: auto;
+        padding-bottom:11px;
+        padding-top:11px;
+        background-color: #fff;
+    }
+    table tr td.messageCell {
+        word-wrap: break-word;
+        width: 540px;
+    }
+    table tr td.messageCell.standalone {
+        width: 600px;
+    }
+    tr td.timeCell {
+        border-left: 1px solid #fff;
+    }
+    tr td {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #fff;
+    }
+    tr.active td {
+        border-top: 1px solid #888888;
+        border-bottom: 1px solid #888888;
+    }
+    tr.active td.timeCell {
+        border-left: 1px solid #888;
+    }
+    tr.active td.messageCell {
+        border-right: 1px solid #888;
+    }
+    .controls-container {
+        position:absolute;
+        display:none;
+        align:right;
+        right:15px;
+        width: 115px;
+        background-color: #fff;
+        padding: 3px;
+        margin-top: -24px;
+        border: 1px solid #888;
+        border-bottom: 0;
+        /*position:absolute; float:right; z-index:2; top:0px;  left:0px; width: 115px; background-color: #fff; padding: 3px;  border: 1px solid #888; border-bottom: 0;*/
+        /* For IE 8 */
+        -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=30, Color='#bbbbbb')";
+        /* For IE 5.5 - 7 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=30, Color='#bbbbbb');
+    }
+    .controls-container.two-columns {
+        width: 220px;
+    }
+    .controls-container.testcase {
+        width: 147px;
+    }
+    .controls-container.three-columns {
+        width: 310px;
+    }
+    .controls-container.active {
+        display: block;
+    }
+    .controls-container a {
+        padding: 5px;
+        font-size: 12px;
+        text-decoration: none;
+        color:#333;
+        font-weight: 100;
+    }
+    .controls-container a.spy span.ui-icon {
+        background-position: -112px 0;
+        cursor:pointer;
+        cursor:hand
+    }
+    .controls-container a.jump-to span.ui-icon {
+        background-position: -96px 0;
+        cursor:pointer;
+        cursor:hand
+    }
+    .controls-container a.help span.ui-icon {
+        background-position: -214px 0;
+        cursor:pointer;
+        cursor:hand
+    }
+    .stacktrace {
+        padding-top: 7px;
+		color: #eee;
+    }
+    tr.error .stacktrace, tr.error .stacktrace p, tr.failure .stacktrace, tr.failure .stacktrace p {
+        color: #eee;
+    }
+    .stacktrace span {
+        text-decoration: underline;
+        cursor:pointer;
+        cursor:hand;
+    }
+    .stacktrace p {
+        display: none;
+        font-weight: 100;
+        font-style: italic;
+        padding: 4px 0 0 15px;
+		color: #eee;
+    }
+    .datarow, .dataparams, .errormessage, .warnmessage {
+        margin-left: 5px;
+        background-color: #efeef6;
+        font-size: 10px;
+        padding: 5px 25px;
+        color: #000;
+        word-wrap: break-word;
+    }
+    .dataparams, .errormessage {
+        background-color: #f4f4f4
+    }
+    .warnmessage {
+        background-color: #fffea7;
+    }
+    .dataparams td, .datarow td {
+        font-size: 10px;
+        width: 260px;
+        padding: 3px 3px 3px 0;
+        vertical-align: text-top;
+        border: 0;
+    }
+    .errormessage .message {
+        color: #c00000;
+        display: block;
+        padding: 6px 0;
+    }
+    .execution-information {
+        margin: 0 0 20px 0;
+        padding: 0px;
+        color: #000;
+        width: 500px;
+    }
+    .execution-information td {
+        font-size: 9px;
+        width: 250px;
+        vertical-align: text-top;
+        padding: 3px 3px 3px 0;
+        margin-bottom: 5px;
+        border: 0;
+    }
+    .execution-information .field b {
+        display: block;
+        font-size: 11px;
+    }
+    .filter {
+        background-color: #f3f3f3;
+        padding: 4px 8px;
+        margin-bottom: 4px;
+    }
+    .filter span {
+        font-size: 11px;
+        padding-right: 10px;
+    }
+    .filter label {
+        float:none;
+        font-size: 11px;
+        margin-right: 25px;
+    }
+    .filter input {
+        display:inline;
+        margin-right: 3px;
+        width: 13px;
+    }
+    input.exButton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        box-shadow:inset 0px 1px 0px 0px #ffffff;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+        background:-moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+        background-color:#ededed;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#777777;
+        font-family:arial;
+        font-size:9px;
+        font-weight:bold;
+        padding:2px 2px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #ffffff;
+    }
+    .exButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+        background:-moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+        background-color:#dfdfdf;
+    }
+    .exButton:active {
+        position:relative;
+        top:1px;
+    }
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    /* ---------->>> global settings needed for thickbox <<<-----------------------------------------------------------*/
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    /* ---------->>> thickbox specific link and font settings <<<------------------------------------------------------*/
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    #TB_window {
+        font: 12px Arial, Helvetica, sans-serif;
+        color: #333333;
+		min-width:450px;
+		min-height:100px;
+		padding: 10px;
+    }
+    #TB_secondLine {
+        font: 10px Arial, Helvetica, sans-serif;
+        color:#666666;
+    }
+	
+	#TB_left {
+	font: 10px Arial, Helvetica, sans-serif;
+        color:#666666;               
+        float: left;
+		width: 150px;
+		position: relative;		 
+		text-align: left;		 
+	}
+
+	#TB_right {
+         font: 10px Arial, Helvetica, sans-serif;
+         color:#666666;         
+         float: right;
+		 width: 150px;
+		 position: relative;	
+		 text-align: right;		 
+		 }
+
+	#TB_center {
+         font: 10px Arial, Helvetica, sans-serif;
+        color:#666666;         
+         margin: 0 auto;
+		 width: 150px;
+		 position: relative;	
+		 text-align: center;		 		 
+		 }
+		 
+	#TB_window td { padding: 0; margin:0;}
+	#TB_window tr { }
+	#tb_window table { }
+	
+    #TB_window a:link {
+        color: #666666;
+    }
+    #TB_window a:visited {
+        color: #666666;
+    }
+    #TB_window a:hover {
+        color: #000;
+    }
+    #TB_window a:active {
+        color: #666666;
+    }
+    #TB_window a:focus {
+        color: #666666;
+    }
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    /* ---------->>> thickbox settings <<<-----------------------------------------------------------------------------*/
+    /* ----------------------------------------------------------------------------------------------------------------*/
+    #TB_overlay {
+        position: fixed;
+        z-index:100;
+        top: 0px;
+        left: 0px;
+        height:100%;
+        width:100%;
+    }
+	
+	#TB_ImageOff {
+		margin-left: auto ;
+		margin-right: auto ;
+	}
+		
+    .TB_overlayMacFFBGHack {
+        background: url(macFFBgHack.png) repeat;
+    }
+    .TB_overlayBG {
+        background-color:#000;
+        filter:alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    * html #TB_overlay {
+        /* ie6 hack */
+        position: absolute;
+        height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight +'px');
+    }
+    #TB_window {
+        position: fixed;
+        background: #ffffff;
+        z-index: 102;
+        color:#000000;
+        display:none;
+        border: 4px solid #525252;
+        top:50%;
+        left:50%;
+    }
+    * html #TB_window {
+        /* ie6 hack */
+        position: absolute;
+        margin-top: expression(0 - parseInt(this.offsetHeight / 2) +(TBWindowMargin=document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) +'px');
+    }
+    #TB_window img#TB_Image {
+        display:block;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #666;
+        border-left: 1px solid #666;
+		margin-left: auto ;
+		margin-right: auto ;
+    }
+    #TB_caption {
+        height:25px;
+        padding:7px 30px 10px 25px;
+        float:left;
+    }
+    #TB_closeWindow {
+        height:25px;
+        padding:11px 25px 10px 0;
+        float:right;
+    }
+    #TB_closeAjaxWindow {
+        padding:7px 10px 5px 0;
+        margin-bottom:1px;
+        text-align:right;
+        float:right;
+    }
+    #TB_ajaxWindowTitle {
+        float:left;
+        padding:7px 0 5px 10px;
+        margin-bottom:1px;
+    }
+    #TB_title {
+        background-color:#e8e8e8;
+        height:27px;
+    }
+    #TB_ajaxContent {
+        clear:both;
+        padding:2px 15px 15px 15px;
+        overflow:auto;
+        text-align:left;
+        line-height:1.4em;
+    }
+    #TB_ajaxContent.TB_modal {
+        padding:15px;
+    }
+    #TB_ajaxContent p {
+        padding:5px 0px 5px 0px;
+    }
+    #TB_load {
+        position: fixed;
+        display:none;
+        height:13px;
+        width:208px;
+        z-index:103;
+        top: 50%;
+        left: 50%;
+        margin: -6px 0 0 -104px;
+        /* -height/2 0 0 -width/2 */
+    }
+    * html #TB_load {
+        /* ie6 hack */
+        position: absolute;
+        margin-top: expression(0 - parseInt(this.offsetHeight / 2) +(TBWindowMargin=document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) +'px');
+    }
+    #TB_HideSelect {
+        z-index:99;
+        position:fixed;
+        top: 0;
+        left: 0;
+        background-color:#fff;
+        border:none;
+        filter:alpha(opacity=0);
+        -moz-opacity: 0;
+        opacity: 0;
+        height:100%;
+        width:100%;
+    }
+    * html #TB_HideSelect {
+        /* ie6 hack */
+        position: absolute;
+        height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight +'px');
+    }
+    #TB_iframeContent {
+        clear:both;
+        border:none;
+        margin-bottom:-1px;
+        margin-top:1px;
+        _margin-bottom:1px;
+    }
+
+<!-- http://www.jqplot.com/jquery.jqplot.css -->
+<style type="text/css">
+    table.jqplot-table-legend, table.jqplot-cursor-legend {
+        background-color: rgba(255, 255, 255, 0.6);
+        border: 1px solid #cccccc;
+        position: absolute;
+        font-size: 11px;
+    }
+    td.jqplot-table-legend {
+        vertical-align:middle;
+    }
+    td.jqplot-table-legend > div {      
+        padding:0.2em;
+    }
+    div.jqplot-table-legend-swatch {
+        width:0px;
+        height:0px;
+        border-top-width: 0.35em;
+        border-bottom-width: 0.35em;
+        border-left-width: 0.6em;
+        border-right-width: 0.6em;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-right-style: solid;
+    }
+    td.jqplot-cursor-legend-swatch {
+        vertical-align:middle;
+        text-align:center;
+    }
+    div.jqplot-cursor-legend-swatch {
+        width:1.2em;
+        height:0.7em;
+    }
+
+	.jqplot-table-legend
+	{
+		border: 0px solid white;
+	}
+	/* Uncomment to customize your report
+    html, body {
+		background-color: #EEEEEE;
+		background-image: url(YourBackgroundImage.png);
+		background-position: 0;
+   }
+ 
+    #header-top #logo a {
+        height: 32px;
+        width: 128px;
+        background-image: url(YourLogo.png);
+        background-position: 0;
+    }
+    */
