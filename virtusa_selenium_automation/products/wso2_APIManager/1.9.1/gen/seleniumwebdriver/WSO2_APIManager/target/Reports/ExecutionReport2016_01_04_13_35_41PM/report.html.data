@@ -1,0 +1,151 @@
+
+<report>	
+	<activity
+	user="SDODANGODA"
+	host="SDODANGODA"
+	osversion="Windows 7"
+	language="FIREFOX"
+	screenresolution="1366X768"
+	timestamp="01/04/2016 1:35:41 PM"
+	result="Success"
+	duration="00:00:23 HH:MM:SS"
+	type="root"
+	totalerrorcount="1"
+	totalwarningcount="0"
+	totalsuccesscount="0"
+	totalfailedcount="1"
+	totalblockedcount="0">
+	<detail>
+		Test Execution Report
+	</detail>
+	<activity
+			testsuitename="VTAF Test Execution Report"
+			runconfigname=""
+			runlabel=""
+			maxchildren="0"
+			result="Success"
+			duration="00:00:23 HH:MM:SS"
+			type="test suite"
+			rid="a106eb7a56abd88">
+			
+			<activity
+					foldername="ts_DevelopAPIs"
+					result="Failed"
+					duration="00:00:22"
+					type="folder"
+					rid="1">
+					<params/>
+					
+					<activity
+						testcasename="tc_CustomAttributeHandling"
+						datasource=""
+						iterationcount="1"
+						maxchildren="0"
+						result="Failed"
+						duration="0ms"
+						type="test case"
+						rid="2">
+						<activity
+							modulename="tc_CustomAttributeHandling"
+							moduletype="UserCode"
+							result="Failed"
+							duration="0ms"
+							type="test module"
+							rid="2">
+							
+							<datarow>
+							</datarow>
+									
+
+
+								<item
+									time="1:35:54"
+									level="Success"
+									category="WRITE TO REPORT ">
+									<message>
+										 Report Message :[start executing CustomAttributeHandling]
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+
+
+								<item
+									time="1:35:54"
+									level="Success"
+									category="WRITE TO REPORT ">
+									<message>
+										 Report Message :[Start of BC PublisherLogin]
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+
+
+								<item
+									time="1:35:56"
+									level="Success"
+									category="OPEN ">
+									<message>
+										Open url [https://localhost:9443/publisher/]
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+
+
+								<item
+									time="1:36:03"
+									level="Success"
+									category="PAUSE Command">
+									<message>
+										Paused [7000] milliseconds
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+
+
+								<item
+									time="1:36:03"
+									level="Success"
+									category="RETRIEVE Value ">
+									<message>
+										RETRIEVE Value : String keyTenantOnePublisherUserOne :
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+
+								<item
+									time="1:36:03"
+									level="Error"
+									category="TYPE command"
+									errimg="images\20160104133603192.png"
+									errthumb="images\20160104133603192.png_Thumb.png">
+									<message>
+										TYPE command: Invalid input. cannot use null as input
+									</message>
+									<metainfo
+										stacktrace="com.wso2_apimanager.ts_DevelopAPIs.tc_CustomAttributeHandling(ts_DevelopAPIs.java:142)|com.wso2_apimanager.lib_Common.bc_PublisherLogin(lib_Common.java:1688)|com.virtusa.isq.vtaf.runtime.SeleniumTestBase.type(SeleniumTestBase.java:2665)"
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Error"/>
+								</item>	
+						</activity>
+					</activity>
+			</activity>
+	</activity>
+	</activity>
+
+</report>

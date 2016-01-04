@@ -1,0 +1,3421 @@
+<DataTables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="file:///Users/test/Documents/VTAF/VTAF/xsd/DataTables.xsd" >
+	<Table name="TenantCreation">
+		<Header>
+			<Column name="tenantOneDomainName" type="String" />
+			<Column name="tenantOneFirstName" type="String" />
+			<Column name="tenantOneLastName" type="String" />
+			<Column name="adminUsernameTenantOne" type="String" />
+			<Column name="adminPasswordTenantOne" type="String" />
+			<Column name="emailAddressTenantDomainOne" type="String" />
+			<Column name="tenantTwoDomainName" type="String" />
+			<Column name="tenantTwoFirstName" type="String" />
+			<Column name="tenantTwoLastName" type="String" />
+			<Column name="adminUsernameTenantTwo" type="String" />
+			<Column name="adminPasswordTenantTwo" type="String" />
+			<Column name="emailAddressTenantDomainTwo" type="String" />
+			<Column name="tenantThreeDomainName" type="String" />
+			<Column name="tenantThreeFirstName" type="String" />
+			<Column name="tenantThreeLastName" type="String" />
+			<Column name="adminUsernameTenantThree" type="String" />
+			<Column name="adminPasswordTenantThree" type="String" />
+			<Column name="emailAddressTenantDomainThree" type="String" />
+		</Header>
+		<Row>
+			<Value>bdomain_one.com</Value>
+			<Value>bt1fn</Value>
+			<Value>bt1ln</Value>
+			<Value>bt1user</Value>
+			<Value>111111</Value>
+			<Value>aare@gmail.com</Value>
+			<Value>bdomain_two.com</Value>
+			<Value>bt2fn</Value>
+			<Value>bt2ln</Value>
+			<Value>bt2user</Value>
+			<Value>111111</Value>
+			<Value>dinesh@gmail.com</Value>
+			<Value>bdomain_three.com</Value>
+			<Value>bt3fn</Value>
+			<Value>bt3ln</Value>
+			<Value>bt3user</Value>
+			<Value>111111</Value>
+			<Value>adam@gmail.com</Value>
+		</Row>
+
+</Table>
+	<Table name="DocumentVisibility">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APITagName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="DocName" type="String" />
+			<Column name="DocVisibilitySameAsAPI" type="String" />
+			<Column name="DocVisibilityPrivate" type="String" />
+			<Column name="DocVisibilityVisibleToMyDomain" type="String" />
+			<Column name="APIVisibilityPublic" type="String" />
+			<Column name="APIVisibilityVisibleToMyDomain" type="String" />
+			<Column name="APIVisibilityRestrictedToRole" type="String" />
+			<Column name="UploadFilePath" type="String" />
+			<Column name="DownloadFilePath" type="String" />
+			<Column name="SourceURL" type="String" />
+			<Column name="PopupImage" type="String" />
+			<Column name="OtherTypeText" type="String" />
+			<Column name="sandboxEndPoint" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="tenantOne" type="String" />
+			<Column name="tenantOneOrAdminPublisherOne" type="String" />
+			<Column name="tenantOneOrAdminPublisherTwo" type="String" />
+			<Column name="tenantOneOrAdminStoreOne" type="String" />
+			<Column name="tenantOneOrAdminStoreTwo" type="String" />
+			<Column name="tenantTwo" type="String" />
+			<Column name="imageName" type="String" />
+			<Column name="APIDiscription" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="tagName" type="String" />
+		</Header>
+		<Row>
+			<Value>TenantOne</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>APIContext</Value>
+			<Value>DocName</Value>
+			<Value>Same as API visibility</Value>
+			<Value>Private</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Public</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Restricted by roles</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>www.abc.com</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>XXXX</Value>
+			<Value>test/end_point</Value>
+			<Value>test/end_point</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOnePublisherTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOneStorerTwo</Value>
+			<Value>TenantTwo</Value>
+			<Value>test.jpeg</Value>
+			<Value>sample_Dec</Value>
+			<Value>htttp/sample_url</Value>
+			<Value>test_tag</Value>
+		</Row>
+		<Row>
+			<Value>Admin</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>APIContext</Value>
+			<Value>DocName</Value>
+			<Value>Same as API visibility</Value>
+			<Value>Private</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Public</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Restricted by roles</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>www.abc.com</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>XXXX</Value>
+			<Value>test/end_point</Value>
+			<Value>test/end_point</Value>
+			<Value>Admin</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminPublisherTwo</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>Admin</Value>
+			<Value>test.jpeg</Value>
+			<Value>sample_Dec</Value>
+			<Value>htttp/sample_url</Value>
+			<Value>test_tag</Value>
+		</Row>
+
+</Table>
+	<Table name="PrototypeAPIs">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="imagePath" type="String" />
+			<Column name="UrlPattern" type="String" />
+			<Column name="ApiNameOne" type="String" />
+			<Column name="tagName" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>1.0.0</Value>
+			<Value>api2.jpg</Value>
+			<Value>/resource/publisher</Value>
+			<Value>testnm</Value>
+			<Value>abc</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>1.0.0</Value>
+			<Value>api2.jpg</Value>
+			<Value>/resource/publisher</Value>
+			<Value>testnm</Value>
+			<Value>abc</Value>
+		</Row>
+
+</Table>
+	<Table name="DesignNewAPI">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APITagName" type="String" />
+			<Column name="nonImagePath" type="String" />
+			<Column name="APIImagepath" type="String" />
+			<Column name="APIURLPattern" type="String" />
+			<Column name="VisibilityRestrictedByRole" type="String" />
+			<Column name="ProductionEndpointUrl" type="String" />
+			<Column name="SandboxEndpointUrl" type="String" />
+			<Column name="InvalidUrl" type="String" />
+			<Column name="validUrl" type="String" />
+			<Column name="EndpointSecurityScheme" type="String" />
+			<Column name="endpointUsername" type="String" />
+			<Column name="endpointPassword" type="String" />
+			<Column name="EndPointType_Http" type="String" />
+			<Column name="publisherUserOne" type="String" />
+			<Column name="storeUserOne" type="String" />
+			<Column name="DefaultApplication" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>test.7z</Value>
+			<Value>test.jpg</Value>
+			<Value>/resource/publisher</Value>
+			<Value>Restricted by roles</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://ws.cdyne.com/phoneverify/phoneverify.asmx</Value>
+			<Value>Secured</Value>
+			<Value>aaa</Value>
+			<Value>123456</Value>
+			<Value>http</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>DefaultApplication</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>test.7z</Value>
+			<Value>test.jpg</Value>
+			<Value>/resource/publisher</Value>
+			<Value>Restricted by roles</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://ws.cdyne.com/phoneverify/phoneverify.asmx</Value>
+			<Value>Secured</Value>
+			<Value>aaa</Value>
+			<Value>123456</Value>
+			<Value>http</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>DefaultApplication</Value>
+		</Row>
+
+</Table>
+	<Table name="URLs">
+		<Header>
+			<Column name="carbonURL" type="String" />
+			<Column name="publisherURL" type="String" />
+			<Column name="storeURL" type="String" />
+		</Header>
+		<Row>
+			<Value>https://localhost:9443/carbon/admin/login.jsp</Value>
+			<Value>https://localhost:9443/publisher/</Value>
+			<Value>https://localhost:9443/store/</Value>
+		</Row>
+		<Row>
+			<Value>https://localhost:9443/carbon/admin/login.jsp</Value>
+			<Value>https://localhost:9443/publisher/</Value>
+			<Value>https://localhost:9443/store/</Value>
+		</Row>
+
+</Table>
+	<Table name="URLTemplate">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="urlPatternSC" type="String" />
+			<Column name="verbGet" type="String" />
+			<Column name="verbPost" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="URLPatternSandbox" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="urlPatternUriTemplate" type="String" />
+			<Column name="verbPut" type="String" />
+			<Column name="verbDelete" type="String" />
+			<Column name="urlPatternComplex" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIOne</Value>
+			<Value>say/customer</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>APIContextOne</Value>
+			<Value>APITagOne</Value>
+			<Value>http://ws.cdyne.com/phoneverify/phoneverify.asmx</Value>
+			<Value>1.0.0</Value>
+			<Value>/view/{@,#}/test/{^,_}/test1</Value>
+			<Value>put</Value>
+			<Value>delete</Value>
+			<Value>/a/b/c/d/e/f/g/h/i/j/k</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIOne</Value>
+			<Value>say/customer</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>APIContextOne</Value>
+			<Value>APITagOne</Value>
+			<Value>http://ws.cdyne.com/phoneverify/phoneverify.asmx</Value>
+			<Value>1.0.1</Value>
+			<Value>/view/{@,#}/test/{^,_}/test2</Value>
+			<Value>put</Value>
+			<Value>delete</Value>
+			<Value>/a/b/c/d/e/f/g/h/i/j/k</Value>
+		</Row>
+
+</Table>
+	<Table name="Scope">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIImagePath" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="verbMethodGET" type="String" />
+			<Column name="verbMethodPOST" type="String" />
+			<Column name="verbMethodPUT" type="String" />
+			<Column name="verbMethodDELETE" type="String" />
+			<Column name="userAdmin" type="String" />
+			<Column name="AdminPasswd" type="String" />
+			<Column name="roleName" type="String" />
+			<Column name="scopeKeyOne" type="String" />
+			<Column name="tag" type="String" />
+			<Column name="scopeNameOne" type="String" />
+			<Column name="scopeKeyTwo" type="String" />
+			<Column name="scopeNameTwo" type="String" />
+			<Column name="scopeKeyThree" type="String" />
+			<Column name="scopeNameThree" type="String" />
+			<Column name="scopeKeyFour" type="String" />
+			<Column name="scopeNameFour" type="String" />
+			<Column name="InvalidKey" type="String" />
+			<Column name="ScopeDescription" type="String" />
+			<Column name="ScopeKeyFive" type="String" />
+			<Column name="ScopeNameFive" type="String" />
+			<Column name="ScopeKeySix" type="String" />
+			<Column name="ScopeNameSix" type="String" />
+			<Column name="scopeKeySeven" type="String" />
+			<Column name="scopeNameSeven" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContest" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>test.jpg</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>/view/{@,#}/test/{^,_}/test1</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>put</Value>
+			<Value>delete</Value>
+			<Value>admin</Value>
+			<Value>admin</Value>
+			<Value>role2</Value>
+			<Value>keyOne</Value>
+			<Value>def</Value>
+			<Value>ScopeNameOne</Value>
+			<Value>keyTwo</Value>
+			<Value>ScopeNameTwo</Value>
+			<Value>keyThree</Value>
+			<Value>ScopeNameThree</Value>
+			<Value>keyFour</Value>
+			<Value>ScopeNameFour</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>dfgdfgdfgdgfd</Value>
+			<Value>keyFive</Value>
+			<Value>ScopeNameFive</Value>
+			<Value>keySix</Value>
+			<Value>ScopeNameSix</Value>
+			<Value>keySeven</Value>
+			<Value>ScopeNameSeven</Value>
+			<Value>binaradz</Value>
+			<Value>/fdd</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>test.jpg</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>/view/{@,#}/test/{^,_}/test2</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>put</Value>
+			<Value>delete</Value>
+			<Value>admin</Value>
+			<Value>admin</Value>
+			<Value>role3</Value>
+			<Value>keyOne</Value>
+			<Value>def</Value>
+			<Value>ScopeNameOne</Value>
+			<Value>keyTwo</Value>
+			<Value>ScopeNameTwo</Value>
+			<Value>keyThree</Value>
+			<Value>ScopeNameThree</Value>
+			<Value>keyFour</Value>
+			<Value>ScopeNameFour</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>dfgdfgdfgdgfd</Value>
+			<Value>keyFive</Value>
+			<Value>ScopeNameFive</Value>
+			<Value>keySix</Value>
+			<Value>ScopeNameSix</Value>
+			<Value>keySeven</Value>
+			<Value>ScopeNameSeven</Value>
+			<Value>binaradz</Value>
+			<Value>/fdd</Value>
+		</Row>
+
+</Table>
+	<Table name="LifeCycle">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="imagePath" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="stateBlocked" type="String" />
+			<Column name="newVersionOne" type="String" />
+			<Column name="usersCount" type="String" />
+			<Column name="APIstatus" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="stateCreated" type="String" />
+			<Column name="newVersionTwo" type="String" />
+			<Column name="statePublished" type="String" />
+			<Column name="newVersionThree" type="String" />
+			<Column name="stateDeprecated" type="String" />
+			<Column name="newVersionFive" type="String" />
+			<Column name="stateRetired" type="String" />
+			<Column name="newVersionSix" type="String" />
+			<Column name="statePrototyped" type="String" />
+			<Column name="newVersionFour" type="String" />
+			<Column name="NewVersionForAddNewVersion" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="StoreOneOfTenantOneOrAdmin" type="String" />
+			<Column name="APIVisibilityPublic" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationDescription" type="String" />
+			<Column name="usersCountOne" type="String" />
+			<Column name="keyWordBlocked" type="String" />
+			<Column name="keyWordBlockedLowerCase" type="String" />
+			<Column name="keyTypeProduction" type="String" />
+			<Column name="keyTypeSandbox" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>test.jpg</Value>
+			<Value>1.0.0</Value>
+			<Value>aaa</Value>
+			<Value>Api1mm</Value>
+			<Value>BLOCKED</Value>
+			<Value>1.0.1</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>CREATED</Value>
+			<Value>1.0.2</Value>
+			<Value>PUBLISHED</Value>
+			<Value>1.0.3</Value>
+			<Value>DEPRECATED</Value>
+			<Value>1.0.5</Value>
+			<Value>RETIRED</Value>
+			<Value>1.0.6</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>1.0.4</Value>
+			<Value>1.0.7</Value>
+			<Value>context</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>Public</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>app</Value>
+			<Value>desc</Value>
+			<Value>1</Value>
+			<Value>BLOCKED</Value>
+			<Value>Blocked</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+		</Row>
+		<Row>
+			<Value>Admin</Value>
+			<Value>test.jpg</Value>
+			<Value>1.0.0</Value>
+			<Value>aaa</Value>
+			<Value>Api1mm</Value>
+			<Value>BLOCKED</Value>
+			<Value>1.0.1</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>CREATED</Value>
+			<Value>1.0.2</Value>
+			<Value>PUBLISHED</Value>
+			<Value>1.0.3</Value>
+			<Value>DEPRECATED</Value>
+			<Value>1.0.5</Value>
+			<Value>RETIRED</Value>
+			<Value>1.0.6</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>1.0.4</Value>
+			<Value>1.0.7</Value>
+			<Value>context</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Public</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>app</Value>
+			<Value>desc</Value>
+			<Value>1</Value>
+			<Value>BLOCKED</Value>
+			<Value>Blocked</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+		</Row>
+
+</Table>
+	<Table name="APILifecycleManagement">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APINameOne" type="String" />
+			<Column name="APIOneContext" type="String" />
+			<Column name="APIOneVersion" type="String" />
+			<Column name="APIOneTagName" type="String" />
+			<Column name="APIOneImagePath" type="String" />
+			<Column name="APIOneDescription" type="String" />
+			<Column name="APIOneURLPattern" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndPoint" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>API125</Value>
+			<Value>contextG3</Value>
+			<Value>v1.0.2</Value>
+			<Value>tAG1</Value>
+			<Value>C:\\API\\images\\test.jpg</Value>
+			<Value>DESCRIPTION</Value>
+			<Value>patternOne</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>API125</Value>
+			<Value>contextG3</Value>
+			<Value>v1.0.2</Value>
+			<Value>tAG1</Value>
+			<Value>C:\\API\\images\\test.jpg</Value>
+			<Value>DESCRIPTION</Value>
+			<Value>patternOne</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+		</Row>
+
+</Table>
+	<Table name="NewKeyGeneration">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APINameOne" type="String" />
+			<Column name="APIOneContext" type="String" />
+			<Column name="APIOneVersion" type="String" />
+			<Column name="APIOneTagName" type="String" />
+			<Column name="APIOneImagePath" type="String" />
+			<Column name="APIOneDescription" type="String" />
+			<Column name="APIOneURLPattern" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndPoint" type="String" />
+			<Column name="appName" type="String" />
+			<Column name="tokenValue" type="String" />
+			<Column name="throttlingTier" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>API104</Value>
+			<Value>contextA3</Value>
+			<Value>v1.8.0</Value>
+			<Value>tAG1</Value>
+			<Value></Value>
+			<Value>DESCRIPTION</Value>
+			<Value>patternOne</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>APP</Value>
+			<Value>1800</Value>
+			<Value>index=2</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>API104</Value>
+			<Value>contextA3</Value>
+			<Value>v1.8.0</Value>
+			<Value>tAG1</Value>
+			<Value></Value>
+			<Value>DESCRIPTION</Value>
+			<Value>patternOne</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>APP</Value>
+			<Value>1800</Value>
+			<Value>index=2</Value>
+		</Row>
+
+</Table>
+	<Table name="EndPointTypes">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APIImagePath" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="validSandboxEndpoint" type="String" />
+			<Column name="validProductionEndPoint" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>v3.4.</Value>
+			<Value></Value>
+			<Value>API4</Value>
+			<Value>tag1</Value>
+			<Value>CONTEXT</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>v3.4.</Value>
+			<Value></Value>
+			<Value>API4</Value>
+			<Value>tag1</Value>
+			<Value>CONTEXT</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+		</Row>
+
+</Table>
+	<Table name="AddVerifyDocuments">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="apiName" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="ProductionEndPoint" type="String" />
+			<Column name="SandBoxEndPoint" type="String" />
+			<Column name="docName" type="String" />
+			<Column name="docNameInvalid" type="String" />
+			<Column name="docSummery" type="String" />
+			<Column name="SourseUrl" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="UploadFilePath" type="String" />
+			<Column name="DownloadFilePath" type="String" />
+			<Column name="downImag" type="String" />
+			<Column name="otherType" type="String" />
+			<Column name="labelOther" type="String" />
+			<Column name="labelSupport" type="String" />
+			<Column name="labelPublic" type="String" />
+			<Column name="labelSample" type="String" />
+			<Column name="labelHowTo" type="String" />
+			<Column name="editContent" type="String" />
+			<Column name="ImageName" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>ApiTagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DocName</Value>
+			<Value>doc@!23</Value>
+			<Value>DocSummery</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>APIContext</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>other</Value>
+			<Value>Other</Value>
+			<Value>Support Forum</Value>
+			<Value>Public Forum</Value>
+			<Value>Samples</Value>
+			<Value>How To</Value>
+			<Value>This is content</Value>
+			<Value>dd.jpg</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>ApiTagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DocName</Value>
+			<Value>doc@!23</Value>
+			<Value>DocSummery</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>APIContext</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>other</Value>
+			<Value>Other</Value>
+			<Value>Support Forum</Value>
+			<Value>Public Forum</Value>
+			<Value>Samples</Value>
+			<Value>How To</Value>
+			<Value>This is content</Value>
+			<Value>dd.jpg</Value>
+		</Row>
+
+</Table>
+	<Table name="UpdateDocuments">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="docName" type="String" />
+			<Column name="ProductionEndPoint" type="String" />
+			<Column name="SandBoxEndPoint" type="String" />
+			<Column name="editContent" type="String" />
+			<Column name="sourseUrl" type="String" />
+			<Column name="TableColumnType" type="String" />
+			<Column name="imageName" type="String" />
+			<Column name="uploadFilePath" type="String" />
+			<Column name="docSameAsAPIVisibility" type="String" />
+			<Column name="otherText" type="String" />
+			<Column name="uploadFilePathTwo" type="String" />
+			<Column name="downloadFilePath" type="String" />
+			<Column name="docSummery" type="String" />
+			<Column name="docSummeryTwo" type="String" />
+			<Column name="docVisibilityPrivate" type="String" />
+			<Column name="docVisibilityMyDomain" type="String" />
+			<Column name="popupImage" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>DocName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>This is content</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>How To</Value>
+			<Value>dd.jpg</Value>
+			<Value>api.pdf</Value>
+			<Value>Same as API visibility</Value>
+			<Value>test</Value>
+			<Value>test.txt</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\api.pdf</Value>
+			<Value>test Summery</Value>
+			<Value>Summery Two</Value>
+			<Value>Private</Value>
+			<Value>Visible to my domain</Value>
+			<Value>DownloadPopup.jpg</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>1.1.1</Value>
+			<Value>APITagName</Value>
+			<Value>DocName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>This is content</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>How To</Value>
+			<Value>dd.jpg</Value>
+			<Value>api.pdf</Value>
+			<Value>Same as API visibility</Value>
+			<Value>test</Value>
+			<Value>test.txt</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\api.pdf</Value>
+			<Value>test Summery</Value>
+			<Value>Summery Two</Value>
+			<Value>Private</Value>
+			<Value>Visible to my domain</Value>
+			<Value>DownloadPopup.jpg</Value>
+		</Row>
+
+</Table>
+	<Table name="DeleteDocuments">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APITagName" type="String" />
+			<Column name="ProductionEndPoint" type="String" />
+			<Column name="SandBoxEndPoint" type="String" />
+			<Column name="TypeOther" type="String" />
+			<Column name="UploadFilePath" type="String" />
+			<Column name="docName" type="String" />
+			<Column name="sourseUrl" type="String" />
+			<Column name="imageName" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>APIVersion</Value>
+			<Value>APITagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>abc</Value>
+			<Value> APIM_Test.pdf</Value>
+			<Value>DocName</Value>
+			<Value>https://en.wikipedia.org/wiki/Virtusa</Value>
+			<Value>dd.jpg</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIName</Value>
+			<Value>APIContext</Value>
+			<Value>APIVersion</Value>
+			<Value>APITagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>abc</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>DocName</Value>
+			<Value>https://en.wikipedia.org/wiki/Virtusa</Value>
+			<Value>dd.jpg</Value>
+		</Row>
+
+</Table>
+	<Table name="Common">
+		<Header>
+			<Column name="superAdminUserName" type="String" />
+			<Column name="superAdminPassword" type="String" />
+			<Column name="carbonURL" type="String" />
+			<Column name="PublisherURL" type="String" />
+			<Column name="storeURL" type="String" />
+		</Header>
+		<Row>
+			<Value>admin</Value>
+			<Value>admin</Value>
+			<Value>https://localhost:9443/carbon/admin/login.jsp</Value>
+			<Value>https://localhost:9443/publisher/</Value>
+			<Value>https://localhost:9443/store/</Value>
+		</Row>
+
+</Table>
+	<Table name="Tenant_UserCreation">
+		<Header>
+			<Column name="tenantOnePublisherUserNameOne" type="String" />
+			<Column name="tenantOnePublisherUserOnePassword" type="String" />
+			<Column name="tenantOneRoleNameOnePublisherUserOne" type="String" />
+			<Column name="tenantOneStoreUserNameOne" type="String" />
+			<Column name="tenantOneStoreUserOnePassword" type="String" />
+			<Column name="tenantOneRoleNameOneStoreUserOne" type="String" />
+			<Column name="tenantOnePublisherUserNameTwo" type="String" />
+			<Column name="tenantOnePublisherUserTwoPassword" type="String" />
+			<Column name="tenantOneRoleNameOnePublisherUserTwo" type="String" />
+			<Column name="tenantOneStoreUserNameTwo" type="String" />
+			<Column name="tenantOneStoreUserTwoPassword" type="String" />
+			<Column name="tenantOneRoleNameOneStoreUserTwo" type="String" />
+			<Column name="tenantTwoPublisherUserNameOne" type="String" />
+			<Column name="tenantTwoPublisherUserOnePassword" type="String" />
+			<Column name="tenantTwoRoleNameOnePublisherUserOne" type="String" />
+			<Column name="tenantTwoStoreUserNameOne" type="String" />
+			<Column name="tenantTwoStoreUserOnePassword" type="String" />
+			<Column name="tenantTwoRoleNameOneStoreUserOne" type="String" />
+			<Column name="tenantThreePublisherUserNameOne" type="String" />
+			<Column name="tenantThreePublisherUserOnePassword" type="String" />
+			<Column name="tenantThreeRoleNameOnePublisherUserOne" type="String" />
+			<Column name="tenantThreeStoreUserNameOne" type="String" />
+			<Column name="tenantThreeStoreUserOnePassword" type="String" />
+			<Column name="tenantThreeRoleNameOneStoreUserOne" type="String" />
+			<Column name="tenantThreeStoreUserNameTwo" type="String" />
+			<Column name="tenantThreeStoreUserTwoPassword" type="String" />
+			<Column name="tenantThreeRoleNameOneStoreUserTwo" type="String" />
+		</Header>
+		<Row>
+			<Value>bt1p1</Value>
+			<Value>111111</Value>
+			<Value>bt1p1r1</Value>
+			<Value>bt1s1</Value>
+			<Value>111111</Value>
+			<Value>bas1r1</Value>
+			<Value>bt1p2</Value>
+			<Value>111111</Value>
+			<Value>bt1p2r1</Value>
+			<Value>bt1s2</Value>
+			<Value>111111</Value>
+			<Value>bt1s2r1</Value>
+			<Value>bt2p2</Value>
+			<Value>111111</Value>
+			<Value>bt2p1r1</Value>
+			<Value>bt2s1</Value>
+			<Value>111111</Value>
+			<Value>bas1r1</Value>
+			<Value>bt3p1</Value>
+			<Value>111111</Value>
+			<Value>bt3p1r1</Value>
+			<Value>bt3s1</Value>
+			<Value>111111</Value>
+			<Value>bt3s1r1</Value>
+			<Value>bt3s2</Value>
+			<Value>111111</Value>
+			<Value>bt3s1r1</Value>
+		</Row>
+
+</Table>
+	<Table name="Admin_UserCreation">
+		<Header>
+			<Column name="adminPublisherUserNameOne" type="String" />
+			<Column name="adminPublisherUserOnePassword" type="String" />
+			<Column name="adminRoleNameOnePublisherUserOne" type="String" />
+			<Column name="adminStoreUserNameOne" type="String" />
+			<Column name="adminStoreUserOnePassword" type="String" />
+			<Column name="adminRoleNameOneStoreUserOne" type="String" />
+			<Column name="adminPublisherUserNameTwo" type="String" />
+			<Column name="adminPublisherUserTwoPassword" type="String" />
+			<Column name="adminRoleNameOnePublisherUserTwo" type="String" />
+			<Column name="adminStoreUserNameTwo" type="String" />
+			<Column name="adminStoreUserTwoPassword" type="String" />
+			<Column name="adminRoleNameOneStoreUserTwo" type="String" />
+			<Column name="adminRoleNameSpecialStoreOne" type="String" />
+			<Column name="adminStoreUserNameThree" type="String" />
+			<Column name="adminStoreUserThreePassword" type="String" />
+		</Header>
+		<Row>
+			<Value>bap1</Value>
+			<Value>111111</Value>
+			<Value>bap1r1</Value>
+			<Value>bas1</Value>
+			<Value>111111</Value>
+			<Value>bas1r1</Value>
+			<Value>bap2</Value>
+			<Value>111111</Value>
+			<Value>bap2r1</Value>
+			<Value>bas2</Value>
+			<Value>111111</Value>
+			<Value>bas2r1</Value>
+			<Value>baspecialstore</Value>
+			<Value>bas3</Value>
+			<Value>111111</Value>
+		</Row>
+
+</Table>
+	<Table name="AddEditDeleteApplications">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="InvalidAppName" type="String" />
+			<Column name="ThrottlingTier" type="String" />
+			<Column name="CallBackURL" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="ValidNameTwo" type="String" />
+			<Column name="ValidAppNameThree" type="String" />
+			<Column name="ApplicationName" type="String" />
+			<Column name="ApplicationWithSubscription" type="String" />
+			<Column name="AppNameFour" type="String" />
+			<Column name="AppNameFive" type="String" />
+			<Column name="EditTier" type="String" />
+			<Column name="EditCallBackURL" type="String" />
+			<Column name="EditDescription" type="String" />
+			<Column name="ApplicationNameOne" type="String" />
+			<Column name="ApplicationNameTwo" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="tag" type="String" />
+			<Column name="APIContest" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="AppDescription" type="String" />
+			<Column name="Edit" type="String" />
+			<Column name="Delete" type="String" />
+			<Column name="active" type="String" />
+			<Column name="NewApplication" type="String" />
+			<Column name="Statistics" type="String" />
+			<Column name="silver" type="String" />
+			<Column name="newCallbackUrl" type="String" />
+			<Column name="newDescription" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>@#$APPname</Value>
+			<Value>index=0</Value>
+			<Value>a.com</Value>
+			<Value>Desss</Value>
+			<Value>Application_Sample2</Value>
+			<Value>Application_Sample2</Value>
+			<Value>AppName</Value>
+			<Value></Value>
+			<Value>Application_Sample3</Value>
+			<Value>Application_SampleFour</Value>
+			<Value>index=2</Value>
+			<Value>b.com</Value>
+			<Value>Editdes</Value>
+			<Value>AppNameSS</Value>
+			<Value>Application_SampleOne</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>def</Value>
+			<Value>/fdd</Value>
+			<Value>APINAME</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>TenantOne</Value>
+			<Value>application description</Value>
+			<Value>Edit</Value>
+			<Value>Delete</Value>
+			<Value>ACTIVE</Value>
+			<Value>New Application...</Value>
+			<Value>API Usage per Application</Value>
+			<Value>Silver</Value>
+			<Value>abc.com</Value>
+			<Value>Edited description</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>@#$APPname</Value>
+			<Value>index=1</Value>
+			<Value>a.com</Value>
+			<Value>Desss</Value>
+			<Value>Application_Sample6</Value>
+			<Value>Application_Sample7</Value>
+			<Value>AppNameTwo</Value>
+			<Value></Value>
+			<Value>Application_Sample4</Value>
+			<Value>Application_SampleFive</Value>
+			<Value>index=3</Value>
+			<Value>b.com</Value>
+			<Value>Editdes</Value>
+			<Value>AppNameSSS</Value>
+			<Value>Application_SampleTwo</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>def</Value>
+			<Value>/fdd</Value>
+			<Value>APINAME</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>Admin</Value>
+			<Value>application description</Value>
+			<Value>Edit</Value>
+			<Value>Delete</Value>
+			<Value>ACTIVE</Value>
+			<Value>New Application...</Value>
+			<Value>API Usage per Application</Value>
+			<Value>Silver</Value>
+			<Value>abc.com</Value>
+			<Value>Edited description</Value>
+		</Row>
+
+</Table>
+	<Table name="Resourcelevelsecurity">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APIImagePath" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="verbGet" type="String" />
+			<Column name="verbPost" type="String" />
+			<Column name="verbPut" type="String" />
+			<Column name="verbOption" type="String" />
+			<Column name="ProductionEndpointUrl" type="String" />
+			<Column name="Application" type="String" />
+			<Column name="ApplicationUser" type="String" />
+			<Column name="ApplicationAndApplicationUse" type="String" />
+			<Column name="None" type="String" />
+			<Column name="newVersion" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIOne</Value>
+			<Value>1.0.0</Value>
+			<Value></Value>
+			<Value>abc</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>put</Value>
+			<Value>options</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>Application</Value>
+			<Value>Application User</Value>
+			<Value>Application &amp; Application User</Value>
+			<Value>None</Value>
+			<Value>2.0.0</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIOne</Value>
+			<Value>1.0.0</Value>
+			<Value></Value>
+			<Value>abc</Value>
+			<Value>get</Value>
+			<Value>post</Value>
+			<Value>put</Value>
+			<Value>options</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>Application</Value>
+			<Value>Application User</Value>
+			<Value>Application &amp; Application User</Value>
+			<Value>None</Value>
+			<Value>2.0.0</Value>
+		</Row>
+
+</Table>
+	<Table name="APISubscription">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APIImagePath" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndPoint" type="String" />
+			<Column name="appName" type="String" />
+			<Column name="throttlingTier" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>API675</Value>
+			<Value>Context_7</Value>
+			<Value>v7.3.</Value>
+			<Value>api2.jpg</Value>
+			<Value>tag_tag</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>APP75</Value>
+			<Value>index=1</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>API675</Value>
+			<Value>Context_7</Value>
+			<Value>v7.3.</Value>
+			<Value>api2.jpg</Value>
+			<Value>tag_tag</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>APP75</Value>
+			<Value>index=1</Value>
+		</Row>
+
+</Table>
+	<Table name="EditExistingDocContent">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="docNameOne" type="String" />
+			<Column name="uploadDocLocation" type="String" />
+			<Column name="docSummary" type="String" />
+			<Column name="updateSummaryOne" type="String" />
+			<Column name="URLLinkOne" type="String" />
+			<Column name="newVersionOne" type="String" />
+			<Column name="newVersionTwo" type="String" />
+			<Column name="documentOtherNameOne" type="String" />
+			<Column name="docNameTwo" type="String" />
+			<Column name="statePublished" type="String" />
+			<Column name="downloadFilePath" type="String" />
+			<Column name="updateSummaryTwo" type="String" />
+			<Column name="URLLinkTwo" type="String" />
+			<Column name="documentOtherNameTwo" type="String" />
+			<Column name="updateSummaryThree" type="String" />
+			<Column name="editContentOne" type="String" />
+			<Column name="editContentTwo" type="String" />
+			<Column name="editContentThree" type="String" />
+			<Column name="imagePath" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="downImagePopup" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>Api1mm</Value>
+			<Value>Doc10</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>Test Summary</Value>
+			<Value>summary update</Value>
+			<Value>https://en.wikipedia.org/wiki/WSO2</Value>
+			<Value>1.0.1</Value>
+			<Value>1.0.2</Value>
+			<Value>doc</Value>
+			<Value>Doc2</Value>
+			<Value>PUBLISHED</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>update again</Value>
+			<Value>https://en.wikipedia.org/wiki/Virtusa</Value>
+			<Value>aaaa</Value>
+			<Value>Update3</Value>
+			<Value>edit1</Value>
+			<Value>edit2</Value>
+			<Value>edit3</Value>
+			<Value>api2.jpg</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DownloadPopup.JPG</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>Api1mm</Value>
+			<Value>Doc10</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>Test Summary</Value>
+			<Value>summary update</Value>
+			<Value>https://en.wikipedia.org/wiki/WSO2</Value>
+			<Value>1.0.1</Value>
+			<Value>1.0.2</Value>
+			<Value>doc</Value>
+			<Value>Doc2</Value>
+			<Value>PUBLISHED</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>update again</Value>
+			<Value>https://en.wikipedia.org/wiki/Virtusa</Value>
+			<Value>aaaa</Value>
+			<Value>Update3</Value>
+			<Value>edit1</Value>
+			<Value>edit2</Value>
+			<Value>edit3</Value>
+			<Value>api2.jpg</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DownloadPopup.JPG</Value>
+		</Row>
+
+</Table>
+	<Table name="UpdateAPIs">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="ImagePath" type="String" />
+			<Column name="txtPath" type="String" />
+			<Column name="verbNamePost" type="String" />
+			<Column name="urlPatterSC" type="String" />
+			<Column name="verbNameDelete" type="String" />
+			<Column name="verbNameGet" type="String" />
+			<Column name="urlPattern" type="String" />
+			<Column name="verbName" type="String" />
+			<Column name="VisibilityPublic" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIOne</Value>
+			<Value>test.jpg</Value>
+			<Value>test.txt</Value>
+			<Value>post</Value>
+			<Value>say/customer</Value>
+			<Value>delete</Value>
+			<Value>get</Value>
+			<Value>say/customer</Value>
+			<Value>get</Value>
+			<Value>Public</Value>
+			<Value>APIContextOne</Value>
+			<Value>1.0.0</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIOne</Value>
+			<Value>test.jpg</Value>
+			<Value>test.txt</Value>
+			<Value>post</Value>
+			<Value>say/customer</Value>
+			<Value>delete</Value>
+			<Value>get</Value>
+			<Value>say/customer</Value>
+			<Value>get</Value>
+			<Value>Public</Value>
+			<Value>APIContextOne</Value>
+			<Value>1.0.0</Value>
+		</Row>
+
+</Table>
+	<Table name="Key_Generation_With_Scopes">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="storeRole" type="String" />
+			<Column name="verbMethodNameGet" type="String" />
+			<Column name="tier" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndPoint" type="String" />
+			<Column name="appName" type="String" />
+			<Column name="verbMethodNamePost" type="String" />
+			<Column name="domain" type="String" />
+			<Column name="publisher" type="String" />
+			<Column name="store" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>Context</Value>
+			<Value>v3.5.</Value>
+			<Value>tag_test</Value>
+			<Value>store</Value>
+			<Value>get</Value>
+			<Value>Unlimited</Value>
+			<Value>pages/login.jag?requestedPage=/publisher/</Value>
+			<Value>pages/login.jag?requestedPage=/publisher/</Value>
+			<Value>APP</Value>
+			<Value>post</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>Context</Value>
+			<Value>v3.5.</Value>
+			<Value>tag_test</Value>
+			<Value>store</Value>
+			<Value>get</Value>
+			<Value>Unlimited</Value>
+			<Value>pages/login.jag?requestedPage=/publisher/</Value>
+			<Value>pages/login.jag?requestedPage=/publisher/</Value>
+			<Value>APP</Value>
+			<Value>post</Value>
+			<Value>Admin</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+		</Row>
+
+</Table>
+	<Table name="Subscription">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="domainThreeOrAdminStore" type="String" />
+			<Column name="domainName" type="String" />
+			<Column name="domainThreeOrAdminPublisher" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>Context_001</Value>
+			<Value>tag_tag</Value>
+			<Value>url/testPPEPoint</Value>
+			<Value>url/test/SBEpoint</Value>
+			<Value>v2.5.</Value>
+			<Value>TenantThreeStoreOne</Value>
+			<Value>TenantThree</Value>
+			<Value>TenantThreePublisherOne</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>Context_001</Value>
+			<Value>tag_tag</Value>
+			<Value>url/testPPEPoint</Value>
+			<Value>url/test/SBEpoint</Value>
+			<Value>v2.5.</Value>
+			<Value>AdminStoreWithoutSubscription</Value>
+			<Value>Admin</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+
+</Table>
+	<Table name="Domain_And_Visibility_Based_Subscriptions">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="subscriptionAvailableToCurrentTenantOnly" type="String" />
+			<Column name="aplicationName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="subscriptionAvailableToAllTenants" type="String" />
+			<Column name="SubscriptionAvailableSpecificTenants" type="String" />
+			<Column name="domainOne" type="String" />
+			<Column name="tenantOneOrAdminPublisher" type="String" />
+			<Column name="tenantOneOrAdminStoreOne" type="String" />
+			<Column name="tenantOneOrAdminStoreTwo" type="String" />
+			<Column name="domainTwo" type="String" />
+			<Column name="tenanTwoOrAdminStore" type="String" />
+			<Column name="domainThree" type="String" />
+			<Column name="tenantThreeOrAdminStoreTwo" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>index=0</Value>
+			<Value>APP</Value>
+			<Value>Context_001</Value>
+			<Value>v2.7.</Value>
+			<Value>tag_test</Value>
+			<Value>test/URL_sandBox</Value>
+			<Value>test/URL_production</Value>
+			<Value>index=1</Value>
+			<Value>index=2</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>TenantTwo</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantThree</Value>
+			<Value>TenantThreeStoreTwo</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>index=0</Value>
+			<Value>APP</Value>
+			<Value>Context_001</Value>
+			<Value>v2.7.</Value>
+			<Value>tag_test</Value>
+			<Value>test/URL_sandBox</Value>
+			<Value>test/URL_production</Value>
+			<Value>index=1</Value>
+			<Value>index=2</Value>
+			<Value>Admin</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>TenantTwo</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantThree</Value>
+			<Value>TenantThreeStoreTwo</Value>
+		</Row>
+
+</Table>
+	<Table name="Search_APIs_of_Store">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContest" type="String" />
+			<Column name="tag" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="storeURL" type="String" />
+			<Column name="publisherURL" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="SearchContext" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="SearchDescription" type="String" />
+			<Column name="searchProvider" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>zoysa</Value>
+			<Value>/fdd</Value>
+			<Value>wsxe</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>https://localhost:9443/store/</Value>
+			<Value>https://localhost:9443/publisher/</Value>
+			<Value>version:</Value>
+			<Value>context:</Value>
+			<Value>vsdfsdfdsf</Value>
+			<Value>description:</Value>
+			<Value>provider:</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>zoysa</Value>
+			<Value>/fdd</Value>
+			<Value>wsxe</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>https://localhost:9443/store/</Value>
+			<Value>https://localhost:9443/publisher/</Value>
+			<Value>version:</Value>
+			<Value>context:</Value>
+			<Value>vsdfsdfdsf</Value>
+			<Value>description:</Value>
+			<Value>provider:</Value>
+		</Row>
+
+</Table>
+	<Table name="APISearch_Publisher">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APIImagePath" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="searchAPIProvider" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="searchVersion" type="String" />
+			<Column name="searchContext" type="String" />
+			<Column name="statusCreated" type="String" />
+			<Column name="statusPublished" type="String" />
+			<Column name="statusBlocked" type="String" />
+			<Column name="statusRetired" type="String" />
+			<Column name="statusPrototyped" type="String" />
+			<Column name="statusDeprecated" type="String" />
+			<Column name="searchStatus" type="String" />
+			<Column name="searchDescription" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="searchSubContext" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="verbMethodGET" type="String" />
+			<Column name="secrchDoc" type="String" />
+			<Column name="userCount" type="String" />
+			<Column name="PublisherOneOfTenantOneOrAdmin" type="String" />
+		</Header>
+		<Row>
+			<Value>APIOne</Value>
+			<Value>APIContextOne</Value>
+			<Value>1.0.0</Value>
+			<Value>aaa</Value>
+			<Value>APITagOne</Value>
+			<Value>provider:</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>version:</Value>
+			<Value>context:</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>BLOCKED</Value>
+			<Value>RETIRED</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>status:</Value>
+			<Value>Description:</Value>
+			<Value>This is an API</Value>
+			<Value>subcontext:</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>doc:</Value>
+			<Value>0</Value>
+			<Value>TenantOnePublisherOne</Value>
+		</Row>
+		<Row>
+			<Value>APIOne</Value>
+			<Value>APIContextOne</Value>
+			<Value>1.0.0</Value>
+			<Value>aaa</Value>
+			<Value>APITagOne</Value>
+			<Value>provider:</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>version:</Value>
+			<Value>context:</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>BLOCKED</Value>
+			<Value>RETIRED</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>status:</Value>
+			<Value>Description:</Value>
+			<Value>This is an API</Value>
+			<Value>subcontext:</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>doc:</Value>
+			<Value>0</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+
+</Table>
+	<Table name="VisibleToEveryone">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="apiVisibility" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="serverNameDomainTwo" type="String" />
+			<Column name="apiImagePath" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="tenantOrAdminStoreTwo" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+		</Header>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>tag</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>Public</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantTwo</Value>
+			<Value>api2</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+		</Row>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>tag</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>Public</Value>
+			<Value>Admin</Value>
+			<Value>TenantTwo</Value>
+			<Value>api2</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+
+</Table>
+	<Table name="VisibleToAllUsersInSpecificDomain">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="apiVisibility" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="serverNameDomainTwo" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="tenantOrAdminStoreTwo" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+		</Header>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Visible to my domain</Value>
+			<Value>tag</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+		</Row>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Visible to my domain</Value>
+			<Value>tag</Value>
+			<Value>Admin</Value>
+			<Value>TenantTwo</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+		</Row>
+
+</Table>
+	<Table name="VisibleOnlyToSpecifiedRolesInTenantDomain">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="apiVisibility" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="serverNameDomainTwo" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantTwoOrAdmin" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeTwoOfTenantOneOrAdmin" type="String" />
+		</Header>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Restricted by roles</Value>
+			<Value>tag</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreTwo</Value>
+		</Row>
+		<Row>
+			<Value>APIM</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Restricted by roles</Value>
+			<Value>tag</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>http://172.22.203.11:9763/t/fog.com/webapps/jaxrs_starbucks_service/services/Starbucks_Outlet_Service?_wadl</Value>
+			<Value>Admin</Value>
+			<Value>TenantTwo</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreTwo</Value>
+		</Row>
+
+</Table>
+	<Table name="TagManagement">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="tag" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="indexTwo" type="String" />
+			<Column name="indexFour" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>etrg</Value>
+			<Value>/fxx</Value>
+			<Value>smack</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>sdfsfsd</Value>
+			<Value>2</Value>
+			<Value>4</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>etrg</Value>
+			<Value>/fxx</Value>
+			<Value>smack</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>sdfsfsd</Value>
+			<Value>2</Value>
+			<Value>4</Value>
+		</Row>
+
+</Table>
+	<Table name="SelfSignUp">
+		<Header>
+			<Column name="userName" type="String" />
+			<Column name="password" type="String" />
+			<Column name="firstName" type="String" />
+			<Column name="lastName" type="String" />
+			<Column name="email" type="String" />
+			<Column name="serverName" type="String" />
+		</Header>
+		<Row>
+			<Value>laksh</Value>
+			<Value>6yhn7ujm@@</Value>
+			<Value>lakshan</Value>
+			<Value>dhanushka</Value>
+			<Value>lakshanfonseka1@gmail.com</Value>
+			<Value>carbon.super</Value>
+		</Row>
+
+</Table>
+	<Table name="Forums">
+		<Header>
+			<Column name="serverName" type="String" />
+			<Column name="userNameAdmin" type="String" />
+			<Column name="passwordAdmin" type="String" />
+			<Column name="topicSubject" type="String" />
+			<Column name="topicDescription" type="String" />
+			<Column name="storeOneOfAdmin" type="String" />
+			<Column name="storeTwoOfAdmin" type="String" />
+			<Column name="topicSubjectAdminUser" type="String" />
+			<Column name="topicDescriptionAdminUser" type="String" />
+			<Column name="topicSubject1" type="String" />
+			<Column name="topicDescription1" type="String" />
+			<Column name="topicSubject2" type="String" />
+			<Column name="topicDescription2" type="String" />
+			<Column name="topicSubject3" type="String" />
+			<Column name="topicDescription3" type="String" />
+			<Column name="replyContentEdit" type="String" />
+			<Column name="replyMessageBody" type="String" />
+			<Column name="rateStarLevelFour" type="String" />
+			<Column name="rateStarLevelTwo" type="String" />
+		</Header>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>admin</Value>
+			<Value>admin</Value>
+			<Value>API Discussion</Value>
+			<Value>Discussion on API</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>User1 Discussion</Value>
+			<Value> discussion on User1&apos;s APIs</Value>
+			<Value>topic1</Value>
+			<Value> discussion on topic1</Value>
+			<Value>topic2</Value>
+			<Value> discussion on topic2</Value>
+			<Value>topic3</Value>
+			<Value> discussion on topic3</Value>
+			<Value>Edited</Value>
+			<Value>Sample_Reply</Value>
+			<Value>4</Value>
+			<Value>2</Value>
+		</Row>
+
+</Table>
+	<Table name="WithoutDefaultVersion">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVersionTwo" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="numberOfUsersZero" type="String" />
+			<Column name="statusCreated" type="String" />
+			<Column name="statusPublished" type="String" />
+			<Column name="statusDeprecated" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationDiscription" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="invokeTypeProduction" type="String" />
+			<Column name="invokeTypeSandbox" type="String" />
+			<Column name="tierType" type="String" />
+			<Column name="numberOfUsersOne" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>1</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>1</Value>
+		</Row>
+
+</Table>
+	<Table name="DeprecatedAPIs">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="statusDeprecated" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationNameInvoke" type="String" />
+			<Column name="applicationDiscription" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="invokeTypeProduction" type="String" />
+			<Column name="invokeTypeSandbox" type="String" />
+			<Column name="tierType" type="String" />
+			<Column name="changeProductionEndPoint" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>DEPRECATED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>DEPRECATED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Created">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="statusCreated" type="String" />
+			<Column name="statusPublished" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationNameInvoke" type="String" />
+			<Column name="applicationDiscription" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="invokeTypeProduction" type="String" />
+			<Column name="invokeTypeSandbox" type="String" />
+			<Column name="tierType" type="String" />
+			<Column name="changeProductionEndPoint" type="String" />
+			<Column name="apiNewVersion" type="String" />
+			<Column name="noOfUsersZero" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>2.2.2</Value>
+			<Value>0</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>2.2.2</Value>
+			<Value>0</Value>
+		</Row>
+
+</Table>
+	<Table name="Comments">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="verbMethodGET" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="Comments" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+		</Header>
+		<Row>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>this is a sample comment</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOne</Value>
+		</Row>
+		<Row>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>this is a sample comment</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>Admin</Value>
+		</Row>
+
+</Table>
+	<Table name="Ratings">
+		<Header>
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="verbMethodGET" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="RateStarLevelThree" type="String" />
+			<Column name="RateStarLevelFour" type="String" />
+			<Column name="RateStarLevelTwo" type="String" />
+			<Column name="tenantOrAdminStoreTwo" type="String" />
+		</Header>
+		<Row>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>3</Value>
+			<Value>4</Value>
+			<Value>2</Value>
+			<Value>TenantOneStoreTwo</Value>
+		</Row>
+		<Row>
+			<Value>AdminPublisherOne</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>3</Value>
+			<Value>4</Value>
+			<Value>2</Value>
+			<Value>AdminStoreTwo</Value>
+		</Row>
+
+</Table>
+	<Table name="CustomAttributeHandling">
+		<Header>
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="verbMethodGET" type="String" />
+			<Column name="ProductionEndPontJaxRS" type="String" />
+			<Column name="SandboxEndpoint" type="String" />
+			<Column name="ResponseCaching" type="String" />
+			<Column name="jasonFileName" type="String" />
+			<Column name="APIVersionOne" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="APIImageName" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="cacheTimeForTimeOut" type="String" />
+			<Column name="StoreOneOfTenanrOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="keywordEnabled" type="String" />
+		</Header>
+		<Row>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>Enabled</Value>
+			<Value>test.json</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>3600</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>Enabled</Value>
+		</Row>
+		<Row>
+			<Value>AdminPublisherOne</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>say/resource</Value>
+			<Value>get</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>Enabled</Value>
+			<Value>test.json</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>3600</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>Enabled</Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Retired">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="APIStateRetired" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="numberOfUser" type="String" />
+			<Column name="APIStatePublished" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="defaultApplication" type="String" />
+			<Column name="keyTypeToInvokeProduction" type="String" />
+			<Column name="keyTypeToInvokeSandBox" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="CustomerNameOne" type="String" />
+			<Column name="CustomerNameTwo" type="String" />
+			<Column name="ResponseCodeTwoHundred" type="String" />
+			<Column name="ResponseHeaders" type="String" />
+			<Column name="buttonNameGet" type="String" />
+			<Column name="buttonNamePut" type="String" />
+			<Column name="ResponseBodyNoContent" type="String" />
+			<Column name="buttonNameHead" type="String" />
+			<Column name="ResponseHeadersNull" type="String" />
+			<Column name="buttonNameDelete" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="ResponCodeTwoHundredAndFourForDeleteVerification" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>RETIRED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>0</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>RETIRED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>0</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Deprecated">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="APIStatePublished" type="String" />
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="defaultApplication" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="APIStateDeprecated" type="String" />
+			<Column name="numberOfUsersZero" type="String" />
+			<Column name="tenantOrAdminStoreTwo" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="numberOfUsersOne" type="String" />
+			<Column name="keyTypeToInvokeProduction" type="String" />
+			<Column name="keyTypeToInvokeSandBox" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="CustomerNameOne" type="String" />
+			<Column name="CustomerNameTwo" type="String" />
+			<Column name="ResponseCodeTwoHundred" type="String" />
+			<Column name="ResponseHeaders" type="String" />
+			<Column name="buttonNameGet" type="String" />
+			<Column name="buttonNamePut" type="String" />
+			<Column name="ResponseBodyNoContent" type="String" />
+			<Column name="buttonNameHead" type="String" />
+			<Column name="ResponseHeadersNull" type="String" />
+			<Column name="buttonNameDelete" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="ResponCodeTwoHundredAndFourForDeleteVerification" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.3.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>PUBLISHED</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>DEPRECATED</Value>
+			<Value>0</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>1</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.3.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>PUBLISHED</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>DEPRECATED</Value>
+			<Value>0</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>1</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Blocked">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="APIStateBlocked" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="numberOfUser" type="String" />
+			<Column name="APIStatePublished" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="defaultApplication" type="String" />
+			<Column name="APIStateBlockedSimple" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="errorMessage" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>store/site/pages/subscriptions.jag?</Value>
+			<Value>store/site/pages/subscriptions.jag?</Value>
+			<Value>BLOCKED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>1</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Blocked</Value>
+			<Value>Production</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value></Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>store/site/pages/subscriptions.jag?</Value>
+			<Value>store/site/pages/subscriptions.jag?</Value>
+			<Value>BLOCKED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>1</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Blocked</Value>
+			<Value>Production</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value></Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Protyped">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="APIStatePrototyped" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="numberOfUser" type="String" />
+			<Column name="APIStatePublished" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="defaultApplication" type="String" />
+			<Column name="APIStatePrototypedSimple" type="String" />
+			<Column name="keyTypeToInvokeProduction" type="String" />
+			<Column name="keyTypeToInvokeSandBox" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="CustomerNameOne" type="String" />
+			<Column name="CustomerNameTwo" type="String" />
+			<Column name="ResponseCodeTwoHundred" type="String" />
+			<Column name="ResponseHeaders" type="String" />
+			<Column name="buttonNameGet" type="String" />
+			<Column name="buttonNamePut" type="String" />
+			<Column name="ResponseBodyNoContent" type="String" />
+			<Column name="buttonNameHead" type="String" />
+			<Column name="ResponseHeadersNull" type="String" />
+			<Column name="buttonNameDelete" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="ResponCodeTwoHundredAndFourForDeleteVerification" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>1</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Prototyped</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>PROTOTYPED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>1</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Prototyped</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+
+</Table>
+	<Table name="APIStates_Published">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandBoxEndpoint" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="numberOfUser" type="String" />
+			<Column name="APIStatePublished" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="defaultApplication" type="String" />
+			<Column name="keyTypeToInvokeProduction" type="String" />
+			<Column name="keyTypeToInvokeSandBox" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="CustomerNameOne" type="String" />
+			<Column name="CustomerNameTwo" type="String" />
+			<Column name="ResponseCodeTwoHundred" type="String" />
+			<Column name="ResponseHeaders" type="String" />
+			<Column name="buttonNameGet" type="String" />
+			<Column name="buttonNamePut" type="String" />
+			<Column name="ResponseBodyNoContent" type="String" />
+			<Column name="buttonNameHead" type="String" />
+			<Column name="ResponseHeadersNull" type="String" />
+			<Column name="buttonNameDelete" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="ResponCodeTwoHundredAndFourForDeleteVerification" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>0</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.9.</Value>
+			<Value>sample_tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>0</Value>
+			<Value>PUBLISHED</Value>
+			<Value>index=0</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+			<Value>Shiromalie</Value>
+			<Value>200</Value>
+			<Value>application/json</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>no content</Value>
+			<Value>head</Value>
+			<Value>null</Value>
+			<Value>delete</Value>
+			<Value>application/octet-stream</Value>
+			<Value>204</Value>
+		</Row>
+
+</Table>
+	<Table name="PluggableVersionContext">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVersionTwo" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="numberOfUsersZero" type="String" />
+			<Column name="statusCreated" type="String" />
+			<Column name="statusPublished" type="String" />
+			<Column name="statusDeprecated" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationDiscription" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="invokeTypeProduction" type="String" />
+			<Column name="invokeTypeSandbox" type="String" />
+			<Column name="tierType" type="String" />
+			<Column name="numberOfUsersOne" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>1</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>DefaultApplication</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+			<Value>Production</Value>
+			<Value>Sandbox</Value>
+			<Value>Unlimited</Value>
+			<Value>1</Value>
+		</Row>
+
+</Table>
+	<Table name="subscriptionRemoval">
+		<Header>
+			<Column name="tenantOrAdmin" type="String" />
+			<Column name="ApplicationName" type="String" />
+			<Column name="TenantOneOrAdminPublisher" type="String" />
+			<Column name="no" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="keyTypeToInvokeproduction" type="String" />
+			<Column name="postResponseCodeFourHundredAndThree" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="productionEndPoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="tenantOrAdminStoreOne" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+		</Header>
+		<Row>
+			<Value>TenantOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>no</Value>
+			<Value>yes</Value>
+			<Value>Production</Value>
+			<Value>401</Value>
+			<Value>API</Value>
+			<Value>context_00</Value>
+			<Value>1.0.0</Value>
+			<Value>index=0</Value>
+			<Value>tag007</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+		</Row>
+		<Row>
+			<Value>Admin</Value>
+			<Value>DefaultApplication</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>no</Value>
+			<Value>yes</Value>
+			<Value>Production</Value>
+			<Value>401</Value>
+			<Value>API</Value>
+			<Value>context_00</Value>
+			<Value>1.0.0</Value>
+			<Value>index=0</Value>
+			<Value>tag007</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>post</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>Evanthika</Value>
+		</Row>
+
+</Table>
+	<Table name="SubscriptionBlocking">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersionOne" type="String" />
+			<Column name="APIvisibility" type="String" />
+			<Column name="APIImageName" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="keyWordProductionOnly" type="String" />
+			<Column name="keyWordBlock" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="buttonNamePost" type="String" />
+			<Column name="postResponseCodeFourHundredAndOne" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="TenantOneORAdminPublisher" type="String" />
+		</Header>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.0.0</Value>
+			<Value>index=0</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag_778</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>Admin</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production Only</Value>
+			<Value>Block</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>post</Value>
+			<Value>401</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+		<Row>
+			<Value>API</Value>
+			<Value>sample_context</Value>
+			<Value>1.0.0</Value>
+			<Value>index=0</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag_778</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Production Only</Value>
+			<Value>Block</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>post</Value>
+			<Value>401</Value>
+			<Value>{\&quot;Customer\&quot;:{\&quot;name\&quot;:\&quot;Shiromalie\&quot;}}</Value>
+			<Value>TenantOnePublisherOne</Value>
+		</Row>
+
+</Table>
+	<Table name="Default_Version">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVersionTwo" type="String" />
+			<Column name="apiVersionThree" type="String" />
+			<Column name="apiVersionFour" type="String" />
+			<Column name="apiVersionFive" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="sandboxEndpoint" type="String" />
+			<Column name="numberOfUsersZero" type="String" />
+			<Column name="statusCreated" type="String" />
+			<Column name="statusPublished" type="String" />
+			<Column name="statusDeprecated" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="applicationDiscription" type="String" />
+			<Column name="keyTypeToInvoke" type="String" />
+			<Column name="postPayloadContext" type="String" />
+			<Column name="postCustomerNameFromPayloadContext" type="String" />
+			<Column name="postResponseHeaders" type="String" />
+			<Column name="getCustomerName" type="String" />
+			<Column name="getResponseHeaders" type="String" />
+			<Column name="putCustomerName" type="String" />
+			<Column name="getCustomerNameForPutVerification" type="String" />
+			<Column name="getResponseHeadersForPutVerification" type="String" />
+			<Column name="deleteResponseHeaders" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>3.0.0</Value>
+			<Value>4.0.0</Value>
+			<Value>5.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOne</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>app</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>2.0.0</Value>
+			<Value>3.0.0</Value>
+			<Value>4.0.0</Value>
+			<Value>5.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>0</Value>
+			<Value>CREATED</Value>
+			<Value>PUBLISHED</Value>
+			<Value>DEPRECATED</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>Admin</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>app</Value>
+			<Value>desc</Value>
+			<Value>Production</Value>
+			<Value>{&quot;Customer&quot;:{&quot;name&quot;:&quot;Kumar&quot;}}</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Kumar</Value>
+			<Value>application/json</Value>
+			<Value>Sangakara</Value>
+			<Value>Sangakara</Value>
+			<Value>application/json</Value>
+			<Value>application/octet-stream</Value>
+		</Row>
+
+</Table>
+	<Table name="KeyWords">
+		<Header>
+			<Column name="keyWordYes" type="String" />
+			<Column name="keyWordNo" type="String" />
+			<Column name="keyWordPost" type="String" />
+			<Column name="keyWordGet" type="String" />
+			<Column name="keyWordPut" type="String" />
+			<Column name="keyWordHead" type="String" />
+			<Column name="keyWordDelete" type="String" />
+			<Column name="numericValueTwoHundred" type="String" />
+			<Column name="numericValueTwoHundredAndFour" type="String" />
+			<Column name="numericValueOne" type="String" />
+			<Column name="keyWordNull" type="String" />
+			<Column name="keyWordNoContent" type="String" />
+			<Column name="keyWordTrue" type="String" />
+			<Column name="keyWordFalse" type="String" />
+		</Header>
+		<Row>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>post</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>head</Value>
+			<Value>delete</Value>
+			<Value>200</Value>
+			<Value>204</Value>
+			<Value>1</Value>
+			<Value>null</Value>
+			<Value>no content</Value>
+			<Value>true</Value>
+			<Value>false</Value>
+		</Row>
+		<Row>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>post</Value>
+			<Value>get</Value>
+			<Value>put</Value>
+			<Value>head</Value>
+			<Value>delete</Value>
+			<Value>200</Value>
+			<Value>204</Value>
+			<Value>1</Value>
+			<Value>null</Value>
+			<Value>no content</Value>
+			<Value>true</Value>
+			<Value>false</Value>
+		</Row>
+
+</Table>
+	<Table name="SwaggerEditorFunctionality">
+		<Header>
+			<Column name="downImage" type="String" />
+			<Column name="APIName" type="String" />
+			<Column name="APIContext" type="String" />
+			<Column name="APIVersion" type="String" />
+			<Column name="APITag" type="String" />
+			<Column name="Description" type="String" />
+			<Column name="DownloadFilePath" type="String" />
+			<Column name="tenantOrAdminPublisherOne" type="String" />
+			<Column name="DownloadFilePathJason" type="String" />
+		</Header>
+		<Row>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>v1.0.</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>C:\\Users\\wldfonseka\\Downloads\\swagger.yaml</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>C:\\Users\\wldfonseka\\Downloads\\swagger.json</Value>
+		</Row>
+		<Row>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>APIOne</Value>
+			<Value>APIContext</Value>
+			<Value>v1.0.</Value>
+			<Value>APITag</Value>
+			<Value>API Description</Value>
+			<Value>C:\\Users\\wldfonseka\\Downloads\\swagger.yaml</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>C:\\Users\\wldfonseka\\Downloads\\swagger.json</Value>
+		</Row>
+
+</Table>
+	<Table name="ApplicationSharing">
+		<Header>
+			<Column name="adminOrTenantOne" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="description" type="String" />
+			<Column name="yes" type="String" />
+			<Column name="no" type="String" />
+			<Column name="userName" type="String" />
+			<Column name="password" type="String" />
+			<Column name="firstName" type="String" />
+			<Column name="lastName" type="String" />
+			<Column name="email" type="String" />
+			<Column name="organizationName" type="String" />
+			<Column name="address" type="String" />
+			<Column name="country" type="String" />
+			<Column name="landPhone" type="String" />
+			<Column name="mobilePhone" type="String" />
+			<Column name="IM" type="String" />
+			<Column name="URL" type="String" />
+			<Column name="organizationTwo" type="String" />
+			<Column name="adminStoreUserOne" type="String" />
+		</Header>
+		<Row>
+			<Value>Admin</Value>
+			<Value>APP</Value>
+			<Value>Dec_rr</Value>
+			<Value>yes</Value>
+			<Value>no</Value>
+			<Value>User</Value>
+			<Value>1qaz2wsx$</Value>
+			<Value>Namal</Value>
+			<Value>Weerasinghe</Value>
+			<Value>hju@yahoo.com</Value>
+			<Value>Wso2</Value>
+			<Value>AddressOne</Value>
+			<Value>USA</Value>
+			<Value>434343434343</Value>
+			<Value>434434343423</Value>
+			<Value>Sample_IM</Value>
+			<Value>Sample_URL</Value>
+			<Value>Virtusa</Value>
+			<Value>AdminStoreOne</Value>
+		</Row>
+
+</Table>
+	<Table name="CreateAPIForExistingSoapEndpoint">
+		<Header>
+			<Column name="apiName" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImage" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="WSDLUrl" type="String" />
+			<Column name="storeOneOfTenantOneOrAdmin" type="String" />
+			<Column name="applicationName" type="String" />
+			<Column name="tierType" type="String" />
+			<Column name="numericValueTwoHundred" type="String" />
+			<Column name="publisherOneOfTenantOneOrAdmin" type="String" />
+			<Column name="payloadContext" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="soapAction" type="String" />
+			<Column name="serverNameDomainOne" type="String" />
+		</Header>
+		<Row>
+			<Value>apiName</Value>
+			<Value>2.2.2</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>https://localhost:9443/services/HelloService?wsdl</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Unlimited</Value>
+			<Value>200</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt; &#160;&#160; &lt;soapenv:Header/&gt; &#160;&#160; &lt;soapenv:Body&gt; &#160;&#160;&#160;&#160;&#160; &lt;typ:greet&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;name&gt;?&lt;/name&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;delay&gt;?&lt;/delay&gt; &#160;&#160;&#160;&#160;&#160; &lt;/typ:greet&gt; &#160;&#160; &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;</Value>
+			<Value>http://localhost:9763/services/HelloService.HelloServiceHttpSoap11Endpoint</Value>
+			<Value>urn:echoString</Value>
+			<Value>TenantOne</Value>
+		</Row>
+		<Row>
+			<Value>apiName</Value>
+			<Value>2.2.2</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>https://localhost:9443/services/HelloService?wsdl</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>Unlimited</Value>
+			<Value>200</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt; &#160;&#160; &lt;soapenv:Header/&gt; &#160;&#160; &lt;soapenv:Body&gt; &#160;&#160;&#160;&#160;&#160; &lt;typ:greet&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;name&gt;?&lt;/name&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;delay&gt;?&lt;/delay&gt; &#160;&#160;&#160;&#160;&#160; &lt;/typ:greet&gt; &#160;&#160; &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;</Value>
+			<Value>http://localhost:9763/services/HelloService.HelloServiceHttpSoap11Endpoint</Value>
+			<Value>urn:echoString</Value>
+			<Value>Admin</Value>
+		</Row>
+
+</Table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</DataTables>
