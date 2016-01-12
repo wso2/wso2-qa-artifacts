@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apigee="http://api.apigee.com/wadl/2010/07/"
+	xmlns="http://wadl.dev.java.net/2009/02"
+	xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+	<resources base="https://svcs.sandbox.paypal.com">
+		<resource path="Pay">
+			<!-- <param name="format" type="xsd:string" style="template" required="false" 
+				default="json"> <option value="json" mediaType="application/json"/> </param> -->
+			<method id="Pay" name="POST" apigee:displayName="Pay">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/Pay" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[Transfers funds from a sender's PayPal account to one or more
+					receivers' PayPal accounts (up to 6 receivers). More documentation at https://www.x.com/docs/DOC-1414
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+  "actionType":"PAY",
+  "currencyCode":"USD",
+  "receiverList":{"receiver":[{"amount":"1.00","email":"seller_1288085303_biz@gmail.com"}]},
+  "returnUrl":"http://apigee.com/console/-1/handlePaypalReturn",
+  "cancelUrl":"http://apigee.com/console/-1/handlePaypalCancel?",
+  "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+                 ]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="PaymentDetails">
+			<method id="PaymentDetails" name="POST" apigee:displayName="PaymentDetails">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/PaymentDetails" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1416"><![CDATA[
+					Obtains information about a payment. More documentation at https://www.x.com/docs/DOC-1416
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="Preapproval">
+			<method id="Preapproval" name="POST" apigee:displayName="Preapproval">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/Preapproval" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1419"><![CDATA[Sets up preapprovals, which is an approval to make payments
+					on the senders behalf. More documentation at https://www.x.com/docs/DOC-1419
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "senderEmail":"buyer_1288085239_per@gmail.com",
+ "startingDate":"2011-01-21",
+ "endingDate":"2011-10-21",
+ "maxAmountPerPayment":"1.00",
+ "maxNumberOfPayments":"10",
+ "maxTotalAmountOfAllPayments":"50.00",
+ "currencyCode":"USD",
+ "dayOfWeek":"SUNDAY",
+ "paymentPeriod":"WEEKLY",
+ "memo":"Setting the preapproval for this month",
+ "pinType":"NOT_REQUIRED",
+ "returnUrl":"http://app.apigee.com/handle_paypal_return.html",
+ "cancelUrl":"http://app.apigee.com/handle_paypal_cancel.html",
+ "ipnNotificationUrl":"http://app.apigee.com/handle_paypal_ipn.html",
+ "clientDetails":{ "ipAddress" : "127.0.0.1",
+                     "deviceId" : "platformSDKSample",
+                     "applicationId" : "APP-80W284485P519543T"
+						 },
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="PreapprovalDetails">
+			<method id="PreapprovalDetails" name="POST"
+				apigee:displayName="PreapprovalDetails">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/PreapprovalDetails" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1421">
+                    <![CDATA[Obtains information about a preapproval.More documentation at https://www.x.com/docs/DOC-1421]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "preapprovalKey":"PA-11B737485G431220H",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="CancelPreapproval">
+			<method id="CancelPreapproval" name="POST" apigee:displayName="CancelPreapproval">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/CancelPreapproval" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1396">
+                    <![CDATA[Cancels a preapproval. More documentation at https://www.x.com/docs/DOC-1396]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"},
+ "preapprovalKey":"PA-11B737485G431220H"
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="ConvertCurrency">
+			<method id="ConvertCurrency" name="POST" apigee:displayName="ConvertCurrency">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/ConvertCurrency" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1401"><![CDATA[Obtains Foreign Exchange currency conversion rates for a list
+					of amounts. More documentation at https://www.x.com/docs/DOC-1401
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "baseAmountList":{ "currency" : {"code":"USD", "amount":"1.00"} },
+ "convertToCurrencyList":{"currencyCode":["CAD", "USD"] },
+ "requestEnvelope":{ "errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="Refund">
+			<method id="Refund" name="POST" apigee:displayName="Refund">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/Refund" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426">
+                    <![CDATA[Refunds all or part of a payment.More documentation at https://www.x.com/docs/DOC-1426]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey" : "AP-9JK61721EP167721B",
+ "receiverList":{"receiver" : [{ "amount":"1.0", "email" : "seller_1288085303_biz@gmail.com" }]},
+ "currencyCode":"USD",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="GetPaymentOptions">
+			<method id="GetPaymentOptions" name="POST" apigee:displayName="GetPaymentOptions">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/GetPaymentOptions" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426"><![CDATA[Obtains information about a payment]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="SetPaymentOptions">
+			<method id="SetPaymentOptions" name="POST" apigee:displayName="SetPaymentOptions">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/SetPaymentOptions" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426"><![CDATA[
+					Sets information about a payment.
+					Make a Pay request with "actionType":"CREATE" , use the response "payKey" here.
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="ExecutePayment">
+			<method id="ExecutePayment" name="POST" apigee:displayName="ExecutePayment">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/ExecutePayment" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426"><![CDATA[
+					The request to execute the payment request.
+					Make a Pay request with "actionType":"CREATE" , use the response "payKey" here.
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="GetShippingAddresses">
+			<method id="ExecutePayment1" name="POST" apigee:displayName="GetShippingAddresses">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/GetShippingAddresses" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426"><![CDATA[
+					The key for which to provide the available addresses. Key can be an AdaptivePayments key such as payKey or preapprovalKey.
+				]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "key":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="GetFundingPlans">
+			<method id="ExecutePayment2" name="POST" apigee:displayName="GetFundingPlans">
+				<apigee:tags>
+					<apigee:tag primary="true">Adaptive Payments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/AdaptivePayments/GetFundingPlans" />
+				<doc title="" apigee:url="https://www.x.com/docs/DOC-1426">
+                    <![CDATA[The request to get the funding plans available for a payment.]]></doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+{
+ "payKey":"AP-9JK61721EP167721B",
+ "requestEnvelope":{"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		
+	</resources>
+
+</application>

@@ -1,0 +1,855 @@
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:apigee="http://api.apigee.com/wadl/2010/07/" xmlns="http://wadl.dev.java.net/2009/02"
+  xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+  <resources base="https://api.sandbox-soundcloud.com">
+    <!-- COMMENTING OUT UNSUPPORTED ELEMENTS - NOT AS PER WADL SCHEMA.
+      <param name="consumer_key" required="true" type="xsd:string" style="query" default="enter_your_consumer_key_please" />
+      <param name="format" type="xsd:string" style="template" required="true" default="json">
+      <option value="xml" mediaType="application/xml" />
+      <option value="json" mediaType="application/json" />
+      </param>
+      <renderer type="oembed" base="http://soundcloud.com/oembed" />
+    -->
+
+    <!-- BEGIN tracks -->
+    <resource path="tracks.{format}">
+      <param name="q" required="false" type="xsd:string" style="query" default="summer" />
+      <!--Tags are a comma separated list-->
+      <param name="tags" required="false" type="xsd:string" style="query" default="pop" />
+      <!--Filter is an enumeration and can be one of these values (all,public,private,streamable,downloadable)-->
+      <param name="filter" required="false" type="xsd:string" style="query" default="all">
+        <option value="all" />
+        <option value="public" />
+        <option value="private" />
+        <option value="streamable" />
+        <option value="downloadable" />
+      </param>
+      <!--Order is an enumeration and can be one of these values (created_at, hotness)-->
+      <param name="order" required="false" type="xsd:string" style="query" default="create_at">
+        <option value="created_at" />
+        <option value="hotness" />
+      </param>
+      <!--BPM in an integer between 0 and 999-->
+            <param name="bpm-from" required="false" type="xsd:string" style="query" default=""/>
+            <param name="bpm-to" required="false" type="xsd:string" style="query" default=""/>
+      <!--Duration is an integer representing milliseconds-->
+            <param name="duration-from" required="false" type="xsd:string" style="query" default=""/>
+            <param name="duration-to" required="false" type="xsd:string" style="query" default=""/>
+      <!--Created_at is a date in the format yyyy-mm-dd hh:mm:ss-->
+            <param name="created_at-from" required="false" type="xsd:string" style="query" default=""/>
+            <param name="created_at-to" required="false" type="xsd:string" style="query" default=""/>
+      <!--Ids is a comma separated list of Ids-->
+      <param name="ids" required="false" type="xsd:string" style="query" default="" />
+      <!--Genres is a comma separated list of Genres-->
+      <param name="ids" required="false" type="xsd:string" style="query" default="" />
+      <param name="order" required="false" type="xsd:string" style="query" default="">
+        <option value="original" />
+        <option value="remix" />
+        <option value="live" />
+        <option value="recording" />
+        <option value="spoken" />
+        <option value="podcast" />
+        <option value="demo" />
+        <option value="in progress" />
+        <option value="stem" />
+        <option value="loop" />
+        <option value="sound effect" />
+        <option value="sample" />
+        <option value="other" />
+      </param>
+      <method id="get_tracks" name="GET" apigee:displayName="tracks (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/tracks.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"><![CDATA[Returns a collection of tracks]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="tracks.{format}">
+      <param name="title" required="true" type="xsd:string" style="header" default="A Track Title" />
+      <param name="asset_data" required="true" type="xsd:string" style="header" default="" />
+      <!-- IMPORTANT, NEED TO BE ABLE TO CHOOSE A FILE! or maybe even supply a url, though that could be confusing. &-->
+      <!-- TODO: add other optional params -->
+      <method id="post_tracks" name="POST" apigee:displayName="tracks (POST)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"><![CDATA[Uploads a track]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="get_track" name="GET" apigee:displayName="tracks/track_id (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/tracks/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"><![CDATA[Returns a track by track id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}.{format}">
+      <!-- TODO: This is the same as POST /tracks, so update that first and then copy -->
+      <!-- Difference is method, tags, doc -->
+      <param name="title" required="true" type="xsd:string" style="header" default="A Track Title" />
+      <param name="asset_data" required="true" type="xsd:string" style="header" default="" />
+      <method id="put_track" name="PUT" apigee:displayName="tracks/track_id (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Updates a given track]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="delete_track" name="DELETE" apigee:displayName="tracks/track_id (DELETE)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Deletes a given track]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/comments.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="get_track_comments" name="GET" apigee:displayName="tracks/track_id/comments (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Comments</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/tracks/{track_id}/comments.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Returns comments of a track by track id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/comments.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="post_track_comments" name="POST" apigee:displayName="tracks/track_id/comments (POST)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Comments</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}/comments.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Posts a comments to a track by track id]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/permissions.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="get_track_permissions" name="GET" apigee:displayName="tracks/track_id/permissions (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Permissions</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/tracks/{track_id}/permissions.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Returns all users with permission for a track by track id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/permissions.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="put_track_permissions" name="PUT" apigee:displayName="tracks/track_id/permissions (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Permissions</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}/permissions.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Updates the list of permitted users for a track by track id]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/secret-token.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="get_track_secret-token" name="GET" apigee:displayName="tracks/track_id/secret-token (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Secret Token</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}/secret-token.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[Returns the secret token for a track by track id. This resource can only be used by the track owner.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="tracks/{track_id}/secret-token.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="put_track_secret_token" name="PUT" apigee:displayName="tracks/track_id/secret-token (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Tracks</apigee:tag>
+          <apigee:tag>Track</apigee:tag>
+          <apigee:tag>Secret Token</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/tracks/{track_id}/secret-token.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"><![CDATA[
+          Resets the secret token for a track by track id. The secret token can not be specified but will be randomly chosen on
+          the server and returned. This resource can only be used by the track owner.
+        ]]></doc>
+      </method>
+    </resource>
+    <!-- END tracks -->
+
+    <!-- BEGIN users -->
+    <resource path="users.{format}">
+      <param name="q" required="false" type="xsd:string" style="query" default="" />
+      <method id="get_users" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of users]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a user by user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/tracks.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_tracks" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Tracks</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/tracks.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of tracks uploaded by user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/comments.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_comments" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Comments</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/comments.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of comments made by user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followings.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_followings" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/followings.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of users the user with user id is following]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followings/{contact_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_following" name="GET" apigee:displayName="users/user_id/followings/contact_id (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Checks if the user with the id contact_id is in the givens user's list of contacts.]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followings/{contact_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="put_user_followings" name="PUT" apigee:displayName="users/user_id/followings/contact_id (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/users/{user_id}/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Adds the user with the id contact_id to the givens user's list of contacts.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followings/{contact_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="delete_user_followings" name="DELETE" apigee:displayName="users/user_id/followings/contact_id (DELETE)">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/users/{user_id}/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Removes the user with the id contact_id from the givens user's list of contacts.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followers.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_followers" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followers</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/followers.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of users who follow the user with user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/followers/{contact_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_follower" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Followers</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/followers/{contact_id}.{format}?consumer_key={consumer_key}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Checks if the user with contact_id is a follower of the given user.]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/favorites.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_favorites" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/favorites.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of tracks favorited by the user with user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/favorites/{track_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="put_user_favorites" name="PUT" apigee:displayName="users/user_id/favorites/track_id (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/users/{user_id}/favorites/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Adds the given track to the given user's list of favorites.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/favorites/{track_id}.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="delete_user_favorites" name="DELETE" apigee:displayName="users/user_id/favorites/track_id (DELETE)">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/users/{user_id}/favorites/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Deletes the given track from the given user's list of favorites.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/groups.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_groups" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Groups</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/groups.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of groups joined by user with user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="users/{user_id}/playlists.{format}">
+      <param name="user_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_user_playlists" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Users</apigee:tag>
+          <apigee:tag>User</apigee:tag>
+          <apigee:tag>Playlists</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/users/{user_id}/playlists.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of playlists created by user with user id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+
+    </resource>
+
+    <resource path="me.{format}">
+      <!-- Same as GET users/{user_id} -->
+      <method id="get_me" name="GET" apigee:displayName="me (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns the logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me.{format}">
+      <method id="put_me" name="PUT" apigee:displayName="me (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Updates the logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/tracks.{format}">
+      <method id="get_me_tracks" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Tracks</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/tracks.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of tracks uploaded by logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/comments.{format}">
+      <method id="get_me_comments" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Comments</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/comments.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of comments made by logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followings.{format}">
+      <method id="get_me_followings" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followings.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of users the logged-in user is following]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followings/{contact_id}.{format}">
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_me_following" name="GET" apigee:displayName="me/followings/contact_id (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Checks if the user with the id contact_id is in the logged-in user's list of contacts.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followings/{contact_id}.{format}">
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="put_me_followings" name="PUT" apigee:displayName="me/followings/contact_id (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Adds the user with the id contact_id to the logged-in user's list of contacts.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followings/{contact_id}.{format}">
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="delete_me_followings" name="DELETE" apigee:displayName="me/followings/contact_id (DELETE)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followings</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followings/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Deletes the user with the id contact_id from the logged-in user's list of contacts.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followers.{format}">
+      <method id="get_me_followers" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followers</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followers.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of users who follow the logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/followers/{contact_id}.{format}">
+      <param name="contact_id" required="true" type="xsd:string" style="query" default="183" />
+      <method id="get_me_follower" name="GET" apigee:displayName="me/followers/contact_id (GET)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Followers</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/followers/{contact_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Checks if the user with the id contact_id is a follower of the logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/favorites.{format}">
+      <method id="get_me_favorites" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/favorites.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of tracks favorited by the logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/favorites/{track_id}.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="put_me_favorites" name="PUT" apigee:displayName="me/favorites/track_id (PUT)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/favorites/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Adds the given track to the logged-in user's list of favorites.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/favorites/{track_id}.{format}">
+      <param name="track_id" required="true" type="xsd:string" style="query" default="291" />
+      <method id="delete_me_favorites" name="DELETE" apigee:displayName="me/favorites/track_id (DELETE)">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Favorites</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/favorites/{track_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Deletes the given track from the logged-in user's list of favorites.]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/groups.{format}">
+      <method id="get_me_groups" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Groups</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/groups.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of groups joined by logged-in user]]></doc>
+      </method>
+    </resource>
+
+    <resource path="me/playlists.{format}">
+      <method id="get_me_playlists" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Me</apigee:tag>
+          <apigee:tag>Playlists</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="true" />
+        <apigee:example url="/me/playlists.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.1-Resources:-users"><![CDATA[Returns a collection of playlists created by the logged-in user]]></doc>
+      </method>
+    </resource>
+    <!-- END users -->
+
+    <!-- BEGIN playlists -->
+    <resource path="playlists.{format}">
+      <param name="q" required="false" type="xsd:string" style="query" default="" />
+      <param name="filter" required="false" type="xsd:string" style="query" default="all">
+        <option value="all" />
+        <option value="public" />
+        <option value="private" />
+      </param>
+      <method id="get_playlists" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Playlists</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/playlists.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.3-Resources:-playlists"><![CDATA[Returns a collection of playlists]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="playlists/{playlist_id}.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_playlist" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Playlists</apigee:tag>
+          <apigee:tag>Playlist</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/playlists/{playlist_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.3-Resources:-playlists"><![CDATA[Returns a playlist by playlist id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+    <!-- END playlists -->
+
+    <!-- BEGIN groups -->
+    <resource path="groups.{format}">
+      <method id="get_groups" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a collection of groups]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a group by group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}/users.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group_users" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+          <apigee:tag>Users</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}/users.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a combined collection of moderators, members and contributors of the group with group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}/moderators.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group_moderators" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+          <apigee:tag>Moderators</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}/moderators.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a collection of moderators of the group with group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}/members.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group_members" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+          <apigee:tag>Members</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}/members.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a collection of members of the group with group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}/contributors.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group_contributors" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+          <apigee:tag>Contributors</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}/contributors.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a collection of contributors of the group with group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+
+    <resource path="groups/{group_id}/tracks.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_group_tracks" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Groups</apigee:tag>
+          <apigee:tag>Group</apigee:tag>
+          <apigee:tag>Tracks</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/groups/{group_id}/tracks.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"><![CDATA[Returns a collection of tracks contributed to the group with group id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+    <!-- END groups -->
+
+    <!-- BEGIN comments -->
+    <resource path="comments/{comment_id}.{format}">
+      <param name="playlist_id" required="true" type="xsd:string" style="query" default="18" />
+      <method id="get_comment" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Comments</apigee:tag>
+          <apigee:tag>Comment</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/comments/{comment_id}.{format}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/10.5-Resources:-comments"><![CDATA[Returns a comment by comment id]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+    <!-- END comments -->
+
+    <!-- BEGIN resolver -->
+    <resource path="resolve.{format}">
+      <param name="url" required="true" type="xsd:string" style="query" default="http://soundcloud.com/forss" />
+      <method id="resolve" name="GET">
+        <apigee:tags>
+          <apigee:tag primary="true">Resolver</apigee:tag>
+        </apigee:tags>
+        <apigee:authentication required="false" />
+        <apigee:example url="/resolve.{format}?url={url}" />
+        <doc title="" apigee:url="http://github.com/soundcloud/api/wiki/12-Resolver"><![CDATA[Translates a website URI into an API URI]]></doc>
+        <request>
+             <param name="consumer_key" type="string" style="query" required="true" default="apigee"/>
+        </request>
+      </method>
+    </resource>
+    <!-- END resolver -->
+
+  </resources>
+</application>
+

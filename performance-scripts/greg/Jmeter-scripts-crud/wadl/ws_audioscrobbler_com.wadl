@@ -1,0 +1,1633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:apigee="http://api.apigee.com/wadl/2010/07/" 
+  xmlns="http://wadl.dev.java.net/2009/02"
+  xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+  <resources base="http://ws.audioscrobbler.com/2.0">
+    
+
+    <resource path="album/getBuyLinks">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="album" type="xsd:string" style="query" required="true" default="">  <doc>The album name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="country" type="xsd:string" style="query" required="true" default=""><doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param>
+        <method id="album_getBuyLinks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Album</apigee:tag>
+                    <apigee:tag>Links</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=album.getbuylinks&amp;artist={artist}&amp;album={album}&amp;country={country}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=429">
+                  Get a list of Buy Links for a particular Album. It is required that you supply either the artist and track params or the mbid param.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="album/getInfo">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="album" type="xsd:string" style="query" required="true" default="">  <doc>The album name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="lang" type="xsd:string" style="query" required="false" default="">  <doc>The language to return the biography in, expressed as an ISO 639 alpha-2 code.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="user_name" type="xsd:string" style="query" required="false" default=""><doc>The username for the context of the request. If supplied, the user's playcount for this album is included in the response.</doc> </param>
+        <method id="album_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Album</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=album.getinfo&amp;artist={artist}&amp;album={album}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=290">
+                 Get the metadata for an album on Last.fm using the album name or a musicbrainz id. See playlist.fetch on how to get the album playlist.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="album/getShouts">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="album" type="xsd:string" style="query" required="true" default="">  <doc>The album name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="album_getShouts" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Album</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=album.getshouts&amp;artist={artist}&amp;album={album}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=450">
+                  Get shouts for this album. Also available as an rss feed.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="album/getTopTags">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="album" type="xsd:string" style="query" required="true" default="">  <doc>The album name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="album_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Album</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=album.gettoptags&amp;artist={artist}&amp;album={album}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=438">
+                  Get the top tags for an album on Last.fm, ordered by popularity.
+                </doc>
+              </method> 
+            </resource>
+  
+
+    <resource path="album/search">
+      <param name="album" type="xsd:string" style="query" required="true" default=""> <doc> The album name. </doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="album_search" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Album</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=album.search&amp;album={album}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=357">
+                  Search for an album by name. Returns album matches sorted by relevance.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getCorrection">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+        <method id="artist_getCorrection" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getcorrection&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=446">
+                  Use the last.fm corrections data to check whether the supplied artist has a correction to a canonical artist.
+                </doc>
+              </method> 
+            </resource>
+  
+
+    <resource path="artist/getEvents">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="festivals" type="xsd:string" style="query" required="false" default=""><doc>Whether only festivals should be returned, or all events.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getEvents" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getevents&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=117">
+                  Get a list of upcoming events for this artist. Easily integratable into calendars, using the ical standards.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getImages">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="order" type="xsd:string" style="query" required="false" default=""><doc>Sort ordering can be either 'popularity' (default) or 'dateadded'. While ordering by popularity officially selected images by labels and artists will be ordered first. This is ignored and set to 'dateadded' when requested as rss.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getImages" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getimages&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=407">
+                  Get Images for this artist in a variety of sizes.                
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getInfo">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="lang" type="xsd:string" style="query" required="false" default="">  <doc>The language to return the biography in, expressed as an ISO 639 alpha-2 code.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="user_name" type="xsd:string" style="query" required="false" default=""><doc>The username for the context of the request. If supplied, the user's playcount for this artist is included in the response.</doc> </param>
+        <method id="artist_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getinfo&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=267">
+                 Get the metadata for an artist. Includes biography.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getPastEvents">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getPastEvents" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getpastevents&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=428">
+                  Get a paginated list of all the events this artist has played at in the past.                
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getPodcast">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="artist_getPodcast" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getpodcast&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=118">
+                  Get a podcast of free mp3s based on an artist.                
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getShouts">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getShouts" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getshouts&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=397">
+                  Get shouts for this artist. Also available as an rss feed.             
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getSimilar">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="artist_getSimilar" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.getsimilar&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=119">
+                  Get all the artists similar to this artist.             
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getTopAlbums">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getTopAlbums" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.gettopalbums&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=287">
+                  Get the top albums for an artist on Last.fm, ordered by popularity.             
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getTopFans">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="artist_getTopFans" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.gettopfans&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=310">
+                  Get the top fans for an artist on Last.fm, based on listening data.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getTopTags">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="artist_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.gettoptags&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=288">
+                  Get the top tags for an artist on Last.fm, ordered by popularity.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/getTopTracks">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_getTopTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.gettoptracks&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=277">
+                  Get the top tracks by an artist on Last.fm, ordered by popularity.             
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="artist/search">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="artist_search" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Artist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=artist.search&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=272">
+                  Search for an artist by name. Returns artist matches sorted by relevance.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getHypedArtists">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getHypedArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.gethypedartists&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=493">
+                  Get the hyped artists chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getHypedTracks">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getHypedTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.gethypedtracks&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=494">
+                  Get the hyped tracks chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getLovedTracks">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getLovedTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.getlovedtracks&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=495">
+                  Get the most loved tracks chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getTopArtists">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getTopArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.gettopartists&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=496">
+                  Get the top artists chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getTopTags">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.gettoptags&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=497">
+                  Get the top tags chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="chart/getTopTracks">
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="chart_getTopTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Chart</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=chart.gettoptracks&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=498">
+                  Get the top tracks chart.            
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="event/getAttendees">
+      <param name="event" type="xsd:string" style="query" required="true" default=""><doc>The numeric last.fm event id.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="event_getAttendees" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Event</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=event.getattendees&amp;event={event}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=391">
+                  Get a list of attendees for an event.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="event/getInfo">
+      <param name="event" type="xsd:string" style="query" required="true" default=""><doc>The numeric last.fm event id.</doc> </param>
+        <method id="event_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Event</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=event.getinfo&amp;event={event}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=292">
+                  Get the metadata for an event on Last.fm. Includes attendance and lineup information.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="event/getShouts">
+      <param name="event" type="xsd:string" style="query" required="true" default=""><doc>The numeric last.fm event id.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="event_getShouts" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Event</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=event.getshouts&amp;event={event}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=399">
+                  Get shouts for this event. Also available as an rss feed.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getEvents">
+      <param name="lat" type="xsd:string" style="query" required="false" default="">  <doc>Specifies a latitude value to retrieve events for (service returns nearby events by default).</doc> </param> 
+      <param name="location" type="xsd:string" style="query" required="false" default="">  <doc>Specifies a location to retrieve events for (service returns nearby events by default).</doc> </param> 
+      <param name="long" type="xsd:string" style="query" required="false" default="">  <doc>Specifies a longtitude value to retrieve events for (service returns nearby events by default).</doc> </param> 
+      <param name="distance" type="xsd:string" style="query" required="false" default="">  <doc> Find events within a specified radius (in kilometres).</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="geo_getEvents" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getevents&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=270">
+                  Get all events in a specific location by country or city name.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroArtistChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroArtistChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetroartistchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=421">
+                  Get a chart of artists for a metro.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroHypeArtistChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroHypeArtistChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetrohypeartistchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=420">
+                  Get a chart of hyped (up and coming) artists for a metro.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroHypeTrackChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroHypeTrackChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetrohypetrackchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=422">
+                  Get a chart of hyped tracks for a metro.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroTrackChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroTrackChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetrotrackchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=423">
+                  Get a chart of tracks for a metro.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroUniqueArtistChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroUniqueArtistChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetrouniqueartistchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=424">
+                  Get a chart of the artists which make that metro unique.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroUniqueTrackChart">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="start" type="xsd:string" style="query" required="false" default="">  <doc>Beginning timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+      <param name="end" type="xsd:string" style="query" required="false" default="">  <doc>Ending timestamp of the weekly range requested (c.f. geo.getWeeklyChartlist).</doc> </param> 
+        <method id="geo_getMetroUniqueTrackChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetrouniquetrackchart&amp;country={country}&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=425">
+                  Get a chart of tracks for a metro.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetroWeeklyChartList">
+      <param name="metro" type="xsd:string" style="query" required="true" default="">  <doc>The metro's name.</doc> </param> 
+        <method id="geo_getMetroWeeklyChartList" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetroweeklychartlist&amp;metro={metro}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=426">
+                  Get a list of available chart periods for this metro, expressed as date ranges which can be sent to the chart services.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getMetros">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+        <method id="geo_getMetros" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.getmetros&amp;country={country}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=435">
+                  Get a list of valid countries and metros for use in the other webservices.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getTopArtists">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="geo_getTopArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.gettopartists&amp;country={country}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=297">
+                  Get the most popular artists on Last.fm by country.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="geo/getTopTracks">
+      <param name="country" type="xsd:string" style="query" required="true" default="">  <doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param> 
+      <param name="metro" type="xsd:string" style="query" required="false" default="">  <doc>The metro's name.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="geo_getTopTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Geo</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=geo.gettoptracks&amp;country={country}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=298">
+                  Get the most popular tracks on Last.fm last week by country.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getHype">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+        <method id="group_getHype" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.gethype&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=259">
+                  Get the hype list for a group.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getMembers">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="group_getMembers" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.getmembers&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=379">
+                  Get a list of members for this group.           
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getWeeklyAlbumChart">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. See Group.getWeeklyChartList for more.</doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. See Group.getWeeklyChartList for more.</doc> </param>
+        <method id="group_getWeeklyAlbumChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.getweeklyalbumchart&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=293">
+                  Get a list of members for this group. 
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getWeeklyArtistChart">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. See Group.getWeeklyChartList for more.</doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. See Group.getWeeklyChartList for more.</doc> </param>
+        <method id="group_getWeeklyArtistChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.getweeklyartistchart&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=294">
+                  Get an artist chart for a group, for a given date range. If no date range is supplied, it will return the most recent album chart for this group. 
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getWeeklyChartList">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+        <method id="group_getWeeklyChartList" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.getweeklychartlist&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=295">
+                  Get a list of available charts for this group, expressed as date ranges which can be sent to the chart services. 
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="group/getWeeklyTrackChart">
+      <param name="group" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm group name.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. See Group.getWeeklyChartList for more.</doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. See Group.getWeeklyChartList for more.</doc> </param>
+        <method id="group_getWeeklyTrackChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Group</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=group.getweeklytrackchart&amp;group={group}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=296">
+                  Get a track chart for a group, for a given date range. If no date range is supplied, it will return the most recent album chart for this group. 
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="library/getAlbums">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The user whose library you want to fetch.</doc> </param> 
+      <param name="artist" type="xsd:string" style="query" required="false" default="">  <doc>An artist by which to filter tracks.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="library_getAlbums" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Library</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=library.getalbums&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=321">
+                  A paginated list of all the albums in a user's library, with play counts and tag counts.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="library/getArtists">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The user whose library you want to fetch.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="library_getArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Library</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=library.getartists&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=322">
+                  A paginated list of all the artists in a user's library, with play counts and tag counts.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="library/getTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The user whose library you want to fetch.</doc> </param> 
+      <param name="artist" type="xsd:string" style="query" required="false" default="">  <doc>An artist by which to filter tracks.</doc> </param> 
+      <param name="album" type="xsd:string" style="query" required="true" default=""> <doc> The album name. </doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="library_getTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Library</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=library.gettracks&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=323">
+                  A paginated list of all the tracks in a user's library, with play counts and tag counts.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="playlist/fetch">
+      <param name="playlistURL" type="xsd:string" style="query" required="true" default="">  <doc>A lastfm protocol playlist url ('lastfm://playlist/...') . See 'playlists' section for more information.</doc> </param> 
+        <method id="playlist_fetch" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Playlist</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=playlist.fetch&amp;playlistURL={playlistURL}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=271">
+                  Fetch XSPF playlists using a lastfm playlist url.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="radio/search">
+      <param name="name" type="xsd:string" style="query" required="true" default="">  <doc>The tag or artist to resolve.</doc> </param> 
+        <method id="radio_search" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Radio</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=radio.search&amp;name={name}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=418">
+                  Resolve the name of a resource into a station depending on which resource it is most likely to represent.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getInfo">
+      <param name="tag" type="xsd:string" style="query" required="true" default="">  <doc>Tag to search for.</doc> </param> 
+      <param name="lang" type="xsd:string" style="query" required="false" default="">  <doc>The language to return the biography in, expressed as an ISO 639 alpha-2 code.</doc></param>  
+        <method id="tag_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.getinfo&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=452">
+                  Get the metadata for a tag.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getSimilar">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+        <method id="tag_getSimilar" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.getsimilar&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=311">
+                  Search for tags similar to this one. Returns tags ranked by similarity, based on listening data.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getTopAlbums">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="tag_getTopAlbums" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.gettopalbums&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=283">
+                  Get the top albums tagged by this tag, ordered by tag count.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getTopArtists">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="tag_getTopArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.gettopartists&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=284">
+                  Get the top artists tagged by this tag, ordered by tag count.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getTopTags">
+        <method id="tag_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.gettoptags&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=276">
+                  Fetches the top global tags on Last.fm, sorted by popularity (number of times used).
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getTopTracks">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="tag_getTopTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.gettoptracks&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=285">
+                  Get the top tracks tagged by this tag, ordered by tag count.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getWeeklyArtistChart">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. See Tag.getWeeklyChartList for more.</doc> </param> 
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. See Tag.getWeeklyChartList for more.</doc> </param>
+        <method id="tag_getWeeklyArtistChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.getweeklyartistchart&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=358">
+                  Get an artist chart for a tag, for a given date range. If no date range is supplied, it will return the most recent artist chart for this tag.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/getWeeklyChartList">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+        <method id="tag_getWeeklyChartList" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.getweeklychartlist&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=359">
+                  Get a list of available charts for this tag, expressed as date ranges which can be sent to the chart services.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="tag/search">
+      <param name="tag" type="xsd:string" style="query" required="true" default=""> <doc>Tag to search for.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="tag_search" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Tag</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=tag.search&amp;tag={tag}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=273">
+                  Search for a tag by name. Returns matches sorted by relevance.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getBuyLinks">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="country" type="xsd:string" style="query" required="true" default=""><doc>A country name, as defined by the ISO 3166-1 country names standard.</doc> </param>
+        <method id="track_getBuyLinks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                    <apigee:tag>Links</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getbuylinks&amp;artist={artist}&amp;track={track}&amp;country={country}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=431">
+                  Get a list of Buy Links for a particular Track. It is required that you supply either the artist and track params or the mbid param.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getCorrection">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+        <method id="track_getCorrection" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getcorrection&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=447">
+                  Use the last.fm corrections data to check whether the supplied track has a correction to a canonical track.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getFingerprintMetadata">
+      <param name="fingerprintid" type="xsd:string" style="query" required="true" default=""> <doc> The fingerprint id to look up. </doc> </param>
+        <method id="track_getFingerprintMetadata" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getfingerprintmetadata&amp;fingerprintid={fingerprintid}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=441">
+                  Retrieve track metadata associated with a fingerprint id generated by the Last.fm Fingerprinter. Returns track elements, along with a 'rank' value between 0 and 1 reflecting the confidence for each match. See this blog post for more info.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getInfo">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="username" type="xsd:string" style="query" required="false" default=""><doc>The username for the context of the request. If supplied, the user's playcount for this track and whether they have loved the track is included in the response.</doc> </param>
+        <method id="track_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getinfo&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=356">
+                  Get the metadata for a track on Last.fm using the artist/track name or a musicbrainz id.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getShouts">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="track_getShouts" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getshouts&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=453">
+                  Get shouts for this track. Also available as an rss feed.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getSimilar">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="track_getSimilar" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.getsimilar&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=319">
+                  Get the similar tracks for this track on Last.fm, based on listening data.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getTopFans">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="track_getTopFans" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.gettopfans&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=312">
+                  Get the top fans for this track on Last.fm, based on listening data. Supply either track and artist name or musicbrainz id.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/getTopTags">
+      <param name="artist" type="xsd:string" style="query" required="true" default=""> <doc> The artist name. </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="mbid" type="xsd:string" style="query" required="false" default="">  <doc>The MusicBrainz id for the album.</doc></param>  
+      <param name="autocorrect" type="xsd:string" style="query" required="false" default=""><doc>Transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response.</doc></param>
+        <method id="track_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.gettoptags&amp;artist={artist}&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=289">
+                  Get the top tags for this track on Last.fm, ordered by tag count. Supply either track and artist name or musicbrainz id.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="track/search">
+      <param name="artist" type="xsd:string" style="query" required="false" default=""> <doc> The artist name to narrow search (optional). </doc> </param>
+      <param name="track" type="xsd:string" style="query" required="true" default="">  <doc>The track name.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+        <method id="track_search" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">Track</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=track.search&amp;track={track}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=286">
+                  Search for a track by track name. Returns track matches sorted by relevance.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getArtistTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the recent tracks of.</doc> </param> 
+      <param name="artist" type="xsd:string" style="query" required="false" default=""> <doc> The artist name to narrow search </doc> </param>
+      <param name="startTimestamp" type="xsd:string" style="query" required="false" default=""> <doc> An unix timestamp to start at. </doc> </param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="endTimestamp" type="xsd:string" style="query" required="false" default=""> <doc> An unix timestamp to end at. </doc> </param>
+        <method id="user_getArtistTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getartisttracks&amp;user={user}&amp;artist={artist}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=432">
+                  Get a list of tracks by a given artist scrobbled by this user, including scrobble time. Can be limited to specific timeranges, defaults to all time.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getBannedTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the banned tracks of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getBannedTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getbannedtracks&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=448">
+                  Returns the tracks banned by the user.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getEvents">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the events of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getEvents" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getevents&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=291">
+                  Get a list of upcoming events that this user is attending. Easily integratable into calendars, using the ical standard.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getFriends">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the friends of.</doc> </param> 
+      <param name="recenttracks" type="xsd:string" style="query" required="false" default=""><doc>Whether or not to include information about friends' recent listening in the response.</doc> </param>
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getFriends" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getfriends&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=263">
+                  Get a list of the user's friends on Last.fm.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getInfo">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the info of.</doc> </param> 
+        <method id="user_getInfo" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getinfo&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=344">
+                  Get information about a user profile.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getLovedTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the loved tracks of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getLovedTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getlovedtracks&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=329">
+                  Get the last 50 tracks loved by a user.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getNeighbours">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the neighbours of.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getNeighbours" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getneighbours&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=264">
+                  Get a list of a user's neighbours on Last.fm.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getNewReleases">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the recent tracks of.</doc> </param> 
+      <param name="userecs" type="xsd:string" style="query" required="false" default="">  <doc>0 or 1. If 1, the feed contains new releases based on Last.fm's artist recommendations for this user. Otherwise, it is based on their library (the default).</doc> </param> 
+        <method id="user_getNewReleases" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getnewreleases&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=444">
+                  Get a list of a user's neighbours on Last.fm.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getPastEvents">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the past events of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getPastEvents" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getpastevents&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=329">
+                  Get a paginated list of all events a user has attended in the past.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getPlaylists">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the playlists of.</doc> </param> 
+        <method id="user_getPlaylists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getplaylists&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=313">
+                  Get a list of a user's playlists on Last.fm.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getRecentTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the recent tracks of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. </doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. </doc> </param>
+        <method id="user_getRecentTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getrecenttracks&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=278">
+                  Get a list of the recent tracks listened to by this user. Also includes the currently playing track with the nowplaying="true" attribute if the user is currently listening.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getShouts">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the shouts of.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getShouts" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getshouts&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=401">
+                  Get shouts for this user. Also available as an rss feed.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getTopAlbums">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the top albums of.</doc> </param> 
+      <param name="period" type="xsd:string" style="query" required="false" default="">  <doc>overall | 7day | 3month | 6month | 12month - The time period over which to retrieve top albums for.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getTopAlbums" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.gettopalbums&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=401">
+                  Get the top albums listened to by a user. You can stipulate a time period. Sends the overall chart by default.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getTopArtists">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the top artists of.</doc> </param> 
+      <param name="period" type="xsd:string" style="query" required="false" default="">  <doc>overall | 7day | 3month | 6month | 12month - The time period over which to retrieve top albums for.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getTopArtists" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.gettopartists&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=300">
+                  Get the top artists listened to by a user. You can stipulate a time period. Sends the overall chart by default.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getTopTags">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the top tags of.</doc> </param> 
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getTopTags" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication required="false"/>
+                <apigee:example  
+                  url="/?method=user.gettoptags&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=123">
+                  Get the top tags used by this user.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getTopTracks">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the top tracks of.</doc> </param> 
+      <param name="period" type="xsd:string" style="query" required="false" default="">  <doc>overall | 7day | 3month | 6month | 12month - The time period over which to retrieve top albums for.</doc> </param> 
+      <param name="page" type="xsd:string" style="query" required="false" default=""><doc>The page number to fetch. Defaults to first page.</doc> </param>
+      <param name="limit" type="xsd:string" style="query" required="false" default="50">  <doc>The number of results to fetch per page. Defaults to 50.</doc> </param> 
+        <method id="user_getTopTracks" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.gettoptracks&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=300">
+                  Get the top tracks listened to by a user. You can stipulate a time period. Sends the overall chart by default.
+                </doc>
+              </method> 
+            </resource>
+
+
+    <resource path="user/getWeeklyAlbumChart">
+      <param name="user" type="xsd:string" style="query" required="true" default="">  <doc>The last.fm username to fetch the charts of.</doc> </param> 
+      <param name="from" type="xsd:string" style="query" required="false" default="">  <doc>The date at which the chart should start from. </doc> </param> 
+      <param name="to" type="xsd:string" style="query" required="false" default=""><doc>The date at which the chart should end on. </doc> </param>
+        <method id="user_getWeeklyAlbumChart" name="GET">
+                <apigee:tags  >
+                    <apigee:tag primary="true">User</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication   required="false"/>
+                <apigee:example  
+                  url="/?method=user.getweeklyalbumchart&amp;user={user}&amp;api_key=9b6009eca365ded3a03c2b9673d54eb9"/>
+                <doc   title=""
+                  apigee:url="http://www.last.fm/api/show?service=300">
+                  Get an album chart for a user profile, for a given date range. If no date range is supplied, it will return the most recent album chart for this user.
+                </doc>
+              </method> 
+            </resource>
+
+
+          </resources>
+        </application>
+

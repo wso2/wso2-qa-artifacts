@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:apigee="http://api.apigee.com/wadl/2010/07/" xmlns="http://wadl.dev.java.net/2009/02"
+             xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+
+    <resources base="https://svcs.sandbox.paypal.com">
+    
+        <resource path="CreateAccount">
+            <method id="CreateAccount" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>CreateAccount</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/CreateAccount"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[Creates PayPal accounts
+]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"accountType" : "PERSONAL",
+"emailAddress" : "testing-2039039@paypal.com",
+"name" : {"firstName" : "John" , "lastName" : "Smith" },
+"dateOfBirth" : "1968-01-01Z",
+"address" : {"line1": "1968 Ape Way","line2" : "Apt 123","city" : "Austin", "state" : "TX" ,"postalCode" : "78750" , "countryCode" : "US" } ,
+"contactPhoneNumber" : "888-555-1212",
+"currencyCode" :  "USD",
+"citizenshipCountryCode" : "US",
+"preferredLanguageCode" : "en_US",
+"notificationURL" : "http://www.test.com",
+"registrationType" : "WEB",
+"createAccountWebOptions" : { "returnUrl" : "http://www.myhome.com" },
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}
+
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource>
+        
+        
+        <resource path="AddBankAccount">
+            <method id="AddBankAccount" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>AddBankAccount</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/AddBankAccount"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[Link bank accounts to PayPal accounts as funding sources
+]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"createAccountKey" : "XXX",
+"emailAddress" : "abc@test.com" ,
+"routingNumber" : "12345678" ,
+"bankAccountType" : "CHECKING",
+"bankName": "Bank Of America",
+"bankCountryCode" : "US",
+"bankAccountNumber" : "123456789",
+"confirmationType" : "NONE",
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}                       
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource> 
+
+        <resource path="AddPaymentCard">
+            <method id="AddPaymentCard" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>AddPaymentCard</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/AddPaymentCard"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[The AddPaymentCard method lets your application set up credit cards as funding sources for
+PayPal accounts.]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"cardNumber" : "4577644256134768",
+"cardType" : "Visa",
+"cardVerificationNumber" : "123",
+"confirmationType" : "NONE",
+"createAccountKey" : "XXX",
+"emailAddress" : "testing3@mypaypal.com",
+"expirationDate" : {"month" : "05" , "year" : "2012"},
+"billingAddress" : {"line1": "1968 Ape Way","line2" : "Apt 123","city" : "Austin","state" : "TX" ,"postalCode" : "78750" , "countryCode" : "US" } ,
+"nameOnCard" : {"firstName" : "John" , "lastName" : "Smith" },
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}  
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource>  
+
+        <resource path="SetFundingSourceConfirmed">
+            <method id="SetFundingSourceConfirmed" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>SetFundingSourceConfirmed</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/SetFundingSourceConfirmed"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[The SetFundingSourceConfirmed method lets your application set up bank accounts as
+funding sources for PayPal accounts.
+                     ]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"emailAddress" : "abc@test.com",
+"fundingSourceKey" : "XYZ",
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}                       
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource>  
+
+        <resource path="GetVerifiedStatus">
+            <method id="GetVerifiedStatus" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>GetVerifiedStatus</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/GetVerifiedStatus"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[The GetVerifiedStatus request allows you to verify that a customer is indeed the holder of the PayPal account information that was supplied.
+                     ]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"matchCriteria" : "name",
+"emailAddress" : "abc@test.com",
+"firstName" : "XYZ",
+"lastName" : "XYZ",
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}                       
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource>  
+
+        <resource path="GetUserAgreement">
+            <method id="GetUserAgreement" name="POST">
+                <apigee:tags xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <apigee:tag primary="true">Adaptive Accounts</apigee:tag>
+                    <apigee:tag>GetUserAgreement</apigee:tag>
+                </apigee:tags>
+                <apigee:authentication xmlns:apigee="http://api.apigee.com/wadl/2010/07/" required="true"/>
+                <apigee:example xmlns:apigee="http://api.apigee.com/wadl/2010/07/" url="/AdaptiveAccounts/GetUserAgreement"/>
+                <doc xmlns:apigee="http://api.apigee.com/wadl/2010/07/" title=""
+                     apigee:url="https://www.x.com/docs/DOC-1414"><![CDATA[The GetUserAgreement method lets you retrieve the user agreement for the customer to
+approve the new PayPal account.
+                     ]]></doc>
+                <request xmlns:apigee="http://api.apigee.com/wadl/2010/07/">
+                    <representation>
+                        <apigee:payload><![CDATA[
+{
+"countryCode" : "US",
+"requestEnvelope" : {"errorLanguage":"en_US", "detailLevel":"ReturnAll"}
+}                       
+]]></apigee:payload>
+                    </representation>
+                </request>
+            </method>
+        </resource>  
+        
+    </resources>
+</application>

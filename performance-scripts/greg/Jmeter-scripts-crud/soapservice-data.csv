@@ -1,0 +1,5 @@
+aaa,aaa,1.0.0,test123....,Technical Owner,0777123234,http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL,None,None,None,None,None,None,None,None,,,,,,,,,,
+bbb,bbb,1.0.1,test123....,Technical Owner,0777123234,https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/wsdl/AmazonWebServices.wsdl,None,None,None,None,None,None,None,None,,,,,,,,,,
+ccc,ccc,1.0.2,test123....,Technical Owner,0777123234,https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/wsdl/BizService.wsdl,None,None,None,None,None,None,None,None,,,,,,,,,,
+ddd,ddd,1.0.3,test123....,Technical Owner,0777123234,https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/wsdl/echo.wsdl,None,None,None,None,None,None,None,None,,,,,,,,,,
+eee,eee,1.0.4,test123....,Technical Owner,0777123234,https://raw.githubusercontent.com/wso2/wso2-qa-artifacts/master/automation-artifacts/greg/wsdl/info.wsdl,None,None,None,None,None,None,None,None,,,,,,,,,,

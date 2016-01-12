@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://dyomedea.com/ns/library" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ppl="http://dyomedea.com/ns/people" 
+	xmlns:lib="http://dyomedea.com/ns/library" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://dyomedea.com/ns/people" 
+	schemaLocation="simple-2-ns-ppl.xsd"/>
+  <xs:element name="library">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="book" type="lib:bookType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="bookType">
+    <xs:sequence>
+      <xs:element name="isbn" type="xs:int"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="authors">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ppl:person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="characters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ppl:person" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+    <xs:attribute name="available" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:schema>

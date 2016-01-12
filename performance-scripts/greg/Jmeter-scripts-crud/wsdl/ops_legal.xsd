@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ops="http://ops.epo.org" targetNamespace="http://ops.epo.org" elementFormDefault="qualified">
+
+  <xs:element name="legal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ops:pre" maxOccurs="unbounded"/>
+        <xs:element ref="ops:L001EP"/>
+        <xs:element ref="ops:L002EP"/>
+        <xs:element ref="ops:L003EP"/>
+        <xs:element ref="ops:L004EP" minOccurs="0"/>
+        <xs:element ref="ops:L005EP"/>
+        <xs:element ref="ops:L006EP" minOccurs="0"/>
+        <xs:element ref="ops:L007EP"/>
+        <xs:element ref="ops:L008EP"/>
+        <xs:element ref="ops:L009EP" minOccurs="0"/>
+        <xs:element ref="ops:L010EP" minOccurs="0"/>
+        <xs:element ref="ops:L011EP" minOccurs="0"/>
+        <xs:element ref="ops:L013EP" minOccurs="0"/>
+        <xs:element ref="ops:L014EP" minOccurs="0"/>
+        <xs:element ref="ops:L018EP" minOccurs="0"/>
+        <xs:element ref="ops:L019EP" minOccurs="0"/>
+        <xs:element ref="ops:L500EP" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="code" type="xs:string" use="required"/>
+      <xs:attribute name="desc" type="xs:string"/>
+      <xs:attribute name="infl" type="xs:string" use="required"/>
+      <xs:attribute name="dateMigr" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pre">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="line" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L001EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L002EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L003EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L004EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L005EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L006EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L007EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L008EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L009EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L010EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L011EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L013EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L014EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L018EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L019EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L500EP">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="ops:L501EP" minOccurs="0"/>
+        <xs:element ref="ops:L502EP" minOccurs="0"/>
+        <xs:element ref="ops:L503EP" minOccurs="0"/>
+        <xs:element ref="ops:L504EP" minOccurs="0"/>
+        <xs:element ref="ops:L505EP" minOccurs="0"/>
+        <xs:element ref="ops:L506EP" minOccurs="0"/>
+        <xs:element ref="ops:L507EP" minOccurs="0"/>
+        <xs:element ref="ops:L508EP" minOccurs="0"/>
+        <xs:element ref="ops:L509EP" minOccurs="0"/>
+        <xs:element ref="ops:L510EP" minOccurs="0"/>
+        <xs:element ref="ops:L511EP" minOccurs="0"/>
+        <xs:element ref="ops:L512EP" minOccurs="0"/>
+        <xs:element ref="ops:L513EP" minOccurs="0"/>
+        <xs:element ref="ops:L514EP" minOccurs="0"/>
+        <xs:element ref="ops:L515EP" minOccurs="0"/>
+        <xs:element ref="ops:L516EP" minOccurs="0"/>
+        <xs:element ref="ops:L517EP" minOccurs="0"/>
+        <xs:element ref="ops:L518EP" minOccurs="0"/>
+        <xs:element ref="ops:L519EP" minOccurs="0"/>
+        <xs:element ref="ops:L520EP" minOccurs="0"/>
+        <xs:element ref="ops:L521EP" minOccurs="0"/>
+        <xs:element ref="ops:L522EP" minOccurs="0"/>
+        <xs:element ref="ops:L523EP" minOccurs="0"/>
+        <xs:element ref="ops:L524EP" minOccurs="0"/>
+        <xs:element ref="ops:L525EP" minOccurs="0"/>
+        <xs:element ref="ops:L526EP" minOccurs="0"/>
+        <xs:element ref="ops:L527EP" minOccurs="0"/>
+      </xs:choice>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L501EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L502EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+      <xs:attribute name="descData" type="xs:string"/>
+      <xs:attribute name="infl" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L503EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L504EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L505EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L506EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L507EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L508EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L509EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L510EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L511EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L512EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L513EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L514EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L515EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L516EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L517EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L518EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L519EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L520EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L521EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L522EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L523EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L524EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L525EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L526EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="L527EP">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+      <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

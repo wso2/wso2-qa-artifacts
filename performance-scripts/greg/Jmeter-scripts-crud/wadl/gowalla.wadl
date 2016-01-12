@@ -1,0 +1,974 @@
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:apigee="http://api.apigee.com/wadl/2010/07/"
+             xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+    <resources base="http://api.gowalla.com/">
+
+        <!-- Spots -->
+
+        <resource path="spots">
+            <method id="spots_list" name="GET" apigee:displayName="List">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="spots"/>
+
+                <doc title="spots_list" apigee:url="http://gowalla.com/api/explorer#/spots?lat=&amp;lng=&amp;radius=">
+                    <![CDATA[Retrieve a list of spots within a specified distance of a location.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+
+                    <!-- Method specific -->
+
+                    <param name="lat" type="xsd:double" style="query" required="true">
+                        <doc apigee:url="http://gowalla.com/api/explorer#/spots?lat=&amp;lng=&amp;radius=">
+                            <![CDATA[Latitude of the location around which the spots will be returned.]]>
+                        </doc>
+                    </param>
+
+                    <param name="lng" type="xsd:double" style="query" required="true">
+                        <doc apigee:url="http://gowalla.com/api/explorer#/spots?lat=&amp;lng=&amp;radius=">
+                            <![CDATA[Longitude of the location around which the spots will be returned.]]>
+                        </doc>
+                    </param>
+
+                    <param name="radius" type="xsd:double" style="query" required="true">
+                        <doc apigee:url="http://gowalla.com/api/explorer#/spots?lat=&amp;lng=&amp;radius=">
+                            <![CDATA[Search radius (in meters) for the location around which the spots will be returned.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="spots/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/spots/18568">
+                    <![CDATA[The ID of the spot to retrieve.]]>
+                </doc>
+            </param>
+
+            <method id="spots_show" name="GET" apigee:displayName="Show">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="spots/{id}"/>
+
+                <doc title="spots_show" apigee:url="http://gowalla.com/api/explorer#/spots/18568">
+                    <![CDATA[Retrieve information about a specific spot.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="spots/{id}/events">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/spots/18568/events">
+                    <![CDATA[The ID of the spot to retrieve events for.]]>
+                </doc>
+            </param>
+
+            <method id="spots_events" name="GET" apigee:displayName="Events">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="spots/{id}/events"/>
+
+                <doc title="spots_events" apigee:url="http://gowalla.com/api/explorer#/spots/18568/events">
+                    <![CDATA[Retrieve a list of check-ins at a particular spot. Shows only the activity that is visible to a given user.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="spots/{id}/items">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/spots/18568/items">
+                    <![CDATA[The ID of the spot to retrieve items for.]]>
+                </doc>
+            </param>
+
+            <method id="spots_items" name="GET" apigee:displayName="Items">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="spots/{id}/items"/>
+
+                <doc title="spots_items" apigee:url="http://gowalla.com/api/explorer#/spots/18568/items">
+                    <![CDATA[Retrieve a list of items available at a particular spot.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="spots/{id}/highlights">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/spots/18568/highlights">
+                    <![CDATA[The ID of the spot to retrieve highlights for.]]>
+                </doc>
+            </param>
+
+            <method id="spots_highlights" name="GET" apigee:displayName="Highlights">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="spots/{id}/highlights"/>
+
+                <doc title="spots_highlights" apigee:url="http://gowalla.com/api/explorer#/spots/18568/highlights">
+                    <![CDATA[Retrieve a list of user highlights for a particular spot.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="categories">
+            <method id="spot_categories" name="GET" apigee:displayName="Categories">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="categories"/>
+
+                <doc title="spot_categories" apigee:url="http://gowalla.com/api/explorer#/categories">
+                    <![CDATA[Lists all spot categories.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="categories/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/categories/1">
+                    <![CDATA[The ID of the category to retrieve information for.]]>
+                </doc>
+            </param>
+
+            <method id="spot_category" name="GET" apigee:displayName="Category">
+                <apigee:tags>
+                    <apigee:tag primary="true">Spots</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="categories/{id}"/>
+
+                <doc title="spot_category" apigee:url="http://gowalla.com/api/explorer#/categories/1">
+                    <![CDATA[Retrieve information about a specific category.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Users -->
+
+        <resource path="users/me">
+            <method id="users_me" name="GET" apigee:displayName="Me">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/me"/>
+
+                <doc title="users_me" apigee:url="http://gowalla.com/api/explorer#/users/me">
+                    <![CDATA[Retrieve metadata for the user your application is authorized as.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/users/sco">
+                    <![CDATA[The ID of the user to retrieve information for.]]>
+                </doc>
+            </param>
+
+            <method id="users_show" name="GET" apigee:displayName="Show">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="users/{id}"/>
+
+                <doc title="users_show" apigee:url="http://gowalla.com/api/explorer#/users/sco">
+                    <![CDATA[Retrieve information about a specific user.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{id}/stamps">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/users/sco/stamps">
+                    <![CDATA[The ID of the user to retrieve a list of stamps for.]]>
+                </doc>
+            </param>
+
+            <method id="users_stamps" name="GET" apigee:displayName="Stamps">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="users/{id}/stamps"/>
+
+                <doc title="users_stamps" apigee:url="http://gowalla.com/api/explorer#/users/sco/stamps">
+                    <![CDATA[Retrieve a list of stamps the user has collected.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+
+                    <!-- Method specific -->
+
+                    <param name="limit" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/explorer#/users/sco/stamps">
+                            <![CDATA[Limits the number of stamps returned.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{id}/top_spots">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/users/sco/top_spots">
+                    <![CDATA[The ID of the user to retrieve a list of top spots for.]]>
+                </doc>
+            </param>
+
+            <method id="users_top_spots" name="GET" apigee:displayName="Top Spots">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="users/{id}/top_spots"/>
+
+                <doc title="users_top_spots" apigee:url="http://gowalla.com/api/explorer#/users/sco/top_spots">
+                    <![CDATA[Retrieve a list of spots the user has visited most often.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{id}/activity/friends">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/users/sco/activity/friends">
+                    <![CDATA[The ID of the user to retrieve friend activity for.]]>
+                </doc>
+            </param>
+
+            <method id="users_activity_friends" name="GET" apigee:displayName="Friend Activity">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{id}/activity/friends"/>
+
+                <doc title="users_activity_friends" apigee:url="http://gowalla.com/api/explorer#/users/sco/activity/friends">
+                    <![CDATA[Retrieve an activity feed for the specified user's friends; returns 401 if you request a user you are not authorized as.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{id}/visited_spots_urls">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/users/sco/visited_spots_urls">
+                    <![CDATA[The ID of the user to retrieve a list of visited spots for.]]>
+                </doc>
+            </param>
+
+            <method id="users_visited_spots_urls" name="GET" apigee:displayName="Visited Spots">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="users/{id}/visited_spots_urls"/>
+
+                <doc title="users_visited_spots_urls" apigee:url="http://gowalla.com/api/explorer#/users/sco/visited_spots_urls">
+                    <![CDATA[Retrieve a list of spot URLs the user has visited. Handy for indicating what spots a user has visited in a list of spots.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Items -->
+
+        <resource path="items/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/items/607583">
+                    <![CDATA[The ID of the item to retrieve.]]>
+                </doc>
+            </param>
+
+            <method id="items_show" name="GET" apigee:displayName="Show">
+                <apigee:tags>
+                    <apigee:tag primary="true">Items</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="items/{id}"/>
+
+                <doc title="items_show" apigee:url="http://gowalla.com/api/explorer#/items/607583">
+                    <![CDATA[Retrieve information about a specific item.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Highlights -->
+
+        <resource path="highlights/types">
+            <method id="highlights_types" name="GET" apigee:displayName="Highlight Types">
+                <apigee:tags>
+                    <apigee:tag primary="true">Highlights</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="highlights/types"/>
+
+                <doc title="highlights_types" apigee:url="http://gowalla.com/api/explorer#/highlights/types">
+                    <![CDATA[Lists all spot highlight types.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Trips -->
+
+        <resource path="trips">
+            <method id="trips_list" name="GET" apigee:displayName="List">
+                <apigee:tags>
+                    <apigee:tag primary="true">Trips</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="trips"/>
+
+                <doc title="trips_list" apigee:url="http://gowalla.com/api/explorer#/trips">
+                    <![CDATA[Retrieve a list of trips.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="trips/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/trips/1">
+                    <![CDATA[The ID of the trip to retrieve information for.]]>
+                </doc>
+            </param>
+
+            <method id="trips_show" name="GET" apigee:displayName="Show">
+                <apigee:tags>
+                    <apigee:tag primary="true">Trips</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="trips/{id}"/>
+
+                <doc title="trips_show" apigee:url="http://gowalla.com/api/explorer#/trips/1">
+                    <![CDATA[Retrieve information about a specific trip.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Checkins -->
+
+        <resource path="checkins/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://gowalla.com/api/explorer#/checkins/14223232">
+                    <![CDATA[The ID of the checkin to retrieve information for.]]>
+                </doc>
+            </param>
+
+            <method id="checkins_show" name="GET" apigee:displayName="Show">
+                <apigee:tags>
+                    <apigee:tag primary="true">Checkins</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="false"/>
+
+                <apigee:example url="checkins/{id}"/>
+
+                <doc title="checkins_show" apigee:url="http://gowalla.com/api/explorer#/checkins/14223232">
+                    <![CDATA[Retrieve information about a specific checkin.]]>
+                </doc>
+
+                <request>
+                    <!-- Common parameters -->
+
+                    <param name="Accept" style="header" required="true" default="application/json">
+                        <doc apigee:url="http://gowalla.com/api/docs#format">
+                            <![CDATA[Specifies the response format. Most API methods provide JSON responses, served as application/json, encoded as UTF-8 (default). In some cases, records are available in additional formats, like Atom or HTML. You can retrieve records in these formats by changing the Accept header as needed.]]>
+                        </doc>
+                        <option value="application/json"/>
+                        <option value="application/atom+xml"/>
+                        <option value="text/html"/>
+                    </param>
+
+                    <param name="page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies which specific page in the set to request.]]>
+                        </doc>
+                    </param>
+
+                    <param name="per_page" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://gowalla.com/api/docs#pagination">
+                            <![CDATA[Specifies the number of results per page to return.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/atom+xml"/>
+                    <representation mediaType="text/html"/>
+                </response>
+            </method>
+        </resource>
+
+    </resources>
+</application>

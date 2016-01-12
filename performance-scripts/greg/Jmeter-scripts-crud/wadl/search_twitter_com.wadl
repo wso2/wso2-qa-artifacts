@@ -1,0 +1,49 @@
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://research.sun.com/wadl/2006/10                      https://wadl.dev.java.net/wadl20061109.xsd" xmlns="http://research.sun.com/wadl/2006/10" xmlns:t="urn:twitter:twitterresponse"> 
+	<grammars> 
+		<response-codes>
+			<code name="200" value="OK: Success!" />
+			<code name="304" value="Not Modified: There was no new data to return." />
+			<code name="400" value="Bad Request: The request was invalid. An accompanying error message will explain why. This is the status code will be returned during rate limiting." />
+			<code name="401" value="Unauthorized: Authentication credentials were missing or incorrect." />
+			<code name="403" value="Forbidden: The request is understood, but it has been refused. An accompanying error message will explain why. This code is used when requests are being denied due to update limits." />
+			<code name="404" value="Not Found: The URI requested is invalid or the resource requested, such as a user, does not exists." />
+			<code name="406" value="Not Acceptable: Returned by the Search API when an invalid format is specified in the request." />
+			<code name="420" value="Enhance Your Calm: Returned by the Search and Trends API  when you are being rate limited." />
+			<code name="500" value="Internal Server Error: Something is broken. Please post to the group so the Twitter team can investigate." />
+			<code name="502" value="Bad Gateway: Twitter is down or being upgraded." />
+			<code name="503" value="Service Unavailable: The Twitter servers are up, but overloaded with requests. Try again later." />
+		</response-codes>
+	</grammars>
+
+	<representation id="responseCodes" element="responseCodes"/>
+
+	<resources base="http://search.twitter.com"> 
+		<resource path="search.{format}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="json" mediaType="application/json"/>
+				<option value="atom" mediaType="application/atom+xml"/>
+			</param>
+			<param name="lang" required="false" type="xsd:string" style="query" default="en"/>
+			<param name="locale" required="false" type="xsd:string" style="query" default="ja"/>
+			<param name="max_id" required="false" type="xsd:string" style="query" default="987654321"/>
+			<param name="q" required="true" type="xsd:string" style="query" default="api"/>
+			<param name="rpp" required="false" type="xsd:string" style="query" default="50"/>
+			<param name="page" required="false" type="xsd:string" style="query" default="2"/>
+			<param name="since" required="false" type="xsd:string" style="query" default="2010-04-13"/>
+			<param name="since_id" required="false" type="xsd:string" style="query" default="123456789"/>
+			<param name="geocode" required="false" type="xsd:string" style="query" default="40.757929%2C-73.985506%2C25km"/>
+			<param name="show_user" required="false" type="xsd:string" style="query" default="true"/>
+			<param name="until" required="false" type="xsd:string" style="query" default="2010-04-15"/>
+			<param name="result_type" required="false" type="xsd:string" style="query" default="popular"/>
+			<method name="GET" id="search">
+				<tags>
+					<tag primary="true">Search</tag>
+				</tags>
+				<authentication required="false"/>
+				<docs url="http://dev.twitter.com/doc/get/search"/>
+				<example url="/search.{format}?q={q}"/>
+				<notes><p>Returns tweets that match a specified query. Notice: As of April 1st 2010, the Search API provides an option to retrieve "popular tweets" in addition to real-time search results. In an upcoming release, this will become the default and clients that don't want to receive popular tweets in their search results will have to explicitly opt-out. See the result_type parameter for more information.</p><p>Warning: The user ids in the Search API are different from those in the REST API (about the two APIs). This defect is being tracked by Issue 214. This means that the to_user_id and from_user_id field vary from the actualy user id on Twitter.com. Applications will have to perform a screen name-based lookup with the users/show method to get the correct user id if necessary.</p></notes>
+			</method>
+		</resource>
+	</resources>
+</application>

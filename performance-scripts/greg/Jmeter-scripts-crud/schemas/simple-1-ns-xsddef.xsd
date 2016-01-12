@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://dyomedea.com/ns/library" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:lib="http://dyomedea.com/ns/library" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <element name="library">
+    <complexType>
+      <sequence>
+        <element name="book" type="lib:bookType"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="person">
+    <complexType>
+      <sequence>
+        <element name="name" type="string"/>
+        <element name="born" type="date"/>
+        <element name="dead" type="date" minOccurs="0"/>
+        <element name="qualification" type="string" minOccurs="0"/>
+      </sequence>
+      <attribute name="id" type="ID" use="required"/>
+    </complexType>
+  </element>
+  <complexType name="bookType">
+    <sequence>
+      <element name="isbn" type="int"/>
+      <element name="title" type="string"/>
+      <element name="authors">
+        <complexType>
+          <sequence>
+            <element ref="lib:person" maxOccurs="unbounded"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="characters">
+        <complexType>
+          <sequence>
+            <element ref="lib:person" maxOccurs="unbounded"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="id" type="ID" use="required"/>
+    <attribute name="available" type="string" use="required"/>
+  </complexType>
+</schema>

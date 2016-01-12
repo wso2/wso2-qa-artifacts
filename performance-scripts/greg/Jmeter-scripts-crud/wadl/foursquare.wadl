@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:apigee="http://api.apigee.com/wadl/2010/07/" xmlns="http://wadl.dev.java.net/2009/02"
+	xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd    http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+	<resources base="https://api.foursquare.com/v2">
+
+		<resource path="users/{USER_ID}">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>Identity of the user to get details for. Pass self to get details of the acting user.</doc>
+			</param>
+			<method id="getuser" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/users.html"><![CDATA[
+					Returns profile information for a given user, including selected badges and mayorships.
+                    If the user is a friend, contact information, Facebook ID, and Twitter handle and the user's last
+                    checkin may also be present.In addition, the pings field will indicate whether checkins from this
+                    user will trigger a ping (notifications to mobile devices). This setting can be changed via setpings.
+                    Note that this setting is overriden if pings is false in settings (no pings will be sent, even if
+                    this user is set to true). 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/search">
+			<param name="phone" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of phone numbers to look for</doc>
+			</param>
+			<param name="email" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of email addresses to look for</doc>
+			</param>
+			<param name="twitter" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of Twitter handles to look for</doc>
+			</param>
+			<param name="twitterSource" type="xsd:string" style="query" required="false">
+				<doc>A single Twitter handle. Results will be friends of this user who use Foursquare</doc>
+			</param>
+			<param name="fbid" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of Facebook ID's to look for</doc>
+			</param>
+			<param name="name" type="xsd:string" style="query" required="false">
+				<doc>A single string to search for in users' names</doc>
+			</param>
+
+			<method id="searchUserViaGet" name="GET" apigee:displayName="users/search (GET)">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/search?email={email_address}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/search.html"><![CDATA[
+                      Returns an array of compact user objects with Twitter or Facebook information and friend status.
+                  ]]></doc>
+			</method>
+		</resource>
+
+
+		<resource path="users/search">
+			<param name="phone" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of phone numbers to look for</doc>
+			</param>
+			<param name="email" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of email addresses to look for</doc>
+			</param>
+			<param name="twitter" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of Twitter handles to look for</doc>
+			</param>
+			<param name="twitterSource" type="xsd:string" style="query" required="false">
+				<doc>A single Twitter handle. Results will be friends of this user who use Foursquare</doc>
+			</param>
+			<param name="fbid" type="xsd:string" style="query" required="false">
+				<doc>A comma-delimited list of Facebook ID's to look for</doc>
+			</param>
+			<param name="name" type="xsd:string" style="query" required="false">
+				<doc>A single string to search for in users' names</doc>
+			</param>
+
+			<method id="searchUserViaPost" name="POST" apigee:displayName="users/search (POST)">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/search?email={email_address}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/search.html"><![CDATA[
+					Returns an array of compact user objects with Twitter or Facebook information and friend status.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/requests">
+			<method id="getRequests" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/requests" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/requests.html"><![CDATA[
+					Shows a user the list of users with whom they have a pending friend request 
+					(i.e., someone tried to add the acting user as a friend, but the acting user has not accepted). 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/badges">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>ID for user to view badges for. Pass self to get details of the acting user.</doc>
+			</param>
+			<method id="getBadges" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/badges" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/badges.html"><![CDATA[
+					Returns badges for a given user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/checkins">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>
+					Identity of the user to get details for. Pass self to get details of the acting user. For now, only "self" is supported
+				</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="template" required="false">
+				<doc>Number of results to return, up to 500.</doc>
+			</param>
+			<param name="offset" type="xsd:string" style="template" required="false">
+				<doc>Used to page through results.</doc>
+			</param>
+			<param name="afterTimestamp" type="xsd:string" style="template" required="false">
+				<doc>
+					Retrieve the first results to follow these seconds since epoch. This should be useful for paging forward in time, or
+					when polling for changes. To avoid missing results when polling, we recommend subtracting several seconds from the last
+					poll time and then de-deduplicating.
+				</doc>
+			</param>
+			<param name="beforeTimestamp" type="xsd:string" style="template" required="false">
+				<doc>Retrieve the first results prior to these seconds since epoch. Useful for paging backward in time.</doc>
+			</param>
+			<method id="getUserCheckins" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/checkins" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/checkins.html"><![CDATA[
+					Returns a history of checkins for the authenticated user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/friends">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>Identity of the user to get friends of. Pass self to get friends of the acting user.</doc>
+			</param>
+			<method id="getFriends" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/friends" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/friends.html"><![CDATA[
+					Returns an array of a user's friends. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/tips">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>Identity of the user to get tips from. Pass self to get tips of the acting user.</doc>
+			</param>
+			<param name="sort" type="xsd:string" style="template" required="false">
+				<doc>One of recent, nearby, or popular. Nearby requires geolat and geolong to be provided.</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="template" required="false">
+				<doc>Latitude and longitude of the user's location.</doc>
+			</param>
+			<method id="getUserTips" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/tips" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/tips.html"><![CDATA[
+					Returns tips from a user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/todos">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>Identity of the user to get todos for. Pass self to get todos of the acting user.</doc>
+			</param>
+			<param name="sort" type="xsd:string" style="template" required="false">
+				<doc>One of recent or popular. Nearby requires geolat and geolong to be provided.</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="template" required="true">
+				<doc>Latitude and longitude of the user's location.</doc>
+			</param>
+			<method id="getTodos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/todos?ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/todos.html"><![CDATA[
+					Returns todos from a user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/venuehistory">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>
+					Identity of the user to get details for. Pass self to get details of the acting user. For now, only "self" is supported
+				</doc>
+			</param>
+			<method id="getVenueHistory" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/venuehistory" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/venuehistory.html"><![CDATA[
+					Returns a list of all venues visited by the specified user, along with how many visits and when they were last there.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/request">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>The user ID to which a request will be sent.</doc>
+			</param>
+			<method id="sendRequest" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/request" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/request.html"><![CDATA[
+					Sends a friend request to another user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/unfriend">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>Identity of the user to unfriend.</doc>
+			</param>
+			<method id="unfriendUser" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/unfriend" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/unfriend.html"><![CDATA[
+					Cancels any relationship between the acting user and the specified user.
+					Removes a friend, unfollows a celebrity, or cancels a pending friend request. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/approve">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>The user ID of a pending friend.</doc>
+			</param>
+			<method id="approveFriend" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/approve" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/approve.html"><![CDATA[
+					Approves a pending friend request from another user.  
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/deny">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>The user ID of a pending friend.</doc>
+			</param>
+			<method id="denyFriend" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/deny" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/deny.html"><![CDATA[
+					Denies a pending friend request from another user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="users/{USER_ID}/setpings">
+			<param name="USER_ID" type="xsd:string" style="template" required="true">
+				<doc>The user ID of a friend.</doc>
+			</param>
+			<param name="value" type="xsd:string" style="query" required="true">
+				<doc>True or false.</doc>
+			</param>
+			<method id="setPings" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/users/{USER_ID}/setpings?value={value}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/users/setpings.html"><![CDATA[
+					Changes whether the acting user will receive pings (phone notifications) when the specified user checks in. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>ID of venue to retrieve.</doc>
+			</param>
+			<method id="getVenue" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/{VENUE_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/venues.html"><![CDATA[
+					Gives details about a venue, including location, mayorship, tags, tips, specials, and category
+					Authenticated users will also receive information about who is here now.If the venue ID given 
+					is one that has been merged into another "master" venue, the response will show data about the 
+					"master" instead of giving you an error. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/add">
+			<param name="name" type="xsd:string" style="query" required="true">
+				<doc>The name of the venue.</doc>
+			</param>
+			<param name="address" type="xsd:string" style="query" required="false">
+				<doc>The address of the venue.</doc>
+			</param>
+			<param name="crossStreet" type="xsd:string" style="query" required="false">
+				<doc>The nearest intersecting street or streets.</doc>
+			</param>
+			<param name="city" type="xsd:string" style="query" required="false">
+				<doc>The city name where this venue is.</doc>
+			</param>
+			<param name="state" type="xsd:string" style="query" required="false">
+				<doc>The nearest state or province to the venue.</doc>
+			</param>
+			<param name="zip" type="xsd:string" style="query" required="false">
+				<doc>The zip or postal code for the venue.</doc>
+			</param>
+			<param name="phone" type="xsd:string" style="query" required="false">
+				<doc>The phone number of the venue.</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="query" required="true">
+				<doc>Latitude and longitude of the venue, as accurate as is known.</doc>
+			</param>
+			<param name="primaryCategoryId" type="xsd:string" style="query" required="false">
+				<doc>The ID of the category to which you want to assign this venue.</doc>
+			</param>
+			<method id="addVenue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/venues/add?name={name}&amp;ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/add.html"><![CDATA[
+					Allows users to add a new venue.
+					If this method returns an error, give the user the option to edit her inputs.
+					In addition to this, give users the ability to say "never mind, check-in here anyway" 
+					and perform a manual ("venueless") checkin by specifying just the venue name. This is 
+					rare, but there's a chance you'll see this case if the user wants to force a duplicate venue.
+					All fields are optional, but one of either a valid address or a geolat/geolong pair must be 
+					provided. We recommend that developers provide a geolat/geolong pair in every case.
+					Caller may also, optionally, pass in a category (primarycategoryid) to which you want this 
+					venue assigned. You can browse a full list of categories using the /categories method. On 
+					adding venue, we recommend that applications show the user this hierarchy and allow them to 
+					choose something suitable. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/categories">
+			<method id="getCategories" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/categories" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/categories.html"><![CDATA[
+					Returns a hierarchical list of categories applied to venues. 
+					Note that top-level categories do not have IDs because they cannot be assigned to a venue. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/search">
+			<param name="ll" type="xsd:string" style="query" required="true">
+				<doc>Latitude and longitude of the user's location, so response can include distance.</doc>
+			</param>
+			<param name="llAcc" type="xsd:string" style="query" required="false">
+				<doc>Accuracy of latitude and longitude, in meters.</doc>
+			</param>
+			<param name="alt" type="xsd:string" style="query" required="false">
+				<doc>Altitude of the user's location, in meters.</doc>
+			</param>
+			<param name="altAcc" type="xsd:string" style="query" required="false">
+				<doc>Accuracy of the user's altitude, in meters.</doc>
+			</param>
+			<param name="query" type="xsd:string" style="query" required="false">
+				<doc>A search term to be applied against titles.</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="query" required="false">
+				<doc>Number of results to return, up to 500.</doc>
+			</param>
+
+			<method id="searchVenue" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/search?ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/search.html"><![CDATA[
+					Returns a list of venues near the current location, optionally matching the search term.
+					If lat and long is provided, each venue includes a distance. If authenticated, the method 
+					will return venue metadata related to you and your friends. If you do not authenticate, 
+					you will not get this data. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/herenow">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>ID of venue to retrieve</doc>
+			</param>
+			<method id="getVenueDetails" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/{VENUE_ID}/herenow" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/herenow.html"><![CDATA[
+					Provides a count of how many people are at a given venue, plus the first page
+					of the users there, friends-first, and if the current user is authenticated. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/tips">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>The venue where you want to add this tip.</doc>
+			</param>
+			<param name="sort" type="xsd:string" style="query" required="false">
+				<doc>One of recent or popular.</doc>
+			</param>
+			<method id="getVenueTips" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/{VENUE_ID}/tips" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/tips.html"><![CDATA[
+					Returns tips for a venue. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/photos">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>The venue you want photos for.</doc>
+			</param>
+			<param name="group" type="xsd:string" style="query" required="true">
+				<doc>
+					Pass checkin for photos added by friends on their recent checkins. Pass venue for public photos added to the venue by
+					anyone. Use multi to fetch both.
+				</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="query" required="false">
+				<doc>Number of results to return, up to 500.</doc>
+			</param>
+			<param name="offset" type="xsd:string" style="query" required="false">
+				<doc>Used to page through results.</doc>
+			</param>
+			<method id="getVenuePhotos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/venues/{VENUE_ID}/photos?group={group}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/photos.html"><![CDATA[
+					Returns photos for a venue.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/marktodo">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>The venue you want to mark to-do.</doc>
+			</param>
+			<param name="text" type="xsd:string" style="query" required="false">
+				<doc>The text of the tip.</doc>
+			</param>
+			<method id="markToDo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/venues/{VENUE_ID}/marktodo" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/marktodo.html"><![CDATA[
+					Allows you to mark a venue to-do, with optional text.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/flag">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>The venue id for which an edit is being proposed.</doc>
+			</param>
+			<param name="problem" type="xsd:string" style="query" required="true">
+				<doc>One of mislocated, closed, duplicate.</doc>
+			</param>
+			<method id="flagVenue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/venues/{VENUE_ID}/flag?problem={problem}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/flag.html"><![CDATA[
+					Allows users to indicate a venue is incorrect in some way.
+					Flags are pushed into a moderation queue. If a closed flag 
+					is approved, the venue will no longer show up in search results. 
+					Moderators will attempt to correct cases of mislocated or duplicate 
+					venues as appropriate. If the user has the correct address for a 
+					mislocated venue, use proposeedit instead. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="venues/{VENUE_ID}/proposeedit">
+			<param name="VENUE_ID" type="xsd:string" style="template" required="true">
+				<doc>The venue id for which an edit is being proposed.</doc>
+			</param>
+			<param name="name" type="xsd:string" style="query" required="true">
+				<doc>The name of the venue.</doc>
+			</param>
+			<param name="address" type="xsd:string" style="query" required="true">
+				<doc>The address of the venue.</doc>
+			</param>
+			<param name="crossStreet" type="xsd:string" style="query" required="false">
+				<doc>The nearest intersecting street or streets.</doc>
+			</param>
+			<param name="city" type="xsd:string" style="query" required="true">
+				<doc>The city name where this venue is.</doc>
+			</param>
+			<param name="state" type="xsd:string" style="query" required="true">
+				<doc>The nearest state or province to the venue.</doc>
+			</param>
+			<param name="zip" type="xsd:string" style="query" required="false">
+				<doc>The zip or postal code for the venue.</doc>
+			</param>
+			<param name="phone" type="xsd:string" style="query" required="false">
+				<doc>The phone number of the venue.</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="query" required="true">
+				<doc>Latitude and longitude of the venue, as accurate as is known.</doc>
+			</param>
+			<param name="primaryCategoryId" type="xsd:string" style="query" required="false">
+				<doc>The ID of the category to which you want to assign this venue.</doc>
+			</param>
+			<method id="editVenue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Venue</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example
+					url="/venues/{VENUE_ID}/proposeedit?name={name}&amp;address={address}&amp;city={city}&amp;state={state}&amp;ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/venues/proposeedit.html"><![CDATA[
+					Allows you to propose a change to a venue.If the user knows a correct address, use this method to save it. 
+					Otherwise, use flag to flag the venue instead (you need not specify a new address or geolat/geolong in that case). 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/{TIP_ID}">
+			<param name="TIP_ID" type="xsd:string" style="template" required="true">
+				<doc>ID of tip to retrieve.</doc>
+			</param>
+			<method id="getTip" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/tips/{TIP_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/tips.html"><![CDATA[
+					Gives details about a tip, including which users (especially friends) have marked the tip to-do or done.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/add">
+			<param name="venueId" type="xsd:string" style="query" required="true">
+				<doc>The venue where you want to add this tip.</doc>
+			</param>
+			<param name="text" type="xsd:string" style="query" required="true">
+				<doc>The text of the tip.</doc>
+			</param>
+			<param name="url" type="xsd:string" style="query" required="false">
+				<doc>A URL related to this tip.</doc>
+			</param>
+			<method id="addTip" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/tips/add?venueId={venueId}&amp;text={text}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/add.html"><![CDATA[
+					Allows you to add a new tip at a venue. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/search">
+			<param name="ll" type="xsd:string" style="query" required="true">
+				<doc>Latitude and longitude of the user's location.</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="query" required="false">
+				<doc>Number of results to return, up to 500.</doc>
+			</param>
+			<param name="offset" type="xsd:string" style="query" required="false">
+				<doc>Used to page through results.</doc>
+			</param>
+			<param name="filter" type="xsd:string" style="query" required="false">
+				<doc>If set to friends, only show nearby tips from friends.</doc>
+			</param>
+			<param name="query" type="xsd:string" style="query" required="false">
+				<doc>Only find tips matching the given term, cannot be used in conjunction with friends filter.</doc>
+			</param>
+			<method id="getTips" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/tips/search?ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/search.html"><![CDATA[
+					Returns a list of tips near the area secified.  
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/{TIP_ID}/marktodo">
+			<param name="TIP_ID" type="xsd:string" style="template" required="true">
+				<doc>The tip you want to mark to-do.</doc>
+			</param>
+			<method id="markToDoTip" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/tips/{TIP_ID}/marktodo" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/marktodo.html"><![CDATA[
+					Allows you to mark a tip to-do. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/{TIP_ID}/markdone">
+			<param name="TIP_ID" type="xsd:string" style="template" required="true">
+				<doc>The tip you want to mark done.</doc>
+			</param>
+			<method id="markdoneTip" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/tips/{TIP_ID}/markdone" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/markdone.html"><![CDATA[
+					Allows the acting user to mark a tip done. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="tips/{TIP_ID}/unmark">
+			<param name="TIP_ID" type="xsd:string" style="template" required="true">
+				<doc>The tip you want to unmark.</doc>
+			</param>
+			<method id="unmarkTip" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Tip</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/tips/{TIP_ID}/unmark" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/tips/unmark.html"><![CDATA[
+					Allows you to remove a tip from your to-do list or done list. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="checkins/{CHECKIN_ID}">
+			<param name="CHECKIN_ID" type="xsd:string" style="template" required="true">
+				<doc>The ID of the checkin to retrieve additional information for.</doc>
+			</param>
+			<method id="getCheckinDetails" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Checkin</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/checkins/{CHECKIN_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/checkins/checkins.html"><![CDATA[
+					Get details of a checkin. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="checkins/add">
+			<param name="venueId" type="xsd:string" style="query" required="true">
+				<doc>
+					The venue where the user is checking in. No venueid is needed if shouting or just providing a venue name. Find venue IDs
+					by searching or from historical APIs.
+				</doc>
+			</param>
+			<param name="venue" type="xsd:string" style="query" required="false">
+				<doc>
+					If are not shouting, but you don't have a venue ID or would rather prefer a 'venueless' checkin, pass the venue name as
+					a string using this parameter. It will become an 'orphan' (no address or venueid but with geolat, geolong).
+				</doc>
+			</param>
+			<param name="shout" type="xsd:string" style="query" required="false">
+				<doc>A message about your check-in. The maximum length of this field is 140 characters.</doc>
+			</param>
+			<param name="broadcast" type="xsd:string" style="query" required="true">
+				<doc>
+					How much to broadcast this check-in, ranging from private (off-the-grid) to public,faceboook,twitter. Can also be just
+					public or public,facebook, for example. If no valid value is found, the default is public. Shouts cannot be private.
+				</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="query" required="false">
+				<doc>Latitude and longitude of the user's location.</doc>
+			</param>
+			<param name="llAcc" type="xsd:string" style="query" required="false">
+				<doc>Accuracy of the user's latitude and longitude, in meters.</doc>
+			</param>
+			<param name="alt" type="xsd:string" style="query" required="false">
+				<doc>Altitude of the user's location, in meters.</doc>
+			</param>
+			<param name="altAcc" type="xsd:string" style="query" required="false">
+				<doc>Vertical accuracy of the user's location, in meters.</doc>
+			</param>
+			<method id="checkin" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Checkin</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example
+					url="/checkins/add?broadcast={broadcast}&amp;venueId={venueId}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/checkins/add.html"><![CDATA[
+					Allows you to check in to a place. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="checkins/recent">
+			<param name="ll" type="xsd:string" style="query" required="false">
+				<doc>Latitude and longitude of the user's location, so response can include distance.</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="query" required="false">
+				<doc>Number of results to return, up to 500.</doc>
+			</param>
+			<param name="offset" type="xsd:string" style="query" required="false">
+				<doc>Used to page through results.</doc>
+			</param>
+			<param name="afterTimestamp" type="xsd:string" style="query" required="false">
+				<doc>
+					Seconds after which to look for checkins, e.g. for looking for new checkins since the last fetch. If more than limit
+					results are new since then, this is ignored.
+				</doc>
+			</param>
+			<method id="getCheckins" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Checkin</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/checkins/recent" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/checkins/recent.html"><![CDATA[
+					Returns a list of recent checkins from friends. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="checkins/{CHECKIN_ID}/addcomment">
+			<param name="CHECKIN_ID" type="xsd:string" style="template" required="true">
+				<doc>The ID of the checkin to add a comment to.</doc>
+			</param>
+			<param name="text" type="xsd:string" style="query" required="true">
+				<doc>The text of the comment, up to 200 characters.</doc>
+			</param>
+			<method id="addCheckinComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Checkin</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/checkins/{CHECKIN_ID}/addcomment?text={text}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/checkins/addcomment.html"><![CDATA[
+					Comment on a checkin-in
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="checkins/{CHECKIN_ID}/deletecomment">
+			<param name="CHECKIN_ID" type="xsd:string" style="template" required="true">
+				<doc>The ID of the checkin to remove a comment from.</doc>
+			</param>
+			<param name="commentId" type="xsd:string" style="query" required="true">
+				<doc>The id of the comment to remove.</doc>
+			</param>
+			<method id="removeCheckinComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Checkin</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example
+					url="/checkins/{CHECKIN_ID}/deletecomment?commentId={commentId}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/checkins/deletecomment.html"><![CDATA[
+					Remove a comment from a checkin, if the acting user is the author or the owner of the checkin.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="photos/{PHOTO_ID}">
+			<param name="PHOTO_ID" type="xsd:string" style="template" required="true">
+				<doc>The ID of the photo to retrieve additional information for.</doc>
+			</param>
+			<method id="getPhotoDetails" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Photo</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/photos/{PHOTO_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/photos/photos.html"><![CDATA[
+					Get details of a photo.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="photos/add">
+			<param name="checkinId" type="xsd:string" style="query" required="false">
+				<doc>the ID of a checkin owned by the user.</doc>
+			</param>
+			<param name="tipId" type="xsd:string" style="query" required="false">
+				<doc>the ID of a tip owned by the user.</doc>
+			</param>
+			<param name="venueId" type="xsd:string" style="query" required="false">
+				<doc>
+					the ID of a venue, provided only when adding a public photo of the venue in general, rather than a private checkin or
+					tip photo using the parameters above.
+				</doc>
+			</param>
+			<param name="broadcast" type="xsd:string" style="query" required="false">
+				<doc>
+					Whether to broadcast this photo, ranging from twitter if you want to send to twitter, facebook if you want to send to
+					facebook, or twitter,facebook if you want to send to both.
+				</doc>
+			</param>
+			<param name="ll" type="xsd:string" style="query" required="false">
+				<doc>Latitude and longitude of the user's location.</doc>
+			</param>
+			<param name="llAcc" type="xsd:string" style="query" required="false">
+				<doc>Accuracy of the user's latitude and longitude, in meters.</doc>
+			</param>
+			<param name="alt" type="xsd:string" style="query" required="false">
+				<doc>Altitude of the user's location, in meters.</doc>
+			</param>
+			<param name="altAcc" type="xsd:string" style="query" required="false">
+				<doc>Vertical accuracy of the user's location, in meters.</doc>
+			</param>
+			<method id="addPhoto" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Photo</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/photos/add" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/photos/add.html"><![CDATA[
+                    Allows users to add a new photo to a checkin, tip, or a venue in general.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="specials/{SPECIAL_ID}">
+			<param name="SPECIAL_ID" type="xsd:string" style="template" required="true">
+				<doc>required ID of special to retrieve.</doc>
+			</param>
+			<method id="getSpecialDetails" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Special</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="/specials/{SPECIAL_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/specials/specials.html"><![CDATA[
+					Gives details about a special, including text and unlock rules.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="specials/search">
+			<param name="ll" type="xsd:string" style="template" required="true">
+				<doc>Latitude and longitude to search near.</doc>
+			</param>
+			<param name="llAcc" type="xsd:string" style="template" required="false">
+				<doc>Accuracy of latitude and longitude, in meters.</doc>
+			</param>
+			<param name="alt" type="xsd:string" style="template" required="false">
+				<doc>Altitude of the user's location, in meters.</doc>
+			</param>
+			<param name="altAcc" type="xsd:string" style="template" required="false">
+				<doc>Accuracy of the user's altitude, in meters.</doc>
+			</param>
+			<param name="limit" type="xsd:string" style="template" required="false">
+				<doc>Number of results to return, up to 50.</doc>
+			</param>
+			<method id="getSpecials" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Special</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/specials/search?ll={lat},{long}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/specials/specials.html"><![CDATA[
+                    Returns a list of specials near the current location.
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="settings/{SETTING_ID}">
+			<param name="SETTING_ID" type="xsd:string" style="template" required="true">
+				<doc>The name of a setting.</doc>
+			</param>
+			<method id="getSetting" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Setting</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/settings/{SETTING_ID}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/settings/settings.html"><![CDATA[
+					Returns a setting for the acting user. SETTING_ID can be any of the three: 
+					receivePings, sendToTwitter, sendToFacebook
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="settings/all">
+			<method id="getAllSettings" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Setting</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/settings/all" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/settings/all.html"><![CDATA[
+					Returns the settings of the acting user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="settings/{SETTING_ID}/set">
+			<param name="SETTING_ID" type="xsd:string" style="template" required="true">
+				<doc>Name of setting to change, sendToTwitter, sendToFacebook, receivePings.</doc>
+			</param>
+			<param name="value" type="xsd:string" style="query" required="true">
+				<doc>1 for true, and 0 for false.</doc>
+			</param>
+			<method id="setSetting" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Setting</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="/settings/{SETTING_ID}/set?value={value}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/settings/set.html"><![CDATA[
+					Change a setting for the given user. 
+                ]]></doc>
+			</method>
+		</resource>
+
+		<resource path="multi">
+			<param name="requests" type="xsd:string" style="query" required="true">
+				<doc>
+					A comma-delimited list of API requests, each URI encoded (meaning that already-encoded elements are double-encoded)
+				</doc>
+			</param>
+			<method id="multipleRequests" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Multiple Request</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example
+					url="/multi?requests={request1},{request2},...{requestN}" />
+				<doc title=""
+					apigee:url="http://developer.foursquare.com/docs/multi/multi.html"><![CDATA[
+					Does multiple requests at once.  
+                ]]></doc>
+			</method>
+		</resource>
+
+	</resources>
+
+</application>

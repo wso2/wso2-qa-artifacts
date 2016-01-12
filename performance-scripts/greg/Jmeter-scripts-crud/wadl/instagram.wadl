@@ -1,0 +1,1197 @@
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:apigee="http://api.apigee.com/wadl/2010/07/"
+             xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+    <resources base="https://api.instagram.com/v1/">
+
+        <!-- Users -->
+
+        <resource path="users/{user-id}">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/users/">
+                    <![CDATA[The ID of the user whose information to retrieve, or "self" to reference the currently logged-in user.]]>
+                </doc>
+            </param>
+
+            <method id="get_users" name="GET" apigee:displayName="users/{user-id}">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}"/>
+
+                <doc title="get_users" apigee:url="http://instagr.am/developer/endpoints/users/#get_users">
+                    <![CDATA[Get basic information about a user.]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/self/feed">
+            <method id="get_users_feed" name="GET" apigee:displayName="users/self/feed">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/self/feed"/>
+
+                <doc title="get_users_feed" apigee:url="http://instagr.am/developer/endpoints/users/#get_users_feed">
+                    <![CDATA[See the authenticated user's feed.]]>
+                </doc>
+
+                <request>
+                    <param name="max_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_feed">
+                            <![CDATA[Return media earlier than this max_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_feed">
+                            <![CDATA[Return media later than this min_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="count" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_feed">
+                            <![CDATA[Count of media to return]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{user-id}/media/recent">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                    <![CDATA[The ID of the user whose recent media to retrieve.]]>
+                </doc>
+            </param>
+
+            <method id="get_users_media_recent" name="GET" apigee:displayName="users/{user-id}/media/recent">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}/media/recent"/>
+
+                <doc title="get_users_media_recent" apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                    <![CDATA[Get the most recent media published by a user.]]>
+                </doc>
+
+                <request>
+                    <param name="max_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                            <![CDATA[Return media earlier than this max_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                            <![CDATA[Return media later than this min_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="count" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                            <![CDATA[Count of media to return]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                            <![CDATA[Return media after this UNIX timestamp]]>
+                        </doc>
+                    </param>
+
+                    <param name="max_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_media_recent">
+                            <![CDATA[Return media before this UNIX timestamp]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/self/media/liked">
+            <method id="get_users_liked_feed" name="GET" apigee:displayName="users/self/media/liked">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/self/media/liked"/>
+
+                <doc title="get_users_liked_feed" apigee:url="http://instagr.am/developer/endpoints/users/#get_users_liked_feed">
+                    <![CDATA[See the authenticated user's list of media they've liked.]]>
+                </doc>
+
+                <request>
+                    <param name="max_like_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_liked_feed">
+                            <![CDATA[Return media liked before this id]]>
+                        </doc>
+                    </param>
+
+                    <param name="count" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_liked_feed">
+                            <![CDATA[Count of media to return]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/search">
+            <method id="get_users_search" name="GET" apigee:displayName="users/search">
+                <apigee:tags>
+                    <apigee:tag primary="true">Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/search"/>
+
+                <doc title="get_users_search" apigee:url="http://instagr.am/developer/endpoints/users/#get_users_search">
+                    <![CDATA[Search for a user by name.]]>
+                </doc>
+
+                <request>
+                    <param name="q" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_search">
+                            <![CDATA[A query string.]]>
+                        </doc>
+                    </param>
+
+                    <param name="count" type="xsd:positiveInteger" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/users/#get_users_search">
+                            <![CDATA[Number of users to return]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Relationships -->
+
+        <resource path="users/{user-id}/follows">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/relationships/">
+                    <![CDATA[The ID of the user to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_users_follows" name="GET" apigee:displayName="users/{user-id}/follows">
+                <apigee:tags>
+                    <apigee:tag primary="true">Relationships</apigee:tag>
+                    <apigee:tag>Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}/follows"/>
+
+                <doc title="get_users_follows" apigee:url="http://instagr.am/developer/endpoints/relationships/#get_users_follows">
+                    <![CDATA[Get the list of users this user follows. Required scope: relationships]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{user-id}/followed-by">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/relationships/">
+                    <![CDATA[The ID of the user to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_users_followed_by" name="GET" apigee:displayName="users/{user-id}/followed-by">
+                <apigee:tags>
+                    <apigee:tag primary="true">Relationships</apigee:tag>
+                    <apigee:tag>Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}/followed-by"/>
+
+                <doc title="get_users_followed_by" apigee:url="http://instagr.am/developer/endpoints/relationships/#get_users_followed_by">
+                    <![CDATA[Get the list of users this user is followed by. Required scope: relationships]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/self/requested-by">
+            <method id="get_incoming_requests" name="GET" apigee:displayName="users/self/requested-by">
+                <apigee:tags>
+                    <apigee:tag primary="true">Relationships</apigee:tag>
+                    <apigee:tag>Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/self/requested-by"/>
+
+                <doc title="get_users" apigee:url="http://instagr.am/developer/endpoints/relationships/#get_incoming_requests">
+                    <![CDATA[List the users who have requested this user's permission to follow. Required scope: relationships]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{user-id}/relationship">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/relationships/">
+                    <![CDATA[The ID of the user to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_relationship" name="GET" apigee:displayName="users/{user-id}/relationship (GET)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Relationships</apigee:tag>
+                    <apigee:tag>Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}/relationship"/>
+
+                <doc title="get_relationship" apigee:url="http://instagr.am/developer/endpoints/relationships/#get_relationship">
+                    <![CDATA[Get information about the current user's relationship (follow/following/etc) to another user. Required scope: relationships]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="users/{user-id}/relationship">
+            <param name="user-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/relationships/">
+                    <![CDATA[The ID of the user to reference.]]>
+                </doc>
+            </param>
+            <method id="post_relationship" name="POST" apigee:displayName="users/{user-id}/relationship (POST)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Relationships</apigee:tag>
+                    <apigee:tag>Users</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="users/{user-id}/relationship"/>
+
+                <doc title="post_relationship" apigee:url="http://instagr.am/developer/endpoints/relationships/#post_relationship">
+                    <![CDATA[Modify the relationship between the current user and the target user. Required scope: relationships]]>
+                </doc>
+
+                <request>
+                  <representation>
+                    <apigee:payload><![CDATA[action={follow,unfollow,block,unblock,approve,deny}]]></apigee:payload>
+                    <!--<param name="action" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/relationships/#post_relationship">
+                            <![CDATA[An action for the request.]]>
+                        </doc>
+                        <option value="follow"/>
+                        <option value="unfollow"/>
+                        <option value="block"/>
+                        <option value="unblock"/>
+                        <option value="approve"/>
+                        <option value="deny"/>
+                    </param>-->
+                  </representation>
+                </request>
+
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Media -->
+
+        <resource path="media/{id}">
+            <param name="id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/media/">
+                    <![CDATA[The ID of the media object to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_media" name="GET" apigee:displayName="media/{id}">
+                <apigee:tags>
+                    <apigee:tag primary="true">Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{id}"/>
+
+                <doc title="get_media" apigee:url="http://instagr.am/developer/endpoints/media/#get_media">
+                    <![CDATA[Get information about a media object.]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="media/search">
+            <method id="get_media_search" name="GET" apigee:displayName="media/search">
+                <apigee:tags>
+                    <apigee:tag primary="true">Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/search"/>
+
+                <doc title="get_media_search" apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                    <![CDATA[Get information about a media object.]]>
+                </doc>
+
+                <request>
+                    <param name="lat" type="xsd:double" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                            <![CDATA[Latitude of the center search coordinate. If used, lng is required.]]>
+                        </doc>
+                    </param>
+
+                    <param name="lng" type="xsd:double" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                            <![CDATA[Longitude of the center search coordinate. If used, lat is required.]]>
+                        </doc>
+                    </param>
+
+                    <param name="max_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                            <![CDATA[A unix timestamp. All media returned will be taken earlier than this timestamp.]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                            <![CDATA[A unix timestamp. All media returned will be taken later than this timestamp.]]>
+                        </doc>
+                    </param>
+
+                    <param name="distance" type="xsd:positiveInteger" style="query" required="false" default="1000">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/media/#get_media_search">
+                            <![CDATA[Search distance, in meters. Default is 1km (distance=1000), max distance is 5km (5000)]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="media/popular">
+            <method id="get_media_popular" name="GET" apigee:displayName="media/popular">
+                <apigee:tags>
+                    <apigee:tag primary="true">Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/popular"/>
+
+                <doc title="get_media_popular" apigee:url="http://instagr.am/developer/endpoints/media/#get_media_popular">
+                    <![CDATA[Get a list of what media is most popular at the moment.]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Comments -->
+
+        <resource path="media/{media-id}/comments">
+            <param name="media-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/comments/">
+                    <![CDATA[The ID of the media object to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_media_comments" name="GET" apigee:displayName="media/{media-id}/comments (GET)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Comments</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/comments"/>
+
+                <doc title="get_media_comments" apigee:url="http://instagr.am/developer/endpoints/comments/#get_media_comments">
+                    <![CDATA[Get a full list of comments on a media. Required scope: comments]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="post_media_comments" name="POST" apigee:displayName="media/{media-id}/comments (POST)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Comments</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/comments"/>
+
+                <doc title="post_media_comments" apigee:url="http://instagr.am/developer/endpoints/comments/#post_media_comments">
+                    <![CDATA[Create a comment on a media. Required scope: comments]]>
+                </doc>
+
+                <request>
+                  <representation>
+                    <apigee:payload><![CDATA[text=]]></apigee:payload>
+                  </representation>
+                </request>
+
+                <!--                <request>
+                    <param name="text" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/comments/#post_media_comments">
+                            <![CDATA[Text to post as a comment on the media as specified in media-id.]]>
+                        </doc>
+                    </param>
+                </request> -->
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="media/{media-id}/comments/{comment-id}">
+            <param name="media-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/comments/">
+                    <![CDATA[The ID of the media object to reference.]]>
+                </doc>
+            </param>
+
+            <param name="comment-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/comments/">
+                    <![CDATA[The ID of the comment to delete.]]>
+                </doc>
+            </param>
+
+            <method id="delete_media_comments" name="DELETE" apigee:displayName="media/{media-id}/comments/{comment-id}">
+                <apigee:tags>
+                    <apigee:tag primary="true">Comments</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/comments/{comment-id}"/>
+
+                <doc title="delete_media_comments" apigee:url="http://instagr.am/developer/endpoints/comments/#delete_media_comments">
+                    <![CDATA[Remove a comment either on the authenticated user's media or authored by the authenticated user. Required scope: comments]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Likes -->
+
+        <resource path="media/{media-id}/likes">
+            <param name="media-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/likes/">
+                    <![CDATA[The ID of the media object to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_media_likes" name="GET" apigee:displayName="media/{media-id}/likes (GET)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Likes</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/likes"/>
+
+                <doc title="get_media_likes" apigee:url="http://instagr.am/developer/endpoints/likes/#get_media_likes">
+                    <![CDATA[Get a list of users who have liked this media. Required scope: likes]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="post_media_likes" name="POST" apigee:displayName="media/{media-id}/likes (POST)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Likes</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/likes"/>
+
+                <doc title="post_media_likes" apigee:url="http://instagr.am/developer/endpoints/likes/#post_media_likes">
+                    <![CDATA[Set a like on this media by the currently authenticated user. Required scope: likes]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="delete_media_likes" name="DELETE" apigee:displayName="media/{media-id}/likes (DELETE)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Likes</apigee:tag>
+                    <apigee:tag>Media</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="media/{media-id}/likes"/>
+
+                <doc title="delete_media_likes" apigee:url="http://instagr.am/developer/endpoints/likes/#delete_media_likes">
+                    <![CDATA[Remove a like on this media by the currently authenticated user. Required scope: likes]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Tags -->
+
+        <resource path="tags/{tag-name}">
+            <param name="tag-name" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/tags/">
+                    <![CDATA[The name of the tag to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_tags" name="GET" apigee:displayName="tags/{tag-name}">
+                <apigee:tags>
+                    <apigee:tag primary="true">Tags</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="tags/{tag-name}"/>
+
+                <doc title="get_tags" apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags">
+                    <![CDATA[Get information about a tag object.]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="tags/{tag-name}/media/recent">
+            <param name="tag-name" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/tags/">
+                    <![CDATA[The name of the tag to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_tags_media_recent" name="GET" apigee:displayName="tags/{tag-name}/media/recent">
+                <apigee:tags>
+                    <apigee:tag primary="true">Tags</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="tags/{tag-name}/media/recent"/>
+
+                <doc title="get_tags_media_recent" apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags_media_recent">
+                    <![CDATA[Get a list of recently tagged media.]]>
+                </doc>
+
+                <request>
+                    <param name="max_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags_media_recent">
+                            <![CDATA[Return media after this max_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags_media_recent">
+                            <![CDATA[Return media before this min_id]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="tags/search">
+            <method id="get_tags_search" name="GET" apigee:displayName="tags/search">
+                <apigee:tags>
+                    <apigee:tag primary="true">Tags</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="tags/search"/>
+
+                <doc title="get_tags_search" apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags_search">
+                    <![CDATA[Search for tags by name.]]>
+                </doc>
+
+                <request>
+                    <param name="q" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/tags/#get_tags_search">
+                            <![CDATA[Valid tag name without a leading #. (eg. snow, nofilter)]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <!-- Locations -->
+
+        <resource path="locations/{location-id}">
+            <param name="location-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/locations/">
+                    <![CDATA[The ID of the location to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_locations" name="GET" apigee:displayName="locations/{location-id}">
+                <apigee:tags>
+                    <apigee:tag primary="true">Locations</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="locations/{location-id}"/>
+
+                <doc title="get_locations" apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations">
+                    <![CDATA[Get information about a location.]]>
+                </doc>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="locations/{location-id}/media/recent">
+            <param name="location-id" style="template" required="true">
+                <doc apigee:url="http://instagr.am/developer/endpoints/locations/">
+                    <![CDATA[The ID of the location to reference.]]>
+                </doc>
+            </param>
+
+            <method id="get_locations_media_recent" name="GET" apigee:displayName="locations/{location-id}/media/recent">
+                <apigee:tags>
+                    <apigee:tag primary="true">Locations</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="locations/{location-id}/media/recent"/>
+
+                <doc title="get_locations_media_recent" apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_media_recent">
+                    <![CDATA[Get a list of recent media objects from a given location.]]>
+                </doc>
+
+                <request>
+                    <param name="max_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_media_recent">
+                            <![CDATA[Return media after this max_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_media_recent">
+                            <![CDATA[Return media before this min_id]]>
+                        </doc>
+                    </param>
+
+                    <param name="min_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_media_recent">
+                            <![CDATA[Return media after this UNIX timestamp]]>
+                        </doc>
+                    </param>
+
+                    <param name="max_timestamp" type="xsd:long" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_media_recent">
+                            <![CDATA[Return media before this UNIX timestamp]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+        <resource path="locations/search">
+            <method id="get_locations_search" name="GET" apigee:displayName="locations/search">
+                <apigee:tags>
+                    <apigee:tag primary="true">Locations</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="locations/search"/>
+
+                <doc title="get_locations_search" apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                    <![CDATA[Search for a location by name and geographic coordinate.]]>
+                </doc>
+
+                <request>
+                    <param name="lat" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                            <![CDATA[Latitude of the center search coordinate. If used, lng is required.]]>
+                        </doc>
+                    </param>
+
+                    <param name="lng" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                            <![CDATA[Longitude of the center search coordinate. If used, lat is required.]]>
+                        </doc>
+                    </param>
+
+                    <param name="foursquare_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                            <![CDATA[Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use lat and lng. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API.]]>
+                        </doc>
+                    </param>
+
+                    <param name="foursquare_v2_id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                            <![CDATA[Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use lat and lng.]]>
+                        </doc>
+                    </param>
+
+                    <param name="distance" type="xsd:positiveInteger" style="query" required="false" default="1000">
+                        <doc apigee:url="http://instagr.am/developer/endpoints/locations/#get_locations_search">
+                            <![CDATA[Search distance, in meters. Default is 1km (distance=1000), max distance is 5km (5000)]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+
+        <!-- Subscriptions -->
+
+        <resource path="subscriptions">
+            <method id="post_subscriptions_user" name="POST" apigee:displayName="subscriptions (POST) [User]">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="post_subscriptions_user" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Creates a subscription to receive notifications when users who have registered with your application post new photos.]]>
+                </doc>
+
+                <request>
+                  <!--   <param name="object" style="query" required="true" default="user" fixed="user">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The object you'd like to subscribe to]]>
+                        </doc>
+                        <option value="user"/>
+                        <option value="tag"/>
+                        <option value="location"/>
+                        <option value="geography"/>
+                    </param> 
+
+                    <param name="aspect" type="xsd:string" style="query" required="true" default="media" fixed="media">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The aspect of the object you'd like to subscribe to (in this case, "media"). Note that we only support "media" at this time, but we might support other types of subscriptions in the future.]]>
+                        </doc>
+                        <option value="media"/>
+                    </param>
+
+                    <param name="callback_url" type="xsd:anyURI" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[URL that must accept GET and POST requests, and behave according to the API docs.]]>
+                        </doc>
+                    </param> -->
+
+                    <param name="verify_token" type="xsd:string" style="query" required="true"/>
+
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+
+                  <representation>
+                    <apigee:payload><![CDATA[aspect=media;callback_url={callback URL};object=user;]]></apigee:payload>
+                  </representation>
+
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="post_subscriptions_tag" name="POST" apigee:displayName="subscriptions (POST) [Tag]">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="post_subscriptions_tag" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Creates a subscription to receive notifications when a new photo is tagged with tags of your choosing.]]>
+                </doc>
+
+                <request>
+                  <!--
+                    <param name="object" style="query" required="true" default="tag" fixed="tag">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The object you'd like to subscribe to]]>
+                        </doc>
+                        <option value="user"/>
+                        <option value="tag"/>
+                        <option value="location"/>
+                        <option value="geography"/>
+                    </param>
+
+                    <param name="aspect" type="xsd:string" style="query" required="true" default="media" fixed="media">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The aspect of the object you'd like to subscribe to (in this case, "media"). Note that we only support "media" at this time, but we might support other types of subscriptions in the future.]]>
+                        </doc>
+                        <option value="media"/>
+                    </param>
+
+
+                    <param name="callback_url" type="xsd:anyURI" style="query" required="true"/> 
+
+
+                    <param name="object_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The tag to which you'd like to subscribe.]]>
+                        </doc>
+                    </param> -->
+
+                    <param name="verify_token" type="xsd:string" style="query" required="true"/>
+
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+
+                  <representation>
+                    <apigee:payload><![CDATA[aspect=media;callback_url={callback URL};object=tag;object_id={Tag you want to subscribe to};]]></apigee:payload>
+                  </representation>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="post_subscriptions_location" name="POST" apigee:displayName="subscriptions (POST) [Location]">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="post_subscriptions_location" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Creates a subscription to receive notifications when new photos are posted and tagged with a specific location.]]>
+                </doc>
+
+                <request>
+                  <!--                    <param name="object" style="query" required="true" default="location" fixed="location">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The object you'd like to subscribe to]]>
+                        </doc>
+                        <option value="user"/>
+                        <option value="tag"/>
+                        <option value="location"/>
+                        <option value="geography"/>
+                    </param>
+
+                    <param name="aspect" type="xsd:string" style="query" required="true" default="media" fixed="media">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The aspect of the object you'd like to subscribe to (in this case, "media"). Note that we only support "media" at this time, but we might support other types of subscriptions in the future.]]>
+                        </doc>
+                        <option value="media"/>
+                    </param>
+
+                    <param name="object_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The ID of the location to which you'd like to subscribe.]]>
+                        </doc>
+                    </param>
+
+                    <param name="callback_url" type="xsd:anyURI" style="query" required="true"/> -->
+
+                    <param name="verify_token" type="xsd:string" style="query" required="true"/>
+
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+
+                  <representation>
+                    <apigee:payload><![CDATA[aspect=media;callback_url={callback URL};object=location;object_id={Location ID you want to subscribe to};]]></apigee:payload>
+                  </representation>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="post_subscriptions_geography" name="POST" apigee:displayName="subscriptions (POST) [Geography]">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="post_subscriptions_geography" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Creates a subscription to receive notifications when a new photos are posted in an arbitrary geographical location as defined by a center point and radius.]]>
+                </doc>
+
+                <request>
+                  <!--<param name="object" style="query" required="true" default="geography" fixed="geography">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The object you'd like to subscribe to]]>
+                        </doc>
+                        <option value="user"/>
+                        <option value="tag"/>
+                        <option value="location"/>
+                        <option value="geography"/>
+                    </param>
+
+                    <param name="aspect" type="xsd:string" style="query" required="true" default="media" fixed="media">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The aspect of the object you'd like to subscribe to (in this case, "media"). Note that we only support "media" at this time, but we might support other types of subscriptions in the future.]]>
+                        </doc>
+                        <option value="media"/>
+                    </param>
+
+                    <param name="callback_url" type="xsd:anyURI" style="query" required="true"/>-->
+
+                    <param name="verify_token" type="xsd:string" style="query" required="true"/>
+
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+
+
+                    <!--                    <param name="lat" type="xsd:double" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The latitude of the center point of the area you'd like to capture data around.]]>
+                        </doc>
+                    </param>
+
+                    <param name="lng" type="xsd:double" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The longitude of the center point of the area you'd like to capture data around.]]>
+                        </doc>
+                    </param>
+
+                    <param name="radius" type="xsd:positiveInteger" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The radius of the area you'd like to capture data around. Maximum: 5000 meters]]>
+                        </doc>
+                    </param> -->
+
+                  <representation>
+                    <apigee:payload><![CDATA[aspect=media;callback_url={callback URL};object=geography;lat={latitude};lng={Longtitude};radius={radius};]]></apigee:payload>
+                  </representation>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="get_subscriptions" name="GET" apigee:displayName="subscriptions (GET)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="get_subscriptions" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Returns your current subscriptions.]]>
+                </doc>
+
+                <request>
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+                </request>
+
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+
+            <method id="delete_subscriptions" name="DELETE" apigee:displayName="subscriptions (DELETE)">
+                <apigee:tags>
+                    <apigee:tag primary="true">Subscriptions</apigee:tag>
+                </apigee:tags>
+
+                <apigee:authentication required="true"/>
+
+                <apigee:example url="subscriptions"/>
+
+                <doc title="delete_subscriptions" apigee:url="http://instagr.am/developer/realtime">
+                    <![CDATA[Deletes a subscription by object type or ID.]]>
+                </doc>
+
+                <request>
+                    <param name="id" type="xsd:string" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The ID of the subscription you want to delete. Either this or "object" is required.]]>
+                        </doc>
+                    </param>
+
+                    <param name="object" style="query" required="false">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                            <![CDATA[The object type of the subscription you want to delete, or "all" to clear all subscriptions.]]>
+                        </doc>
+                        <option value="all"/>
+                        <option value="user"/>
+                        <option value="tag"/>
+                        <option value="location"/>
+                        <option value="geography"/>
+                    </param>
+
+                    <param name="client_id" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client ID of your application.]]>
+                        </doc>
+                    </param>
+
+                    <param name="client_secret" type="xsd:string" style="query" required="true">
+                        <doc apigee:url="http://instagr.am/developer/realtime">
+                          <![CDATA[Client secret of your application.]]>
+                        </doc>
+                    </param>
+                </request>
+
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+
+    </resources>
+
+</application>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:apigee="http://api.apigee.com/wadl/2010/07/" xmlns="http://wadl.dev.java.net/2009/02" xmlns:t="urn:simplegeo:simplegeoresponse"
+	xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd"> 
+ 
+	<resources base="http://api.simplegeo.com/"> 
+ 
+        <resource path="1.0/features/{handle}.{format}"> 
+			<param name="handle" required="true" type="xsd:string" style="query" default="SG_6fK3DOaRivKAmLA15lsuyv" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="features" name="GET" apigee:displayName="GetFeatureByHandle"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Features</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="false" /> 
+				<apigee:example url="1.0/features/{handle}.{format}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-features"> 
+					Returns a feature object. It could be a place (point) or area (polygon).
+				</doc> 
+			</method> 
+		</resource> 
+ 
+        <resource path="1.0/context/{lat},{lon}.{format}"> 
+			<param name="lat" required="true" type="xsd:string" style="query" default="37.77275" /> 
+			<param name="lon" required="true" type="xsd:string" style="query" default="-122.40572" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="context" name="GET" apigee:displayName="GetContextByCoordinate"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Context</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/context/{lat},{lon}.{format}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"> 
+					Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="1.0/context/address.{format}"> 
+			<param name="address" required="true" type="xsd:string" style="query" default="41 Decatur St, San Francisco, CA" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="context_address" name="GET" apigee:displayName="GetContextByAddress"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Context</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/context/address.{format}?address={address}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"> 
+					Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="1.0/context/{ip}.{format}"> 
+			<param name="ip" required="true" type="xsd:string" style="query" default="IP" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="context_ip" name="GET" apigee:displayName="GetContextByIP">
+				<apigee:tags> 
+					<apigee:tag primary="true">Context</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/context/{ip}.{format}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"> 
+					Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="1.0/places/{lat},{lon}.{format}"> 
+			<param name="lat" required="true" type="xsd:string" style="query" default="37.77275" /> 
+			<param name="lon" required="true" type="xsd:string" style="query" default="-122.40572" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="places" name="GET" apigee:displayName="GetPlacesByCoordinate"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Places</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/places/{lat},{lon}.{format}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-places"> 
+					Does a SimpleGeo Places query, returning 25 features near a given point.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="1.0/places/address.{format}"> 
+			<param name="address" required="true" type="xsd:string" style="query" default="41 Decatur St, San Francisco, CA" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="places_address" name="GET" apigee:displayName="GetPlacesByAddress"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Places</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/places/address.{format}?address={address}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-places"> 
+					Does a SimpleGeo Places query, returning 25 features near a given point.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="1.0/places/{ip}.{format}"> 
+			<param name="ip" required="true" type="xsd:string" style="query" default="IP" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="places_ip" name="GET" apigee:displayName="GetPlacesByIP"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Places</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+				<apigee:example url="1.0/places/{ip}.{format}" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-places"> 
+					Does a SimpleGeo Places query, returning 25 features near a given point.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="0.1/records/{layer}/{id}.json"> 
+			<param name="layer" required="true" type="xsd:string" style="query" default="com.simplegeo.global.flickr" /> 
+			<param name="id" required="true" type="xsd:string" style="query" default="5023789288" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="get_record" name="GET" apigee:displayName="GetRecordById"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Storage</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+                <apigee:example url="0.1/records/{layer}/{id}.json" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-storage"> 
+					Retrieve a SimpleGeo Storage record by ID.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="0.1/records/{layer}/{id}/history.json"> 
+			<param name="layer" required="true" type="xsd:string" style="query" default="com.simplegeo.global.flickr" /> 
+			<param name="id" required="true" type="xsd:string" style="query" default="5023789288" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="get_record_history" name="GET" apigee:displayName="GetRecordLocationHistory"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Storage</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+                <apigee:example url="0.1/records/{layer}/{id}/history.json" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-storage"> 
+					Retrieve the location history of a SimpleGeo Storage record.
+				</doc> 
+			</method>
+		</resource> 
+ 
+        <resource path="0.1/records/{layer}/nearby/{lat},{lon}.json"> 
+			<param name="layer" required="true" type="xsd:string" style="query" default="com.simplegeo.global.flickr" /> 
+            <param name="lat" required="true" type="xsd:string" style="query" default="37.7747" /> 
+            <param name="lon" required="true" type="xsd:string" style="query" default="-122.4198" /> 
+			<param name="format" type="xsd:string" style="template" required="true" default="json"> 
+				<option value="json" mediaType="application/json" /> 
+			</param> 
+			<method id="get_record_history_2" name="GET" apigee:displayName="GetRecordsByCoordinate"> 
+				<apigee:tags> 
+					<apigee:tag primary="true">Storage</apigee:tag> 
+				</apigee:tags> 
+				<apigee:authentication required="true" /> 
+                <apigee:example url="0.1/records/{layer}/nearby/{lat},{lon}.json" /> 
+				<doc title="" apigee:url="http://simplegeo.com/docs/api-endpoints/simplegeo-storage"> 
+					Search for nearby SimpleGeo Storage records around a given coordinate.
+				</doc> 
+			</method> 
+		</resource> 
+ 
+	</resources> 
+ 
+</application> 

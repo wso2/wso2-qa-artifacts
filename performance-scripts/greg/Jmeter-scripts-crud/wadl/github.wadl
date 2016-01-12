@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apigee="http://api.apigee.com/wadl/2010/07/"
+	xmlns="http://wadl.dev.java.net/2009/02" xmlns:t="urn:github:githubresponse"
+	xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+	<resources base="http://github.com/">
+
+		<resource path="{format}/user/search/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="GetUsers" apigee:displayName="GetUsers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="api/v2/{format}/user/search/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns the users using their username.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/email/{emailid}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="emailid" required="true" type="xsd:string" style="query" default="user@email.com"/>
+			<method id="GetUsersByEmail" apigee:displayName="GetUsersByEmail" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="api/v2/{format}/user/email/{emailId}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns the users using their emailID.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/show/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="GetUser" apigee:displayName="GetUser" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="api/v2/{format}/user/show/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns an extended information on user by their username.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/show/{username}/following">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="GetUserFollowing" apigee:displayName="GetUserFollowing" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/user/show/{userName}/following"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns the user following.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/show/{username}/followers">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="GetUserFollowers" apigee:displayName="GetUserFollowers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/user/show/{userName}/followers"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns the user followers.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/follow/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="FollowUser" apigee:displayName="FollowUser" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/user/follow/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Follow a certain user.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/unfollow/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="chacon"/>
+			<method id="UnFollowUser" apigee:displayName="UnFollowUser"
+				name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/user/unfollow/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Unfollow a certain user.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/watched/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<method id="GetWatchedRepos" apigee:displayName="GetWatchedRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Users</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/watched/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/users">
+					Returns which repositories a user is watching.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/search/{q}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="q" required="true" type="xsd:string" style="query" default="ruby+testing"/>
+			<method id="GetRepos" apigee:displayName="GetRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/search/{q}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Search for repositories. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="GetRepo" apigee:displayName="GetRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a more in-depth information for a repository. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<method id="GetUserRepos" apigee:displayName="GetUserRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of all the repositories for a user. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/fork/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="GetForkedRepo" apigee:displayName="GetForkedRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/fork/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns the data about your newly forked repository. 
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="{format}/repos/create">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<method id="CreateRepo" apigee:displayName="CreateRepo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/create"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Create a new repository. 
+				</doc>
+				<request>
+					<param name="name" type="string" style="query" required="true" default="" />
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/unwatch/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="UnWatchRepo" apigee:displayName="UnWatchRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/unwatch/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					UnWatch a repository. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/watch/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="WatchRepo" apigee:displayName="WatchRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/watch/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Watch a repository. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/collaborators">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="GetCollaborators" apigee:displayName="GetCollaborators" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/collaborators"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of the collaborators on your project.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/delete/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<method id="DeleteRepo" apigee:displayName="DeleteRepo" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/repos/delete/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Delete a Repository.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/contributors">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="mxcl"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="homebrew"/>
+			<method id="GetContributors" apigee:displayName="GetContributors" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/contributors"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of the contributors on your project.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/watchers">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="claudiob"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="csswaxer"/>
+			<method id="GetWatchers" apigee:displayName="GetWatchers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/watchers"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of the watchers on your project.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/network">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="ruby-git"/>
+			<method id="GetNetwork" apigee:displayName="GetNetwork" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/network"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a look at the full network .
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/languages">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="mojombo" />
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit" />
+			<method id="GetRepoLanguages" apigee:displayName="GetRepoLanguages" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/languages"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of the languages used in a particular repository.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/repos/show/{username}/{reponame}/tags">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="ruby-git"/>
+			<method id="GetRepoTags" apigee:displayName="GetRepoTags" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repository</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/repos/show/{userName}/{repoName}/tags"/>
+				<doc title="" apigee:url="http://develop.github.com/p/repo">
+					Returns a list of tags on your Repository.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/organizations/{orgname}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github"/>
+			<method id="GetOrg" apigee:displayName="GetOrg" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns the full information on organizations by the screen name.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/user/show/{username}/organizations">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<method id="GetPublicOrgs" apigee:displayName="GetPublicOrgs" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/user/show/{userName}/organizations"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns all the public organizations that a user is part of.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/organizations/repositories">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<method id="GetOrgRepos" apigee:displayName="GetOrgRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/organizations/repositories"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns a list of all repositories across all the organizations that you can access.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/organizations/{orgname}/public_repositories">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github"/>
+			<method id="GetOrgPublicRepos" apigee:displayName="GetOrgPublicRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}/public_repositories"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns a list of all public repositories of an organization.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="{format}/organizations/{orgname}/owners">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github"/>
+			<method id="GetOrgMembers" apigee:displayName="GetOrgMembers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}/owners"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					List all members of the organization's Owners team.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="{format}/organizations/{orgname}/public_members">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github"/>
+			<method id="GetOrgPublicMembers" apigee:displayName="GetOrgPublicMembers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}/public_members"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					List all public members of any organization.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="{format}/organizations/{orgname}/teams">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github"/>
+			<method id="GetTeamsOrgs" apigee:displayName="GetTeamsOrgs" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}/teams"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns a list of organization teams.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/organizations/{orgname}/teams">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="orgname" required="true" type="xsd:string" style="query" default="github" />
+			<method id="CreateTeam" apigee:displayName="CreateTeam" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/organizations/{orgName}/teams"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Creating a Team.
+				</doc>
+				<request>
+				   <param name="Content-Type" type="string" style="header" required="true" default="application/json"/>
+					<representation>
+						<apigee:payload><![CDATA[
+				{
+   				"team": {
+   						 "name" : "apigee",
+    					 "permission" : "admin"
+    					}
+   				}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<method id="GetTeam" apigee:displayName="GetTeam" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns the team information.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<method id="UpdateTeam" apigee:displayName="UpdateTeam" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Update the team information.
+				</doc>
+				<request>
+					<representation>
+						<apigee:payload><![CDATA[
+					{
+					"team":{
+ 						"name" :"OSS",
+						"permission" :"admin"
+ 						}
+					}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/members">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<method id="GetTeamUsers" apigee:displayName="GetTeamUsers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}/members"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns a list of users in a Team.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/members?name={username}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<method id="AddTeamUser" apigee:displayName="AddTeamUser" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="api/v2/{format}/teams/{teamId}/members"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Add an user to a Team.
+				</doc>
+				<request>
+				  <param name="name" type="string" style="query" required="true" default=""/>
+				</request> 
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/members">
+			<param name="format" type="xsd:string" style="template"
+				required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<method id="DeleteTeamUser" apigee:displayName="DeleteTeamUser" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}/members"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Remove an user from a Team.
+				</doc>
+				<request>
+				  <param name="name" type="string" style="query" required="true" default=""/>
+				</request> 
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/repositories">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<method id="GetTeamRepos" apigee:displayName="GetTeamRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}/repositories"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Returns a List of Repositories in a Team.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/repositories">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<method id="AddTeamRepo" apigee:displayName="AddTeamRepo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}/repositories"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Add a Repository to a Team.
+				</doc>
+				<request>
+					<param name="name" type="string" style="query" required="true" default="Apigee/Console"/>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/teams/{teamid}/repositories">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="teamid" required="true" type="xsd:int" style="query" default="10"/>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<method id="DeleteTeamRepo" apigee:displayName="DeleteTeamRepo" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/teams/{teamId}/repositories"/>
+				<doc title="" apigee:url="http://develop.github.com/p/orgs">
+					Remove a Repository from a Team.
+				</doc>
+			<request>
+				<param name="name" type="string" style="query" required="true" default="Apigee/Console"/>
+			</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/commits/list/{userid}/{reponame}/{branchname}?page={num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="userid" required="true" type="xsd:string" style="query" default="mojombo"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<param name="branchname" required="true" type="xsd:string" style="query" default="master"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetBranchCommits" apigee:displayName="GetBranchCommits" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="api/v2/{format}/commits/list/{userId}/{repoName}/{branchName}?page={num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/commits">
+					Returns a list of commits for a branch.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/commits/list/{userid}/{reponame}/{branchname}/{path}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="userid" required="true" type="xsd:string" style="query" default="mojombo"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<param name="branchname" required="true" type="xsd:string" style="query" default="master"/>
+			<param name="path" required="true" type="xsd:string" style="query" default="grit.gemspec"/>
+			<method id="GetFileCommits" apigee:displayName="GetFileCommits" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/commits/list/{userId}/{repoName}/{branchName}/{path}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/commits">
+					Returns a list of commits for a file.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/commits/show/{userid}/{reponame}/{sha}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="userid" required="true" type="xsd:string" style="query" default="mojombo"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="grit"/>
+			<param name="sha" required="true" type="xsd:string" style="query" default="5071bf9fbfb81778c456d62e111440fdc776f76c"/>
+			<method id="GetCommit" apigee:displayName="GetCommit" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/commits/show/{userId}/{repoName}/{sha}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/commits">
+					Returns a specfic commit.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/{username}/{reponame}/network_meta">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<method id="GetNetworkMetadata" apigee:displayName="GetNetworkMetadata" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Secret Network</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="{userName}/{repoName}/network_meta"/>
+				<doc title="" apigee:url="http://develop.github.com/p/network">
+					Returns the network meta information.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/{username}/{reponame}/network_data_chunk">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="nethash" required="true" type="xsd:string" style="query" default="Use_Nethash_got_from_the_NetworkMetadata_call" />
+			<method id="GetNetworkData" apigee:displayName="GetNetworkData" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Secret Network</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="{userName}/{repoName}/network_data_chunk?nethash={netHash}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/network">
+					Returns the network data using the nethash got from the NetworkMetadata call.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="{format}/pulls/{username}/{reponame}/{state}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="faraday"/>
+			<param name="state" required="false" type="xsd:string" style="query" default="closed"/>
+			<method id="GetPullRequests" apigee:displayName="GetPullRequests" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Request</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/pulls/{userName}/{repoName}/{state}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/pulls">
+					Returns a list of pull requests for a Repository.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/pulls/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="faraday"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="10" />
+			<method id="GetPullRequestDiscussions" apigee:displayName="GetPullRequestDiscussions" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Request</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/pulls/{userName}/{repoName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/pulls">
+					Returns the pull request discussions.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/pulls/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="technoweenie"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="faraday"/>
+			<param name="base" required="true" type="xsd:string" style="query" default="master"/>
+			<param name="head" required="true" type="xsd:string" style="query" default="smparkes:synchrony"/>
+			<param name="title" required="true" type="xsd:string" style="query" default="Krishna"/>
+			<param name="title" required="true" type="xsd:string" style="query" default="MypullRequest"/>
+			<method id="CreatePullRequest" apigee:displayName="CreatePullRequest" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Request</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/pulls/{userName}/{repoName}?pull[base]={base}&amp;pull[head]={head}&amp;pull[title]={title}&amp;pull[body]={body}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/pulls">
+					Create a Pull Request.
+				</doc>				
+			</method>
+		</resource>
+		
+		<resource path="{format}/tree/show/{username}/{reponame}/a47803c9ba26213ff194f042ab686a7749b17476">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="defunkt"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="facebox"/>
+			<param name="tree_sha" required="true" type="xsd:string" style="query" default="a47803c9ba26213ff194f042ab686a7749b17476"/>
+			<method id="GetTreeContents" apigee:displayName="GetTreeContents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Object</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/tree/show/{userName}/{repoName}/{treeSha}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/object">
+					Returns the contents of a tree by tree SHA.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/blob/show/{username}/{reponame}/365b84e0fd92c47ecdada91da47f2d67500b8e31/{path}?meta={num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="defunkt"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="facebox"/>
+			<param name="tree_sha" required="true" type="xsd:string" style="query" default="365b84e0fd92c47ecdada91da47f2d67500b8e31"/>
+			<param name="path" required="true" type="xsd:string" style="query" default="readme.txt"/>
+			<param name="num" required="false" type="xsd:int" style="query" default="1"/>
+			<method id="GetBlob" apigee:displayName="GetBlob" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Object</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="api/v2/{format}/blob/show/{userName}/{repoName}/{treeSha}/{path}?meta={num}" />
+				<doc title="" apigee:url="http://develop.github.com/p/object">
+					Returns the data about a blob by tree SHA and path. Returns metadata by providing the metadata information.  
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/blob/all/{username}/{reponame}/a47803c9ba26213ff194f042ab686a7749b17476">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="tree_sha" required="true" type="xsd:string" style="query" default="a47803c9ba26213ff194f042ab686a7749b17476"/>
+			<method id="GetBlobs" apigee:displayName="GetBlobs" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Object</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/blob/full/{userName}/{repoName}/{treeSha}" />
+				<doc title="" apigee:url="http://develop.github.com/p/object">
+					Returns the list of all blobs (their names and shas) for a specific SHA.  
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/tree/full/{username}/{reponame}/365b84e0fd92c47ecdada91da47f2d67500b8e31">
+			<param name="format" type="xsd:string" style="template"
+				required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="tree_sha" required="true" type="xsd:string" style="query" default="365b84e0fd92c47ecdada91da47f2d67500b8e31"/>
+			<method id="GetTreeBlobMetadata" apigee:displayName="GetTreeBlobMetadata" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Object</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false" />
+				<apigee:example url="api/v2/{format}/tree/full/{userName}/{repoName}/{treeSha}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/object">
+					Returns the metadata of each tree and blob object. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/blob/show/{username}/{reponame}/d4fc2d5e810d9b4bc1ce67702603080e3086a4ed">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="tree_sha" required="true" type="xsd:string" style="query" default="d4fc2d5e810d9b4bc1ce67702603080e3086a4ed"/>
+			<method id="GetRawBlob" apigee:displayName="GetRawBlob" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Object</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/blob/show/{userName}/{repoName}/{treeSha}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/object">
+					Returns the contents of a blob with the blob's SHA. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/search/{username}/{reponame}/{state}/{searchterm}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon" />
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit" />
+			<param name="state" required="true" type="xsd:string" style="query" default="closed" />
+			<param name="searchterm" required="true" type="xsd:string" style="query" default="test" />
+			<method id="GetIssues" apigee:displayName="GetIssues" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/issues/search/{userName}/{repoName}/{state}/{searchTerm}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Returns the searched issues. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/list/{username}/{reponame}/{state}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="state" required="true" type="xsd:string" style="query" default="closed"/>
+			<method id="GetProjectIssues" apigee:displayName="GetProjectIssues" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/issues/list/{userName}/{repoName}/{state}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Returns a list of issue for a project.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/show/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="showoff"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssue" apigee:displayName="GetIssue" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/issues/show/{userName}/{repoName}/{num}" />
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Returns the data on an individual issue by using number. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/comments/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="showoff"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="3"/>
+			<method id="GetIssueComments" apigee:displayName="GetIssueComments" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="api/v2/{format}/issues/comments/{userName}/{repoName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Returns a list of comments made on an issue. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/open/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<method id="OpenIssue" apigee:displayName="OpenIssue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="api/v2/{format}/issues/open/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Open a new issue on a project. 
+				</doc>
+				<request>
+				  <param name="Content-Type" type="string" style="header" required="true" default="application/json"/>
+					<representation>
+						<apigee:payload><![CDATA[							
+				{
+ 					"title" : "new",
+					"body"  : "my ticket" 
+				}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/close/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="3"/>
+			<method id="CloseIssue" apigee:displayName="CloseIssue" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/issues/close/{userName}/{repoName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Close an issue on a project. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/reopen/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="3" />
+			<method id="ReOpenIssue" apigee:displayName="ReOpenIssue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="api/v2/{format}/issues/reopen/{userName}/{repoName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					ReOpen an issue on a project. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/edit/{username}/{reponame}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="3"/>
+			<method id="UpdateIssue" apigee:displayName="UpdateIssue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true" />
+				<apigee:example url="api/v2/{format}/issues/edit/{userName}/{repoName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Edit an issue. 
+				</doc>
+				<request>
+				<param name="Content-Type" type="string" style="header" required="true" default="application/json"/>
+					<representation>
+						<apigee:payload><![CDATA[							
+				{
+ 					"title" : "new",
+					"body"  : "my ticket" 
+				}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/labels/{username}/{reponame}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="showoff"/>
+			<method id="GetLabels" apigee:displayName="GetLabels" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/issues/labels/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Returns a list of available labels for a project issues. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/label/add/{username}/{reponame}/{labelname}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="labelname" required="true" type="xsd:string" style="query" default="testing"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="AddLabel" apigee:displayName="AddLabel" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/issues/label/add/{userName}/{repoName}/{labelName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Add a Label. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/label/remove/{username}/{reponame}/{labelname}/{num}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="labelname" required="true" type="xsd:string" style="query" default="testing"/>
+			<param name="num" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteLabel" apigee:displayName="DeleteLabel" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/issues/label/remove/{userName}/{repoName}/{labelName}/{num}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Remove a Label. 
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="{format}/issues/comment/{username}/{reponame}/{id}">
+			<param name="format" type="xsd:string" style="template" required="true" default="json">
+				<option value="xml" mediaType="application/xml"/>
+				<option value="json" mediaType="application/json"/>
+				<option value="yaml" mediaType="application/yaml"/>
+			</param>
+			<param name="username" required="true" type="xsd:string" style="query" default="schacon"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="simplegit"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="AddComment" apigee:displayName="AddComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="api/v2/{format}/issues/comment/{userName}/{repoName}/{id}"/>
+				<doc title="" apigee:url="http://develop.github.com/p/issues">
+					Comment on Issues. 
+				</doc>
+				<request>
+				  <param name="Content-Type" type="string" style="header" required="true" default="application/json"/>
+					<representation>
+						<apigee:payload><![CDATA[												
+						{
+   					      "comment": "Your Comments"	  			
+   						}
+				]]></apigee:payload>
+					</representation>
+				</request>
+			</method>
+		</resource>
+
+	</resources>
+
+</application>
