@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="Axis2Proxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <send>
+            <endpoint>
+               <address uri="http://localhost:9764/services/Axis2Service"/>
+            </endpoint>
+         </send>
+      </inSequence>
+      <outSequence>
+         <enrich>
+            <source type="inline" clone="true">
+               <sss xmlns="">a</sss>
+            </source>
+            <target type="property" property="bar"/>
+         </enrich>
+         <send/>
+      </outSequence>
+   </target>
+   <publishWSDL uri="http://localhost:9764/services/Axis2Service?wsdl"/>
+</proxy>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:element name="ip" type="xs:string"/>
+    <xs:element name="username" type="xs:string"/>
+    <xs:element name="keypath" type="xs:string"/>
+    <xs:element name="keyword" type="xs:string"/>
+    
+    
+    <xs:element name="node">
+        <xs:complexType>
+            <xs:sequence maxOccurs="1">
+                <xs:element ref="ip"/>
+                <xs:element ref="username"/>
+                <xs:element ref="keypath"/>
+                <xs:element ref="keyword"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element> 
+    
+        <xs:element name="nodes">
+        <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element ref="node"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+          
+</xs:schema>

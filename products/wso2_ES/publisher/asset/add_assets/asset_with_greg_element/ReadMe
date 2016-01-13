@@ -1,0 +1,20 @@
+The sampleapp.rxt consists of GREG RXT elements that are supported to be added when creating the RXT definition
+
+Following are the GREG elements that are covered by this sample
+1.The field Element
+2.The content Element
+3.The text Element
+4.The path, url and startsWith Attributes
+5.The readonly Attribute
+6.The text-area Value of the type Attribute
+7.The date Value of the type Attribute
+8.The required Attribute
+9.The validate Attribute
+10.The tooltip Attribute
+11.Table Attributes Columns Attribute
+12.Subheading Attribute
+
+To add the RXT follow these steps 
+1. Login to ES Console
+2. Access Extensions > Artifact Types
+3. Click Add New Artifact

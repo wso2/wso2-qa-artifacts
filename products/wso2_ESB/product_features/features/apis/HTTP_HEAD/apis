@@ -1,0 +1,56 @@
+ <api name="headTestAPI_ESB976" context="/testAPI_ESB976">
+      <resource methods="OPTIONS HEAD GET" uri-template="*">
+         <inSequence>
+            <send>
+               <endpoint>
+                  <address uri="http://localhost:9773/jaxrs_basic/services/customers/"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <send/>
+         </outSequence>
+      </resource>
+   </api>
+   <api name="headTestAPI_ESB970" context="/testAPI_ESB970">
+      <resource methods="OPTIONS HEAD" uri-template="*">
+         <inSequence>
+            <send>
+               <endpoint>
+                  <address uri="http://localhost:9773/jaxrs_basic/services/customers/"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <send/>
+         </outSequence>
+      </resource>
+   </api>
+   <api name="headTestAPI_ESB975" context="/testAPI_ESB975">
+      <resource methods="OPTIONS HEAD GET" uri-template="*">
+         <inSequence>
+            <send>
+               <endpoint>
+                  <address uri="http://weather.yahooapis.com/forecastrss"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <send/>
+         </outSequence>
+      </resource>
+   </api>
+   <api name="headTestAPI_ESB973" context="/testAPI_ESB973">
+      <resource methods="OPTIONS HEAD" uri-template="*">
+         <inSequence>
+            <send>
+               <endpoint>
+                  <address uri="http://localhost:9773/jaxrs_starbucks_service/services/Starbucks_Outlet_Service"/>
+               </endpoint>
+            </send>
+         </inSequence>
+         <outSequence>
+            <send/>
+         </outSequence>
+      </resource>
+   </api>

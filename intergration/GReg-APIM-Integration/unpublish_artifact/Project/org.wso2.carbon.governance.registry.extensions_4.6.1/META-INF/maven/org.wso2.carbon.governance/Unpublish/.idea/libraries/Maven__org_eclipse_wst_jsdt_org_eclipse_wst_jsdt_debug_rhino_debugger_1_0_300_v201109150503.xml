@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.wst.jsdt:org.eclipse.wst.jsdt.debug.rhino.debugger:1.0.300.v201109150503">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.rhino.debugger/1.0.300.v201109150503/org.eclipse.wst.jsdt.debug.rhino.debugger-1.0.300.v201109150503.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.rhino.debugger/1.0.300.v201109150503/org.eclipse.wst.jsdt.debug.rhino.debugger-1.0.300.v201109150503-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/wst/jsdt/org.eclipse.wst.jsdt.debug.rhino.debugger/1.0.300.v201109150503/org.eclipse.wst.jsdt.debug.rhino.debugger-1.0.300.v201109150503-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

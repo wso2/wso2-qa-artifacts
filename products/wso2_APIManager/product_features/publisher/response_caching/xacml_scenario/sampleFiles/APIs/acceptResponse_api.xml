@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="AcceptResponse_api"
+     context="/acceptResponse">
+   <resource methods="POST GET" url-mapping="/*">
+      <inSequence>
+	 <property name="NO_ENTITY_BODY" action="remove" scope="axis2"/>
+	 <payloadFactory>
+		<format>
+		    <Response>
+			        <greet>Hello</greet>
+		    </Response>
+		</format>
+	</payloadFactory>
+         <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+         <header name="To" action="remove"/>
+         <send/>
+      </inSequence>
+   </resource>
+</api>
