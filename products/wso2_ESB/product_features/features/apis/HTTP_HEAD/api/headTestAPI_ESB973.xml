@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="headTestAPI_ESB973"
+     context="/testAPI_ESB973">
+   <resource methods="OPTIONS HEAD" uri-template="*">
+      <inSequence>
+         <send>
+            <endpoint>
+               <address uri="http://localhost:9764/jaxrs_starbucks_service/services/Starbucks_Outlet_Service"/>
+            </endpoint>
+         </send>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </resource>
+</api>

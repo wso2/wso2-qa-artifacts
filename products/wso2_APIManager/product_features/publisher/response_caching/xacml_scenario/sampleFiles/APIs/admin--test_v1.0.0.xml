@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><api xmlns="http://ws.apache.org/ns/synapse" name="admin--test" context="/test" version="1.0.0" version-type="url">
+    <resource methods="POST GET OPTIONS DELETE PUT" url-mapping="/*">
+        <inSequence>
+           
+            <cache scope="per-host" collector="false" hashGenerator="org.wso2.caching.digest.REQUESTHASHGenerator">
+                <implementation type="memory" maxSize="500"/>
+            </cache>
+           <property
+                xmlns="http://ws.apache.org/ns/synapse" name="xacml_use_rest" value="true" scope="axis2" type="STRING">
+            </property>
+            <property
+                xmlns="http://ws.apache.org/ns/synapse" name="username" expression="$ctx:END_USER_NAME" scope="axis2" type="STRING">
+            </property>
+            <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
+                <then>
+                   <entitlementService
+                        xmlns="http://ws.apache.org/ns/synapse" remoteServiceUrl="https://localhost:9444/services"
+                             remoteServiceUserName="admin"
+                             remoteServicePassword="admin"
+                             callbackClass="org.wso2.carbon.identity.entitlement.mediator.callback.UTEntitlementCallbackHandler"
+                             client="basicAuth">
+  	 <onReject>
+                      
+			 <send>
+                              <endpoint name="admin--test_APIproductionEndpoint_0">
+                            <http uri-template="http://127.0.0.1:8280/denyResponse/">
+                                <timeout>
+                                    <duration>30000</duration>
+                                    <responseAction>fault</responseAction>
+                                </timeout>
+                                <suspendOnFailure>
+                                    <errorCodes>-1</errorCodes>
+                                    <initialDuration>0</initialDuration>
+                                    <progressionFactor>1.0</progressionFactor>
+                                    <maximumDuration>0</maximumDuration>
+                                </suspendOnFailure>
+                                <markForSuspension>
+                                    <errorCodes>-1</errorCodes>
+                                </markForSuspension>
+                            </http>
+                        </endpoint>
+                            </send>	
+                        </onReject>
+
+<onAccept>
+                            <send>
+                              <endpoint name="admin--test_APIproductionEndpoint_0">
+                            <http uri-template="http://127.0.0.1:8280/acceptResponse/">
+                                <timeout>
+                                    <duration>30000</duration>
+                                    <responseAction>fault</responseAction>
+                                </timeout>
+                                <suspendOnFailure>
+                                    <errorCodes>-1</errorCodes>
+                                    <initialDuration>0</initialDuration>
+                                    <progressionFactor>1.0</progressionFactor>
+                                    <maximumDuration>0</maximumDuration>
+                                </suspendOnFailure>
+                                <markForSuspension>
+                                    <errorCodes>-1</errorCodes>
+                                </markForSuspension>
+                            </http>
+                        </endpoint>
+                            </send>
+                        </onAccept>
+                        <obligations/>
+                        <advice/>
+                    </entitlementService>
+                </then>
+                <else>
+                    <sequence key="_sandbox_key_error_"/>
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence>
+            <cache scope="per-host" collector="true"/>
+            <send/>
+        </outSequence>
+    </resource>
+    <handlers>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
+            <property name="id" value="A"/>
+            <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml"/>
+        </handler>
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler"/>
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler">
+            <property name="configKey" value="gov:/apimgt/statistics/ga-config.xml"/>
+        </handler>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler"/>
+    </handlers>
+</api>
