@@ -1,4 +1,4 @@
-rtifact for ESB-1309
+#Artifact for ESB-1309
 
 1. Deploy TestApi and  mockservice into ESB.
 
