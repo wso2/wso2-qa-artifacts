@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:ser="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://services.samples/xsd">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <ser:getQuote>
+      <ser:request>
+        <xsd:symbol>IBM</xsd:symbol>
+      </ser:request>
+    </ser:getQuote>
+  </soapenv:Body>
+</soapenv:Envelope>
