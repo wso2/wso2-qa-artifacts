@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="main" xmlns="http://ws.apache.org/ns/synapse">
+    <callout action="urn:echoInt" serviceURL="http://localhost:9764/services/echo">
+        <source xmlns:echo="http://echo.services.core.carbon.wso2.org"
+            xmlns:ns="http://org.apache.synapse/xsd"
+            xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xpath="//echo:echoInt"/>
+        <target key="p2"/>
+    </callout>
+    <log level="custom">
+        <property expression="$ctx:p2" name="P2"
+            xmlns:echo="http://echo.services.core.carbon.wso2.org"
+            xmlns:ns="http://org.apache.synapse/xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
+    </log>
+    <property name="RESPONSE" scope="default" value="true"/>
+    <header action="remove" name="To"/>
+    <send/>
+</sequence>
