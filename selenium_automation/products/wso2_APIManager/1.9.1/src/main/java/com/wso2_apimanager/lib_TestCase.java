@@ -102,10 +102,6 @@ public class lib_TestCase {
         String varAPIcontest = param_APIcontest+caller.generateData("int",5);
         caller.type("APIPublisherAdd.tf_APIContext",varAPIcontest);
         caller.type("APIPublisherAdd.tf_APIVersion",param_APIVersion+caller.generateData("int",3));
-        //Type valid image path
-        //Type
-        //object=APIPublisherAdd.btn_BrowseImage
-        //text=@param_APIImagePath
         caller.type("APIPublisherAdd.tf_Tags",param_tagName);
         caller.fireEvent("KEY%key=\n","2000");
         //waiting for content load
@@ -136,9 +132,6 @@ public class lib_TestCase {
         caller.click("APIPublisherHome.btn_Search");
         //waiting for content load
         caller.pause("2000");
-        //Click
-        //object=APIPublisherBrowse.lnk_APIName
-        //API_No=@varAPIName
         caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + varAPIName);
         //waiting for content load
         caller.pause("4000");
@@ -2168,10 +2161,6 @@ public class lib_TestCase {
         caller.click("Browse_Doc.rdo_HowTo");
         //Wait for content load
         caller.pause("2000");
-        /*
-        Click
-         object=Browse_Doc.rdo_Inline
-        */
         //Wait for content load
         caller.pause("2000");
         caller.click("Browse_Doc.btn_UpdateCreatedDoc");
@@ -2289,6 +2278,7 @@ public class lib_TestCase {
      *  Business component APIM_128.
      */
     public final static void APIM_128(final SeleniumTestBase caller, final String param_APIName, final String param_APIVersion, final String param_publisherURL) throws Exception {
+        caller.writeToReport("Start of APIM_128");
         //APIM-128: Check whether system validate for existing versions of the same api
         caller.navigateToURL("<param_publisherURL>","param_publisherURL_PARAM:" + param_publisherURL,"4000");
         //Wait for content load
@@ -2305,7 +2295,8 @@ public class lib_TestCase {
         caller.pause("3000");
         caller.click("Browse_Overview.btn_Ok");
         //Wait for content load
-        caller.pause("3000");	
+        caller.pause("3000");
+        caller.writeToReport("End of APIM_128");	
     }
     /**
      *  Business component APIM_138.
@@ -2519,13 +2510,6 @@ public class lib_TestCase {
         caller.pause("4000");
         caller.click("Scopes.btn_OK");
         caller.pause("2000");
-        /*
-        CheckElementPresent
-         object=Scopes.ele_lblSpecialCharactorErrorMsg
-         param_SpecialCharactor=@param_InvalidKey
-         stopOnFailure=false
-         customErrorMessage=
-        */
         caller.pause("4000");
         caller.click("Scopes.btn_Close");
         caller.pause("4000");
@@ -2845,13 +2829,6 @@ public class lib_TestCase {
         String varAPIContext = param_APIContext+caller.generateData("int",3);
         caller.type("APIPublisherAdd.tf_APIContext",varAPIContext);
         caller.type("APIPublisherAdd.tf_APIVersion",param_APIVersion);
-        //adding an image
-        /*
-        //Type valid image path
-        Type
-        object=APIPublisherAdd.btn_BrowseImage
-         text=@param_APIImagePath
-        */
         String varAPITag = param_APITag+caller.generateData("int",3);
         caller.type("APIPublisherAdd.tf_Tags",varAPITag);
         caller.fireEvent("KEY%key=\n","2000");
@@ -3151,7 +3128,6 @@ public class lib_TestCase {
         caller.checkElementPresent("Browse_Doc.ele_lbltableModifiedOn","docName_PARAM:" + DocNameFive + "_PARAM," + "docType_PARAM:" + param_rdoOtherOne,false,"");
         caller.checkElementPresent("Browse_Doc.ele_lbltableAction","docName_PARAM:" + DocNameFive + "_PARAM," + "docType_PARAM:" + param_rdoOtherOne,false,"");
         caller.pause("2000");
-        caller.pause("2000");
         caller.writeToReport("APIM_116 Successfully Passed");	
     }
     /**
@@ -3181,11 +3157,6 @@ public class lib_TestCase {
         //change type to public forum(pre condition)
         caller.pause("4000");
         caller.click("Browse_Doc.rdo_PublicForum");
-        caller.pause("1000");
-        /*
-        Click
-         object=Browse_Doc.rdo_URL
-        */
         caller.pause("2000");
         caller.type("Browse_Doc.tf_URL",param_URL);
         caller.pause("1000");
@@ -3431,12 +3402,6 @@ public class lib_TestCase {
         caller.type("Browse_Doc.tf_EditContent1",param_editContent);
         caller.pause("4000");
         caller.fireEvent("KEY%key=\t|key=\n","10");
-        /*
-        CheckElementPresent
-         object=Browse_Doc.ele_lblSuccessful
-         stopOnFailure=false
-         customErrorMessage=
-        */
         caller.pause("4000");
         caller.click("Browse_Doc.tf_EditContent1");
         caller.pause("500");
@@ -4334,20 +4299,6 @@ public class lib_TestCase {
         caller.type("Browse_Doc.tf_EditContent1",EditContent);
         caller.pause("4000");
         caller.fireEvent("KEY%key=\t|key=\n","5000");
-        /*
-        CheckElementPresent
-         object=Browse_Doc.ele_lblSuccessful
-         stopOnFailure=false
-         customErrorMessage=
-
-        Pause
-         ms=5000
-        CheckElementPresent
-         object=Browse_Doc.ele_lblVersion
-         param_APIversion=@APIVersion
-         stopOnFailure=false
-         customErrorMessage=
-        */
         caller.click("Browse_Doc.tf_EditContent1");
         caller.pause("1000");
         caller.type("Browse_Doc.tf_EditContent1",EditContent);
@@ -4416,17 +4367,6 @@ public class lib_TestCase {
         caller.fireEvent("KEY%key=ctrl+w","2000");
         caller.switchUser("default");
         caller.selectWindow("Browse_Doc.defaultWindow");
-        /*
-        SelectWindow
-         object=Browse_Doc.newWindow1
-        //wait till page load
-        Pause
-         ms=6000
-        Call
-         businessComponent=Common.bc_SwitchUser
-        SelectWindow
-         object=Browse_Doc.defaultWindow
-        */
         caller.pause("2000");
         //Navigate to the store
         caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
@@ -4542,6 +4482,7 @@ public class lib_TestCase {
      *  Business component APIM_94.
      */
     public final static void APIM_94(final SeleniumTestBase caller, final String param_docName, final String param_docSummery, final String param_storeURL, final String param_publisherURL, final String param_Domain) throws Exception {
+        caller.writeToReport("Start of APIM_94");
         //APIM-94: Create a document given 'samples & sdk' as the type and in-line as the source.
         //Retrieve the  stored API name && the Version
         String APIName = caller.retrieveString("var_APIName");
@@ -4633,7 +4574,8 @@ public class lib_TestCase {
         caller.pause("2000");
         //Navigate to publisher
         caller.navigateToURL("<param_publisherURL>","param_publisherURL_PARAM:" + param_publisherURL,"3000");
-        caller.writeToReport("APIM_94 Successfully Passed");	
+        caller.writeToReport("APIM_94 Successfully Passed");
+        caller.writeToReport("End of APIM_94");	
     }
     /**
      *  Business component APIM_347.
@@ -4642,6 +4584,7 @@ public class lib_TestCase {
      *  Business component APIM_347.
      */
     public final static void APIM_347(final SeleniumTestBase caller) throws Exception {
+        caller.writeToReport("Start of APIM_347");
         //APIM-347: User should not be able to Create a document with the same name that already added
         //Retrieve the  stored API name && the Version
         String APIName = caller.retrieveString("var_APIName");
@@ -4676,6 +4619,7 @@ public class lib_TestCase {
      *  Business component APIM_97.
      */
     public final static void APIM_97(final SeleniumTestBase caller, final String param_docName, final String param_docSummery) throws Exception {
+        caller.writeToReport("Start of APIM_97");
         String APIName = caller.retrieveString("var_APIName");
         String APIVersion = caller.retrieveString("var_APIVersion");
         caller.pause("3000");
@@ -4714,6 +4658,7 @@ public class lib_TestCase {
      *  Business component APIM_348.
      */
     public final static void APIM_348(final SeleniumTestBase caller, final String param_docName, final String param_docSummery, final String param_storeURL, final String param_serverName, final String param_usernameStore, final String param_passwordStore) throws Exception {
+        caller.writeToReport("Start of APIM_348");
         //APIM-348: User added a document with summary
         //Retrieve the  stored API name && the Version
         String APIName = caller.retrieveString("var_APIName");
@@ -6063,17 +6008,6 @@ public class lib_TestCase {
         caller.checkElementPresent("APIStoreMyApllication.ele_lblSubscribedAppDeleteWarningMessage",false,"");
         caller.click("APIStoreMyApllication.btn_yes");
         caller.pause("2000");
-        /*
-        //Verify no applications under the application
-        CheckObjectProperty
-         object=APIStoreMyApllication.ele_lblTableAppName
-         param_AppName=@param_ApplicationName
-         propertyname=ELEMENTPRESENT
-         expectedValue=false
-         stopOnFailure=false
-         customErrorMessage=
-        */
-        caller.pause("2000");
         caller.writeToReport("End of Execution APIM_202");	
     }
     /**
@@ -6689,6 +6623,7 @@ public class lib_TestCase {
      *  Business component APIM_355.
      */
     public final static void APIM_355(final SeleniumTestBase caller, final String param_APINameLower, final String param_APIName) throws Exception {
+        caller.writeToReport("Start of APIM_355");
         //APIM-355: User search for API with lower case name
         caller.click("APIPublisherHome.lnk_Browse");
         caller.pause("5000");
@@ -6699,7 +6634,8 @@ public class lib_TestCase {
         caller.pause("2000");
         //verify API is Visible
         caller.checkElementPresent("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APIName,false,"");
-        caller.pause("5000");	
+        caller.pause("5000");
+        caller.writeToReport("End of APIM_355");	
     }
     /**
      *  Business component APIM_356.
@@ -13603,75 +13539,7 @@ public class lib_TestCase {
         //Wait for content load
         caller.pause("2000");
         lib_Common.bc_APIPublisherSearch(caller, var_APINameOne,var_APINameOne,param_APIVersionTwo);
-        /*
-        Click
-         object=APIPublisherHome.lnk_Browse
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIPublisherHome.tf_APISearch
-         text=@var_APINameOne
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIPublisherHome.btn_Search
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIPublisherHome.btn_Search
-        */
         caller.click("APIPublisherHome.ele_lblApiNamewithVersion","param_version_PARAM:" + param_APIVersionTwo + "_PARAM," + "param_ApiName_PARAM:" + var_APINameOne);
-        /*
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIPublisherBrowse.lnk_Edit
-        //wait for content load
-        Pause
-         ms=3000
-        //verify that the next implement button has appeared
-        CheckElementPresent
-         object=APIPublisherBrowse.btn_NextImplement
-         stopOnFailure=false
-         customErrorMessage=
-        Click
-         object=APIPublisherBrowse.btn_NextImplement
-        //wait for content load
-        Pause
-         ms=4000
-        //verify that the next button has appeared
-        CheckElementPresent
-         object=APIPublisherBrowse.btn_NextManage
-         stopOnFailure=false
-         customErrorMessage=
-        Click
-         object=APIPublisherBrowse.btn_NextManage
-        //wait for content load
-        Pause
-         ms=4000
-        //verify that the save button has appeared
-        CheckElementPresent
-         object=APIPublisherBrowse.btn_SaveAndPublish
-         stopOnFailure=false
-         customErrorMessage=
-        Click
-         object=APIPublisherBrowse.btn_SaveAndPublish
-        //wait for content load
-        Pause
-         ms=3000
-        //verify that the popup has appeared
-        CheckElementPresent
-         object=APIPublisherBrowse.btn_Close
-         stopOnFailure=false
-         customErrorMessage=
-        Click
-         object=APIPublisherBrowse.btn_Close
-        */
-        //*****************************
         //verify the availability of Lifestyle tab
         caller.checkElementPresent("APIPublisherBrowse.btn_Lifecycle",false,"");
         caller.click("APIPublisherBrowse.btn_Lifecycle");
@@ -13700,46 +13568,15 @@ public class lib_TestCase {
         caller.checkElementPresent("browseLifecycle.ele_lblUpdateSuccessMessage",false,"");
         //Wait for content load
         caller.pause("1000");
-        //---------------------------------------
         //wait for content load
         caller.pause("2000");
         caller.click("APIPublisherHome.lnk_Browse");
-        //*****************************************************
         //creating api with api name two
         String var_version = "{version}";
         lib_Common.bc_APIPublisher_AddAPI_DesignPhase_WitoutAutoGenAPINameAndContext(caller, var_APINameTwo,var_version+"/"+var_APINameTwo,param_APIVersionOne,param_APIvisibility,param_APIImagePath,param_TagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
         lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpointInitialSection,"no","","no","");
-        /*
-        Call
-         businessComponent=lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke
-         param_productionEndpoint=@param_productionEndpointInitialSection+"/"+param_APIVersionOne+"/"+param_APIName
-         param_IsSandBoxURLRequired=no
-         param_sandboxEndpoint=
-         param_IsEndpointSecuritySchemeRequired=no
-         param_textEndpointSecurityScheme=
-        */
         lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, "no","no","");
         lib_Common.bc_APIPublisherSearch(caller, var_APINameTwo,var_APINameTwo,param_APIVersionOne);
-        /*
-        Click
-         object=APIPublisherHome.lnk_Browse
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIPublisherHome.tf_APISearch
-         text=@var_APINameTwo
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIPublisherHome.btn_Search
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIPublisherHome.btn_Search
-        */
         //*****************************************************create new api version for api2
         //Click API name with specific version
         caller.click("APIPublisherBrowse.lnk_ApiNameWithVersion","param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_APIVersion_PARAM:" + param_APIVersionOne + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo);
@@ -13768,24 +13605,6 @@ public class lib_TestCase {
         //Wait for content load
         caller.pause("2000");
         lib_Common.bc_APIPublisherSearch(caller, var_APINameTwo,var_APINameTwo,param_APIVersionTwo);
-        /*
-        Click
-         object=APIPublisherHome.lnk_Browse
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIPublisherHome.tf_APISearch
-         text=@var_APINameTwo
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIPublisherHome.btn_Search
-        //wait for content load
-        Pause
-         ms=2000
-        */
         //wait for content load
         caller.pause("2000");
         caller.click("APIPublisherHome.ele_lblApiNamewithVersion","param_version_PARAM:" + param_APIVersionTwo + "_PARAM," + "param_ApiName_PARAM:" + var_APINameTwo);
@@ -13819,38 +13638,9 @@ public class lib_TestCase {
         //creating api with api name three
         lib_Common.bc_APIPublisher_AddAPI_DesignPhase_WitoutAutoGenAPINameAndContext(caller, var_APINameThree,var_APINameThree+"/"+"test"+"/"+"{version}",param_APIVersionOne,param_APIvisibility,param_APIImagePath,param_TagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
         lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpointInitialSection,"no","","no","");
-        /*
-        Call
-         businessComponent=lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke
-         param_productionEndpoint=@param_productionEndpointInitialSection+"/"+param_APIName+"/test/"+param_APIVersionOne
-         param_IsSandBoxURLRequired=no
-         param_sandboxEndpoint=
-         param_IsEndpointSecuritySchemeRequired=no
-         param_textEndpointSecurityScheme=
-        */
         lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, "no","no","");
         //*****************************************************create new api version for api3
         lib_Common.bc_APIPublisherSearch(caller, var_APINameThree,var_APINameThree,param_APIVersionOne);
-        /*
-        Click
-         object=APIPublisherHome.lnk_Browse
-        //waiting for content load
-        Pause
-         ms=2000
-        Type
-         object=APIPublisherHome.tf_APISearch
-         text=@var_APINameThree
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIPublisherHome.btn_Search
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIPublisherHome.btn_Search
-        */
         //Click API name with specific version
         caller.click("APIPublisherBrowse.lnk_ApiNameWithVersion","param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_APIVersion_PARAM:" + param_APIVersionOne + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree);
         //waiting for content load
@@ -13878,26 +13668,6 @@ public class lib_TestCase {
         //Wait for content load
         caller.pause("2000");
         lib_Common.bc_APIPublisherSearch(caller, var_APINameThree,var_APINameThree,param_APIVersionTwo);
-        /*
-        Click
-         object=APIPublisherHome.lnk_Browse
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIPublisherHome.tf_APISearch
-         text=@var_APINameThree
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIPublisherHome.btn_Search
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIPublisherHome.btn_Search
-        */
         caller.click("APIPublisherHome.ele_lblApiNamewithVersion","param_version_PARAM:" + param_APIVersionTwo + "_PARAM," + "param_ApiName_PARAM:" + var_APINameThree);
         //wait for content load
         caller.pause("2000");
@@ -13929,166 +13699,29 @@ public class lib_TestCase {
         //End of creation of API
         caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_StoreURL,"2000");
         lib_Common.bc_SelectServer(caller, param_serverNameDomainOne);
-        /*
-        Call
-         businessComponent=lib_Common.bc_StoreLogin
-         param_TenanrOrAdmin=@param_storeOneOfTenantOneOrAdmin
-        */
         lib_Common.bc_APIStoreSearch(caller, var_APINameOne,var_APINameOne,param_APIVersionTwo);
-        /*
-        Click
-         object=APIStoreHome.lnk_APIs
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameOne
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        */
         caller.checkElementPresent("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionTwo,false,"");
         lib_Common.bc_APIStoreSearch(caller, var_APINameTwo,var_APINameTwo,param_APIVersionTwo);
-        /*
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameTwo
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        */
         caller.checkElementPresent("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionTwo,false,"");
         lib_Common.bc_APIStoreSearch(caller, var_APINameThree,var_APINameThree,param_APIVersionTwo);
-        /*
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameThree
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        */
         //wait for content load
         caller.pause("2000");
         caller.checkElementPresent("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionTwo,false,"");
         lib_Common.bc_APIStoreSearch(caller, var_APINameOne,var_APINameOne,param_APIVersionOne);
-        /*
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameOne
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        */
         caller.click("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionOne);
         //wait for content load
         caller.pause("2000");
         //verify the availability of api1 url
         caller.checkElementPresent("APIStoreAPIs.ele_lblProductionUrlGeneral","param_rearUrlPattern_PARAM:" + var_APINameOne+"/"+param_APIVersionOne+"/test",false,"");
         //verify the availability of default api1 url
-        /*
-        CheckElementPresent
-         object=APIStoreAPIs.ele_lblProductionUrlGeneral
-         param_rearUrlPattern=@var_APINameOne+"/test"
-         stopOnFailure=false
-         customErrorMessage=
-        */
         lib_Common.bc_APIStoreSearch(caller, var_APINameTwo,var_APINameTwo,param_APIVersionTwo);
-        /*
-        Click
-         object=APIStoreHome.lnk_APIs
-        //wait for content load
-        Pause
-         ms=2000
-
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameTwo
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        */
         caller.click("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionTwo);
         //wait for content load
         caller.pause("2000");
         //verify the availability of api2 url
         caller.checkElementPresent("APIStoreAPIs.ele_lblProductionUrlGeneral","param_rearUrlPattern_PARAM:" + param_APIVersionTwo+"/"+var_APINameTwo,false,"");
         //verify the availability of default api2 url
-        /*
-        CheckElementPresent
-         object=APIStoreAPIs.ele_lblProductionUrlGeneral
-         param_rearUrlPattern=@var_APINameTwo
-         stopOnFailure=false
-         customErrorMessage=
-        */
         lib_Common.bc_APIStoreSearch(caller, var_APINameThree,var_APINameThree,param_APIVersionTwo);
-        /*
-        Click
-         object=APIStoreHome.lnk_APIs
-        //wait for content load
-        Pause
-         ms=2000
-        Type
-         object=APIStoreHome.tf_APISearchStore
-         text=@var_APINameThree
-        //wait for content load
-        Pause
-         ms=4000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        Click
-         object=APIStoreHome.btn_SearchButtonStore
-        //wait for content load
-        Pause
-         ms=2000
-        */
         caller.click("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionTwo);
         //wait for content load
         caller.pause("2000");
@@ -14368,11 +14001,6 @@ public class lib_TestCase {
         caller.checkElementPresent("APIStoreHome.lnk_APINameStoreWithVersion","param_APIName_PARAM:" + var_APINameDesign + "_PARAM," + "param_versionNumber_PARAM:" + param_APIVersionThree,false,"");
         //Wait for content load
         caller.pause("1000");
-        /*
-        Call
-         businessComponent=lib_Common.bc_StoreLogin
-         param_TenanrOrAdmin=@param_storeOneOfTenantOneOrAdmin
-        */
         //Wait for content load
         caller.pause("2000");
         caller.click("APIStoreHome.lnk_MySubcription");
@@ -20178,6 +19806,70 @@ public class lib_TestCase {
         caller.writeToReport("End of  Executing APIM2-653");	
     }
     /**
+     *  Business component APIM2_702.
+     */
+    public final static void APIM2_702(final SeleniumTestBase caller, final String param_APIName, final String param_APIContext, final String param_APITag, final String param_Description, final String param_URLPattern, final String param_verbMethodGET, final String param_ProductionEndPontJaxRS) throws Exception {
+        //APIM2-702: Save an API at Design stage
+        caller.writeToReport("Start  Executing APIM2-702");
+        //create API
+        caller.click("APIPublisherHome.lnk_Add");
+        caller.click("APIPublisherAdd.rdo_DesignNewAPI");
+        caller.click("APIPublisherAdd.btn_StartCreating");
+        //waiting for content load
+        caller.pause("2000");
+        //Type API Name
+        String varAPIName = param_APIName+caller.generateData("int",3);
+        caller.type("APIPublisherAdd.tf_APIName",varAPIName);
+        //Store API name as a variable
+        caller.store("keyAPIName","String",varAPIName);
+        //generating context value
+        String varAPIContext = param_APIContext+caller.generateData("int",3);
+        //Type API context
+        caller.type("APIPublisherAdd.tf_APIContext",varAPIContext);
+        //Storing Context value
+        caller.store("keyAPIContext","String",varAPIContext);
+        //Setting variable for API version
+        String varAPIVersion = "v1.0."+caller.generateData("int",1);
+        //Type API Version
+        caller.type("APIPublisherAdd.tf_APIVersion",varAPIVersion);
+        //storing version value
+        caller.store("keyAPIVersion","String",varAPIVersion);
+        //Setting variable for API Tag
+        String APITag = param_APITag+caller.generateData("int",3);
+        //press enter
+        caller.fireEvent("KEY%key=\n","2000");
+        //Type Description
+        caller.type("APIPublisherAdd.tf_Discription",param_Description);
+        //Type API tags
+        caller.type("APIPublisherAdd.tf_Tags",APITag);
+        //press enter
+        caller.fireEvent("KEY%key=\n","2000");
+        caller.pause("4000");
+        //click on save
+        caller.click("APIPublisherAdd.btn_Save");
+        //waite for content load
+        caller.pause("3000");
+        caller.click("APIPublisherBrowse.btn_Yes");
+        //wait for content load
+        caller.pause("3000");
+        //Go to browse page
+        caller.click("APIPublisherHome.lnk_Browse");
+        //waiting for content load
+        caller.pause("3000");
+        caller.type("APIPublisherHome.tf_APISearch",varAPIName);
+        //waiting for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //waiting for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + varAPIName);
+        //click on edit button
+        caller.click("APIPublisherBrowse.lnk_Edit");
+        caller.checkElementPresent("APIPublisherBrowse.ele_lblDesign",false,"");
+        //Design tab and Implement tab both are available
+        caller.writeToReport("End of  Executing APIM2-702");	
+    }
+    /**
      *  Business component APIM2_656.
      */
     public final static void APIM2_656(final SeleniumTestBase caller, final String param_StoreURL, final String param_serverNameDomainOne, final String param_ApplicationName, final String param_AppDescription, final String param_yes, final String param_throttlingTier, final String param_callBackURL) throws Exception {
@@ -20245,64 +19937,6 @@ public class lib_TestCase {
         caller.pause("2000");
         //do the invoke part
         caller.writeToReport("End of  Executing APIM2-656");	
-    }
-    /**
-     *  Business component APIM2_702.
-     */
-    public final static void APIM2_702(final SeleniumTestBase caller, final String param_APIName, final String param_APIContext, final String param_APITag, final String param_Description, final String param_URLPattern, final String param_verbMethodGET, final String param_ProductionEndPontJaxRS) throws Exception {
-        //APIM2-702: Save an API at Design stage
-        caller.writeToReport("Start  Executing APIM2-702");
-        //create API
-        caller.click("APIPublisherHome.lnk_Add");
-        caller.click("APIPublisherAdd.rdo_DesignNewAPI");
-        caller.click("APIPublisherAdd.btn_StartCreating");
-        //waiting for content load
-        caller.pause("2000");
-        //Type API Name
-        String varAPIName = param_APIName+caller.generateData("int",3);
-        caller.type("APIPublisherAdd.tf_APIName",varAPIName);
-        //Store API name as a variable
-        caller.store("keyAPIName","String",varAPIName);
-        //generating context value
-        String varAPIContext = param_APIContext+caller.generateData("int",3);
-        //Type API context
-        caller.type("APIPublisherAdd.tf_APIContext",varAPIContext);
-        //Storing Context value
-        caller.store("keyAPIContext","String",varAPIContext);
-        //Setting variable for API version
-        String varAPIVersion = "v1.0."+caller.generateData("int",1);
-        //Type API Version
-        caller.type("APIPublisherAdd.tf_APIVersion",varAPIVersion);
-        //storing version value
-        caller.store("keyAPIVersion","String",varAPIVersion);
-        //Setting variable for API Tag
-        String APITag = param_APITag+caller.generateData("int",3);
-        //press enter
-        caller.fireEvent("KEY%key=\n","2000");
-        //Type Description
-        caller.type("APIPublisherAdd.tf_Discription",param_Description);
-        //Type API tags
-        caller.type("APIPublisherAdd.tf_Tags",APITag);
-        //press enter
-        caller.fireEvent("KEY%key=\n","2000");
-        caller.pause("4000");
-        //click on save
-        caller.click("APIPublisherAdd.btn_Save");
-        //waite for content load
-        caller.pause("3000");
-        caller.click("APIPublisherBrowse.btn_Yes");
-        //wait for content load
-        caller.pause("3000");
-        //Go to browse page
-        caller.click("APIPublisherHome.lnk_Browse");
-        //waiting for content load
-        caller.pause("3000");
-        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + varAPIName);
-        //click on edit button
-        caller.click("APIPublisherBrowse.lnk_Edit");
-        caller.checkElementPresent("APIPublisherBrowse.ele_lblDesign",false,"");
-        //Design tab and Implement tab both are available
-        caller.writeToReport("End of  Executing APIM2-702");	
     }
     /**
      *  Business component APIM2_496.
@@ -24047,5 +23681,2066 @@ public class lib_TestCase {
         //Navigate to publisher
         caller.navigateToURL("<param_publisherURL>","param_publisherURL_PARAM:" + param_publisherURL,"3000");
         caller.writeToReport("End of Test case APIM2_100");	
+    }
+    /**
+     *  Business component APIM2_1011.
+     */
+    public final static void APIM2_1011(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_keyWordDoc, final String param_searchTearmMissing, final String param_storeURL, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_APIName, final String param_APIContext, final String param_APIVersionOne, final String param_APIvisibility, final String param_APIImageName, final String param_TagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyWordNo) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1011");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //an api should be available for the search bar to appear
+        //creation of API
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhase_WitoutAutoGenAPINameAndContext(caller, param_APIName,param_APIContext,param_APIVersionOne,param_APIvisibility,param_APIImageName,param_TagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyWordNo,"",param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of API
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_keyWordDoc);
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIPublisherBrowse.ele_lblSearchTermIsMissing","param_errorSearchTearmMissing_PARAM:" + param_searchTearmMissing,false,"");
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        caller.type("APIStoreHome.tf_APISearchStore",param_keyWordDoc);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.ele_lblSearchTermIsMissing","param_searchTermIsMissing_PARAM:" + param_searchTearmMissing,false,"");
+        caller.writeToReport("End of execution of TC APIM2_1011");	
+    }
+    /**
+     *  Business component APIM2_1036.
+     */
+    public final static void APIM2_1036(final SeleniumTestBase caller, final String param_storeURL, final String param_serverName, final String param_userName, final String param_password) throws Exception {
+        //Display error messages when mandatory fields are not filled in
+        caller.writeToReport("Start  Executing APIM2_1036");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        //Waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.img_APIStoreAvailableServer","param_serverName_PARAM:" + param_serverName);
+        caller.click("APIStoreHome.btn_SignUp");
+        String varSelfSignUpUserName = param_userName+caller.generateData("int",3);
+        //storing API name
+        caller.store("keySelfSignUpUserName","String",varSelfSignUpUserName);
+        //type user name
+        caller.type("APIStoreSignUp.tf_UserName",varSelfSignUpUserName);
+        caller.type("APIStoreSignUp.tf_Password",param_password);
+        caller.type("APIStoreSignUp.tf_ReTypePassword",param_password);
+        caller.click("APIStoreSignUp.btn_Submit");
+        //Waiting for content load
+        caller.pause("3000");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblFirstNameRequired",false,"");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblLastNameRequired",false,"");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblEmailNameRequired",false,"");
+        caller.writeToReport("End  Executing APIM2_1036");	
+    }
+    /**
+     *  Business component APIM2_1050.
+     */
+    public final static void APIM2_1050(final SeleniumTestBase caller, final String param_publisherURL, final String param_storeURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_apiName, final String param_apiContext, final String param_apiVersionOne, final String param_apiVisibilityPublic, final String param_apiImage, final String param_apiTagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_docNameDocOne, final String param_docSummeryDocOne, final String param_docOneContent, final String param_docNameDocFour, final String param_doc4PathToUpload, final String param_docNameDocEight, final String param_doc8PathToUpload, final String param_docNameDocTwo, final String param_docTwoContent, final String param_docNameDocFive, final String param_doc5PathToUpload, final String param_docNameDocSeven, final String param_doc7PathToUpload, final String param_docNameDocThree, final String param_doc3PathToUpload, final String param_docNameDocSix, final String param_doc6PathToUpload, final String param_searchForDocumentKeyWordOne, final String param_searchForDocumentKeyWordFour, final String param_searchForDocumentKeyWordTen, final String param_keyWordViewContent, final String param_provider, final String param_keyWordDownload) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1050");
+        caller.writeToReport("Start of precondition");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //start of creation of api 1
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        caller.store("key_APIOne","String",var_APINameOne);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        //start of creation of api 2
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameTwo = caller.retrieveString("key_APINameDesign");
+        caller.store("key_APITwo","String",var_APINameTwo);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 2
+        //start of creation of api 3
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameThree = caller.retrieveString("key_APINameDesign");
+        caller.store("key_APIThree","String",var_APINameThree);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 3
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocOne);
+        //Insert summery for document one
+        caller.type("Browse_Doc.tf_Summary",param_docSummeryDocOne);
+        //wait for content load
+        caller.pause("1000");
+        /*
+        Click
+         object=Browse_Doc.btn_EditContent
+         param_DocName=@param_docNameDocOne
+        */
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_EditContent","param_DocName_PARAM:" + param_docNameDocOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //wait for content load
+        caller.pause("2000");
+        caller.selectFrame("Browse_Doc.frame1");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_EditContent1",param_docOneContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\t|key=\n","5000");
+        caller.switchUser("default");
+        //wait for content load
+        caller.pause("1000");
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        //wait for content load
+        caller.pause("2000");
+        //Add API1 document 4
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocFour);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc4path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc4PathToUpload);
+        String entirePathDoc4 = doc4path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc4);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocFour,false,"");
+        //Add API1 document 8
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocEight);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc8path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc8PathToUpload);
+        String entirePathDoc8 = doc8path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc8);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocEight,false,"");
+        //Navigate back to add documents with API2
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameTwo);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameTwo);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //API2 document 2
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocTwo);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        /*
+        Click
+         object=Browse_Doc.btn_EditContent
+         param_DocName=@param_docNameDocTwo
+        //wait for content load
+        Pause
+         ms=2000
+        Click
+         object=Browse_Doc.btn_AddDocument
+        */
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_EditContent","param_DocName_PARAM:" + param_docNameDocTwo);
+        //wait for content load
+        caller.pause("2000");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //wait for content load
+        caller.pause("2000");
+        caller.selectFrame("Browse_Doc.frame1");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_EditContent1",param_docTwoContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\t|key=\n","5000");
+        caller.switchUser("default");
+        //wait for content load
+        caller.pause("1000");
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        //wait for content load
+        caller.pause("2000");
+        //Add API2 document 5
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocFive);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc5path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc5PathToUpload);
+        String entirePathDoc5 = doc5path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc5);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocFive,false,"");
+        //Add API2 document 7
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocSeven);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc7path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc7PathToUpload);
+        String entirePathDoc7 = doc7path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc7);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocSeven,false,"");
+        //Navigate back to add documents with API3
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameThree);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameThree);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //Add API3 document 3
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocThree);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc3path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc3PathToUpload);
+        String entirePathDoc3 = doc3path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc3);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocThree,false,"");
+        //Add API3 document 6
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_DocName",param_docNameDocSix);
+        //wait for content load
+        caller.pause("1000");
+        caller.checkElementPresent("Browse_Doc.rdo_HowTo",false,"");
+        caller.click("Browse_Doc.rdo_HowTo");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        //wait for content load
+        caller.pause("5000");
+        //Type valid file path
+         java.io.File doc6path = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_doc6PathToUpload);
+        String entirePathDoc6 = doc6path.getAbsolutePath();
+        //wait for content load
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathDoc6);
+        //wait for content load
+        caller.pause("4000");
+        caller.click("Browse_Doc.btn_AddDocument");
+        //wait for content load
+        caller.pause("2000");
+        //Check for added document
+        caller.checkElementPresent("Browse_Doc.ele_lblHowTo","param_docName_PARAM:" + param_docNameDocSix,false,"");
+        caller.writeToReport("End of precondition");
+        //wait for content load
+        caller.pause("2000");
+        //search using document keyword
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify the search results in publisher for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Two name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocTwo,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Three name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Four name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Five name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //verify Document Six name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocSix,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Seven name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocSeven,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Eight name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentSummary","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_summaryContent_PARAM:" + param_docSummeryDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Two name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocTwo + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Three name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Four name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Five name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Six name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocSix,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocSix,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocSix + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Seven name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocSeven,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocSeven,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocSeven + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Eight name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in store for key word One
+        //navigate to publisher to search using different keyword
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //search using document keyword
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordFour);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify the search results in publisher for key word Four
+        //verify Document three name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APIName_PARAM:" + var_APINameThree + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Four name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Five name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APIName_PARAM:" + var_APINameTwo + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in publisher for key word Four
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordFour);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word Four
+        //verify Document Three name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameThree,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocThree + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Four name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFour,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFour + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //verify Document Five name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocFive,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameTwo,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocFive + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in store for key word Four
+        //navigate to publisher to search using different keyword
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //search using document keyword
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordTen);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify Document Eight name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordDownload,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordTen);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify Document Eight name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_download","param_documentName_PARAM:" + param_docNameDocEight,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocEight + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification of the search for the results in store for key word One
+        caller.writeToReport("End of execution of TC APIM2_1050");	
+    }
+    /**
+     *  Business component APIM2_1034.
+     */
+    public final static void APIM2_1034(final SeleniumTestBase caller, final String param_storeURL, final String param_serverName, final String param_userName, final String param_passwordShort, final String param_passwordLong, final String param_longPasswordError, final String param_shortPasswordError) throws Exception {
+        //Verify the limitation of the password length during the user signup in store
+        caller.writeToReport("Start  Executing APIM2_1034");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        //Waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.img_APIStoreAvailableServer","param_serverName_PARAM:" + param_serverName);
+        caller.click("APIStoreHome.btn_SignUp");
+        String varSelfSignUpUserName = param_userName+caller.generateData("int",3);
+        //storing API name
+        caller.store("keySelfSignUpUserName","String",varSelfSignUpUserName);
+        //type user name
+        caller.type("APIStoreSignUp.tf_UserName",varSelfSignUpUserName);
+        caller.type("APIStoreSignUp.tf_Password",param_passwordShort);
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblErrorMsgPassword","param_ErrorMessage_PARAM:" + param_shortPasswordError,false,"");
+        caller.type("APIStoreSignUp.tf_Password",param_passwordLong);
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblErrorMsgPassword","param_ErrorMessage_PARAM:" + param_longPasswordError,false,"");
+        caller.writeToReport("End  Executing APIM2_1034");	
+    }
+    /**
+     *  Business component APIM2_1032.
+     */
+    public final static void APIM2_1032(final SeleniumTestBase caller, final String param_storeURL, final String param_adminOrTenantOne, final String param_userName, final String param_password, final String param_firstName, final String param_lastName, final String param_email, final String param_organizationName, final String param_address, final String param_country, final String param_landPhone, final String param_mobilePhone, final String param_IM, final String param_URL) throws Exception {
+        caller.writeToReport("Start of APIM2_1032");
+        //APIM2_661: A User should be able to provide required information and sign up in to the store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        lib_Common.bc_SelectServer(caller, param_adminOrTenantOne);
+        //Wait for Content load
+        caller.pause("3000");
+        String varSignUpUserNameOne = param_userName+caller.generateData("int",4);
+        //storing API name
+        caller.store("key_SignUpUserNameOne","String",varSignUpUserNameOne);
+        lib_Common.bc_StoreSignUpUserWithMoreDetails(caller, varSignUpUserNameOne,param_password,param_firstName,param_lastName,param_email,param_organizationName,param_address,param_country,param_landPhone,param_mobilePhone,param_IM,param_URL);
+        //Wait for Content load
+        caller.pause("3000");
+        caller.type("APIStoreSignUp.tf_userNameLogIn",varSignUpUserNameOne);
+        caller.type("APIStoreSignUp.tf_PasswordLogIn",param_password);
+        caller.click("APIStoreSignUp.lnk_Login");
+        //Waiting for content load
+        caller.pause("2000");
+        lib_Common.bc_SelectServer(caller, param_adminOrTenantOne);
+        //Waiting for content load
+        caller.pause("3000");
+        caller.checkElementPresent("APIStoreHome.lnk_APIs",false,"");
+        caller.writeToReport("End of APIM2_1032");	
+    }
+    /**
+     *  Business component APIM2_1051.
+     */
+    public final static void APIM2_1051(final SeleniumTestBase caller, final String param_storeURL, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_searchForDocumentKeyWordTest, final String param_docNameDocOne, final String param_docSummeryDocOne, final String param_APINameOneRetrived, final String param_apiVersionOne, final String param_provider, final String param_statusCreated, final String param_noMatchingResults, final String param_publisherOneOfTenentOneOrAdmin, final String param_publisherURL) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1051");
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordTest);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentSummary","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_summaryContent_PARAM:" + param_docSummeryDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //Verify redirected to browse page
+        caller.checkElementPresent("APIPublisherHome.lnk_Browse",false,"");
+        caller.click("APIPublisherHome.lnk_Browse");
+        lib_Common.bc_APIPublisherSearch(caller, param_APINameOneRetrived,param_APINameOneRetrived,param_apiVersionOne);
+        //Verify the api details in browse page
+        caller.checkElementPresent("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived);
+        //Wait for content load
+        caller.pause("2000");
+        //verify the availability of Lifestyle tab
+        caller.checkElementPresent("APIPublisherBrowse.btn_Lifecycle",false,"");
+        caller.click("APIPublisherBrowse.btn_Lifecycle");
+        //Wait for content load
+        caller.pause("2000");
+        caller.select("browseLifecycle.ele_ddSelectState",param_statusCreated);
+        //Wait for content load
+        caller.pause("2000");
+        caller.click("browseLifecycle.btn_Update");
+        caller.checkElementPresent("browseLifecycle.ele_lblUpdateSuccessMessage",false,"");
+        //Wait for content load
+        caller.pause("2000");
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_APINameOneRetrived);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the non-availability of the perticular API
+        caller.checkObjectProperty("APIStoreAPIs.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived,"ELEMENTPRESENT","false",false,"");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordTest);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the non-availability of document one
+        caller.checkObjectProperty("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocOne,"ELEMENTPRESENT","false",false,"");
+        //verifu that No Matching Results message appears
+        caller.checkElementPresent("APIStoreHome.ele_lblSearchTermIsMissing","param_searchTermIsMissing_PARAM:" + param_noMatchingResults,false,"");
+        caller.writeToReport("End of execution of TC APIM2_1051");	
+    }
+    /**
+     *  Business component APIM2_1031.
+     */
+    public final static void APIM2_1031(final SeleniumTestBase caller, final String param_storeURL, final String param_serverName, final String param_userNameShort) throws Exception {
+        caller.writeToReport("Start  Executing APIM2_1031");
+        //Verify the limitation of the password length during the user signup in store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        //Waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.img_APIStoreAvailableServer","param_serverName_PARAM:" + param_serverName);
+        caller.pause("2000");
+        caller.click("APIStoreHome.lnk_LogOutDropDown");
+        caller.click("APIStoreHome.btn_Logout");
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SignUp");
+        String varSelfSignUpUserName = param_userNameShort+caller.generateData("int",2);
+        //storing API name
+        caller.store("keySelfSignUpUserName","String",varSelfSignUpUserName);
+        //type user name
+        caller.type("APIStoreSignUp.tf_UserName",varSelfSignUpUserName);
+        caller.click("APIStoreSignUp.tf_Password");
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreSignUp.ele_lblUserNameError",false,"");
+        caller.writeToReport("End of executing APIM2_1031");	
+    }
+    /**
+     *  Business component APIM2_1055.
+     */
+    public final static void APIM2_1055(final SeleniumTestBase caller, final String param_publisherURL, final String param_storeURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_searchForDocumentKeyWordHello, final String param_APINameOneRetrived, final String param_apiVersionOne, final String param_statusPublished, final String param_docNameDocOne, final String param_optionVisibleToMyDomain, final String param_keyWordViewContent, final String param_provider, final String param_noMatchingResults, final String param_serverNameOfTenantOrAdmin, final String param_serverNameOfTenantTwoOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_storeTwoOfTenantOneOrAdmin) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1055");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        //Verify redirected to browse page
+        caller.checkElementPresent("APIPublisherHome.lnk_Browse",false,"");
+        caller.click("APIPublisherHome.lnk_Browse");
+        lib_Common.bc_APIPublisherSearch(caller, param_APINameOneRetrived,param_APINameOneRetrived,param_apiVersionOne);
+        caller.click("APIPublisherHome.btn_Search");
+        //Verify the api details in browse page
+        caller.checkElementPresent("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived);
+        //Wait for content load
+        caller.pause("2000");
+        //verify the availability of Lifestyle tab
+        caller.checkElementPresent("APIPublisherBrowse.btn_Lifecycle",false,"");
+        caller.click("APIPublisherBrowse.btn_Lifecycle");
+        //Wait for content load
+        caller.pause("2000");
+        caller.select("browseLifecycle.ele_ddSelectState",param_statusPublished);
+        //Wait for content load
+        caller.pause("2000");
+        caller.click("browseLifecycle.btn_Update");
+        caller.checkElementPresent("browseLifecycle.ele_lblUpdateSuccessMessage",false,"");
+        //Wait for content load
+        caller.pause("2000");
+        //retrived api is set to public
+        caller.click("Browse_Doc.lnk_Doc");
+        //Wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_Update","param_DocName_PARAM:" + param_docNameDocOne);
+        //Wait for content load
+        caller.pause("2000");
+        caller.select("Browse_Doc.ele_ddVisibility",param_optionVisibleToMyDomain);
+        //Wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_UpdateCreatedDoc");
+        //search using document keyword
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify the search results in publisher for key word Hello
+        //verify Document one name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification for document keyword search hello
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        /*
+        Call
+         businessComponent=lib_Common.bc_StoreLogin
+         param_TenanrOrAdmin=@param_storeOneOfTenanrOneOrAdmin
+        */
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.lnk_LogOutDropDown");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_Logout");
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify that No Matching Results message appears
+        caller.checkElementPresent("APIStoreHome.ele_lblSearchTermIsMissing","param_searchTermIsMissing_PARAM:" + param_noMatchingResults,false,"");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantTwoOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeTwoOfTenantOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify that No Matching Results message appears
+        caller.checkElementPresent("APIStoreHome.ele_lblSearchTermIsMissing","param_searchTermIsMissing_PARAM:" + param_noMatchingResults,false,"");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //wait for content load
+        caller.pause("2000");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //end of verification
+        caller.writeToReport("End of execution of TC APIM2_1055");	
+    }
+    /**
+     *  Business component APIM2_1052.
+     */
+    public final static void APIM2_1052(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_apiName, final String param_apiContext, final String param_apiVersionOne, final String param_apiVisibilityPublic, final String param_apiImage, final String param_apiTagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_docName, final String param_docSummery, final String param_DocVisibilityPrivate, final String param_editContent, final String param_keyWordViewContent, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_searchForDocumentKeyWordOne, final String param_storeURL, final String param_DefaultApplication, final String param_TenantOrAdmin) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1052");
+        caller.writeToReport("Start of precondition");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //start of creation of api 1
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        String var_APIVersion = caller.retrieveString("key_APIVersion");
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        //genarate docName & Summery
+        String DocName = param_docName+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_DocName",DocName);
+        //Insert summery for document one
+        String DocSummery = param_docSummery+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_Summary",DocSummery);
+        caller.pause("2000");
+        //Set visibility level private
+        caller.select("Browse_Doc.ele_ddVisibility",param_DocVisibilityPrivate);
+        caller.click("Browse_Doc.btn_AddDocument");
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_EditContent","param_DocName_PARAM:" + DocName);
+        caller.pause("3000");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //Verify API Version
+        caller.checkElementPresent("Browse_Doc.ele_lblApiVersionInEditContent","param_APIVersion_PARAM:" + var_APIVersion,false,"");
+        caller.selectFrame("Browse_Doc.frame1");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\n","10");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\t|key=\n","5000");
+        caller.switchUser("default");
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        caller.pause("2000");
+        //verify the search results in publisher for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + DocName + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + var_APIVersion,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        lib_Common.bc_DeleteAllApplicationsAndAPIs(caller, param_storeURL,param_TenantOrAdmin,param_storeOneOfTenanrOneOrAdmin,param_publisherURL,param_publisherOneOfTenentOneOrAdmin,param_DefaultApplication);
+        caller.writeToReport("End of execution of TC APIM2_1052");	
+    }
+    /**
+     *  Business component APIM2_1056.
+     */
+    public final static void APIM2_1056(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_searchForDocumentKeyWordHello, final String param_docNameDocOne, final String param_keyWordViewContent, final String param_APINameOneRetrived, final String param_apiVersionOne, final String param_provider, final String param_storeURL, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_statusBlocked, final String param_noMatchingResults) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1056");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        //Verify redirected to browse page
+        caller.checkElementPresent("APIPublisherHome.lnk_Browse",false,"");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify the search results in publisher for key word Hello
+        //verify Document one name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification for document keyword search hello
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //wait for content load
+        caller.pause("2000");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify Document One name, Link to view / download, API name, API version, API provider  for annonimous store user
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APINameOrVersion_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //end of verification
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //Verify redirected to browse page
+        caller.checkElementPresent("APIPublisherHome.lnk_Browse",false,"");
+        caller.click("APIPublisherHome.lnk_Browse");
+        lib_Common.bc_APIPublisherSearch(caller, param_APINameOneRetrived,param_APINameOneRetrived,param_apiVersionOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.btn_Search");
+        //Verify the api details in browse page
+        caller.checkElementPresent("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + param_APINameOneRetrived);
+        //Wait for content load
+        caller.pause("2000");
+        //verify the availability of Lifestyle tab
+        caller.checkElementPresent("APIPublisherBrowse.btn_Lifecycle",false,"");
+        caller.click("APIPublisherBrowse.btn_Lifecycle");
+        //Wait for content load
+        caller.pause("2000");
+        caller.select("browseLifecycle.ele_ddSelectState",param_statusBlocked);
+        //Wait for content load
+        caller.pause("2000");
+        caller.click("browseLifecycle.btn_Update");
+        caller.checkElementPresent("browseLifecycle.ele_lblUpdateSuccessMessage",false,"");
+        //Wait for content load
+        caller.pause("2000");
+        //verify the presence of the link
+        caller.checkElementPresent("APIPublisherHome.lnk_Browse",false,"");
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        //verify the search results in publisher for key word Hello
+        //verify Document one name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + param_docNameDocOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_APIName_PARAM:" + param_APINameOneRetrived + "_PARAM," + "param_versionOfAPI_PARAM:" + param_apiVersionOne,false,"");
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_provider","param_documentName_PARAM:" + param_docNameDocOne + "_PARAM," + "param_provider_PARAM:" + param_provider,false,"");
+        //End of verification for document keyword search hello
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.lnk_LogOutDropDown");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_Logout");
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        //wait for content load
+        caller.pause("2000");
+        //search documents for key word test
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordHello);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify that No Matching Results message appears
+        caller.checkElementPresent("APIStoreHome.ele_lblSearchTermIsMissing","param_searchTermIsMissing_PARAM:" + param_noMatchingResults,false,"");
+        caller.writeToReport("End of execution of TC APIM2_1056");	
+    }
+    /**
+     *  Business component APIM2_891.
+     */
+    public final static void APIM2_891(final SeleniumTestBase caller, final String param_APIName, final String param_APIContext, final String param_APIVersionOne, final String param_APIvisibility, final String param_tagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_ProductionEndPoint, final String param_yes, final String param_no, final String param_SandBoxEndpoint, final String param_storeURL, final String param_TenantOrAdmin, final String param_TenantOrAdminStoreOne, final String param_defaultApplication, final String param_keyTypeToInvoke, final String param_buttonNamePost, final String param_postPayloadContext, final String param_postCustomerNameFromPayloadContext, final String param_postResponseCodeERROR900901, final String param_postResponseHeaders) throws Exception {
+        caller.writeToReport("Start of executing APIM2_891");
+        //Create new API up to Published state
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_APIName,param_APIContext,param_APIVersionOne,param_APIvisibility,"",param_tagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_ProductionEndPoint,param_yes,param_SandBoxEndpoint,param_no,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_no,param_no,"");
+        //Navigate to store for subsription and generate keys for sandbox and production end points
+        String varAPINameDesign = caller.retrieveString("key_APINameDesign");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"4000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        //waiting for content load
+        caller.pause("2000");
+        lib_Common.bc_StoreLogin(caller, param_TenantOrAdminStoreOne);
+        //waiting for content load
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",varAPINameDesign);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.lnk_APINameStore","param_APIName_PARAM:" + varAPINameDesign);
+        //waiting for content load
+        caller.pause("3000");
+        caller.select("APIStoreAPIs.ele_ddSelectAplicationToSubscribe",param_defaultApplication);
+        //waiting for content load
+        caller.pause("2000");
+        caller.click("APIStoreAPIs.btn_Subscribe");
+        //waiting for content load
+        caller.pause("4000");
+        caller.click("APIStoreAPIs.btn_GoToMySubscriptions");
+        //waiting for content load
+        caller.pause("3000");
+        //Generate Keys for the Subscription
+        caller.click("APIStoreHome.lnk_MySubcription");
+        //wait for page load
+        caller.pause("3000");
+        caller.checkElementPresent("APIStoreMySubcription.ele_ddApplicationWithSubscription",false,"");
+        caller.checkElementPresent("APIStoreMySubcription.ele_lblSubcribedAPIsPublished","param_APIName_PARAM:" + varAPINameDesign + "_PARAM," + "param_APIVersion_PARAM:" + param_APIVersionOne,false,"");
+        caller.select("APIStoreMySubcription.ele_ddApplicationWithSubscription",param_defaultApplication);
+        //wait for page load
+        caller.pause("4000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_generateKeyProduction")){
+        caller.click("APIStoreMySubcription.btn_generateKeyProduction");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateProduction")){
+        caller.click("APIStoreMySubcription.btn_RegenarateProduction");
+        }
+        //wait for content load
+        caller.pause("2000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_GenarateKeySandBox")){
+        caller.click("APIStoreMySubcription.btn_GenarateKeySandBox");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateSandBox")){
+        caller.click("APIStoreMySubcription.btn_RegenarateSandBox");
+        }
+        //wait for content load
+        caller.pause("3000");
+        //Start invoking
+        lib_Common.bc_APIStore_InvokeAPI(caller, param_APIName,param_APIVersionOne,param_defaultApplication,param_keyTypeToInvoke,param_yes,param_buttonNamePost,param_postPayloadContext,param_postCustomerNameFromPayloadContext,param_postResponseCodeERROR900901,param_postResponseHeaders,param_no,"","","","",param_no,"","","","","","","","",param_no,"","","","",param_no,"","","","","","","","");	
+    }
+    /**
+     *  Business component APIM2_905.
+     */
+    public final static void APIM2_905(final SeleniumTestBase caller, final String param_APIName, final String param_APIContext, final String param_APIVersionOne, final String param_APIvisibility, final String param_tagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_ProductionEndPoint, final String param_sandboxEndpoint, final String param_yes, final String param_no, final String param_storeURL, final String param_TenantOrAdmin, final String param_TenantOrAdminStoreOne, final String param_defaultApplication, final String param_PublisherURL, final String param_APIStateBlocked, final String param_keyTypeToInvoke, final String param_buttonNamePost, final String param_postPayloadContext, final String param_postCustomerNameFromPayloadContext, final String param_postResponseCode700700, final String param_postResponseHeaders, final String param_APIStateBlockedSimple) throws Exception {
+        caller.writeToReport("Start of executing APIM2_905");
+        //Create new API up to Published state
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_APIName,param_APIContext,param_APIVersionOne,param_APIvisibility,"",param_tagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_ProductionEndPoint,param_yes,param_sandboxEndpoint,param_no,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_no,param_no,"");
+        //Navigate to store for subsription and generate keys for sandbox and production end points
+        String varAPINameDesign = caller.retrieveString("key_APINameDesign");
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"4000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        //waiting for content load
+        caller.pause("2000");
+        lib_Common.bc_StoreLogin(caller, param_TenantOrAdminStoreOne);
+        //waiting for content load
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",varAPINameDesign);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.lnk_APINameStore","param_APIName_PARAM:" + varAPINameDesign);
+        //waiting for content load
+        caller.pause("3000");
+        caller.select("APIStoreAPIs.ele_ddSelectAplicationToSubscribe",param_defaultApplication);
+        //waiting for content load
+        caller.pause("2000");
+        caller.click("APIStoreAPIs.btn_Subscribe");
+        //waiting for content load
+        caller.pause("4000");
+        caller.click("APIStoreAPIs.btn_GoToMySubscriptions");
+        //waiting for content load
+        caller.pause("3000");
+        //Generate Keys for the Subscription
+        caller.click("APIStoreHome.lnk_MySubcription");
+        //wait for page load
+        caller.pause("3000");
+        caller.checkElementPresent("APIStoreMySubcription.ele_ddApplicationWithSubscription",false,"");
+        caller.checkElementPresent("APIStoreMySubcription.ele_lblSubcribedAPIsPublished","param_APIName_PARAM:" + varAPINameDesign + "_PARAM," + "param_APIVersion_PARAM:" + param_APIVersionOne,false,"");
+        caller.select("APIStoreMySubcription.ele_ddApplicationWithSubscription",param_defaultApplication);
+        //wait for page load
+        caller.pause("4000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_generateKeyProduction")){
+        caller.click("APIStoreMySubcription.btn_generateKeyProduction");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateProduction")){
+        caller.click("APIStoreMySubcription.btn_RegenarateProduction");
+        }
+        //wait for content load
+        caller.pause("2000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_GenarateKeySandBox")){
+        caller.click("APIStoreMySubcription.btn_GenarateKeySandBox");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateSandBox")){
+        caller.click("APIStoreMySubcription.btn_RegenarateSandBox");
+        }
+        //wait for content load
+        caller.pause("3000");
+        //Navigate to publisher for change the state of the API in to deprecated
+        caller.navigateToURL("<param_publisherURL>","param_publisherURL_PARAM:" + param_PublisherURL,"3000");
+        //wait for content load
+        caller.pause("2000");
+        //Change state in to deprecated
+        caller.click("APIPublisherHome.lnk_Browse");
+        //wait for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",varAPINameDesign);
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("4000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + varAPINameDesign);
+        //wait for content load
+        caller.pause("3000");
+        caller.click("APIPublisherBrowse.btn_Lifecycle");
+        //wait for content load
+        caller.pause("2000");
+        caller.select("APIPublisherBrowse.ele_ddState",param_APIStateBlocked);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.btn_UpdateState");
+        //wait for content load
+        caller.pause("4000");
+        caller.checkElementPresent("APIPublisherBrowse.ele_lblStateChangeMessage",false,"");
+        caller.click("APIPublisherHome.lnk_Browse");
+        //waiting for content load
+        caller.pause("3000");
+        caller.type("APIPublisherHome.tf_APISearch",varAPINameDesign);
+        caller.click("APIPublisherHome.btn_Search");
+        //waiting for content load
+        caller.pause("3000");
+        //Navigate To store to verify the API is not visible in the store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"4000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        //waiting for content load
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",varAPINameDesign);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("2000");
+        //Verify the inactive Status of the API on the MYSubscriptiptions page
+        caller.click("APIStoreHome.lnk_MySubcription");
+        //waiting for content load
+        caller.pause("3000");
+        caller.checkElementPresent("APIStoreMySubcription.ele_lblSubcribedAPIsBlocked","param_Blocked_PARAM:" + param_APIStateBlockedSimple,false,"");
+        caller.click("APIStoreMySubcription.ele_lblAPINameBlocked","param_APINameBlocked_PARAM:" + varAPINameDesign);
+        //wait for content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreMySubcription.ele_lblErrorNoAPI",false,"");
+        caller.writeToReport("End of executing APIM2_905");	
+    }
+    /**
+     *  Business component APIM2_1053.
+     */
+    public final static void APIM2_1053(final SeleniumTestBase caller, final String param_serverNameTwo, final String param_storeTwoOfTenantOne, final String param_DocVisibilitySameAsApi, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_apiName, final String param_apiContext, final String param_apiVersionOne, final String param_apiVisibilityPublic, final String param_apiImage, final String param_apiTagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_docName, final String param_docSummery, final String param_editContent, final String param_keyWordViewContent, final String param_serverNameOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_searchForDocumentKeyWordOne, final String param_storeURL, final String param_DefaultApplication, final String param_TenantOrAdmin, final String param_serverNameTwoOfTenantOrAdmin) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1052");
+        caller.writeToReport("Start of precondition");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //start of creation of api 1
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        String var_APIVersion = caller.retrieveString("key_APIVersion");
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        //genarate docName & Summery
+        String DocName = param_docName+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_DocName",DocName);
+        //Insert summery for document one
+        String DocSummery = param_docSummery+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_Summary",DocSummery);
+        caller.pause("2000");
+        //Set visibility level private
+        caller.select("Browse_Doc.ele_ddVisibility",param_DocVisibilitySameAsApi);
+        caller.click("Browse_Doc.btn_AddDocument");
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_EditContent","param_DocName_PARAM:" + DocName);
+        caller.pause("3000");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //Verify API Version
+        caller.checkElementPresent("Browse_Doc.ele_lblApiVersionInEditContent","param_APIVersion_PARAM:" + var_APIVersion,false,"");
+        caller.selectFrame("Browse_Doc.frame1");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\n","10");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\t|key=\n","5000");
+        caller.switchUser("default");
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        caller.pause("2000");
+        //verify the search results in publisher for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + DocName + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + var_APIVersion,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_storeOneOfTenanrOneOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentSummary","param_documentName_PARAM:" + DocName + "_PARAM," + "param_summaryContent_PARAM:" + DocSummery,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APIVersion,false,"");
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameTwoOfTenantOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        lib_Common.bc_DeleteAllApplicationsAndAPIs(caller, param_storeURL,param_TenantOrAdmin,param_storeOneOfTenanrOneOrAdmin,param_publisherURL,param_publisherOneOfTenentOneOrAdmin,param_DefaultApplication);
+        caller.writeToReport("End of execution of TC APIM2_1052");	
+    }
+    /**
+     *  Business component APIM2_1054.
+     */
+    public final static void APIM2_1054(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_APIName, final String param_APIVersionOne, final String param_APIvisibilityRestricted, final String param_TagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_docName, final String param_docSummery, final String param_DocVisibilitySameAsAPI, final String param_editContent, final String param_searchForDocumentKeyWordOne, final String param_keyWordViewContent, final String param_storeURL, final String param_serverNameOfTenantOrAdmin, final String param_TenantOneStoreTwo, final String param_TenantOneStoreOne, final String param_AdminStoreOne, final String param_AdminStoreTwo, final String param_serverNameTwoOfTenantOrAdmin, final String param_DefaultApplication, final String param_storeOneOfTenanrOneOrAdmin, final String param_TenantOrAdmin) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1054");
+        caller.writeToReport("Start of precondition");
+        //Retriving Roles
+        String PublisherRoleForNonRestrict = caller.retrieveString("KeyVisibilityRole");
+        String AdminRoleForNonRestrict = caller.retrieveString("KeyVisibilityRoleAdmin");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //Creation of API
+        //Loging to the publisher using the created credentials
+        for(int TotalCount=5;TotalCount>0;TotalCount--){
+        if(caller.checkElementPresent("APIPublisherHome.lnk_Add")){
+        caller.click("APIPublisherHome.lnk_Add");
+        TotalCount = 0;
+        break;
+        } else {
+        if(TotalCount==1){
+        caller.fail("Could not find the object 'APIPublisherHome.lnk_Add'");
+        }
+        //waiting for content load
+        caller.pause("2000");
+        }
+        }
+        caller.click("APIPublisherAdd.rdo_DesignNewAPI");
+        caller.pause("1000");
+        caller.click("APIPublisherAdd.btn_StartCreating");
+        //waiting for content load
+        caller.pause("2000");
+        //genarate api name
+        String APIName = param_APIName+"_"+caller.generateData("int",3);
+        caller.store("key_APINameDesign","String",APIName);
+        //Type API Name
+        caller.type("APIPublisherAdd.tf_APIName",APIName);
+        //Type API context
+        String APIcontext = "{version}"+"/"+APIName;
+        caller.type("APIPublisherAdd.tf_APIContext",APIcontext);
+        //Type API version as default
+        caller.type("APIPublisherAdd.tf_APIVersion",param_APIVersionOne);
+        caller.store("key_APIVersion","String",param_APIVersionOne);
+        //waiting for content load
+        caller.pause("2000");
+        caller.select("APIPublisherBrowse.ele_ddVisibility",param_APIvisibilityRestricted);
+        //waiting for content load
+        caller.pause("2000");
+        //Adding a visibility role
+        if(param_publisherOneOfTenentOneOrAdmin.equals("TenantOnePublisherOne")){
+        caller.type("APIPublisherBrowse.tf_VisibilityToRole",PublisherRoleForNonRestrict);
+        } else {
+        caller.type("APIPublisherBrowse.tf_VisibilityToRole",AdminRoleForNonRestrict);
+        }
+        //Genarate Tag Name
+        String TagName = param_TagName+"_"+caller.generateData("int",3);
+        //Type API tag
+        caller.type("APIPublisherAdd.tf_Tags",TagName);
+        //waiting for content load
+        caller.pause("1000");
+        caller.fireEvent("KEY%key=\n","2000");
+        //waiting for content load
+        caller.pause("2000");
+        //Type the URL pattern for post and put
+        caller.type("APIPublisherAdd.tf_URLPattern",param_urlPatternForPostAndPut);
+        //waiting for content load
+        caller.pause("1000");
+        //check the availability of post and put check boxes
+        caller.checkElementPresent("APIPublisherAdd.chk_Post",false,"");
+        caller.checkElementPresent("APIPublisherAdd.chk_Put",false,"");
+        caller.click("APIPublisherAdd.chk_Post");
+        caller.click("APIPublisherAdd.chk_Put");
+        //waiting for content load
+        caller.pause("1000");
+        //add the soap url
+        caller.click("APIPublisherAdd.btn_Add");
+        //waiting for content load
+        caller.pause("2000");
+        //Type the URL pattern for post and put
+        caller.type("APIPublisherAdd.tf_URLPattern",param_urlPatternForGetDeleteAndHead);
+        //waiting for content load
+        caller.pause("1000");
+        //check the availability of get,delete&head check boxes
+        caller.checkElementPresent("APIPublisherAdd.chk_Get",false,"");
+        caller.checkElementPresent("APIPublisherAdd.chk_Delete",false,"");
+        caller.checkElementPresent("APIPublisherAdd.chk_Head",false,"");
+        caller.click("APIPublisherAdd.chk_Get");
+        caller.click("APIPublisherAdd.chk_Delete");
+        caller.click("APIPublisherAdd.chk_Head");
+        //waiting for content load
+        caller.pause("1000");
+        //add the soap url
+        caller.click("APIPublisherAdd.btn_Add");
+        //verify the added soap commands get,delete,head and the url pattern
+        //check the button availability
+        for(int TotalCount=5;TotalCount>0;TotalCount--){
+        if(caller.checkElementPresent("APIPublisherAdd.btn_Save")){
+        //click save and verify warning
+        caller.click("APIPublisherAdd.btn_Save");
+        TotalCount = 0;
+        break;
+        } else {
+        if(TotalCount==1){
+        caller.fail("Could not find the object 'APIPublisherAdd.btn_Save'");
+        }
+        //waiting for content load
+        caller.pause("2000");
+        }
+        }
+        //waiting for content load and
+        //check the load time
+        for(int TotalCount=5;TotalCount>0;TotalCount--){
+        if(!caller.checkElementPresent("APIPublisherAdd.ele_lblLoadSpinner")){
+        TotalCount = 0;
+        break;
+        } else {
+        if(TotalCount==1){
+        caller.fail("Load Time Was Above Fifteen Seconds");
+        }
+        //waiting for content load
+        caller.pause("3000");
+        }
+        }
+        //check the popup availability
+        caller.click("APIPublisherAdd.lnk_NextImplement");
+        for(int TotalCount=5;TotalCount>0;TotalCount--){
+        if(!caller.checkElementPresent("APIPublisherAdd.ele_lblLoadSpinner")){
+        TotalCount = 0;
+        break;
+        } else {
+        if(TotalCount==1){
+        caller.fail("Load Time Was Above Fifteen Seconds");
+        }
+        //waiting for content load
+        caller.pause("3000");
+        }
+        }
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        String var_APIVersion = caller.retrieveString("key_APIVersion");
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        //genarate docName & Summery
+        String DocName = param_docName+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_DocName",DocName);
+        //Insert summery for document one
+        String DocSummery = param_docSummery+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_Summary",DocSummery);
+        caller.pause("2000");
+        //Set visibility level private
+        caller.select("Browse_Doc.ele_ddVisibility",param_DocVisibilitySameAsAPI);
+        caller.click("Browse_Doc.btn_AddDocument");
+        caller.pause("2000");
+        caller.click("Browse_Doc.btn_EditContent","param_DocName_PARAM:" + DocName);
+        caller.pause("3000");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //Verify API Version
+        caller.checkElementPresent("Browse_Doc.ele_lblApiVersionInEditContent","param_APIVersion_PARAM:" + var_APIVersion,false,"");
+        caller.selectFrame("Browse_Doc.frame1");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\n","10");
+        caller.pause("4000");
+        caller.click("Browse_Doc.tf_EditContent1");
+        caller.pause("500");
+        caller.type("Browse_Doc.tf_EditContent1",param_editContent);
+        caller.pause("4000");
+        caller.fireEvent("KEY%key=\t|key=\t|key=\n","5000");
+        caller.switchUser("default");
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        caller.pause("2000");
+        //verify the search results in publisher for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + DocName + "_PARAM," + "param_keyWordViewContent_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + var_APIVersion,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameTwoOfTenantOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        //login Using restricted role
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        if(param_serverNameOfTenantOrAdmin.equals("carbon.super")){
+        lib_Common.bc_StoreLogin(caller, param_AdminStoreTwo);
+        } else if(param_serverNameOfTenantOrAdmin.equals("TenantOne")){
+        lib_Common.bc_StoreLogin(caller, param_TenantOneStoreTwo);
+        }
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        //Login Using allowed user
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        if(param_serverNameOfTenantOrAdmin.equals("Admin")){
+        lib_Common.bc_StoreLogin(caller, param_AdminStoreOne);
+        } else if(param_serverNameOfTenantOrAdmin.equals("TenantOne")){
+        lib_Common.bc_StoreLogin(caller, param_TenantOneStoreOne);
+        }
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("APIStoreHome.ele_lblDocumentSearchResult_documentSummary","param_documentName_PARAM:" + DocName + "_PARAM," + "param_summaryContent_PARAM:" + DocSummery,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_viewContent","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("APIStoreHome.lnk_documentSearchResult_APINameOrVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APINameOrVersion_PARAM:" + var_APIVersion,false,"");
+        lib_Common.bc_DeleteAllApplicationsAndAPIs(caller, param_storeURL,param_TenantOrAdmin,param_storeOneOfTenanrOneOrAdmin,param_publisherURL,param_publisherOneOfTenentOneOrAdmin,param_DefaultApplication);
+        caller.writeToReport("End of execution of TC APIM2_1054");	
+    }
+    /**
+     *  Business component APIM2_1059.
+     */
+    public final static void APIM2_1059(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_apiName, final String param_apiVersionOne, final String param_apiContext, final String param_apiVisibilityPublic, final String param_apiImage, final String param_apiTagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_statusDeprecate, final String param_fileToUpload, final String param_DocVisibilitySameAsApi, final String param_TenantOrAdmin, final String param_TenantOneOrAdminStoreOne, final String param_ApplicationName, final String param_tierType, final String param_searchForDocumentKeyWordOne, final String param_searchForDocumentKeyWordTwo, final String param_AdminStoreOne, final String param_TenantOneStoreOne, final String param_AdminStoreTwo, final String param_TenantOneStoreTwo, final String param_storeURL, final String param_serverNameOfTenantOrAdmin, final String param_docName, final String param_docSummery, final String param_keyWordViewContent, final String param_serverNameTwoOfTenantOrAdmin, final String param_storeOneOfTenanrOneOrAdmin, final String param_DefaultApplication) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1059");
+        caller.writeToReport("Start of precondition");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //start of creation of api 1
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        String var_APIVersion = caller.retrieveString("key_APIVersion");
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        caller.pause("2000");
+        //Navigate to the store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_TenantOneOrAdminStoreOne);
+        //Subcribe the API
+        //Go to My Subcription window to Generate keys
+        caller.click("APIStoreHome.lnk_APIs");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",var_APINameOne);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.lnk_APINameStore","param_APIName_PARAM:" + var_APINameOne);
+        //waiting for content load
+        caller.pause("3000");
+        caller.select("APIStoreAPIs.ele_ddSelectAplicationToSubscribe",param_ApplicationName);
+        caller.select("APIStoreAPIs.ele_ddtierToSubscribe",param_tierType);
+        caller.pause("2000");
+        caller.click("APIStoreAPIs.btn_Subscribe");
+        caller.pause("2000");
+        caller.click("APIStoreAPIs.btn_GoToMySubscriptions");
+        caller.click("APIStoreHome.lnk_MySubcription");
+        //verify that the landed page is My Subscriptions
+        caller.checkElementPresent("APIStoreMySubcription.ele_ddApplicationWithSubscription",false,"");
+        caller.select("APIStoreMySubcription.ele_ddApplicationWithSubscription",param_ApplicationName);
+        //wait for content load
+        caller.pause("3000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_generateKeyProduction")){
+        caller.click("APIStoreMySubcription.btn_generateKeyProduction");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateProduction")){
+        caller.click("APIStoreMySubcription.btn_RegenarateProduction");
+        }
+        //wait for content load
+        caller.pause("2000");
+        if(caller.checkElementPresent("APIStoreMySubcription.btn_GenarateKeySandBox")){
+        caller.click("APIStoreMySubcription.btn_GenarateKeySandBox");
+        //wait for content load
+        caller.pause("1000");
+        } else if(caller.checkElementPresent("APIStoreMySubcription.btn_RegenarateSandBox")){
+        caller.click("APIStoreMySubcription.btn_RegenarateSandBox");
+        }
+        //wait for content load
+        caller.pause("2000");
+        //wait for content load
+        caller.pause("1000");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        caller.pause("3000");
+        caller.click("APIPublisherBrowse.btn_Lifecycle");
+        //wait for content load
+        caller.pause("5000");
+        //Select the Published Status
+        caller.select("APIPublisherBrowse.ele_ddState",param_statusDeprecate);
+        caller.pause("2000");
+        caller.pause("2000");
+        //Click on update button
+        caller.click("APIPublisherBrowse.btn_UpdateState");
+        //check the successfull message
+        caller.checkElementPresent("APIPublisherBrowse.ele_lblStateChangeMessage",false,"");
+        //Navigate to the store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_TenantOneOrAdminStoreOne);
+        //Subcribe the API
+        //Go to My Subcription window to Generate keys
+        caller.click("APIStoreHome.lnk_MySubcription");
+        caller.pause("3000");
+        if(caller.checkElementPresent("APIStoreHome.ele_lblPaginationVisible")){
+        caller.click("APIStoreHome.ele_lblPagination");
+        caller.pause("2000");
+        }
+        //verify that the api is visible under subscriptions
+        caller.checkElementPresent("APIStoreMySubcription.ele_lblSubcribedAPIsDeprecated","param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_APIVersion_PARAM:" + var_APIVersion,false,"");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        caller.pause("3000");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        //genarate docName & Summery
+        String DocName = param_docName+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_DocName",DocName);
+        //Insert summery for document one
+        String DocSummery = param_docSummery+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_Summary",DocSummery);
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_File");
+        caller.pause("2000");
+        //Type valid file path
+         java.io.File fileTwo = new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "Images"+ java.io.File.separator + param_fileToUpload);
+        String entirePathTwo = fileTwo.getAbsolutePath();
+        caller.pause("2000");
+        caller.type("Browse_Doc.tf_BrowseFile",entirePathTwo);
+        caller.pause("1000");
+        //Set visibility level SameAsApiVisibility
+        caller.select("Browse_Doc.ele_ddVisibility",param_DocVisibilitySameAsApi);
+        caller.click("Browse_Doc.btn_AddDocument");
+        caller.pause("2000");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        caller.pause("2000");
+        //verify the search results in publisher for key word One
+        //verify Document One name, Link to view / download, API name, API version, API provider
+        caller.checkElementPresent("Browse_Doc.ele_lblDocumentSearchResult_DocumentName","param_documentName_PARAM:" + DocName,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_download","param_documentName_PARAM:" + DocName + "_PARAM," + "param_keyWordDownload_PARAM:" + param_keyWordViewContent,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APIName","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne,false,"");
+        caller.checkElementPresent("Browse_Doc.lnk_documentSearchResult_APINameWithVersion","param_documentName_PARAM:" + DocName + "_PARAM," + "param_APIName_PARAM:" + var_APINameOne + "_PARAM," + "param_versionOfAPI_PARAM:" + var_APIVersion,false,"");
+        //End of verification of the search for the results in publisher for key word One
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameTwoOfTenantOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        //login Using restricted role
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        if(param_serverNameOfTenantOrAdmin.equals("Admin")){
+        lib_Common.bc_StoreLogin(caller, param_AdminStoreTwo);
+        } else if(param_serverNameOfTenantOrAdmin.equals("TenantOne")){
+        lib_Common.bc_StoreLogin(caller, param_TenantOneStoreTwo);
+        }
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordTwo);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        //Login Using allowed user
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameOfTenantOrAdmin);
+        if(param_serverNameOfTenantOrAdmin.equals("Admin")){
+        lib_Common.bc_StoreLogin(caller, param_AdminStoreOne);
+        } else if(param_serverNameOfTenantOrAdmin.equals("TenantOne")){
+        lib_Common.bc_StoreLogin(caller, param_TenantOneStoreOne);
+        }
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordTwo);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        lib_Common.bc_DeleteAllApplicationsAndAPIs(caller, param_storeURL,param_TenantOrAdmin,param_storeOneOfTenanrOneOrAdmin,param_publisherURL,param_publisherOneOfTenentOneOrAdmin,param_DefaultApplication);
+        caller.writeToReport("End of execution of TC APIM2_1059");	
+    }
+    /**
+     *  Business component APIM2_1060.
+     */
+    public final static void APIM2_1060(final SeleniumTestBase caller, final String param_publisherURL, final String param_publisherOneOfTenentOneOrAdmin, final String param_apiName, final String param_apiContext, final String param_apiVersionOne, final String param_apiVisibilityPublic, final String param_apiImage, final String param_apiTagName, final String param_urlPatternForPostAndPut, final String param_urlPatternForGetDeleteAndHead, final String param_productionEndpoint, final String param_keyYes, final String param_sandboxEndpoint, final String param_keyWordNo, final String param_docName, final String param_docSummery, final String param_DocVisibilitySameAsApi, final String param_searchForDocumentKeyWordOne, final String param_serverNameTwoOfTenantOrAdmin, final String param_TenantOrAdmin, final String param_TenantOneOrAdminStoreOne, final String param_url, final String param_storeURL, final String param_storeOneOfTenanrOneOrAdmin, final String param_DefaultApplication) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_1060");
+        caller.writeToReport("Start of precondition");
+        lib_Common.bc_PublisherLogin(caller, param_publisherURL,param_publisherOneOfTenentOneOrAdmin);
+        //start of creation of api 1
+        lib_Common.bc_APIPublisher_AddAPI_DesignPhaseToInvoke(caller, param_apiName,param_apiContext,param_apiVersionOne,param_apiVisibilityPublic,param_apiImage,param_apiTagName,param_urlPatternForPostAndPut,param_urlPatternForGetDeleteAndHead);
+        String var_APINameOne = caller.retrieveString("key_APINameDesign");
+        String var_APIVersion = caller.retrieveString("key_APIVersion");
+        lib_Common.bc_APIPublisher_AddAPI_ImplementationPhaseToInvoke(caller, param_productionEndpoint,param_keyYes,param_sandboxEndpoint,param_keyWordNo,"");
+        lib_Common.bc_APIPublisher_AddAPI_ManageToInvoke(caller, param_keyWordNo,param_keyWordNo,"");
+        //end of creation of api 1
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",var_APINameOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + var_APINameOne);
+        caller.pause("3000");
+        //wait for content load
+        caller.pause("2000");
+        caller.click("Browse_Doc.lnk_Doc");
+        //wait for content load
+        caller.pause("2000");
+        //API1 document 1
+        caller.click("Browse_Doc.btn_AddNewDocument");
+        //wait for content load
+        caller.pause("1000");
+        //genarate docName & Summery
+        String DocName = param_docName+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_DocName",DocName);
+        //Insert summery for document one
+        String DocSummery = param_docSummery+"_"+caller.generateData("int",4);
+        caller.type("Browse_Doc.tf_Summary",DocSummery);
+        caller.pause("2000");
+        caller.click("Browse_Doc.rdo_URL");
+        caller.type("Browse_Doc.tf_URL",param_url);
+        caller.pause("1000");
+        //Set visibility level SameAsApiVisibility
+        caller.select("Browse_Doc.ele_ddVisibility",param_DocVisibilitySameAsApi);
+        caller.click("Browse_Doc.btn_AddDocument");
+        caller.pause("2000");
+        caller.click("APIPublisherHome.lnk_Browse");
+        caller.type("APIPublisherHome.tf_APISearch",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("1000");
+        caller.click("APIPublisherHome.btn_Search");
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIPublisherBrowse.ele_lblNoMachingAPI",false,"");
+        //Navigate to store URL
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"2000");
+        lib_Common.bc_SelectServer(caller, param_serverNameTwoOfTenantOrAdmin);
+        caller.checkElementPresent("APIStoreHome.tf_APISearchStore",false,"");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        //Navigate to the store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        lib_Common.bc_StoreLogin(caller, param_TenantOneOrAdminStoreOne);
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",param_searchForDocumentKeyWordOne);
+        //wait for content load
+        caller.pause("2000");
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //wait for search content load
+        caller.pause("2000");
+        //verify the search results in store for key word One
+        caller.checkElementPresent("APIStoreHome.ele_lblNoMatchingAPI",false,"");
+        lib_Common.bc_DeleteAllApplicationsAndAPIs(caller, param_storeURL,param_TenantOrAdmin,param_storeOneOfTenanrOneOrAdmin,param_publisherURL,param_publisherOneOfTenentOneOrAdmin,param_DefaultApplication);
+        caller.writeToReport("End of execution of TC APIM2_1060");	
+    }
+    /**
+     *  Business component APIM2_800.
+     */
+    public final static void APIM2_800(final SeleniumTestBase caller, final String param_APIName, final String paramAPIContest, final String param_tag, final String param_ProductionEndPoint, final String param_storeURL, final String param_TenantOrAdmin, final String param_TenantOneOrAdminStoreOne, final String param_FaceBookUserName, final String param_FaceBookPassword) throws Exception {
+        //User who is not logged in to the the system should not be able to access api store > applications page
+        caller.writeToReport("Start  Executing APIM-800");
+        //create API
+        caller.click("APIPublisherHome.lnk_Add");
+        caller.click("APIPublisherAdd.rdo_DesignNewAPI");
+        caller.click("APIPublisherAdd.btn_StartCreating");
+        //waiting for content load
+        caller.pause("2000");
+        //Type API Name
+        String varAPIName = param_APIName+caller.generateData("int",2);
+        caller.type("APIPublisherAdd.tf_APIName",varAPIName);
+        //Store API name in to variables
+        caller.store("keyAPIName","String",varAPIName);
+        //auto generate contest
+        //Type API contest
+        String APIcontest = paramAPIContest+caller.generateData("int",2);
+        caller.type("APIPublisherAdd.tf_APIContext",APIcontest);
+        //Setting variable for API version
+        String varAPIversion = "v1.0."+caller.generateData("int",1);
+        //Type API Version
+        caller.type("APIPublisherAdd.tf_APIVersion",varAPIversion);
+        String APItag = param_tag+caller.generateData("int",3);
+        //Type API tags
+        caller.type("APIPublisherAdd.tf_Tags",APItag);
+        caller.pause("2000");
+        caller.fireEvent("KEY%key=\n","2000");
+        caller.click("APIPublisherAdd.btn_Save");
+        //waite for content load
+        caller.pause("3000");
+        caller.click("APIPublisherBrowse.btn_Yes");
+        //waite for content load
+        caller.pause("5000");
+        caller.click("APIPublisherAdd.lnk_NextImplement");
+        //API Manage Section
+        caller.pause("8000");
+        //Go to browse page
+        caller.click("APIPublisherHome.lnk_Browse");
+        //waiting for content load
+        caller.pause("2000");
+        caller.type("APIPublisherHome.tf_APISearch",varAPIName);
+        //waiting for content load
+        caller.pause("2000");
+        caller.click("APIPublisherHome.btn_Search");
+        //waiting for content load
+        caller.pause("1000");
+        caller.click("APIPublisherBrowse.lnk_APIName","param_APIName_PARAM:" + varAPIName);
+        caller.click("APIPublisherBrowse.lnk_Edit");
+        caller.click("APIPublisherAdd.lnk_NextImplement");
+        caller.click("APIPublisherBrowse.ele_lblManagedAPI");
+        caller.type("APIPublisherBrowse.tf_ProductionEndPoint",param_ProductionEndPoint);
+        caller.click("APIPublisherBrowse.btn_SaveManagedAPI");
+        //waiting for content load
+        caller.pause("5000");
+        caller.click("APIPublisherBrowse.btn_NextManage");
+        //waiting for content load
+        caller.pause("2000");
+        lib_Common.bc_SelectTiers(caller);
+        caller.click("APIPublisherBrowse.btn_SaveAndPublish");
+        caller.pause("5000");
+        caller.click("APIPublisherBrowse.btn_Close");
+        caller.pause("4000");
+        //Navigate to store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + param_storeURL,"3000");
+        //waite for content load
+        caller.pause("3000");
+        //Select the domain
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        caller.pause("3000");
+        lib_Common.bc_StoreLogin(caller, param_TenantOneOrAdminStoreOne);
+        caller.click("APIStoreHome.lnk_APIs");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",varAPIName);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.lnk_APINameStore","param_APIName_PARAM:" + varAPIName);
+        //waiting for content load
+        caller.pause("3000");
+        //click facebook icon to share
+        caller.click("APIStoreHome.img_facebook");
+        caller.selectWindow("Browse_Doc.newWindow1");
+        //verify page is loaded
+        caller.checkElementPresent("socialNetwork.tf_FaceBookUserName",false,"");
+        //tye FB username
+        caller.type("socialNetwork.tf_FaceBookUserName",param_FaceBookUserName);
+        //type FB password
+        caller.type("socialNetwork.tf_FaceBookPassword",param_FaceBookPassword);
+        //click on login
+        caller.click("socialNetwork.btn_LoginFaceBook");
+        caller.click("socialNetwork.btn_ShareFaceBook");
+        caller.checkObjectProperty("socialNetwork.ele_lblFaceBookFailureMessage","ELEMENTPRESENT","false",false,"There is a bug in facebook sharing because of that test case will fail");
+        //select default window
+        caller.selectWindow("Browse_Doc.defaultWindow");
+        caller.writeToReport("End of execution of TC APIM2_800");	
+    }
+    /**
+     *  Business component APIM2_801.
+     */
+    public final static void APIM2_801(final SeleniumTestBase caller, final String param_TwitterUserName, final String param_TwitterPassword, final String paramStoreURL, final String param_TenantOrAdmin) throws Exception {
+        caller.writeToReport("Start of execution of TC APIM2_801");
+        //Retriew API Name
+        String varAPIName = caller.retrieveString("keyAPIName");
+        //Navigate to store
+        caller.navigateToURL("<param_storeURL>","param_storeURL_PARAM:" + paramStoreURL,"2000");
+        //Select the domain
+        lib_Common.bc_SelectServer(caller, param_TenantOrAdmin);
+        //Click on created API
+        caller.click("APIStoreHome.lnk_APIs");
+        caller.pause("2000");
+        caller.type("APIStoreHome.tf_APISearchStore",varAPIName);
+        caller.click("APIStoreHome.btn_SearchButtonStore");
+        //waiting for content load
+        caller.pause("3000");
+        caller.click("APIStoreHome.lnk_APINameStore","param_APIName_PARAM:" + varAPIName);
+        //waiting for content load
+        caller.pause("3000");
+        //click on twitter icon to share
+        caller.click("APIStoreHome.img_Twitter");
+        //select second window
+        caller.selectWindow("Browse_Doc.newWindowTwo");
+        //verify page is twitter loaded
+        caller.checkElementPresent("socialNetwork.tf_TwitterUserName",false,"");
+        //type twitter user name
+        caller.type("socialNetwork.tf_TwitterUserName",param_TwitterUserName);
+        //type twitter password
+        caller.type("socialNetwork.tf_TwitterPassWord",param_TwitterPassword);
+        //click logging
+        caller.click("socialNetwork.btn_LoginAndTweet");
+        caller.checkObjectProperty("socialNetwork.ele_lblFaceBookFailureMessage","ELEMENTPRESENT","false",false,"There is a bug in twitter sharing because of that test case will fail");
+        caller.writeToReport("End of execution of TC APIM2_801");	
     }
 }
