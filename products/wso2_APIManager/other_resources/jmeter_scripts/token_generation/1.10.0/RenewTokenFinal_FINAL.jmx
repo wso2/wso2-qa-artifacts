@@ -46,7 +46,11 @@
             </elementProp>
             <elementProp name="port" elementType="Argument">
               <stringProp name="Argument.name">port</stringProp>
+<<<<<<< HEAD
               <stringProp name="Argument.value">9443</stringProp>
+=======
+              <stringProp name="Argument.value">8080</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="httpsport" elementType="Argument">
@@ -56,7 +60,11 @@
             </elementProp>
             <elementProp name="apiname" elementType="Argument">
               <stringProp name="Argument.name">apiname</stringProp>
+<<<<<<< HEAD
               <stringProp name="Argument.value">echoservice</stringProp>
+=======
+              <stringProp name="Argument.value">echoserviceX</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="username" elementType="Argument">
@@ -122,7 +130,11 @@
           <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
+<<<<<<< HEAD
           <stringProp name="HTTPSampler.protocol">https</stringProp>
+=======
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/store/site/blocks/user/login/ajax/login.jag</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -203,7 +215,11 @@
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
+<<<<<<< HEAD
             <stringProp name="HTTPSampler.protocol">https</stringProp>
+=======
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/store/site/blocks/application/application-add/ajax/application-add.jag</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -267,7 +283,11 @@
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
+<<<<<<< HEAD
             <stringProp name="HTTPSampler.protocol">https</stringProp>
+=======
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -421,7 +441,11 @@ try{
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
+<<<<<<< HEAD
             <stringProp name="HTTPSampler.protocol">https</stringProp>
+=======
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -627,7 +651,11 @@ try{
           <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
+<<<<<<< HEAD
           <stringProp name="HTTPSampler.protocol">https</stringProp>
+=======
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/store/site/blocks/user/login/ajax/login.jag?action=logout</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -650,7 +678,11 @@ try{
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
+<<<<<<< HEAD
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+=======
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -658,6 +690,7 @@ try{
               <time>true</time>
               <latency>true</latency>
               <timestamp>true</timestamp>
+<<<<<<< HEAD
               <success>true</success>
               <label>true</label>
               <code>true</code>
@@ -685,6 +718,8 @@ try{
               <time>true</time>
               <latency>true</latency>
               <timestamp>true</timestamp>
+=======
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
               <success>false</success>
               <label>true</label>
               <code>true</code>
@@ -738,6 +773,7 @@ try{
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+<<<<<<< HEAD
             </value>
           </objProp>
           <objProp>
@@ -765,13 +801,19 @@ try{
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+=======
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
               <threadCounts>true</threadCounts>
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
+<<<<<<< HEAD
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+=======
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -798,6 +840,7 @@ try{
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+<<<<<<< HEAD
             </value>
           </objProp>
           <objProp>
@@ -825,6 +868,8 @@ try{
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+=======
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
               <threadCounts>true</threadCounts>
             </value>
           </objProp>
@@ -931,6 +976,7 @@ try{
               <bytes>true</bytes>
             </value>
           </objProp>
+<<<<<<< HEAD
           <objProp>
             <name></name>
             <value class="SampleSaveConfiguration">
@@ -958,6 +1004,8 @@ try{
               <bytes>true</bytes>
             </value>
           </objProp>
+=======
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
@@ -990,6 +1038,7 @@ try{
               <bytes>true</bytes>
             </value>
           </objProp>
+<<<<<<< HEAD
           <objProp>
             <name></name>
             <value class="SampleSaveConfiguration">
@@ -1017,6 +1066,8 @@ try{
               <bytes>true</bytes>
             </value>
           </objProp>
+=======
+>>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
