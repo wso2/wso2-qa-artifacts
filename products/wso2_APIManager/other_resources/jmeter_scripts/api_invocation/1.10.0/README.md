@@ -26,6 +26,7 @@ Supported Product:- API-M 1.10.0
 
 Pre-Condition:-
 - Echo service API should be created and published to the store (WSO2 Application server is required to be running)
+- When creating the Echo service API, please provide the API context as 'echoservice'
 - User should be subscribed to the API
 - A permenant access token should be generated (by providing -1 as the expiration time)
 
