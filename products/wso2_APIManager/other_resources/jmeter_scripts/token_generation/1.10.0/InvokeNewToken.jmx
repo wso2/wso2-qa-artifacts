@@ -11,11 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-<<<<<<< HEAD
       <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
-=======
-      <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="false">
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
         <collectionProp name="UserParameters.names">
           <stringProp name="-715738816">yymmdd</stringProp>
         </collectionProp>
@@ -27,7 +23,6 @@
         <boolProp name="UserParameters.per_iteration">false</boolProp>
       </UserParameters>
       <hashTree/>
-<<<<<<< HEAD
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="server" elementType="Argument">
@@ -43,8 +38,6 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-=======
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -107,10 +100,6 @@
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree " enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
-<<<<<<< HEAD
-=======
-            <name>saveConfig</name>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
@@ -142,10 +131,6 @@
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
-<<<<<<< HEAD
-=======
-            <name>saveConfig</name>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
@@ -194,22 +179,13 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-<<<<<<< HEAD
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-=======
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-<<<<<<< HEAD
           <stringProp name="HTTPSampler.path">echoservice/1.0.0/echoString?in=${__RandomString(10,qwertyuiopasdfghjklzxcvbnm)}</stringProp>
-=======
-          <stringProp name="HTTPSampler.path">http://gateway.am.wso2.com/echoserviceX/1.0.0/echoString?in=${__RandomString(10,qwertyuiopasdfghjklzxcvbnm)}</stringProp>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -257,10 +233,6 @@
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree " enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
-<<<<<<< HEAD
-=======
-            <name>saveConfig</name>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
@@ -292,10 +264,6 @@
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
-<<<<<<< HEAD
-=======
-            <name>saveConfig</name>
->>>>>>> dd527d7ad931e1776ac48756301e38bfa25e4319
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
