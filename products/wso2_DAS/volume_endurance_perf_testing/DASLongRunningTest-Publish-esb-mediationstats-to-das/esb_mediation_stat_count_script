@@ -1,0 +1,9 @@
+CREATE TEMPORARY TABLE temp_esb_bam_mediation_stats_data_publisher USING CarbonAnalytics OPTIONS (tableName "esb_bam_mediation_stats_data_publisher", schema "host STRING, direction STRING, timestamp LONG, resource_id STRING, stats_type STRING, max_processing_time LONG,avg_processing_time DOUBLE, min_processing_time LONG, fault_count INT, number INT");
+
+SELECT SUM(number) AS TotalnumberofINmessages  FROM temp_esb_bam_mediation_stats_data_publisher WHERE direction='In';                           
+                            
+SELECT SUM(number) AS TotalnumberofOUTmessages  FROM temp_esb_bam_mediation_stats_data_publisher WHERE direction='Out';                   
+                            
+                                                        
+                                                        
+                            
