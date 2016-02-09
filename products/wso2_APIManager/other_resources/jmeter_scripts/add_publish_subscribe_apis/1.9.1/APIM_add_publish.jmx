@@ -191,11 +191,11 @@
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="APIcounter" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
-              <stringProp name="CounterConfig.end">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
               <stringProp name="CounterConfig.name">lcount</stringProp>
               <stringProp name="CounterConfig.format">#</stringProp>
-              <boolProp name="CounterConfig.per_user">false</boolProp>
+              <boolProp name="CounterConfig.per_user">true</boolProp>
             </CounterConfig>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create API" enabled="true">
@@ -634,7 +634,6 @@
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
-            <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
@@ -667,7 +666,6 @@
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
-            <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>

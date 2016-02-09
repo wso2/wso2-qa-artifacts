@@ -7,6 +7,14 @@ Modified by: Pubudu
 
 Description:- This testcase creates an api with the same name under two different tenant domains, publishes to the relevant store section and subscribes to the published apis.
 
+Server Parameters:-
+server - ip address of the server
+port - 9443 if running with offset 0
+apiname - desired API name
+
+Other variables:-
+- In order to set the number of created APIs set the value of Test Plan --> Loop Controller => Loop count to a desired number
+
 Pre-Conditions:-
 - There should be a tenant domain with postfix 'evan.com'
 - evan.com domain should have an admin user created with credentials provided in User Parameters section User_2 column

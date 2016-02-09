@@ -16,7 +16,7 @@ This script logs into the store > creates an App > generates a number of access 
 Script Parameters:-
 pubserver:- publisher domain
 storeserver:- store domain
-port: (http port:- 8080 for default pack / 80 for nginx)
+port: If running on a standalone setup provide the https servlet port. If running on a clustered setup provide nginx port
 httpsport:- (https port - 9443 for default pack / 443 for nginx)
 apiname:- desired API name
 username:- username
@@ -24,7 +24,7 @@ password:- password
 applicationname:- desired application name
 tokenFilePath:- file path of tokens to be store
 keyFilePath:- file path of consumer key/secret to be stored
-max:- number of keys to be generated
+max:- number of keys to be generated. This value also creates the same number of applications. I.E an application per key.
 
 ------------------------------------------------------------------------------
 
@@ -34,8 +34,13 @@ Supported Product:- API-M 1.10.0
 
 Pre-Condition:-
 - Echo service API should be created and published to the store (WSO2 Application server is required to be running)
+- When creating the Echo service API, please provide the API context as 'echoservice'
 - RenewTokenFinal_FINAL.jmx should be already being executed and the access tokens should have been regenerated for the first time.
+
 
 
 CSV Data Set Config:-
 Filename:- Provide .csv file name used in 'RenewTokenFinal_FINAL.jmx' script to store access tokens
+
+Other:-
+Continues to refresh tokens forever > Loop count determines how many times the keys will be renewed within intervals.
