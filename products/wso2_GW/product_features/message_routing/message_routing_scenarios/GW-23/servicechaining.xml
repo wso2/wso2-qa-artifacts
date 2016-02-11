@@ -1,0 +1,9 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+         <route>
+                <from uri="direct:getCustomerById"/>
+                <toD uri="wso2-gw:http://localhost:9773/jaxrs_basic/services/customers/customerservice/customers/${header.id}"/>
+                <to uri="wso2-gw:http://localhost:9783/jaxrs_basic/services/customers/customerservice/customers"/>
+        </route>
+           
+</routes>

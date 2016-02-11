@@ -1,0 +1,8 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+   <route id="simple_passthrough">
+                <from uri="wso2-gw:/simple_passthrough"/>
+                <to uri="wso2-gw:http://localhost:9773/services/HelloService/"/>
+   </route>
+
+</routes>

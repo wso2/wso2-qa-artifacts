@@ -1,0 +1,13 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="failover_without_lb">
+	<from uri="wso2-gw:/failover_without_lb"/>
+	<loadBalance inheritErrorHandler="false">
+	<failover roundRobin="false"/>
+		<to uri="wso2-gw:http://localhost:9773/services/HelloService/"/>
+		<to uri="wso2-gw:http://localhost:9783/services/HelloService/"/>
+		<to uri="wso2-gw:http://localhost:9793/services/HelloService/"/>
+	</loadBalance>
+     </route>
+           
+</routes>
