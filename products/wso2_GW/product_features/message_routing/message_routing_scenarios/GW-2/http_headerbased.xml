@@ -1,0 +1,15 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+        <route id="servicechaining_soap">
+                <from uri="wso2-gw:/servicechaining_soap"/>
+                <toD uri="wso2-gw:http://localhost:8281/"/>
+                <setHeader headerName="SOAPAction">
+                        <simple>urn:echoInt</simple>
+                </setHeader>
+                <setHeader headerName="Content-Type">
+                        <simple>text/xml</simple>
+                </setHeader>
+
+                <to uri="wso2-gw:http://localhost:9783/services/Axis2Service"/>
+        </route>
+</routes>
+

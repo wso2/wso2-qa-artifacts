@@ -1,0 +1,8 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="test_route">
+                <from uri="wso2-gw:/test_route"/>
+                <to uri="wso2-gw:http://localhost:2020/services/HelloService/"/>
+        </route>
+           
+</routes>
