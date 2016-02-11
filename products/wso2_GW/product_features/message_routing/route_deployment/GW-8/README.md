@@ -1,9 +1,11 @@
 Applies To	: WSO2 GW 1.0.0
 Created by	: Asanthi Kulasinghe
+Testcase	: https://testlink.wso2.com/linkto.php?tprojectPrefix=GW&item=testcase&id=GW-8
 
 DESCRIPTION
 ===========
 To test the ability to WSO2 Gateway to load message routing configurations from route files included in <Gateway_Home>/conf/camel/ folder other than camel-context.xml
+
 
 INSTRUCTIONS
 ============
