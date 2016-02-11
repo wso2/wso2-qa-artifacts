@@ -1,5 +1,6 @@
 Applies To	: WSO2 GW 1.0.0
 Created by	: Asanthi Kulasinghe
+Test case	: https://testlink.wso2.com/linkto.php?tprojectPrefix=GW&item=testcase&id=GW-7
 
 DESCRIPTION
 ===========
