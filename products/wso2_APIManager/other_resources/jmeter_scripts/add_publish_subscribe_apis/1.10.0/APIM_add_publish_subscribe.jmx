@@ -34,9 +34,19 @@
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Parameter variables" enabled="true">
           <collectionProp name="Arguments.arguments">
+            <elementProp name="pubserver" elementType="Argument">
+              <stringProp name="Argument.name">pubserver</stringProp>
+              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="storeserver" elementType="Argument">
+              <stringProp name="Argument.name">storeserver</stringProp>
+              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
             <elementProp name="server" elementType="Argument">
               <stringProp name="Argument.name">server</stringProp>
-              <stringProp name="Argument.value">192.168.118.1</stringProp>
+              <stringProp name="Argument.value">localhost</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="port" elementType="Argument">
@@ -46,7 +56,7 @@
             </elementProp>
             <elementProp name="apiname" elementType="Argument">
               <stringProp name="Argument.name">apiname</stringProp>
-              <stringProp name="Argument.value">evanapitest</stringProp>
+              <stringProp name="Argument.value">ApiTest</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -59,23 +69,33 @@
             <stringProp name="-1011352949">applicationId</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="1263649757">
-              <stringProp name="146731693">Administrator</stringProp>
-              <stringProp name="-1105327242">pass#word2</stringProp>
+            <collectionProp name="218595634">
+              <stringProp name="92668751">admin</stringProp>
+              <stringProp name="92668751">admin</stringProp>
               <stringProp name="49">1</stringProp>
             </collectionProp>
-            <collectionProp name="-1964194495">
-              <stringProp name="720609794">admin@evan.com</stringProp>
-              <stringProp name="20761600">admin123#</stringProp>
+            <collectionProp name="627577197">
+              <stringProp name="-2114680022">admin@lr.com</stringProp>
+              <stringProp name="92668751">admin</stringProp>
               <stringProp name="50">2</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
         </UserParameters>
         <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="NameID" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">NameID</stringProp>
+          <stringProp name="CounterConfig.format">#</stringProp>
+          <boolProp name="CounterConfig.per_user">true</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller1" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="TestPlan.comments">Handles the super tenant and sub tenant actions within a single loop</stringProp>
         </LoopController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login to Publisher" enabled="true">
@@ -104,7 +124,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.domain">${pubserver}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -184,21 +204,22 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller2" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
-            <stringProp name="LoopController.loops">1</stringProp>
+            <stringProp name="LoopController.loops">10</stringProp>
+            <stringProp name="TestPlan.comments">Determines how many APIs created per tenant</stringProp>
           </LoopController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="APIcounter" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
-              <stringProp name="CounterConfig.end">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
               <stringProp name="CounterConfig.name">lcount</stringProp>
               <stringProp name="CounterConfig.format">#</stringProp>
-              <boolProp name="CounterConfig.per_user">false</boolProp>
+              <boolProp name="CounterConfig.per_user">true</boolProp>
             </CounterConfig>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create API" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create API Test" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="action" elementType="HTTPArgument">
@@ -210,10 +231,17 @@
                   </elementProp>
                   <elementProp name="name" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${apiname}_${lcount}</stringProp>
+                    <stringProp name="Argument.value">${apiname}_${NameID}_${lcount}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">name</stringProp>
+                  </elementProp>
+                  <elementProp name="context" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">/${apiname}_${NameID}_${lcount}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">context</stringProp>
                   </elementProp>
                   <elementProp name="version" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -222,33 +250,12 @@
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">version</stringProp>
                   </elementProp>
-                  <elementProp name="description" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">This API has been added by Jmeter</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">description</stringProp>
-                  </elementProp>
-                  <elementProp name="endpoint" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">http://192.168.118.1:9763/jaxrs_basic/services/customers</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">endpoint</stringProp>
-                  </elementProp>
-                  <elementProp name="wsdl" elementType="HTTPArgument">
+                  <elementProp name="default_version_checked" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value"></stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">wsdl</stringProp>
-                  </elementProp>
-                  <elementProp name="tags" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${apiname}${lcount},superadminAPI</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">tags</stringProp>
+                    <stringProp name="Argument.name">default_version_checked</stringProp>
                   </elementProp>
                   <elementProp name="tier" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -257,89 +264,96 @@
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">tier</stringProp>
                   </elementProp>
-                  <elementProp name="thumbUrl" elementType="HTTPArgument">
+                  <elementProp name="tier" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">http://images.ientrymail.com/webpronews/article_pics/yahoo-placefinder.jpg</stringProp>
+                    <stringProp name="Argument.value">Gold</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">thumbUrl</stringProp>
+                    <stringProp name="Argument.name">tier</stringProp>
                   </elementProp>
-                  <elementProp name="context" elementType="HTTPArgument">
+                  <elementProp name="tier" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{version}/${apiname}${lcount}/Tenant${apiname}${lcount}</stringProp>
+                    <stringProp name="Argument.value">Silver</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">context</stringProp>
+                    <stringProp name="Argument.name">tier</stringProp>
                   </elementProp>
-                  <elementProp name="tiersCollection" elementType="HTTPArgument">
+                  <elementProp name="tier" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">Unlimited,Gold</stringProp>
+                    <stringProp name="Argument.value">Bronze</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">tiersCollection</stringProp>
+                    <stringProp name="Argument.name">tier</stringProp>
                   </elementProp>
-                  <elementProp name="resourceCount" elementType="HTTPArgument">
+                  <elementProp name="transport_https" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">https</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">transport_https</stringProp>
+                  </elementProp>
+                  <elementProp name="https_checked" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">https</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">https_checked</stringProp>
+                  </elementProp>
+                  <elementProp name="transport_http" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">http</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">transport_http</stringProp>
+                  </elementProp>
+                  <elementProp name="http_checked" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">http</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">http_checked</stringProp>
+                  </elementProp>
+                  <elementProp name="responseCache" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">disabled</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">responseCache</stringProp>
+                  </elementProp>
+                  <elementProp name="cacheTimeout" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">0</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceCount</stringProp>
+                    <stringProp name="Argument.name">cacheTimeout</stringProp>
                   </elementProp>
-                  <elementProp name="resourceMethod-0" elementType="HTTPArgument">
+                  <elementProp name="visibility" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">GET</stringProp>
+                    <stringProp name="Argument.value">public</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethod-0</stringProp>
+                    <stringProp name="Argument.name">visibility</stringProp>
                   </elementProp>
-                  <elementProp name="uriTemplate-0" elementType="HTTPArgument">
+                  <elementProp name="roles" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">/customerservice/customers/{id}</stringProp>
+                    <stringProp name="Argument.value"></stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">uriTemplate-0</stringProp>
+                    <stringProp name="Argument.name">roles</stringProp>
                   </elementProp>
-                  <elementProp name="resourceMethodAuthType-0" elementType="HTTPArgument">
+                  <elementProp name="description" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">Application</stringProp>
+                    <stringProp name="Argument.value">Jmeter Longrunning test</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethodAuthType-0</stringProp>
+                    <stringProp name="Argument.name">description</stringProp>
                   </elementProp>
-                  <elementProp name="resourceMethodThrottlingTier-0" elementType="HTTPArgument">
+                  <elementProp name="tags" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">Unlimited</stringProp>
+                    <stringProp name="Argument.value">tag1,tag2,tag3,tag4</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethodThrottlingTier-0</stringProp>
-                  </elementProp>
-                  <elementProp name="resourceMethod-1" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">POST</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethod-1</stringProp>
-                  </elementProp>
-                  <elementProp name="uriTemplate-1" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">/customerservice/customers</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">uriTemplate-1</stringProp>
-                  </elementProp>
-                  <elementProp name="resourceMethodAuthType-1" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">Application&amp;ApplicationUser</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethodAuthType-1</stringProp>
-                  </elementProp>
-                  <elementProp name="resourceMethodThrottlingTier-1" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">Unlimited</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">resourceMethodThrottlingTier-1</stringProp>
+                    <stringProp name="Argument.name">tags</stringProp>
                   </elementProp>
                   <elementProp name="endpoint_type" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -350,21 +364,21 @@
                   </elementProp>
                   <elementProp name="endpoint_config" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;production_endpoints&quot;:{&quot;url&quot;:&quot;https://localhost:9443/${apiname}${lcount}&quot;,&quot;config&quot;:null},&quot;sandbox_endpoints&quot;:{&quot;url&quot;:&quot;https://localhost:9443/${apiname}${lcount}&quot;,&quot;config&quot;:null},&quot;implementation_status&quot;:&quot;managed&quot;,&quot;endpoint_type&quot;:&quot;http&quot;}</stringProp>
+                    <stringProp name="Argument.value">{&quot;production_endpoints&quot;:{&quot;url&quot;:&quot;http://ws.cdyne.com/phoneverify/phoneverify.asmx&quot;,&quot;config&quot;:null},&quot;sandbox_endpoints&quot;:{&quot;url&quot;:&quot;http://ws.cdyne.com/phoneverify/phoneverify.asmx&quot;,&quot;config&quot;:null},&quot;implementation_status&quot;:&quot;managed&quot;,&quot;endpoint_type&quot;:&quot;http&quot;}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">endpoint_config</stringProp>
                   </elementProp>
                   <elementProp name="production_endpoints" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">https://${server}:${port}/${apiname}${lcount}</stringProp>
+                    <stringProp name="Argument.value">https://${server}:${port}/${apiname}_${NameID}_${lcount}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">production_endpoints</stringProp>
                   </elementProp>
                   <elementProp name="sandbox_endpoints" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">https://${server}:${port}/${apiname}${lcount}</stringProp>
+                    <stringProp name="Argument.value">https://${server}:${apiname}_${NameID}_${lcount}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">sandbox_endpoints</stringProp>
@@ -376,9 +390,72 @@
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">endpointType</stringProp>
                   </elementProp>
+                  <elementProp name="wadl" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">wadl</stringProp>
+                  </elementProp>
+                  <elementProp name="bizOwner" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">bizOwner</stringProp>
+                  </elementProp>
+                  <elementProp name="bizOwnerMail" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">bizOwnerMail</stringProp>
+                  </elementProp>
+                  <elementProp name="techOwner" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">techOwner</stringProp>
+                  </elementProp>
+                  <elementProp name="techOwnerMail" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">techOwnerMail</stringProp>
+                  </elementProp>
+                  <elementProp name="subscriptions" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">current_tenant</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">subscriptions</stringProp>
+                  </elementProp>
+                  <elementProp name="tiersCollection" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">Unlimited,Gold,Silver,Bronze</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">tiersCollection</stringProp>
+                  </elementProp>
+                  <elementProp name="wsdl" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">wsdl</stringProp>
+                  </elementProp>
+                  <elementProp name="swagger" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;paths&quot;:{&quot;/CheckPhoneNumber&quot;:{&quot;get&quot;:{&quot;parameters&quot;:[{&quot;name&quot;:&quot;PhoneNumber&quot;,&quot;required&quot;:true,&quot;type&quot;:&quot;string&quot;,&quot;in&quot;:&quot;query&quot;},{&quot;name&quot;:&quot;LicenseKey&quot;,&quot;required&quot;:true,&quot;type&quot;:&quot;string&quot;,&quot;in&quot;:&quot;query&quot;}],&quot;responses&quot;:{&quot;200&quot;:{}},&quot;x-auth-type&quot;:&quot;Application &amp; Application User&quot;,&quot;x-throttling-tier&quot;:&quot;Unlimited&quot;}}},&quot;swagger&quot;:&quot;2.0&quot;,&quot;info&quot;:{&quot;title&quot;:&quot;${apiname}_${NameID}_${lcount}&quot;,&quot;version&quot;:&quot;1.0.0&quot;}}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">swagger</stringProp>
+                  </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.domain">${pubserver}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -394,27 +471,13 @@
               <boolProp name="HTTPSampler.monitor">false</boolProp>
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
-            <hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">10000</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1832619711">{&quot;error&quot; : false}</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="publishAPI" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="name" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${apiname}_${lcount}</stringProp>
+                    <stringProp name="Argument.value">${apiname}_${NameID}_${lcount}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">name</stringProp>
@@ -456,7 +519,7 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.domain">${pubserver}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -499,7 +562,7 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.domain">${storeserver}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -540,7 +603,7 @@
                   </elementProp>
                   <elementProp name="name" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${apiname}_${lcount}</stringProp>
+                    <stringProp name="Argument.value">${apiname}_${NameID}_${lcount}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">name</stringProp>
@@ -568,7 +631,7 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.domain">${storeserver}</stringProp>
               <stringProp name="HTTPSampler.port">${port}</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -603,7 +666,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.domain">${pubserver}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -630,11 +693,49 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">30000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <name></name>
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
@@ -668,6 +769,33 @@
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <objProp>
+            <name></name>
             <value class="SampleSaveConfiguration">
               <time>true</time>
               <latency>true</latency>
