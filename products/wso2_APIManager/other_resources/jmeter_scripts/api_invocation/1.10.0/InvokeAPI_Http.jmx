@@ -25,7 +25,12 @@
           </elementProp>
           <elementProp name="token" elementType="Argument">
             <stringProp name="Argument.name">token</stringProp>
-            <stringProp name="Argument.value">4ec2b068701163116f501bded85433d5</stringProp>
+            <stringProp name="Argument.value">4b06b6d505d3890daadf690bfec91458</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="api" elementType="Argument">
+            <stringProp name="Argument.name">api</stringProp>
+            <stringProp name="Argument.value">echoservice</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -69,7 +74,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/echoservice/1.0.0/echoString?in=${__RandomString(10,qwertyuiopasdfghjklzxcvbnm)}</stringProp>
+          <stringProp name="HTTPSampler.path">/${api}/1.0.0/echoString?in=${__RandomString(10,qwertyuiopasdfghjklzxcvbnm)}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
