@@ -1,31 +1,40 @@
-This folder will contain all the JMeter scripts used while testing API Manager
+README
+-------------------------------------------------------------------------
 
------------------------------------------------------------------------------------------
 Script: APIM_add_publish.jmx
 Author: Evanthika
 Modified by: Pubudu
 
-Description:- This testcase creates an api with the same name under two different tenant domains, publishes to the relevant store section and subscribes to the published apis.
+Description:
+This script creates an api with the same name under two different tenant domains, publishes to the relevant store section and subscribes to the published apis.
 
-Server Parameters:-
-server - ip address of the server
-port - 9443 if running with offset 0
-apiname - desired API name
+Notes:
+This script was originally written to execute for API manager 1.9.0
+Due to the modifications in 1.9.1, following parameters had been added to the 'Create API' http request
+		1. endpoint_type
+		2. endpoint_config
+		3. production_endpoints
+		4. sandbox_endpoints
+		5. endpointType
 
-Other variables:-
-- In order to set the number of created APIs set the value of Test Plan --> Loop Controller => Loop count to a desired number
+Pre-Conditions:
+	There should be a tenant domain with postfix 'evan.com'
+	evan.com domain should have an admin user created with credentials provided in User Parameters section User_2 column
 
-Pre-Conditions:-
-- There should be a tenant domain with postfix 'evan.com'
-- evan.com domain should have an admin user created with credentials provided in User Parameters section User_2 column
+Server Parameters:
+	server - ip address of the server
+	port - Give the https servlet transport port (9443) with the server's port offset 
+	apiname - desired API name
 
+User Parameters:
+	Provide usernaname and passsword of the super tenant (User 1 column) user and tenant user (User 2 column)
+	applicationId - for super tenant application id =1 , other tenants check provide the relevant application id.
 
-Notes:-
-- This script was originally written to execute for API manager 1.9.0
-- Due to the modifications in 1.9.1, following parameters had been added to the 'Create API' http request
-	1. endpoint_type
-	2. endpoint_config
-	3. production_endpoints
-	4. sandbox_endpoints
-	5. endpointType
+Create API (HTTP Request):
+	Change the details the created API is populated with as required.
 
+Loop Controller1 (Loop Controller):
+	Change the 'Loop Count' to determine the number of API's to be created
+	
+
+-------------------------------------------------------------------------
