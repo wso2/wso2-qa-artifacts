@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://ws.apache.org/ns/synapse">
+   <registry provider="org.wso2.carbon.mediation.registry.WSO2Registry">
+      <parameter name="cachableDuration">15000</parameter>
+   </registry>
+   <taskManager provider="org.wso2.carbon.mediation.ntask.NTaskTaskManager">
+      <parameter name="cachableDuration">15000</parameter>
+   </taskManager>
+   <sequence name="request" onError="fault">
+      <log level="full"/>
+      <drop/>
+   </sequence>
+   <sequence name="fault">
+      <log level="full">
+         <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
+         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+      </log>
+      <drop/>
+   </sequence>
+   <sequence name="main">
+      <log level="full"/>
+      <drop/>
+   </sequence>
+   <inboundEndpoint name="jms_inbound"
+                    sequence="request"
+                    onError="fault"
+                    protocol="jms"
+                    suspend="false">
+      <parameters>
+         <parameter name="interval">1000</parameter>
+         <parameter name="transport.jms.Destination">/topic/exampleTopic</parameter>
+         <parameter name="transport.jms.CacheLevel">5</parameter>
+         <parameter name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</parameter>
+         <parameter name="sequential">true</parameter>
+         <parameter name="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</parameter>
+         <parameter name="java.naming.provider.url">jnp://localhost:1099</parameter>
+         <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+         <parameter name="transport.jms.SessionTransacted">false</parameter>
+         <parameter name="transport.jms.ConnectionFactoryType">topic</parameter>
+         <parameter name="transport.jms.JMSSpecVersion">2.0</parameter>
+         <parameter name="transport.jms.SharedSubscription">true</parameter>
+         <parameter name="transport.jms.DurableSubscriberName">mySubscription</parameter>
+      </parameters>
+   </inboundEndpoint>
+</definitions>
+
