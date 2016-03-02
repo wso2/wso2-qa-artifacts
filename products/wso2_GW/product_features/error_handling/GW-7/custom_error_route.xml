@@ -1,0 +1,13 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="custom_error_route">
+                <from uri="wso2-gw:/custom_error_route"/>
+                <onException>
+                         <exception>java.net.ConnectException</exception>
+                         <handled><constant>true</constant></handled>
+                 <process ref="connectFailureResponse"/>
+                </onException>
+                <to uri="wso2-gw:http://localhost:9773/services/HelloService/"/>
+        </route>
+           
+</routes>

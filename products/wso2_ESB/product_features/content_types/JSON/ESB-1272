@@ -1,0 +1,59 @@
+This is with related to the test case  ESB-1272:ESB should send the JSON payload with one element in array correctly as expected.
+
+
+API config :
+================
+
+<api xmlns="http://ws.apache.org/ns/synapse" name="api1" context="/t/ushani.com/api1">
+<resource methods="PUT">
+<inSequence>
+<send>
+<endpoint>
+<address uri="http://www.mocky.io/v2/563053330f00005c2c3e59d7"></address>
+</endpoint>
+</send>
+<log level="full" separator=","></log>
+</inSequence>
+<outSequence>
+<send></send>
+</outSequence>
+</resource>
+</api>
+
+
+Payload :
+==============
+
+{
+"wso2Extension":
+{ "dateOfBirth": "", "appName": "Consumer", "optNewsLetter": "true" }
+
+,
+"title": "Mr",
+"schemas": [
+null
+],
+"name":
+{ "familyName": "Clayton1", "givenName": "Constance1" }
+
+,
+"userName": "ramya@gmail.com",
+"emails": [
+{ "value": "ramya@gmail.com" }
+
+],
+"phoneNumbers": [
+{ "primary": true, "value": "7777777777", "type": "home" }
+
+]
+}
+
+
+Expected :
+===============
+
+ESB should send [ ] bracket when there is only 1 element in both tenant and super tenant mode
+
+"emails": [
+{ "value": "ramya@gmail.com" }
+]

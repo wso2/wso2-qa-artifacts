@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.equinox:org.eclipse.equinox.p2.director:2.3.0.v20130526-0335">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/equinox/org.eclipse.equinox.p2.director/2.3.0.v20130526-0335/org.eclipse.equinox.p2.director-2.3.0.v20130526-0335.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/equinox/org.eclipse.equinox.p2.director/2.3.0.v20130526-0335/org.eclipse.equinox.p2.director-2.3.0.v20130526-0335-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/equinox/org.eclipse.equinox.p2.director/2.3.0.v20130526-0335/org.eclipse.equinox.p2.director-2.3.0.v20130526-0335-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="loadbalanced">
+                <from uri="wso2-gw:/loadbalanced"/>
+                <loadBalance>
+                        <roundRobin/>
+                        <to uri="wso2-gw:http://localhost:9773/services/HelloService/"/>
+                        <to uri="wso2-gw:http://localhost:9783/services/HelloService/"/>
+                        <to uri="wso2-gw:http://localhost:9793/services/HelloService/"/>
+ 
+                </loadBalance>
+        </route>
+     
+</routes>

@@ -1,0 +1,201 @@
+one, two, four
+
+
+
+//genarate api name
+SetVariable
+	name=APIName
+	type=String
+	paramValue=@param_APIName+"_"+caller.generateData("int",3)
+Store
+	key=key_APINameDesign
+	type=String
+	value=@APIName
+//Type API Name
+
+
+
+    bt1p1@bdomain_one.com
+	
+	
+	
+	Type
+	object=Browse_Doc.tf_DocName
+	text=@DocNameOne
+Pause
+	ms=3000
+CheckElementPresent
+	object=Browse_Doc.rdo_HowTo
+	stopOnFailure=false
+	customErrorMessage=
+Pause
+	ms=3000
+Click
+	object=Browse_Doc.rdo_HowTo
+Pause
+	ms=2000
+Click
+	object=Browse_Doc.rdo_File
+Pause
+	ms=5000
+//Type valid file path
+SetVariable
+	name=java.io.File fileTwo
+	type=java.io.File file
+	paramValue=new java.io.File("src" +java.io.File.separator + "main" + java.io.File.separator + "resources" + java.io.File.separator + "data"+ java.io.File.separator + param_fileToUpload)
+SetVariable
+	name=entirePathTwo
+	type=String
+	paramValue=fileTwo.getAbsolutePath()
+Pause
+	ms=2000
+Type
+	object=Browse_Doc.tf_BrowseFile
+	text=@entirePathTwo
+Pause
+	ms=4000
+//Set visibility level same as API
+Select
+	object=Browse_Doc.ele_ddVisibility
+	selectLocator=@param_DocVisibilitySameAsAPI
+Pause
+	ms=2000
+Click
+	object=Browse_Doc.btn_AddDocument
+Pause
+	ms=3000
+//Check for added document
+CheckElementPresent
+	object=Browse_Doc.ele_lblHowTo
+	param_docName=@DocNameOne
+	stopOnFailure=false
+	customErrorMessage=
+Pause
+	ms=3000
+CheckElementPresent
+	object=Browse_Doc.lnk_open
+	param_docName=@DocNameOne
+	stopOnFailure=false
+	customErrorMessage=
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	//ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]
+	
+	//ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]/../div/a[contains(text(),'<param_keyWordViewContent>')]
+	lnk_documentSearchResult_viewContent
+	
+    //ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]/../p/a[contains(text(),'<param_keyWordDownload>')]
+	
+	//ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]/../../div/h5/a[contains(text(),'<param_APIName>')]
+	
+	//ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]/../../div/h5/a[contains(text(),'<param_APIName>')]/span[contains(text(),'<param_versionOfAPI>')]
+	
+	//ul[@class='thumbnails']/div/li/div/p[contains(text(),'<param_documentName>')]/../../div/h5/div[contains(text(),'<param_provider>')]
+	
+	
+	
+	
+	
+	Store
+	
+	
+	
+	lnk_documentSearchResult_viewContent
+	ele_lblDocumentSearchResult_provider
+	
+	
+	doc name 
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]
+	
+	summary
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]/../h6[contains(text(),'Summary')]/../p[contains(text(),'<param_summaryContent>')][1]
+	
+	viewcontent
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]/../div/a
+	
+	download
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]/../p/a
+	
+	
+	api nmae OrVersion
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]/../../div[2]/div/a[contains(text(),'<param_APINameOrVersion>')]
+	
+	
+	provider
+	//ul[@class='thumbnails']/div/li/div/h5[contains(text(),'<param_documentName>')]/../../div[2]/div[2]/a[contains(text(),'<param_provider>')]
+	
+	
+	
+	
+	CheckElementPresent
+	object=Browse_Doc.lnk_documentSearchResult_download
+	param_documentName=@param_docNameDocThree
+	param_keyWordDownload=@param_keyWordDownload
+	stopOnFailure=false
+	customErrorMessage=
+	
+	
+	SelectWindow
+	object=Browse_Doc.newWindow1
+Pause
+	ms=4000
+//Verify API Version
+CheckElementPresent
+	object=Browse_Doc.ele_lblApiVersionInEditContent
+	param_APIVersion=@APIVersion
+	stopOnFailure=false
+	customErrorMessage=
+SelectFrame
+	object=Browse_Doc.frame1
+	
+	
+	
+	@param_searchForDocumentKeyWordOne
+	
+	var_APINameOne
+	var_APINameTwo
+	var_APINameThree
+	
+	
+	t("KEY%key=\t|key=\t|key=\n
+	
+	
+	
+	  caller.selectWindow("Browse_Doc.newWindow1");
+        caller.pause("4000");
+        //Verify API Version
+        caller.checkElementPresent("Browse_Doc.ele_lblApiVersionInEditContent","param_APIVersion_PARAM:" + param_newVersion,false,"");
+        caller.selectFrame("Browse_Doc.frame1");
+	
+	
+	Browse_Doc.tf_EditContent1
+	
+	
+	SelectFrame
+	object=Browse_Doc.frame1
+	
+	
+	        caller.selectWindow("Browse_Doc.newWindow1");
+			
+			
+			
+			
+			//log out store
+	Click
+		object=APIStoreHome.lnk_LogOutDropDown
+	Pause
+		ms=2000
+	Click
+		object=APIStoreHome.btn_Logout
+	Pause
+		ms=2000
+	

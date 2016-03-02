@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="FORCE_ERROR_ON_SOAP_FAULT_PropertyTestProxy"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <inSequence>
+         <log/>
+         <property name="foo" value="bar"/>
+         <property name="FORCE_ERROR_ON_SOAP_FAULT"
+                   value="true"
+                   scope="default"
+                   type="STRING"/>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+      <faultSequence>
+         <log level="custom">
+            <property name="STATUS" value="ERROR_SEQ"/>
+         </log>
+         <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+            <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+         </log>
+         <makefault version="soap11">
+            <code expression="$ctx:ERROR_CODE"/>
+            <reason expression="$ctx:ERROR_MESSAGE"/>
+         </makefault>
+         <send/>
+      </faultSequence>
+      <endpoint>
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+      </endpoint>
+   </target>
+   <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
+   <description/>
+</proxy>

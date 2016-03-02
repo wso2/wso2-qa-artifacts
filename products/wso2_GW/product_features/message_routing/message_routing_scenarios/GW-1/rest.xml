@@ -1,0 +1,20 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+    	<route>
+                  <from uri="direct:getCustomerById"/>
+                  <toD uri="wso2-gw:http://localhost:9773/jaxrs_basic/services/customers/customerservice/customers/${header.id}"/>
+        </route>
+        <route>
+                  <from uri="direct:addCustomer"/>
+                  <to uri="wso2-gw:http://localhost:9773/jaxrs_basic/services/customers/customerservice/customers"/>
+        </route>
+        <route>
+                  <from uri="direct:updateCustomer"/>
+                  <to uri="wso2-gw:http://localhost:9773/jaxrs_basic/services/customers/customerservice/customers"/>
+        </route>
+        <route>
+                  <from uri="direct:deleteCustomerById"/>
+                  <toD uri="wso2-gw:http://localhost:9773/jaxrs_basic/services/customers/customerservice/customers/${header.id}"/>
+        </route>
+
+</routes>
