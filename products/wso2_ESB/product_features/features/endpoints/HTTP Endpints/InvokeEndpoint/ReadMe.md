@@ -5,6 +5,7 @@
 3. Send following soap request to proxy service:
 
 ### Request:
+```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
    <soapenv:Body>
@@ -46,11 +47,13 @@
       </pizza>
    </soapenv:Body>
 </soapenv:Envelope>
-
+```
 
 ### Response:
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Thu, 30 Jan 2014 09:05:00 GMT
 Server: WSO2-PassThrough-HTTP
 Transfer-Encoding: chunk
+```
