@@ -16,11 +16,7 @@
 
 package org.asanka.service;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 
 /**
  * This is the Microservice resource class.
@@ -29,35 +25,26 @@ import javax.ws.rs.Path;
  *
  * @since 1.0.0
  */
-@Path("/service")
+@Path("/Path")
 public class PathAnnotationSample {
 
     @GET
     @Path("/")
     public String get() {
-        // TODO: Implementation for HTTP GET request
+
         System.out.println("GET invoked");
-        return "Hello from WSO2 MSF4J";
+        return "Hello @PATH works on WSO2 MSF4J";
     }
 
-    @POST
-    @Path("/")
-    public void post() {
-        // TODO: Implementation for HTTP POST request
-        System.out.println("POST invoked");
+    @GET
+    @Path("users/{username}")
+    public String getUser(@PathParam("username") String userName) {
+
+        System.out.println(userName);
+        return "Hello::::::::::"+userName;
     }
 
-    @PUT
-    @Path("/")
-    public void put() {
-        // TODO: Implementation for HTTP PUT request
-        System.out.println("PUT invoked");
-    }
 
-    @DELETE
-    @Path("/")
-    public void delete() {
-        // TODO: Implementation for HTTP DELETE request
-        System.out.println("DELETE invoked");
-    }
+
+
 }
