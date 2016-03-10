@@ -38,7 +38,7 @@ import java.nio.file.Paths;
  *
  * @since 1.0.0
  */
-@Path("/context")
+@Path("/Context")
 public class ContextAnnotationSample {
 
     public static final String MOUNT_PATH = "/var/www/html/upload";

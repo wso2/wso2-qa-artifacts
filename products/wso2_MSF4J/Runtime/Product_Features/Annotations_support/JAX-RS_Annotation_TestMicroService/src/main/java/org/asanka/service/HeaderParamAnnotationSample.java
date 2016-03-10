@@ -25,7 +25,7 @@ import javax.ws.rs.*;
  *
  * @since 1.0.0
  */
-@Path("/headerparam")
+@Path("/HeaderParam")
 public class HeaderParamAnnotationSample {
 
     @GET

@@ -25,7 +25,7 @@ import javax.ws.rs.*;
  *
  * @since 1.0.0
  */
-@Path("/defaultvalue")
+@Path("/DefaultValue")
 public class DefaultValueAnnotationSample {
 
     @GET
