@@ -26,6 +26,7 @@ import javax.ws.rs.*;
  * @since 1.0.0
  */
 @Path("/Produce")
+@Produces("plain/text")
 public class ProduceAnnotationSample {
 
 
