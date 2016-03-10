@@ -26,11 +26,11 @@ import javax.ws.rs.*;
  * @since 1.0.0
  */
 @Path("/Consume")
+@Consumes("text/plain")
 public class ConsumeAnnotationSample {
 
-    @GET
-    @Path("salary")
-    @Consumes("text/plain")
+    @POST
+    @Path("class")
     @Produces("text/plain")
     public String getSalary(@DefaultValue("1000") @QueryParam("value") String salary) {
 
@@ -39,6 +39,15 @@ public class ConsumeAnnotationSample {
         return "Salary Is::::::::::"+salary;
     }
 
+    @POST
+    @Path("method")
+    @Consumes("application/xml")
+    @Produces("text/plain")
+    public String getPOST(@DefaultValue("1000") @QueryParam("value") String salary) {
 
+
+        System.out.println("Salary Is::::::::::"+salary);
+        return "Salary Is::::::::::"+salary;
+    }
 
 }

@@ -26,15 +26,23 @@ import javax.ws.rs.*;
  * @since 1.0.0
  */
 @Path("/Produce")
-@Produces("plain/text")
+@Produces("application/json")
 public class ProduceAnnotationSample {
 
 
     @GET
-    @Path("salary")
-    @Consumes("application/xml")
+    @Path("class")
+    public String getSalary1(@DefaultValue("1000") @QueryParam("value") String salary) {
+
+
+        System.out.println("Salary Is::::::::::"+salary);
+        return "Salary Is::::::::::"+salary;
+    }
+
+    @GET
+    @Path("method")
     @Produces("application/xml")
-    public String getSalary(@DefaultValue("1000") @QueryParam("value") String salary) {
+    public String getSalary2(@DefaultValue("1000") @QueryParam("value") String salary) {
 
 
         System.out.println("Salary Is::::::::::"+salary);
