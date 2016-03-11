@@ -31,7 +31,7 @@ public class ConsumeAnnotationSample {
 
     @POST
     @Path("class")
-    @Produces("text/plain")
+
     public String getSalary(@DefaultValue("1000") @QueryParam("value") String salary) {
 
 
@@ -42,7 +42,7 @@ public class ConsumeAnnotationSample {
     @POST
     @Path("method")
     @Consumes("application/xml")
-    @Produces("text/plain")
+
     public String getPOST(@DefaultValue("1000") @QueryParam("value") String salary) {
 
 

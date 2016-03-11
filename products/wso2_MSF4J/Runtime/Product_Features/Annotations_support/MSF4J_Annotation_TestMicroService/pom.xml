@@ -27,7 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.asanka</groupId>
-    <artifactId>JAX-RS_Annotation_TestMicroService</artifactId>
+    <artifactId>MSF4J_Annotation_TestMicroService</artifactId>
     <version>1.0.0</version>
     <name>WSO2 MSF4J Microservice</name>
 
