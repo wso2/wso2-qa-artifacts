@@ -40,7 +40,7 @@ public class PathParamAnnotationSample {
 
     @GET
     @Path("user/{id}/{name}/{salary}/{bday}")
-    public String getUserDetails(@PathParam("id") String id, @PathParam("name") String name, @PathParam("salary") int salary, @PathParam("bday")Date bday) {
+    public String getUserDetails(@PathParam("id") String id, @PathParam("name") String name, @PathParam("salary") int salary, @PathParam("bday")String bday) {
 
 
         System.out.println(":::::::::::::User Details::::::::::");

@@ -47,7 +47,7 @@ public class ContextAnnotationSample {
 
     @GET
     @Path("HttpRequest")
-    public String getHttpRequest(@Context HttpRequest request) {
+    public String HttpRequest(@Context HttpRequest request) {
 
         System.out.println(request.getUri());
         return request.getUri();
@@ -55,7 +55,7 @@ public class ContextAnnotationSample {
 
     @GET
     @Path("HttpResponder")
-    public String getHttpResponder(@Context HttpResponder responder) {
+    public String HttpResponder(@Context HttpResponder responder) {
 
 
         System.out.println(responder.toString());
