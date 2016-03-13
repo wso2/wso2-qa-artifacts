@@ -1,5 +1,5 @@
 <!--Test_suite xml for running testng test-->
-<suite name="WSO2_APIManager" verbose="3">
+<suite name="WSO2" verbose="3">
 	
 	<test name="WSO2_APIManager" preserve-order="true">
 		<classes>
@@ -9,9 +9,7 @@
 					<include name="tc_Tenant_UserCreation"></include>
 					<include name="tc_Admin_UserCreation"></include>
 				</methods>
-			</class>
-		
-		<class name="com.wso2_apimanager.ts_APILifecycleManagement">
+			</class><class name="com.wso2_apimanager.ts_APILifecycleManagement">
 				<methods>
 					<include name="tc_APILifeCycleManagement"></include>
 					<include name="tc_APIStates_Created"></include>
@@ -20,6 +18,10 @@
 					<include name="tc_APIStates_Blocked"></include>
 					<include name="tc_APIStates_Prototyped"></include>
 					<include name="tc_APIStates_Published"></include>
+				</methods>
+			</class><class name="com.wso2_apimanager.CreateAPIForExistingSoapEndpoint">
+				<methods>
+					<include name="createAPIForExistingSoapEndpoint"></include>
 				</methods>
 			</class><class name="com.wso2_apimanager.ts_CreateAPIForExistingSoapEndpoint">
 				<methods>
@@ -76,6 +78,10 @@
 				<methods>
 					<include name="tc_PrototypeAPIs"></include>
 				</methods>
+			</class><class name="com.wso2_apimanager.ts_ErrorHandling">
+				<methods>
+					<include name="tc_ErrorHandling"></include>
+				</methods>
 			</class><class name="com.wso2_apimanager.ts_Scopes">
 				<methods>
 					<include name="tc_Scope"></include>
@@ -103,6 +109,7 @@
 					<include name="tc_Subscription"></include>
 					<include name="tc_Self_Signup"></include>
 					<include name="tc_Search_APIs_of_Store"></include>
+					<include name="tc_SocialNetworking"></include>
 				</methods>
 			</class><class name="com.wso2_apimanager.ts_Community_Features">
 				<methods>
@@ -114,8 +121,9 @@
 				<methods>
 					<include name="tc_SubscriptionRemoval"></include>
 				</methods>
-			</class><class name="com.wso2_apimanager.ts_test">
+			</class><class name="com.wso2_apimanager.ts_UserSignUp">
 				<methods>
+					<include name="tc_UserSignUp"></include>
 				</methods>
 			</class>
 		</classes>

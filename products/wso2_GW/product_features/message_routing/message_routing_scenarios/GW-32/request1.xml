@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:echoInt>
+              <ser:x>8</ser:x>
+      </ser:echoInt>
+   </soapenv:Body>
+</soapenv:Envelope>

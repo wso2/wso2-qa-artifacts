@@ -1,0 +1,21 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+        <!-- sample routes corresponding to the rest interfaces -->
+        <route>
+                <from uri="direct:getCustomerJSON"/>
+                <setHeader headerName="Accept">
+                    <constant>application/json</constant>
+                </setHeader>
+                <toD uri="wso2-gw:http://localhost:9773/jaxrs_content_negotiation/services/customers/customerservice/customers/${header.id}"/>
+        </route>
+
+        <route>
+                <from uri="direct:getCustomerXML"/>
+                <setHeader headerName="Accept">
+                    <constant>application/xml</constant>
+                </setHeader>
+                <toD uri="wso2-gw:http://localhost:9773/jaxrs_content_negotiation/services/customers/customerservice/customers/${header.id}"/>
+        </route>
+ 
+           
+</routes>

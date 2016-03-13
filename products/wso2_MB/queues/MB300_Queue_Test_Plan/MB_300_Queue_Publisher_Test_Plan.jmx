@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MB_300_Queue_Publisher_Test_Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="jndipath" elementType="Argument">
+            <stringProp name="Argument.name">jndipath</stringProp>
+            <stringProp name="Argument.value">/home/dilinig/jmeter_script_MB/resources</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="filepath" elementType="Argument">
+            <stringProp name="Argument.name">filepath</stringProp>
+            <stringProp name="Argument.value">/home/dilinig/jmeter_script_MB/resources</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Basic-Queue-Publisher" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1436864789000</longProp>
+        <longProp name="ThreadGroup.end_time">1436864789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <doubleProp>
+            <name>throughput</name>
+            <value>2000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_file</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties"/>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Queue-Publisher-JMS-Message-Properties" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1436864789000</longProp>
+        <longProp name="ThreadGroup.end_time">1436864789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <doubleProp>
+            <name>throughput</name>
+            <value>200000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher with Message properties" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a message with JMS message properties</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">Topic</stringProp>
+                <stringProp name="JMSProperty.value">1</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.String</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">TopicId</stringProp>
+                <stringProp name="JMSProperty.value">12</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">isNew</stringProp>
+                <stringProp name="JMSProperty.value">true</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Boolean</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">amount1</stringProp>
+                <stringProp name="JMSProperty.value">9876f</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Float</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">amount2</stringProp>
+                <stringProp name="JMSProperty.value">9876.89d</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Double</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">value1</stringProp>
+                <stringProp name="JMSProperty.value">1000</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Short</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">value2</stringProp>
+                <stringProp name="JMSProperty.value">64</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Byte</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">value3</stringProp>
+                <stringProp name="JMSProperty.value">8999</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Long</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Queue-Publisher-JMS-Message-Types" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1436864789000</longProp>
+        <longProp name="ThreadGroup.end_time">1436864789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <doubleProp>
+            <name>throughput</name>
+            <value>200000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Map" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">&quot;boo&quot;,String,&quot;abc&quot;
+&quot;foo&quot;,Integer,560</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_map_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties"/>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Text" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a Text Message</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties"/>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Byte" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message"> </stringProp>
+          <stringProp name="jms.input_file">${filepath}/sample_5KB_msg.xml</stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_file</stringProp>
+          <stringProp name="jms.config_msg_type">jms_bytes_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties"/>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Queue-Publisher-Tenant-Mode" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1436864789000</longProp>
+        <longProp name="ThreadGroup.end_time">1436864789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <doubleProp>
+            <name>throughput</name>
+            <value>200000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Tenant" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactoryTenant</stringProp>
+          <stringProp name="jms.topic">myQueueTenant</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a message published to a tenant</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_file</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties"/>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Queue-Publisher-Selectors" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1436864789000</longProp>
+        <longProp name="ThreadGroup.end_time">1436864789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <doubleProp>
+            <name>throughput</name>
+            <value>2000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Selectors - qty 10" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message with selectors - qty 10</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">quantity</stringProp>
+                <stringProp name="JMSProperty.value">10</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Selectors - qty 5" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message with selectors - qty 5</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">quantity</stringProp>
+                <stringProp name="JMSProperty.value">5</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Selectors - qty 3" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message with selectors - qty 3</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">quantity</stringProp>
+                <stringProp name="JMSProperty.value">3</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Selectors - qty 15" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message with selectors - qty 15</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">quantity</stringProp>
+                <stringProp name="JMSProperty.value">15</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <PublisherSampler guiclass="JMSPublisherGui" testclass="PublisherSampler" testname="Publisher - Selectors - qty 1" enabled="true">
+          <stringProp name="jms.jndi_properties">false</stringProp>
+          <stringProp name="jms.initial_context_factory">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</stringProp>
+          <stringProp name="jms.provider_url">${jndipath}/jndi.properties</stringProp>
+          <stringProp name="jms.connection_factory">QueueConnectionFactory</stringProp>
+          <stringProp name="jms.topic">myQueue</stringProp>
+          <stringProp name="jms.priority">0</stringProp>
+          <stringProp name="jms.security_principle"></stringProp>
+          <stringProp name="jms.security_credentials"></stringProp>
+          <stringProp name="jms.text_message">This is a test message with selectors - qty 1</stringProp>
+          <stringProp name="jms.input_file"></stringProp>
+          <stringProp name="jms.random_path"></stringProp>
+          <stringProp name="jms.config_choice">jms_use_text</stringProp>
+          <stringProp name="jms.config_msg_type">jms_text_message</stringProp>
+          <stringProp name="jms.iterations">1</stringProp>
+          <boolProp name="jms.authenticate">false</boolProp>
+          <elementProp name="jms.jmsProperties" elementType="JMSProperties">
+            <collectionProp name="JMSProperties.properties">
+              <elementProp name="" elementType="JMSProperty">
+                <stringProp name="JMSProperty.name">quantity</stringProp>
+                <stringProp name="JMSProperty.value">1</stringProp>
+                <stringProp name="JMSProperty.type">java.lang.Integer</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </PublisherSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="Ruleproxy"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+   <target>
+      <inSequence>
+         <log level="full"/>
+         <brs:rule xmlns:brs="http://wso2.org/carbon/rules">
+            <brs:source xpath="">soapBody</brs:source>
+            <brs:target xpath="" resultXpath="//accept/child::text()" action="replace">$accept</brs:target>
+            <brs:ruleSet>
+               <brs:properties/>
+               <brs:rule resourceType="regular" sourceType="registry">conf:/rules</brs:rule>
+            </brs:ruleSet>
+            <brs:input namespace="http://services.samples" wrapperElementName="getQuote">
+               <brs:fact elementName="symbol"
+                         namespace="http://services.samples"
+                         type="java.lang.String"
+                         xpath="//m0:getQuote/m0:request/m0:symbol/child::text()"/>
+            </brs:input>
+            <brs:output namespace="http://services.samples"
+                        wrapperElementName="getQuoteRespone">
+               <brs:fact elementName="accept" type="java.lang.String"/>
+            </brs:output>
+         </brs:rule>
+         <switch source="get-property('accept')">
+            <case regex="ibmEndPoint">
+               <send>
+                  <endpoint>
+                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                  </endpoint>
+               </send>
+            </case>
+            <case regex="sunEndPoint">
+               <send>
+                  <endpoint>
+                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                  </endpoint>
+               </send>
+            </case>
+            <case regex="mfstEndPoint">
+               <send>
+                  <endpoint>
+                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                  </endpoint>
+               </send>
+            </case>
+         </switch>
+      </inSequence>
+      <outSequence>
+         <log/>
+      </outSequence>
+   </target>
+   <description/>
+</proxy>
+                                

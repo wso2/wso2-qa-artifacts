@@ -1,0 +1,57 @@
+2016/02/09 09:06:19 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Loading user properties from: /home/pubudup/Documents/Jmeter/apache-jmeter-2.11/bin/user.properties 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Loading system properties from: /home/pubudup/Documents/Jmeter/apache-jmeter-2.11/bin/system.properties 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Copyright (c) 1998-2014 The Apache Software Foundation 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Version 2.11 r1554548 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: java.version=1.8.0_51 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: os.name=Linux 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: os.arch=amd64 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: os.version=3.13.0-24-generic 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: JMeterHome=/home/pubudup/Documents/Jmeter/apache-jmeter-2.11 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: user.dir  =/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: PWD       =/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: IP: 127.0.1.1 Name: pubudup-ThinkPad-T530 FullName: pubudup-ThinkPad-T530 
+2016/02/09 09:06:20 INFO  - jmeter.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties 
+2016/02/09 09:06:21 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2016/02/09 09:06:21 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2016/02/09 09:06:22 INFO  - jmeter.gui.action.LookAndFeelCommand: Using look and feel: javax.swing.plaf.metal.MetalLookAndFeel [Metal, CrossPlatform] 
+2016/02/09 09:06:24 INFO  - jmeter.gui.util.MenuFactory: Skipping kg.apc.jmeter.config.VariablesFromCSVFile 
+2016/02/09 09:06:24 WARN  - jmeter.gui.util.MenuFactory: Missing jar? Could not create kg.apc.jmeter.config.redis.RedisDataSet. java.lang.NoClassDefFoundError: org/apache/commons/pool/impl/GenericObjectPool$Config 
+2016/02/09 09:06:25 INFO  - jmeter.util.BSFTestElement: Registering JMeter version of JavaScript engine as work-round for BSF-22 
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Cannot find .className property for htmlParser, using default 
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is  
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is  
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is  
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is  
+2016/02/09 09:06:25 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2016/02/09 09:06:25 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.http.control.gui.WebServiceSamplerGui 
+2016/02/09 09:06:25 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.http.modifier.gui.ParamModifierGui 
+2016/02/09 09:06:26 INFO  - jorphan.exec.KeyToolUtils: keytool found at 'keytool' 
+2016/02/09 09:06:26 INFO  - jmeter.protocol.http.proxy.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /home/pubudup/Documents/Jmeter/apache-jmeter-2.11/bin/proxyserver.jks 
+2016/02/09 09:06:26 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2016/02/09 09:06:26 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2016/02/09 09:06:26 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2016/02/09 09:06:26 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2016/02/09 09:06:34 INFO  - jmeter.services.FileServer: Default base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1' 
+2016/02/09 09:06:34 INFO  - jmeter.gui.action.Load: Loading file: /home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1/APIM_add_publish.jmx 
+2016/02/09 09:06:34 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1' 
+2016/02/09 09:06:34 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2016/02/09 09:06:34 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2016/02/09 09:06:34 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.6 
+2016/02/09 09:06:34 INFO  - jmeter.save.SaveService: Using SaveService properties file version 1554411 
+2016/02/09 09:06:34 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2016/02/09 09:06:35 INFO  - jmeter.protocol.http.control.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_ 
+2016/02/09 09:06:35 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/add_publish_subscribe_apis/1.9.1' 
+2016/02/09 09:13:25 INFO  - jmeter.gui.action.Load: Loading file: /home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/api_invocation/1.10.0/InvokeAPI_Http.jmx 
+2016/02/09 09:13:25 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/api_invocation/1.10.0' 
+2016/02/09 09:13:25 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/api_invocation/1.10.0' 
+2016/02/09 09:15:40 INFO  - jmeter.gui.action.Load: Loading file: /home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0/InvokeNewToken.jmx 
+2016/02/09 09:15:40 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0' 
+2016/02/09 09:15:40 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0' 
+2016/02/09 09:20:46 INFO  - jmeter.gui.action.Load: Loading file: /home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0/RenewTokenFinal_FINAL.jmx 
+2016/02/09 09:20:46 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0' 
+2016/02/09 09:20:47 INFO  - jmeter.services.FileServer: Set new base='/home/pubudup/Documents/Github/wso2-qa-artifacts/products/wso2_APIManager/other_resources/jmeter_scripts/token_generation/1.10.0' 

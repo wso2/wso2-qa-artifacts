@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://www.wso2.org/types">
+   <soapenv:Header/>
+     <soapenv:Body>
+      <typ:greet> 
+         <name>TestUser</name>
+      </typ:greet>
+   </soapenv:Body>
+</soapenv:Envelope>

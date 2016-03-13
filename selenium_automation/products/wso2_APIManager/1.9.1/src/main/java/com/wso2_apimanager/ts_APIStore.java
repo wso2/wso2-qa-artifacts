@@ -104,6 +104,32 @@ public class ts_APIStore extends SeleniumTestBase {
     } 
     	
 
+    /**
+     * Data provider for Test case tc_SocialNetworking.
+     * @return data table
+     */
+    @DataProvider(name = "tc_SocialNetworking")
+    public Object[][] dataTable_tc_SocialNetworking() {     	
+    	return this.getDataTable("URLs","socialNetworking");
+    }
+
+    /**
+     * Data driven test case tc_SocialNetworking.
+     *
+     * @throws Exception the exception
+     */
+    @VTAFRecoveryMethods(onerrorMethods = {}, recoveryMethods = {}) 
+    @Test (dataProvider = "tc_SocialNetworking")
+    public final void tc_SocialNetworking(final String URLs_carbonURL, final String URLs_publisherURL, final String URLs_storeURL, final String socialNetworking_APIName, final String socialNetworking_APIContest, final String socialNetworking_APITag, final String socialNetworking_productionEndPoint, final String socialNetworking_tenantOrAdmin, final String socialNetworking_tenantOneOrAdminStoreOne, final String socialNetworking_publisherOneOfTenantOneOrAdmin, final String socialNetworking_faceBookUserName, final String socialNetworking_faceBookPassword, final String socialNetworking_twitterUserName, final String socialNetworking_twitterPassword) throws Exception {	
+    	writeToReport("Start Executing tc_SocialNetworking");
+    	//Log in to publisher
+    	lib_Common.bc_PublisherLogin(this, URLs_publisherURL,socialNetworking_publisherOneOfTenantOneOrAdmin);
+    	lib_TestCase.APIM2_800(this, socialNetworking_APIName,socialNetworking_APIContest,socialNetworking_APITag,socialNetworking_productionEndPoint,URLs_storeURL,socialNetworking_tenantOrAdmin,socialNetworking_tenantOneOrAdminStoreOne,socialNetworking_faceBookUserName,socialNetworking_faceBookPassword);
+    	lib_TestCase.APIM2_801(this, socialNetworking_twitterUserName,socialNetworking_twitterPassword,URLs_storeURL,socialNetworking_tenantOrAdmin);
+    	writeToReport("End of Executing tc_SocialNetworking");
+    } 
+    	
+
     public final Object[][] getDataTable(final String... tableNames) {
         String[] tables = tableNames;
         return this.getTableArray(getVirtualDataTable(tables));
