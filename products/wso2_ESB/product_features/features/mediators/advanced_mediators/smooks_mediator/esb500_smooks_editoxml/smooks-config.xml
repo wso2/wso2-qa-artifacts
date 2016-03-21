@@ -5,6 +5,6 @@
     <!--
     Configure the EDI Reader to process the message stream into a stream of SAX events.
     -->
-    <edi:reader mappingModel="repository/samples/resources/smooks/mymapping.xml" />
+    <edi:reader mappingModel="repository/samples/resources/smooks/edimapping.xml" />
  
 </smooks-resource-list>
