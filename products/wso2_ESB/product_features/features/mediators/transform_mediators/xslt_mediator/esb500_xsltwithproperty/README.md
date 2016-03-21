@@ -10,6 +10,7 @@ This artifact is written to highlight the usage of properties inside xslt mediat
   - XSLT transformation file: transform_order.xslt
   - sequences: xslt_seq_6.xml, xslt_seq_7.xml
   - Proxy service: XsltProxy6.xml
+  - SQL script to create table: createTable.sql
 
 
 ### Preconditions
@@ -17,6 +18,7 @@ This artifact is written to highlight the usage of properties inside xslt mediat
 - VFS transport should be enabled for ESB
 - In, Out, Fail file locations should be created for VFS transport
 - Mysql database exist as "test"
+- Table should be created by running the given sql script against the database
 - Table in above database exist as below
 
 ```sh
