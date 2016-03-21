@@ -6,7 +6,7 @@ XSLT transformations can be used transform a request or a response accordingly. 
 
 ### Contents 
 
-  - XSLT transformation file: MyTransformer.xsl
+  - XSLT transformation file: XsltTransformer.xsl
   - Axis2 service file
   - Proxy service
 

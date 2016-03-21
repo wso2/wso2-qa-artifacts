@@ -11,7 +11,7 @@
       </endpoint>
       <inSequence>
          <log level="full"/>
-         <xslt key="gov:/MyTransformer.xsl"/>
+         <xslt key="gov:/XsltTransformer.xsl"/>
          <log level="full"/>
       </inSequence>
       <outSequence>

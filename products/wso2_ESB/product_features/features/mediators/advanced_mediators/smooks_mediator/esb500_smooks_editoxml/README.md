@@ -7,7 +7,7 @@ Smooks mediator can be used to handle many conversion scenarios and this particu
   - Smooks configuration file : smooks-config.xml
   - Proxy service: Smooks3.xml
   - EDI file: edidata.edi
-  - EDI to xml mapping file: mymapping.xml
+  - EDI to xml mapping file: edimapping.xml
   - XSLT transformation file: Transformation.xsl
   - Axis2 service file
 
