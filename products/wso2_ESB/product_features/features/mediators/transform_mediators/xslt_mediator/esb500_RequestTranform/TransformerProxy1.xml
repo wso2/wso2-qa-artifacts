@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="TransformerProxy1"
+       transports="http https"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <endpoint>
+         <address uri="http://10.100.5.63:9793/services/InfoParser/"/>
+      </endpoint>
+      <inSequence>
+         <log level="full"/>
+         <xslt key="gov:/XsltTransformer.xsl"/>
+         <log level="full"/>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <publishWSDL uri="http://10.100.5.63:9793/services/InfoParser?wsdl"/>
+</proxy>
