@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://ws.apache.org/ns/synapse">
+    <registry provider="org.wso2.carbon.mediation.registry.WSO2Registry">
+        <parameter name="cachableDuration">15000</parameter>
+    </registry>
+    <taskManager provider="org.wso2.carbon.mediation.ntask.NTaskTaskManager"/>
+    <proxy name="addDynamicSoapHeader" startOnLoad="true"
+        trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq7"/>
+    </proxy>
+    <proxy name="addEmptyHTTPHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq13"/>
+    </proxy>
+    <proxy name="addingEmptyHTTPHeader" startOnLoad="true"
+        trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq12"/>
+    </proxy>
+    <proxy name="inlineXMLHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq11"/>
+    </proxy>
+    <proxy name="setHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq3"/>
+    </proxy>
+    <proxy name="emptySoapHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq10"/>
+    </proxy>
+    <proxy name="addHttpHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq6"/>
+    </proxy>
+    <proxy name="removeHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq4"/>
+    </proxy>
+    <proxy name="modifySoapHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote"/>
+    </proxy>
+    <proxy name="complexHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq8"/>
+    </proxy>
+    <proxy name="soapHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq1" outSequence="seq2"/>
+    </proxy>
+    <proxy name="emptyNameHTTPHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq22"/>
+    </proxy>
+    <proxy name="dynamicEndHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target inSequence="seq9"/>
+    </proxy>
+    <proxy name="emptyHeader" startOnLoad="true" trace="disable" transports="http https">
+        <description/>
+        <target endpoint="StockQuote" inSequence="seq5"/>
+    </proxy>
+    <endpoint name="StockQuote">
+        <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
+    </endpoint>
+    <sequence name="seq4" trace="disable">
+        <header action="remove" name="Action" scope="default"/>
+        <property action="remove" name="SOAPAction" scope="transport"/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq3" trace="disable">
+        <header name="Action" value="urn:getSimpleQuote"/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq6" trace="disable">
+        <header name="Accept" scope="transport" value="image/jpeg"/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq5" trace="disable">
+        <header name="Action" value=""/>
+        <property name="SOAPAction" scope="transport" value=""/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq12" trace="disable">
+        <header>
+            <p1:Code xmlns:p1="http://www.XYZ.com/XSD"/>
+        </header>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq13" trace="disable">
+        <header name="Accept" scope="transport" value=""/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq2">
+        <header>
+            <p2:Header xmlns:p2="http://www.ABC.com/XSD">
+                <p2:Hello>World</p2:Hello>
+            </p2:Header>
+        </header>
+        <send/>
+        <log level="full">
+            <property name="Message" value="Outgoing"/>
+        </log>
+    </sequence>
+    <sequence name="seq1" trace="disable">
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+        <header>
+            <p1:Code xmlns:p1="http://www.XYZ.com/XSD">XYZ</p1:Code>
+        </header>
+        <send>
+            <endpoint>
+                <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
+            </endpoint>
+        </send>
+    </sequence>
+    <sequence name="fault">
+        <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')"
+                name="ERROR_CODE" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd"/>
+            <property expression="get-property('ERROR_MESSAGE')"
+                name="ERROR_MESSAGE" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd"/>
+        </log>
+        <!-- Drops the messages by default if there is a fault -->
+        <drop/>
+    </sequence>
+    <sequence name="main">
+        <in>
+            <!-- Log all messages passing through -->
+            <log level="full"/>
+            <!-- ensure that the default configuration only sends if it is one of samples -->
+            <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
+            <filter regex="http://localhost:9000.*"
+                source="get-property('To')"
+                xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+                <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
+                <send/>
+            </filter>
+            <filter regex="http://localhost:8280/"
+                source="get-property('To')"
+                xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+                <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
+                <header action="remove" name="To" scope="default"/>
+                <log level="full">
+                    <property name="Message" value="-----Incoming----"/>
+                </log>
+                <send/>
+            </filter>
+        </in>
+        <out>
+            <send/>
+        </out>
+        <description>The main sequence for the message mediation</description>
+    </sequence>
+    <sequence name="seq8" trace="disable">
+        <header>
+            <m:complexHeader xmlns:m="http://org.synapse.example">
+                <property key="k1" value="v1"/>
+                <property key="k2" value="v2"/>
+            </m:complexHeader>
+        </header>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq7" trace="disable">
+        <header expression="//sym:symbol" name="m:header1"
+            scope="default" xmlns:m="http://org.synapse.example" xmlns:sym="http://services.samples/xsd"/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq9" trace="disable">
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+        <header
+            expression="fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))" name="To"/>
+        <send>
+            <endpoint>
+                <default/>
+            </endpoint>
+        </send>
+    </sequence>
+    <sequence name="seq10" trace="disable">
+        <header expression="fn:concat('',get-property('epr'))" name="To"/>
+        <send>
+            <endpoint>
+                <default/>
+            </endpoint>
+        </send>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq11" trace="disable">
+        <header>
+            <urn:lastTradeTimestamp xmlns:urn=" http://synapse.apache.org/ ">Tue March 15 13:52:17 IST 2016</urn:lastTradeTimestamp>
+        </header>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <sequence name="seq22" trace="disable">
+        <header name="" scope="transport" value="addedValue"/>
+        <log level="full">
+            <property name="Message" value="Incoming"/>
+        </log>
+    </sequence>
+    <!-- You can add any flat sequences, endpoints, etc.. to this synapse.xml file if you do
+    *not* want to keep the artifacts in several files -->
+</definitions>
