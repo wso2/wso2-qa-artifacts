@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="Smooks3"
+       transports="vfs"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <smooks config-key="gov:/smooks-config.xml">
+            <input type="text"/>
+            <output type="xml"/>
+         </smooks>
+         <log level="full"/>
+         <xslt key="gov:/Transformation.xsl"/>
+         <log level="full"/>
+         <log level="full"/>
+         <iterate xmlns:xsd="http://sample.wso2.org/xsd"
+                  xmlns:sam="http://sample.wso2.org"
+                  preservePayload="true"
+                  attachPath="//sam:placeOrder"
+                  expression="//sam:order">
+            <target>
+               <sequence>
+                  <log level="full"/>
+                  <header name="Action" value="urn:placeOrder"/>
+                  <property name="OUT_ONLY" value="true"/>
+                  <property xmlns:ns="http://org.apache.synapse/xsd"
+                            name="Authorization"
+                            expression="fn:concat('Basic ', base64Encode('admin:admin'))"
+                            scope="transport"/>
+                  <send buildmessage="true">
+                     <endpoint>
+                        <address uri="http://10.100.5.63:9793/services/NewOrderAcceptService/"/>
+                     </endpoint>
+                  </send>
+                  <log>
+                     <property name="test" value="in_side_send"/>
+                  </log>
+               </sequence>
+            </target>
+         </iterate>
+      </inSequence>
+      <outSequence/>
+   </target>
+   <publishWSDL uri="http://10.100.5.63:9793/services/NewOrderAcceptService?wsdl"/>
+   <parameter name="transport.PollInterval">5</parameter>
+   <parameter name="transport.vfs.FileURI">file:///home/erandi/esb/release410/vfs/in</parameter>
+   <parameter name="transport.vfs.ContentType">text/plain</parameter>
+   <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">file:///home/erandi/esb/release410/vfs/fail</parameter>
+   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+   <parameter name="Operation">urn:placeOrder</parameter>
+   <parameter name="transport.vfs.FileNamePattern">.*.edi</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">file:///home/erandi/esb/release410/vfs/out</parameter>
+</proxy>
