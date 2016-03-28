@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="XsltProxy1"
+       transports="http https"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target inSequence="xslt_seq_1">
+      <endpoint>
+         <address uri="http://10.100.5.63:9793/services/InfoParser/"/>
+      </endpoint>
+   </target>
+   <publishWSDL uri="http://10.100.5.63:9793/services/InfoParser?wsdl"/>
+</proxy>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="xslt_seq_10">
+   <log level="full"/>
+   <xslt key="gov:/jsontoxml.xslt"/>
+   <log level="full"/>
+   <property name="messageType" value="text/xml" scope="axis2"/>
+   <header xmlns:test="http://test.wso2.org"
+           name="test:To"
+           scope="default"
+           value="urn:welcomePerson"/>
+   <enrich>
+      <source xmlns:test="http://test.wso2.org"
+              xmlns:ns="http://org.apache.synapse/xsd"
+              clone="true"
+              xpath="//test:welcomePerson"/>
+      <target type="body"/>
+   </enrich>
+   <log level="full"/>
+</sequence>
