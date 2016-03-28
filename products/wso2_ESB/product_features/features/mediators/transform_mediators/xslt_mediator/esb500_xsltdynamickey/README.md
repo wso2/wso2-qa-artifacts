@@ -14,10 +14,10 @@ This artifact is written to demonstrate the use of xslt mediator with dynamic ke
 
 ### Preconditions
 - Upload the .aar file to WSO2 AS
-- Place the XSLT transformation file inside <Product_Home>/repository/samples/resources/transform folder
+- Place the XSLT transformation file inside <ESB_Home>/repository/samples/resources/transform folder
 
 ### Steps
-- Change the registry provider to "org.wso2.carbon.mediation.registry.ESBRegistry" from "org.wso2.carbon.mediation.registry.WSO2Registry"
+- Change the registry provider to "org.wso2.carbon.mediation.registry.ESBRegistry" from "org.wso2.carbon.mediation.registry.WSO2Registry" in WSO2_ESB synapse configuration
 - Add the following entry to registry provider section
 ```sh
 <parameter name="root">file:repository/samples/resources/</parameter>
@@ -31,7 +31,7 @@ After adding the registry provider section should be as following
 ```
 
 - Deploy the given sequence in WSO2 ESB
-- Deploy the given proxy service in WSO2 ESB by changing endpoint ip address accordingly.
+- Deploy the given proxy service in WSO2 ESB by changing endpoint ip address pointing to the deployed InfoParser service
 - Invoke the proxy service
 
 

@@ -16,7 +16,7 @@ This artifact is written to demonstrate the use of xslt mediator in converting j
 - Upload the .aar file to WSO2 AS
 
 ### Steps
-- Upload the given XSLT transformation file to governance registry
+- Upload the given XSLT transformation file to governance registry of WSO2 ESB
 - Deploy the given sequence in WSO2 ESB
 - Deploy the given proxy service in WSO2 ESB by changing endpoint ip address accordingly.
 - Use the below request to invoke the proxy service
