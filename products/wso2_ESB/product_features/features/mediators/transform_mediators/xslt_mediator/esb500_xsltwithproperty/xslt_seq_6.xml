@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="xslt_seq_6">
+   <smooks config-key="gov:/smooksconfig_orders.xml">
+      <input type="text"/>
+      <output type="xml"/>
+   </smooks>
+   <log level="full"/>
+   <xslt key="gov:/transform_order.xslt">
+      <property name="order_name" value="Samsung"/>
+   </xslt>
+   <log level="full"/>
+   <iterate xmlns:ns="http://org.apache.synapse/xsd"
+            id="iterate1"
+            preservePayload="true"
+            attachPath="//Order"
+            expression="//ordername">
+      <target sequence="conf:/xslt_seq_7"/>
+   </iterate>
+   <log level="full"/>
+</sequence>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="XsltProxy6"
+       transports="vfs http https"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target inSequence="xslt_seq_6">
+      <endpoint>
+         <address uri="vfs:file:///home/erandi/esb/release410/vfs/in"/>
+      </endpoint>
+   </target>
+   <parameter name="transport.PollInterval">5</parameter>
+   <parameter name="transport.vfs.FileURI">file:///home/erandi/esb/release410/vfs/in</parameter>
+   <parameter name="transport.vfs.ContentType">text/plain</parameter>
+   <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">file:///home/erandi/esb/release410/vfs/fail</parameter>
+   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+   <parameter name="transport.vfs.FileNamePattern">.*.csv</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">file:///home/erandi/esb/release410/vfs/out</parameter>
+</proxy>

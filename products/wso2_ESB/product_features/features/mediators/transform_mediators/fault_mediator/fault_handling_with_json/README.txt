@@ -6,6 +6,3 @@ Scenario: When there is a message transformation for example SOAP to JSON in out
 If this issue cannot be fixed then
 
 2. Deploy SOAPFault2.xml has filter mediator where this has been hadnle explicitly within the proxy.
-
-
-1. https://support.wso2.com/jira/browse/AMAPRODSPRT-17
