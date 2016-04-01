@@ -7,8 +7,8 @@
    <description/>
    <target inSequence="class_seq_1">
       <endpoint>
-         <address uri="http://10.100.5.63:9793/services/OrderAcceptService/"/>
+         <address uri="http://10.100.5.63:9763/services/OrderInfoAccept/"/>
       </endpoint>
    </target>
-   <publishWSDL uri="http://10.100.5.63:9793/services/OrderAcceptService?wsdl"/>
+   <publishWSDL uri="http://10.100.5.63:9763/services/OrderInfoAccept?wsdl"/>
 </proxy>

@@ -14,7 +14,7 @@ This artifact is written to demonstrate the use of class mediator. This class me
 ### Preconditions
 - Maven project should be built  by issuing mvn clean install
 - The org.wso2.carbon.custommediator-0.0.1-SNAPSHOT.jar (inside target folder of the maven project) should be copied to <ESB_HOME>/repository/components/lib folder
-- ESB server should be up and running
+- ESB server should be restarted
 - Axis2 service should be deployed in WSO2 AS
 
 ### Steps
