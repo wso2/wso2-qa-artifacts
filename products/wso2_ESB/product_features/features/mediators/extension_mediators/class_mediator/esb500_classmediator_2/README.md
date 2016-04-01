@@ -7,9 +7,9 @@ This artifact is written to demonstrate the use of class mediator. This class me
 
 ### Contents 
   - Maven project of class mediator: org.wso2.sample.classMediator.first
-  - sequences: class_seq_1.xml
+  - sequences: class_seq_2.xml
   - Proxy service: ClassProxy_1.xml
-  - Axis2 Service: NewOrderService.aar
+  - Axis2 Service: OrderPlacingSystem.aar
   
 ### Preconditions
 - Maven project should be built  by issuing mvn clean install
