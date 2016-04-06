@@ -15,4 +15,7 @@ java -jar target/MBTempQSubscriber.jar
 
 **With Custom Parameters**
 
-java -jar target/MBTempQSubscriber.jar localhost 5672 admin admin
+java -jar target/MBTempQSubscriber.jar <IP> <PORT> <USERNAME> <PASSWORD>
+
+e.g : 
+java -jar target/MBTempQSubscriber.jar 10.100.5.112 5672 admin admin
