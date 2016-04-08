@@ -11,6 +11,7 @@
 
 package com.virtusa.isq.vtaf.runtime;
 
+import java.net.*;
 import java.awt.Dimension;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -56,6 +57,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -76,6 +84,7 @@ import org.apache.pdfbox.util.PDFTextStripper;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -95,6 +104,7 @@ import org.openqa.selenium.WebDriver.TargetLocator;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -117,6 +127,17 @@ import com.virtusa.isq.vtaf.utils.DiffSort;
 import com.virtusa.isq.vtaf.utils.ErrorMessageHandler;
 import com.virtusa.isq.vtaf.utils.KeyCodes;
 import com.virtusa.isq.vtaf.utils.PropertyHandler;
+
+
+
+
+
+import br.eti.kinoshita.testlinkjavaapi.TestLinkAPI;
+import br.eti.kinoshita.testlinkjavaapi.constants.ExecutionStatus;
+import br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException;
+import jxl.read.biff.BiffException;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 
 // import com.virtusa.kbb.excel.reader.Main;
 
@@ -183,7 +204,46 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                         .getRuntimeProperty("RETRY_INTERVAL"));
 
     }
+    public final void reportTestLinkResult(String bcName, String status) throws TestLinkAPIException {
 
+        TestLinkAPI api;
+        PropertyHandler propHandler = new PropertyHandler("testLinkRuntime.properties");
+        String URL = propHandler.getRuntimeProperty("tetLink_URL");
+        String DEVKEY = propHandler.getRuntimeProperty("tetLink_DEVKEY");
+        String testSuitName = propHandler.getRuntimeProperty("tetLink_TS_NAME");
+        String testPlanName = propHandler.getRuntimeProperty("tetLink_TP_NAME");
+        String testProjName = propHandler.getRuntimeProperty("tetLink_PROJ_NAME");
+        String buildName = propHandler.getRuntimeProperty("tetLink_BUILD_NAME");
+        try {
+            api = new TestLinkAPI(new java.net.URL(URL), DEVKEY);
+            api.getProjects();
+            Integer tcId = api.getTestCaseIDByName(bcName, testSuitName, testProjName, "");
+            Integer testPlanID = api.getTestPlanByName(testPlanName, testProjName).getId();
+
+            Map<String, String> customFields = null;
+            if ("PASSED".equals(status)) {
+                api.setTestCaseExecutionResult(tcId, null, testPlanID, ExecutionStatus.PASSED, null, buildName,
+                        "", true, "", null, "", customFields, true);
+            } else if ("FAIELD".equals(status)) {
+                api.setTestCaseExecutionResult(tcId, null, testPlanID, ExecutionStatus.FAILED, null, buildName,
+                        "", true, "", null, "", customFields, true);
+            } else {
+                api.setTestCaseExecutionResult(tcId, null, testPlanID, ExecutionStatus.NOT_RUN, null, buildName,
+                        "", true, "", null, "", customFields, true);
+            }
+
+            // api.getTestSuitesForTestPlan(testPlanID);
+
+            // api.getProjectTestPlans(projectId)
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        // api.reportTestCaseResult(TestProject, TestPlan, Testcase, Build,
+        // Notes, Result);
+
+    }
     /**
      * Opens an URL in the test frame. This accepts both relative and absolute
      * URLs. The "open" command <br>
@@ -1158,6 +1218,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
             try {
                 driver.manage()
+                
                         .timeouts()
                         .implicitlyWait(Integer.parseInt(waitTime),
                                 TimeUnit.MILLISECONDS);
@@ -1470,6 +1531,128 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
              */
             checkTrue(false, true, "CLICKAT command   :Element [ " + objectName
                     + " ] with Locator : " + objectID + " not present");
+        }
+
+    }
+
+    ///////////////////////////////////
+    
+    
+    public final void waitForElement(final String objectName,
+            final String identifier, final String waitTime) {
+
+        String actualLocator =
+                ObjectMap.getObjectSearchPath(objectName, identifier);
+        ObjectLocator locator =
+                new ObjectLocator(objectName, identifier, actualLocator);
+        doWaitForElement(locator, waitTime);
+    }
+
+    public final void waitForElement(final String objectName, final String waitTime) {
+        waitForElement(objectName, "", waitTime);
+    }
+
+    private void doWaitForElement(final ObjectLocator locator, final String waitTime) {
+        String objectID = "";
+        String locatorLogiName = "";
+
+        try {
+
+            objectID = locator.getActualLocator();
+            locatorLogiName = locator.getLogicalName();
+
+            checkForNewWindowPopups();
+            checkElementPresenceWait(objectID,waitTime);
+            
+            reportresult(true, "WaitForElement :" + locator.getLogicalName() + "",
+                    "PASSED", "Element is Enable [" + locator.getLogicalName()
+                            + "] with Locator : " + locator.getActualLocator());
+           
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            String objectName = locator.getLogicalName();
+         
+            reportresult(true, "waitForElement :" + objectName + "", "FAILED",
+                    "WaitForElementEnable command  :Element [" + objectName
+                            + "] with Locator : " + objectID+ "WaitTime :" + waitTime);
+          
+            checkTrue(false, true, "waitForElement command  :Element [" + objectName
+                    + "] with Locator : " +objectID+ "WaitTime :" + waitTime);
+        }
+
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    //////////////////////////////
+    
+    public final void waitForElementEnable(final String objectName,
+            final String identifier) {
+
+        String actualLocator =
+                ObjectMap.getObjectSearchPath(objectName, identifier);
+        ObjectLocator locator =
+                new ObjectLocator(objectName, identifier, actualLocator);
+        doWaitForElementEnable(locator);
+    }
+
+    public final void waitForElementEnable(final String objectName) {
+        waitForElementEnable(objectName, "");
+    }
+
+    private void doWaitForElementEnable(final ObjectLocator locator) {
+        String objectID = "";
+        String locatorLogiName = "";
+        int counter = getRetryCount();
+        final Long retryMillis = 1000L;
+        try {
+
+            objectID = locator.getActualLocator();
+            locatorLogiName = locator.getLogicalName();
+
+            checkForNewWindowPopups();
+            final WebElement element = checkElementPresence(objectID);
+
+            Wait<WebElement> wait =
+                    new FluentWait<WebElement>(element)
+                            .withTimeout((counter * retryMillis), TimeUnit.MILLISECONDS)
+                            .pollingEvery(retryInterval, TimeUnit.MILLISECONDS)
+                            .ignoring(InvalidOperationException.class);
+
+            boolean foo = wait.until(new Function<WebElement, Boolean>() {
+                public Boolean apply(WebElement
+                        element) {
+                    if (element.isEnabled()) {
+                        reportresult(true, "WaitForElementEnable :" + locator.getLogicalName() + "",
+                                "PASSED", "Element is Enable [" + locator.getLogicalName()
+                                        + "] with Locator : " + locator.getActualLocator());
+                        return true;
+                        
+                    } else {
+                        throw new InvalidOperationException("");
+                    }
+                }
+            });
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            String objectName = locator.getLogicalName();
+         
+            reportresult(true, "WaitForElementEnable :" + objectName + "", "FAILED",
+                    "WaitForElementEnable command  :Element [" + objectName
+                            + "] with Locator : " + objectID);
+          
+            checkTrue(false, true, "WaitForElementEnable command  :Element [" + objectName
+                    + "] with Locator : " + objectID);
         }
 
     }
@@ -6221,6 +6404,55 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
      * @throws Exception
      *             the exception
      */
+    
+    private WebElement checkElementPresenceWait(final String searchPath,final String waitTime)
+            throws Exception {
+        WebDriver driver = getDriver();
+        WebElement webElement = null;
+        String locator = searchPath;
+        final Logger log = getLog();
+       
+        setCommandStartTime(getCurrentTime());
+        final By searchBy = getLocatorType(locator);
+      
+
+        try {
+
+            Function<WebDriver, WebElement> findElementFunction =
+                    new FindElementFunction<WebDriver, WebElement>(searchBy);
+
+            Wait<WebDriver> wait =
+                    new FluentWait<WebDriver>(driver)
+                            .withTimeout(Integer.parseInt(waitTime),
+                                    TimeUnit.MILLISECONDS)
+                            .pollingEvery(1, TimeUnit.SECONDS)
+                            .ignoring(NoSuchElementException.class);
+
+            webElement = wait.until(findElementFunction);
+          
+
+        } catch (Exception e) {
+            log.error("Element [ " + searchPath + " ] Not Found", e);
+        }
+
+        if (webElement != null) {
+            try {
+                log.info("Element [ " + searchBy.toString() + " ] Found");
+                JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+                jsExecutor.executeScript("arguments[0].scrollIntoView(false);",
+                        webElement);
+            } catch (Exception ex) {
+                log.error("Exception occured while scrolling to the element.",
+                        ex);
+            }
+        } else {
+            throw new Exception("Element " + searchPath);
+        }
+
+        return webElement;
+    }
+    
+    
     private WebElement checkElementPresence(final String searchPath)
             throws Exception {
         WebDriver driver = getDriver();
@@ -6442,7 +6674,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
         int lineNumber = getLineNumber();
         if (isAssert) {
 
-            endTestReporting(isAssert);
+            // endTestReporting(isAssert);
             assertTrue("Failed " + failedMessage + "\n" + errorMessage
                     + " [At : " + callingClassName + "." + currentMethod
                     + "(Line:" + lineNumber + ")]" + "\n", checkingCondition);
@@ -9616,6 +9848,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             reportresult(true, "SCREENSHOT :", "PASSED",
                     "Screenshot saved at :" + filePath);
 
+            
         } catch (Exception e) {
 
             reportresult(
@@ -13489,7 +13722,8 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             verifyCategory = verifyTypeSeperate[0];
             verifySubCategory = verifyTypeSeperate[1];
         }
-        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory docFactory =
+                DocumentBuilderFactory.newInstance();
         if ("NODECOUNT".equalsIgnoreCase(verifyCategory)) {
             try {
                 String[] inputStringSeperate = inputString.split("\\|");
@@ -13502,44 +13736,67 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 int numOfNodes = Integer.parseInt(nodeCount);
                 int listLength = list.getLength();
                 if (listLength == Integer.parseInt(nodeCount)) {
-                    reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "PASSED",
+                    reportresult(true, "CHECK DOCUMENT - XML ["
+                            + verifyCategory + "] :", "PASSED",
                             "CheckDocument command: Verified count as expected. Expected Count : "
                                     + numOfNodes);
                 } else {
-                    reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                    reportresult(true, "CHECK DOCUMENT - XML ["
+                            + verifyCategory + "] :", "FAILED",
                             "CheckDocument command NODECOUNT : Node count for the node "
-                    + nodeName + " is incorrect. Expected count : " + numOfNodes + " Actual count : " + listLength);
+                                    + nodeName
+                                    + " is incorrect. Expected count : "
+                                    + numOfNodes + " Actual count : "
+                                    + listLength);
                     checkTrue(false, stopOnFaliure,
                             "CheckDocument command NODECOUNT : Node count for the node "
-                                    + nodeName + " is incorrect. Expected count : "
-                                    + numOfNodes + " Actual count : " + listLength);
+                                    + nodeName
+                                    + " is incorrect. Expected count : "
+                                    + numOfNodes + " Actual count : "
+                                    + listLength);
                 }
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false,  stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (SAXException e) {
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory
+                        + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Execption occured. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -13550,30 +13807,45 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             try {
                 String[] inputStringSeperate = inputString.split("\\|");
                 String retriveXpath = inputStringSeperate[0];
-                String expectedValue = inputStringSeperate[1]; // Setup the parser
+                String expectedValue = inputStringSeperate[1]; // Setup the
+                                                               // parser
                 /*DocumentBuilderFactory builderFactory =
                         DocumentBuilderFactory.newInstance();*/
-                DocumentBuilder builder = docFactory.newDocumentBuilder(); 
+                DocumentBuilder builder = docFactory.newDocumentBuilder();
                 // Read the XML file
                 File inputFile = new File(filePath);
-                InputStream inputStream = new FileInputStream(inputFile); 
+                InputStream inputStream = new FileInputStream(inputFile);
                 // Parse the XML file
-                Document doc = builder.parse(inputStream); // Create an XPath instance
-                XPath xPath = XPathFactory.newInstance().newXPath(); // Evaluate simple expressions
+                Document doc = builder.parse(inputStream); // Create an XPath
+                                                           // instance
+                XPath xPath = XPathFactory.newInstance().newXPath(); // Evaluate
+                                                                     // simple
+                                                                     // expressions
                 if ("EXACTNODE".equalsIgnoreCase(verifySubCategory)) {
                     String expression1 = retriveXpath;
                     String actualValue = xPath.evaluate(expression1, doc);
                     if (actualValue.equalsIgnoreCase(expectedValue)) {
-                        reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "PASSED",
-                        "CheckDocument command NODEVALUE|EXACTNODE : "
-                        + "Verified value as expected. Expected value : " + expectedValue);
+                        reportresult(
+                                true,
+                                "CHECK DOCUMENT - XML [" + verifyCategory
+                                        + "] :",
+                                "PASSED",
+                                "CheckDocument command NODEVALUE|EXACTNODE : "
+                                        + "Verified value as expected. Expected value : "
+                                        + expectedValue);
                     } else {
-                        reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                        reportresult(
+                                true,
+                                "CHECK DOCUMENT - XML [" + verifyCategory
+                                        + "] :",
+                                "FAILED",
                                 "CheckDocument command NODEVALUE|EXACTNODE : "
                                         + "Excpected value does not match the actual. "
                                         + "Expected value : " + expectedValue
                                         + " Actual Value : " + actualValue);
-                        checkTrue(false, stopOnFaliure,
+                        checkTrue(
+                                false,
+                                stopOnFaliure,
                                 "CheckDocument command NODEVALUE|EXACTNODE : "
                                         + "Excpected value does not match the actual. "
                                         + "Expected value : " + expectedValue
@@ -13582,47 +13854,73 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (XPathExpressionException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot evaluate the given xpath. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot evaluate the given xpath. Actual error : "
                                 + e.getMessage());
             } catch (SAXException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot read the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(
+                        true,
+                        "CHECK DOCUMENT - XML [" + verifyCategory + "] :",
+                        "FAILED",
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
-                checkTrue(false, stopOnFaliure,
+                checkTrue(
+                        false,
+                        stopOnFaliure,
                         "CheckDocument command NODECOUNT : Cannot parse the given xml file. Actual error : "
                                 + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
-                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory + "] :", "FAILED",
+                reportresult(true, "CHECK DOCUMENT - XML [" + verifyCategory
+                        + "] :", "FAILED",
                         "CheckDocument command NODECOUNT : Execption occured. Actual error : "
                                 + e.getMessage());
                 checkTrue(false, stopOnFaliure,
@@ -13631,6 +13929,7 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
             }
         }
     }
+
     /**
      * Text file verify.
      * 
@@ -13741,5 +14040,99 @@ public class SeleniumTestBase extends SeleneseTestNgHelperVir {
 
         return lines;
     }
+
+    public void sendEmail(final String to, final String cc,
+            final String subject, final String text) {
+
+        String toAddress = checkNullObject(to, "SEND EMAIL");
+        String msgText = checkNullObject(text, "SEND EMAIL");
+        String ccText = checkNullObject(cc, "SEND EMAIL");
+        sendEmailMessage(toAddress, ccText, subject, msgText);
+
+    }
+
+    private void sendEmailMessage(String to, String cc, String subject,
+            String text) {
+
+        PropertyHandler propHandler = new PropertyHandler("runtime.properties");
+        String host = propHandler.getRuntimeProperty("SMTP_HOST");
+        String port = propHandler.getRuntimeProperty("SMTP_PORT");
+        final String username = propHandler.getRuntimeProperty("SMTP_USER");
+        final String password = propHandler.getRuntimeProperty("SMTP_PASSWORD");
+        String ssl = propHandler.getRuntimeProperty("SMTP_SSL");
+
+        host = checkNullObject(host, "SEND EMAIL");
+        port = checkNullObject(port, "SEND EMAIL");
+        final String checkedUsername = checkNullObject(username, "SEND EMAIL");
+        final String checkedpassword = checkNullObject(password, "SEND EMAIL");
+        ssl = checkNullObject(ssl, "SEND EMAIL");
+
+        Properties props = new Properties();
+
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.socketFactory.port", port);
+
+        if (ssl.equals("true")) {
+            props.put("mail.smtp.socketFactory.class",
+                    "javax.net.ssl.SSLSocketFactory");
+        }
+
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", port);
+
+        Session session =
+                Session.getDefaultInstance(props,
+                        new javax.mail.Authenticator() {
+                            protected PasswordAuthentication getPasswordAuthentication() {
+                                return new PasswordAuthentication(
+                                        checkedUsername, checkedpassword);
+                            }
+                        });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(checkedUsername));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(
+                    to));
+            if (!cc.isEmpty()) {
+                message.addRecipient(Message.RecipientType.CC,
+                        new InternetAddress(cc));
+            }
+            message.setSubject(subject);
+            message.setText(text);
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            getLog().error(e);
+            e.printStackTrace();
+
+            reportresult(true, "SEND EMAIL :" + subject + "", "FAILED",
+                    "SEND EMAIL command failed with the following error. Actrual Error : "
+                            + e.getMessage());
+            checkTrue(false, false,
+                    "SEND EMAIL command failed with the following error. Actrual Error : "
+                            + e.getMessage());
+        }
+
+    }
+    public final void closeWindow() {
+
+        try {
+            WebDriver driver = getDriver();
+            driver.close();
+            reportresult(true, "CLOSE WINDOW :",
+                    "PASSED", "Closed current Window");
+        } catch (Exception e) {
+            e.printStackTrace();
+            reportresult(true, "CLOSE WINDOW :", "FAILED",
+                    "Faild to Close current Window");
+
+            checkTrue(false, true, "Faild to Close current Window");
+            
+        }
+    }
+
 
 }

@@ -273,10 +273,17 @@ public class SeleneseTestBaseVir {
             setBrowserString(browserString);
             setWebDriverCapabilities(new DesiredCapabilities());
             setDefaultProfile(new FirefoxProfile());
+            
         } else if (browserName.contains("opera")) {
 
             setBrowserString(browserString);
             setWebDriverCapabilities(new DesiredCapabilities());
+            
+        } else if (browserName.contains("remotewebdriver")) {
+
+            setBrowserString(browserString);
+            setWebDriverCapabilities(new DesiredCapabilities());
+            
         } else {
             throw new AssertionError("Unsupported Browser");
         }

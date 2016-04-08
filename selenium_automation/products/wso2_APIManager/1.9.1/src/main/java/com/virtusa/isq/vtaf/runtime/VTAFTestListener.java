@@ -23,7 +23,6 @@ import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
-import com.virtusa.VTAF.reporter.reader.ReportBase;
 
 /**
  * The listener interface for receiving VTAFTest events. The class that is
@@ -36,8 +35,7 @@ import com.virtusa.VTAF.reporter.reader.ReportBase;
  */
 public class VTAFTestListener implements IInvokedMethodListener {
 
-    /** The reporter. */
-    private ReportBase reporter = new ReportBase();
+
 
     /** The browser. */
     private static String browser = "";
@@ -284,21 +282,7 @@ public class VTAFTestListener implements IInvokedMethodListener {
 
     }
 
-    /**
-     * @return the reporter
-     */
-    public final ReportBase getReporter() {
-        return reporter;
-    }
-
-    /**
-     * @param reporterObj
-     *            the reporter to set
-     */
-    public final void setReporter(final ReportBase reporterObj) {
-        this.reporter = reporterObj;
-    }
-
+    
     /**
      * @return the browser
      */

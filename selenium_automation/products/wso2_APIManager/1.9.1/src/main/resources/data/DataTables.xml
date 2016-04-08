@@ -1,5 +1,5 @@
 <DataTables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="file:///Users/test/Documents/VTAF/VTAF/xsd/DataTables.xsd" >
+	xsi:noNamespaceSchemaLocation="file://C:/VTAF/VTAF_With_TestLink/VTAF/xsd/DataTables.xsd" >
 	<Table name="TenantCreation">
 		<Header>
 			<Column name="tenantOneDomainName" type="String" />
@@ -20,26 +20,34 @@
 			<Column name="adminUsernameTenantThree" type="String" />
 			<Column name="adminPasswordTenantThree" type="String" />
 			<Column name="emailAddressTenantDomainThree" type="String" />
+			<Column name="twoSeconds" type="String" />
+			<Column name="fourSeconds" type="String" />
+			<Column name="sixSeconds" type="String" />
+			<Column name="eightSeconds" type="String" />
 		</Header>
 		<Row>
-			<Value>adomain_one.com</Value>
-			<Value>bt1fn</Value>
-			<Value>bt1ln</Value>
-			<Value>at1user</Value>
+			<Value>domain_one.com</Value>
+			<Value>t1fn</Value>
+			<Value>t1ln</Value>
+			<Value>t1user</Value>
 			<Value>111111</Value>
-			<Value>aare@gmail.com</Value>
-			<Value>adomain_two.com</Value>
-			<Value>bt2fn</Value>
-			<Value>bt2ln</Value>
-			<Value>at2user</Value>
+			<Value>are@gmail.com</Value>
+			<Value>domain_two.com</Value>
+			<Value>t2fn</Value>
+			<Value>t2ln</Value>
+			<Value>t2user</Value>
 			<Value>111111</Value>
 			<Value>dinesh@gmail.com</Value>
-			<Value>adomain_three.com</Value>
-			<Value>bt3fn</Value>
-			<Value>bt3ln</Value>
-			<Value>at3user</Value>
+			<Value>domain_three.com</Value>
+			<Value>t3fn</Value>
+			<Value>t3ln</Value>
+			<Value>t3user</Value>
 			<Value>111111</Value>
 			<Value>adam@gmail.com</Value>
+			<Value>2000</Value>
+			<Value>4000</Value>
+			<Value>6000</Value>
+			<Value>8000</Value>
 		</Row>
 
 </Table>
@@ -784,8 +792,8 @@
 			<Value>API4</Value>
 			<Value>tag1</Value>
 			<Value>CONTEXT</Value>
-			<Value>http://appserver/resource</Value>
-			<Value>http://appserver/resource</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
 		</Row>
 		<Row>
 			<Value>carbon.super</Value>
@@ -794,8 +802,8 @@
 			<Value>API4</Value>
 			<Value>tag1</Value>
 			<Value>CONTEXT</Value>
-			<Value>http://appserver/resource</Value>
-			<Value>http://appserver/resource</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
 		</Row>
 
 </Table>
@@ -1025,6 +1033,17 @@
 			<Column name="tenantOneStoreUserNameTwo" type="String" />
 			<Column name="tenantOneStoreUserTwoPassword" type="String" />
 			<Column name="tenantOneRoleNameOneStoreUserTwo" type="String" />
+			<Column name="tenantOneRoleNameThreeStoreUserThree" type="String" />
+			<Column name="tenantOneStoreUserNameThree" type="String" />
+			<Column name="tenantOneStoreUserThreePassword" type="String" />
+			<Column name="tenantOneRoleNameFourStoreUserFour" type="String" />
+			<Column name="tenantOneStoreUserNameFour" type="String" />
+			<Column name="tenantOneStoreUserFourPassword" type="String" />
+			<Column name="tenantOneRoleNameFiveStoreUserFive" type="String" />
+			<Column name="tenantOneStoreUserNameFive" type="String" />
+			<Column name="tenantOneStoreUserFivePassword" type="String" />
+			<Column name="tenantOneStoreUserNameSix" type="String" />
+			<Column name="tenantOneStoreUserSixPassword" type="String" />
 			<Column name="tenantTwoPublisherUserNameOne" type="String" />
 			<Column name="tenantTwoPublisherUserOnePassword" type="String" />
 			<Column name="tenantTwoRoleNameOnePublisherUserOne" type="String" />
@@ -1040,35 +1059,54 @@
 			<Column name="tenantThreeStoreUserNameTwo" type="String" />
 			<Column name="tenantThreeStoreUserTwoPassword" type="String" />
 			<Column name="tenantThreeRoleNameOneStoreUserTwo" type="String" />
+			<Column name="twoSeconds" type="String" />
+			<Column name="fourSeconds" type="String" />
+			<Column name="sixSeconds" type="String" />
+			<Column name="eightSeconds" type="String" />
 		</Header>
 		<Row>
-			<Value>at1p1</Value>
+			<Value>t1p1</Value>
 			<Value>111111</Value>
-			<Value>at1p1r1</Value>
-			<Value>at1s1</Value>
+			<Value>t1p1r1</Value>
+			<Value>t1s1</Value>
 			<Value>111111</Value>
-			<Value>aas1r1</Value>
-			<Value>at1p2</Value>
+			<Value>s1r1</Value>
+			<Value>t1p2</Value>
 			<Value>111111</Value>
-			<Value>at1p2r1</Value>
-			<Value>at1s2</Value>
+			<Value>t1p2r1</Value>
+			<Value>t1s2</Value>
 			<Value>111111</Value>
-			<Value>at1s2r1</Value>
-			<Value>at2p2</Value>
+			<Value>t1s2r1</Value>
+			<Value>t1s3r3</Value>
+			<Value>t1s3</Value>
 			<Value>111111</Value>
-			<Value>at2p1r1</Value>
-			<Value>at2s1</Value>
+			<Value>t1s4r4</Value>
+			<Value>t1s4</Value>
 			<Value>111111</Value>
-			<Value>aas1r1</Value>
-			<Value>at3p1</Value>
+			<Value>t1s5r5</Value>
+			<Value>t1s5</Value>
 			<Value>111111</Value>
-			<Value>at3p1r1</Value>
-			<Value>at3s1</Value>
+			<Value>t1s6</Value>
 			<Value>111111</Value>
-			<Value>at3s1r1</Value>
-			<Value>at3s2</Value>
+			<Value>t2p2</Value>
 			<Value>111111</Value>
-			<Value>at3s1r1</Value>
+			<Value>t2p1r1</Value>
+			<Value>t2s1</Value>
+			<Value>111111</Value>
+			<Value>s1r1</Value>
+			<Value>t3p1</Value>
+			<Value>111111</Value>
+			<Value>t3p1r1</Value>
+			<Value>t3s1</Value>
+			<Value>111111</Value>
+			<Value>t3s1r1</Value>
+			<Value>t3s2</Value>
+			<Value>111111</Value>
+			<Value>t3s1r2</Value>
+			<Value>2000</Value>
+			<Value>4000</Value>
+			<Value>6000</Value>
+			<Value>8000</Value>
 		</Row>
 
 </Table>
@@ -1089,23 +1127,53 @@
 			<Column name="adminRoleNameSpecialStoreOne" type="String" />
 			<Column name="adminStoreUserNameThree" type="String" />
 			<Column name="adminStoreUserThreePassword" type="String" />
+			<Column name="adminStoreUserNameFour" type="String" />
+			<Column name="adminStoreUserFourPassword" type="String" />
+			<Column name="storeRoleNameFour" type="String" />
+			<Column name="adminStoreUserNameFive" type="String" />
+			<Column name="adminStoreUserFivePassword" type="String" />
+			<Column name="storeRoleNameFive" type="String" />
+			<Column name="adminStoreUserNameSix" type="String" />
+			<Column name="adminStoreUserSixPassword" type="String" />
+			<Column name="storeRoleNameSix" type="String" />
+			<Column name="adminStoreUserNameSeven" type="String" />
+			<Column name="adminStoreUserSevenPassword" type="String" />
+			<Column name="twoSeconds" type="String" />
+			<Column name="fourSeconds" type="String" />
+			<Column name="sixSeconds" type="String" />
+			<Column name="eightSeconds" type="String" />
 		</Header>
 		<Row>
-			<Value>aap1</Value>
+			<Value>adminp1</Value>
 			<Value>111111</Value>
-			<Value>aap1r1</Value>
-			<Value>aas1</Value>
+			<Value>ap1r1</Value>
+			<Value>as1</Value>
 			<Value>111111</Value>
-			<Value>aas1r1</Value>
-			<Value>aap2</Value>
+			<Value>as1r1</Value>
+			<Value>ap2</Value>
 			<Value>111111</Value>
-			<Value>aap2r1</Value>
-			<Value>aas2</Value>
+			<Value>ap2r1</Value>
+			<Value>as2</Value>
 			<Value>111111</Value>
-			<Value>aas2r1</Value>
-			<Value>aaspecialstore</Value>
-			<Value>aas3</Value>
+			<Value>as2r1</Value>
+			<Value>aspecialstore</Value>
+			<Value>as3</Value>
 			<Value>111111</Value>
+			<Value>as4</Value>
+			<Value>111111</Value>
+			<Value>as4r4</Value>
+			<Value>as5</Value>
+			<Value>111111</Value>
+			<Value>as5r5</Value>
+			<Value>as6</Value>
+			<Value>111111</Value>
+			<Value>as6r6</Value>
+			<Value>as7</Value>
+			<Value>111111</Value>
+			<Value>2000</Value>
+			<Value>4000</Value>
+			<Value>6000</Value>
+			<Value>8000</Value>
 		</Row>
 
 </Table>
@@ -1891,6 +1959,8 @@
 			<Column name="lastName" type="String" />
 			<Column name="email" type="String" />
 			<Column name="serverName" type="String" />
+			<Column name="pauseFourSeconds" type="String" />
+			<Column name="pauseSixSeconds" type="String" />
 		</Header>
 		<Row>
 			<Value>laksh</Value>
@@ -1899,6 +1969,8 @@
 			<Value>dhanushka</Value>
 			<Value>lakshanfonseka1@gmail.com</Value>
 			<Value>carbon.super</Value>
+			<Value>4000</Value>
+			<Value>6000</Value>
 		</Row>
 
 </Table>
@@ -1923,6 +1995,7 @@
 			<Column name="replyMessageBody" type="String" />
 			<Column name="rateStarLevelFour" type="String" />
 			<Column name="rateStarLevelTwo" type="String" />
+			<Column name="sixSeconds" type="String" />
 		</Header>
 		<Row>
 			<Value>carbon.super</Value>
@@ -1944,6 +2017,7 @@
 			<Value>Sample_Reply</Value>
 			<Value>4</Value>
 			<Value>2</Value>
+			<Value>6000</Value>
 		</Row>
 
 </Table>
@@ -3248,6 +3322,7 @@
 			<Column name="getCustomerNameForPutVerification" type="String" />
 			<Column name="getResponseHeadersForPutVerification" type="String" />
 			<Column name="deleteResponseHeaders" type="String" />
+			<Column name="DefaultApplication" type="String" />
 		</Header>
 		<Row>
 			<Value>api</Value>
@@ -3283,6 +3358,7 @@
 			<Value>Sangakara</Value>
 			<Value>application/json</Value>
 			<Value>application/octet-stream</Value>
+			<Value>DefaultApplication</Value>
 		</Row>
 		<Row>
 			<Value>api</Value>
@@ -3318,6 +3394,7 @@
 			<Value>Sangakara</Value>
 			<Value>application/json</Value>
 			<Value>application/octet-stream</Value>
+			<Value>DefaultApplication</Value>
 		</Row>
 
 </Table>
@@ -3333,6 +3410,7 @@
 			<Column name="numericValueTwoHundred" type="String" />
 			<Column name="numericValueTwoHundredAndFour" type="String" />
 			<Column name="numericValueOne" type="String" />
+			<Column name="numericValueTwo" type="String" />
 			<Column name="keyWordNull" type="String" />
 			<Column name="keyWordNoContent" type="String" />
 			<Column name="keyWordTrue" type="String" />
@@ -3349,6 +3427,7 @@
 			<Value>200</Value>
 			<Value>204</Value>
 			<Value>1</Value>
+			<Value>2</Value>
 			<Value>null</Value>
 			<Value>no content</Value>
 			<Value>true</Value>
@@ -3365,6 +3444,7 @@
 			<Value>200</Value>
 			<Value>204</Value>
 			<Value>1</Value>
+			<Value>2</Value>
 			<Value>null</Value>
 			<Value>no content</Value>
 			<Value>true</Value>
@@ -3429,6 +3509,7 @@
 			<Column name="URL" type="String" />
 			<Column name="organizationTwo" type="String" />
 			<Column name="adminStoreUserOne" type="String" />
+			<Column name="sixSeconds" type="String" />
 		</Header>
 		<Row>
 			<Value>Admin</Value>
@@ -3450,6 +3531,7 @@
 			<Value>Sample_URL</Value>
 			<Value>Virtusa</Value>
 			<Value>AdminStoreOne</Value>
+			<Value>6000</Value>
 		</Row>
 
 </Table>
@@ -3470,9 +3552,11 @@
 			<Column name="productionEndpoint" type="String" />
 			<Column name="soapAction" type="String" />
 			<Column name="serverNameDomainOne" type="String" />
+			<Column name="keywordEnabled" type="String" />
+			<Column name="cacheTimeout" type="String" />
 		</Header>
 		<Row>
-			<Value>apiName</Value>
+			<Value>a</Value>
 			<Value>2.2.2</Value>
 			<Value>Public</Value>
 			<Value>image1.jpg</Value>
@@ -3483,13 +3567,15 @@
 			<Value>Unlimited</Value>
 			<Value>200</Value>
 			<Value>TenantOnePublisherOne</Value>
-			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt; &#160;&#160; &lt;soapenv:Header/&gt; &#160;&#160; &lt;soapenv:Body&gt; &#160;&#160;&#160;&#160;&#160; &lt;typ:greet&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;name&gt;?&lt;/name&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;delay&gt;?&lt;/delay&gt; &#160;&#160;&#160;&#160;&#160; &lt;/typ:greet&gt; &#160;&#160; &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;</Value>
+			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;typ:greet&gt;&lt;name&gt;?&lt;/name&gt;&lt;delay&gt;?&lt;/delay&gt;&lt;/typ:greet&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</Value>
 			<Value>http://localhost:9763/services/HelloService.HelloServiceHttpSoap11Endpoint</Value>
 			<Value>urn:echoString</Value>
 			<Value>TenantOne</Value>
+			<Value>Enabled</Value>
+			<Value>3600</Value>
 		</Row>
 		<Row>
-			<Value>apiName</Value>
+			<Value>a</Value>
 			<Value>2.2.2</Value>
 			<Value>Public</Value>
 			<Value>image1.jpg</Value>
@@ -3500,10 +3586,12 @@
 			<Value>Unlimited</Value>
 			<Value>200</Value>
 			<Value>AdminPublisherOne</Value>
-			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt; &#160;&#160; &lt;soapenv:Header/&gt; &#160;&#160; &lt;soapenv:Body&gt; &#160;&#160;&#160;&#160;&#160; &lt;typ:greet&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;name&gt;?&lt;/name&gt; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;delay&gt;?&lt;/delay&gt; &#160;&#160;&#160;&#160;&#160; &lt;/typ:greet&gt; &#160;&#160; &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;</Value>
+			<Value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:typ=&quot;http://www.wso2.org/types&quot;&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;typ:greet&gt;&lt;name&gt;?&lt;/name&gt;&lt;delay&gt;?&lt;/delay&gt;&lt;/typ:greet&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</Value>
 			<Value>http://localhost:9763/services/HelloService.HelloServiceHttpSoap11Endpoint</Value>
 			<Value>urn:echoString</Value>
 			<Value>Admin</Value>
+			<Value>Enabled</Value>
+			<Value>3600</Value>
 		</Row>
 
 </Table>
@@ -3529,7 +3617,7 @@
 			<Value>TenantOne</Value>
 			<Value>TenantOneStoreOne</Value>
 			<Value>TenantOnePublisherOne</Value>
-			<Value>wso2manager@gmail.com&#160;</Value>
+			<Value>wso2manager@gmail.com</Value>
 			<Value>1991november</Value>
 			<Value>WSO2APIM</Value>
 			<Value>wso21111</Value>
@@ -3542,7 +3630,7 @@
 			<Value>Admin</Value>
 			<Value>AdminStoreOne</Value>
 			<Value>AdminPublisherOne</Value>
-			<Value>wso2manager@gmail.com&#160;</Value>
+			<Value>wso2manager@gmail.com</Value>
 			<Value>1991november</Value>
 			<Value>WSO2APIM</Value>
 			<Value>wso21111</Value>
@@ -3569,6 +3657,7 @@
 			<Column name="IM" type="String" />
 			<Column name="URL" type="String" />
 			<Column name="userNameShort" type="String" />
+			<Column name="pauseEightSeconds" type="String" />
 		</Header>
 		<Row>
 			<Value>Kamal</Value>
@@ -3589,6 +3678,7 @@
 			<Value>Sample_IM</Value>
 			<Value>Sample_URL</Value>
 			<Value>DB</Value>
+			<Value>8</Value>
 		</Row>
 
 </Table>
@@ -3673,6 +3763,324 @@
 		</Row>
 
 </Table>
+	<Table name="TierPermissions">
+		<Header>
+			<Column name="APIName" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="apiVersionOne" type="String" />
+			<Column name="apiVisibilityPublic" type="String" />
+			<Column name="apiImageName" type="String" />
+			<Column name="tagName" type="String" />
+			<Column name="urlPatternForPostAndPut" type="String" />
+			<Column name="urlPatternForGetDeleteAndHead" type="String" />
+			<Column name="productionEndpoint" type="String" />
+			<Column name="internalOrEveryoneKeyWord" type="String" />
+			<Column name="tenantOneOfDomainOne" type="String" />
+			<Column name="publisherOneOfTenentOneOrAdmin" type="String" />
+			<Column name="publisherTwoOfTenentOneOrAdmin" type="String" />
+			<Column name="storeOneOfTenanrOrAdmin" type="String" />
+			<Column name="storeTwoOfTenanrOrAdmin" type="String" />
+			<Column name="storeThreeOfTenanrOrAdmin" type="String" />
+			<Column name="storeFourOfTenanrOrAdmin" type="String" />
+			<Column name="storeFiveOfTenanrOrAdmin" type="String" />
+			<Column name="storeSixOfTenanrOrAdmin" type="String" />
+			<Column name="tierNameGold" type="String" />
+			<Column name="tierNameSilver" type="String" />
+			<Column name="tierNameBronze" type="String" />
+			<Column name="tierNameUnlimited" type="String" />
+			<Column name="tierNameCustom" type="String" />
+			<Column name="wrongRole" type="String" />
+			<Column name="errorMessageInvalidRoleName" type="String" />
+			<Column name="errorMessageThisFieldIsRequired" type="String" />
+		</Header>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>Internal/everyone</Value>
+			<Value>TenantOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>TenantOnePublisherTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>TenantOneStoreThree</Value>
+			<Value>TenantOneStoreFour</Value>
+			<Value>TenantOneStoreFive</Value>
+			<Value>TenantOneStoreSix</Value>
+			<Value>Gold</Value>
+			<Value>Silver</Value>
+			<Value>Bronze</Value>
+			<Value>Unlimited</Value>
+			<Value>Custom</Value>
+			<Value>cccc</Value>
+			<Value>Invalid role name</Value>
+			<Value>This field is required</Value>
+		</Row>
+		<Row>
+			<Value>api</Value>
+			<Value>context</Value>
+			<Value>1.0.0</Value>
+			<Value>Public</Value>
+			<Value>image1.jpg</Value>
+			<Value>tag</Value>
+			<Value>/customerservice/customers</Value>
+			<Value>/customerservice/customers/{id}</Value>
+			<Value>http://localhost:9763/jaxrs_basic/services/customers</Value>
+			<Value>Internal/everyone</Value>
+			<Value>Admin</Value>
+			<Value>AdminPublisherOne</Value>
+			<Value>AdminPublisherTwo</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>AdminStoreFour</Value>
+			<Value>AdminStoreFive</Value>
+			<Value>AdminStoreSix</Value>
+			<Value>AdminStoreSeven</Value>
+			<Value>Gold</Value>
+			<Value>Silver</Value>
+			<Value>Bronze</Value>
+			<Value>Unlimited</Value>
+			<Value>Custom</Value>
+			<Value>cccc</Value>
+			<Value>Invalid role name</Value>
+			<Value>This field is required</Value>
+		</Row>
+
+</Table>
+	<Table name="APIDocumentaionWithFireEvents">
+		<Header>
+			<Column name="domain" type="String" />
+			<Column name="apiName" type="String" />
+			<Column name="apiVersion" type="String" />
+			<Column name="newVersionOne" type="String" />
+			<Column name="newVersionTwo" type="String" />
+			<Column name="apiTagName" type="String" />
+			<Column name="ProductionEndPoint" type="String" />
+			<Column name="SandBoxEndPoint" type="String" />
+			<Column name="docName" type="String" />
+			<Column name="docNameTwo" type="String" />
+			<Column name="docNameInvalid" type="String" />
+			<Column name="docSummery" type="String" />
+			<Column name="docSummeryTwo" type="String" />
+			<Column name="SourseUrl" type="String" />
+			<Column name="apiContext" type="String" />
+			<Column name="UploadFilePath" type="String" />
+			<Column name="uploadFilePathTwo" type="String" />
+			<Column name="DownloadFilePath" type="String" />
+			<Column name="downImag" type="String" />
+			<Column name="otherType" type="String" />
+			<Column name="labelOther" type="String" />
+			<Column name="labelSupport" type="String" />
+			<Column name="labelPublic" type="String" />
+			<Column name="labelSample" type="String" />
+			<Column name="labelHowTo" type="String" />
+			<Column name="editContent" type="String" />
+			<Column name="ImageName" type="String" />
+			<Column name="docSameAsAPIVisibility" type="String" />
+			<Column name="docVisibilityPrivate" type="String" />
+			<Column name="statePublished" type="String" />
+			<Column name="APIVisibilityPublic" type="String" />
+			<Column name="APIDiscription" type="String" />
+			<Column name="URLPattern" type="String" />
+			<Column name="APIVisibilityVisibleToMyDomain" type="String" />
+			<Column name="APIVisibilityRestrictedToRole" type="String" />
+			<Column name="downloadFilePathSwagger" type="String" />
+			<Column name="downloadFilePathJson" type="String" />
+			<Column name="DocVisibilityVisibleToMyDomain" type="String" />
+		</Header>
+		<Row>
+			<Value>Tenant</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>1.0.1</Value>
+			<Value>1.0.2</Value>
+			<Value>ApiTagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DocName</Value>
+			<Value>DocTwo</Value>
+			<Value>doc@!23</Value>
+			<Value>DocSummery</Value>
+			<Value>summeryTwo</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>APIContext</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>test.txt</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>other</Value>
+			<Value>Other</Value>
+			<Value>Support Forum</Value>
+			<Value>Public Forum</Value>
+			<Value>Samples</Value>
+			<Value>How To</Value>
+			<Value>This is content</Value>
+			<Value>dd.jpg</Value>
+			<Value>Same as API visibility</Value>
+			<Value>Private</Value>
+			<Value>PUBLISHED</Value>
+			<Value>Public</Value>
+			<Value>sample_Dec</Value>
+			<Value>htttp/sample_url</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Restricted by roles</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\swagger.yaml</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\swagger.json</Value>
+			<Value>VisibleToMyDomain</Value>
+		</Row>
+		<Row>
+			<Value>carbon.super</Value>
+			<Value>APIName</Value>
+			<Value>1.1.1</Value>
+			<Value>1.0.1</Value>
+			<Value>1.0.2</Value>
+			<Value>ApiTagName</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>http://appserver/resource</Value>
+			<Value>DocName</Value>
+			<Value>DocTwo</Value>
+			<Value>doc@!23</Value>
+			<Value>DocSummery</Value>
+			<Value>summeryTwo</Value>
+			<Value>https://www.go.com/</Value>
+			<Value>APIContext</Value>
+			<Value>APIM_Test.pdf</Value>
+			<Value>test.txt</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\APIM_Test.pdf</Value>
+			<Value>DownloadPopup.JPG</Value>
+			<Value>other</Value>
+			<Value>Other</Value>
+			<Value>Support Forum</Value>
+			<Value>Public Forum</Value>
+			<Value>Samples</Value>
+			<Value>How To</Value>
+			<Value>This is content</Value>
+			<Value>dd.jpg</Value>
+			<Value>Same as API visibility</Value>
+			<Value>Private</Value>
+			<Value>PUBLISHED</Value>
+			<Value>Public</Value>
+			<Value>sample_Dec</Value>
+			<Value>htttp/sample_url</Value>
+			<Value>Visible to my domain</Value>
+			<Value>Restricted by roles</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\swagger.yaml</Value>
+			<Value>C:\\Users\\acwijesiri\\Downloads\\swagger.json</Value>
+			<Value>VisibleToMyDomain</Value>
+		</Row>
+
+</Table>
+	<Table name="DeleteAllApplicationsAndAPIsFromAllTenants">
+		<Header>
+			<Column name="DomainOneTenantOrAdmin" type="String" />
+			<Column name="TenantOneOrAdminStoreUserTwo" type="String" />
+			<Column name="TenantOneOrAdminStoreUserOne" type="String" />
+			<Column name="TenantOrAdminPublisherUser" type="String" />
+			<Column name="DefaultApplication" type="String" />
+			<Column name="TenantOneOrAdminStoreUserThree" type="String" />
+			<Column name="DomainTwoTenantOrAdmin" type="String" />
+			<Column name="DomainCondition" type="String" />
+			<Column name="TenantTwoOrAdminStoreUserOne" type="String" />
+			<Column name="TenantTwoOrAdminPublisherUserOne" type="String" />
+			<Column name="AdminStoreUserOne" type="String" />
+			<Column name="AdminStoreUserTwo" type="String" />
+			<Column name="AdminPublisherUserOne" type="String" />
+		</Header>
+		<Row>
+			<Value>TenantOne</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>TenantOneStoreThree</Value>
+			<Value>TenantTwo</Value>
+			<Value>tenant</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantTwoPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+		<Row>
+			<Value>Admin</Value>
+			<Value>TenantOneStoreTwo</Value>
+			<Value>TenantOneStoreOne</Value>
+			<Value>TenantOnePublisherOne</Value>
+			<Value>DefaultApplication</Value>
+			<Value>TenantOneStoreThree</Value>
+			<Value>TenantTwo</Value>
+			<Value>admin</Value>
+			<Value>TenantTwoStoreOne</Value>
+			<Value>TenantTwoPublisherOne</Value>
+			<Value>AdminStoreOne</Value>
+			<Value>AdminStoreTwo</Value>
+			<Value>AdminPublisherOne</Value>
+		</Row>
+
+</Table>
+	<Table name="PauseTimes">
+		<Header>
+			<Column name="oneSecond" type="String" />
+			<Column name="twoSeconds" type="String" />
+			<Column name="threeSeconds" type="String" />
+			<Column name="fourSeconds" type="String" />
+			<Column name="fiveSeconds" type="String" />
+			<Column name="sixSeconds" type="String" />
+			<Column name="sevenSeconds" type="String" />
+			<Column name="eightSeconds" type="String" />
+			<Column name="nineSeconds" type="String" />
+			<Column name="tenSeconds" type="String" />
+			<Column name="elevenSeconds" type="String" />
+			<Column name="twelveSeconds" type="String" />
+			<Column name="thirteenSeconds" type="String" />
+			<Column name="fourteenSeconds" type="String" />
+			<Column name="fifteenSeconds" type="String" />
+		</Header>
+		<Row>
+			<Value>1000</Value>
+			<Value>2000</Value>
+			<Value>3000</Value>
+			<Value>4000</Value>
+			<Value>5000</Value>
+			<Value>6000</Value>
+			<Value>7000</Value>
+			<Value>8000</Value>
+			<Value>9000</Value>
+			<Value>10000</Value>
+			<Value>11000</Value>
+			<Value>12000</Value>
+			<Value>13000</Value>
+			<Value>14000</Value>
+			<Value>15000</Value>
+		</Row>
+		<Row>
+			<Value>1000</Value>
+			<Value>2000</Value>
+			<Value>3000</Value>
+			<Value>4000</Value>
+			<Value>5000</Value>
+			<Value>6000</Value>
+			<Value>7000</Value>
+			<Value>8000</Value>
+			<Value>9000</Value>
+			<Value>10000</Value>
+			<Value>11000</Value>
+			<Value>12000</Value>
+			<Value>13000</Value>
+			<Value>14000</Value>
+			<Value>15000</Value>
+		</Row>
+
+</Table>
+
+
+
 
 
 
