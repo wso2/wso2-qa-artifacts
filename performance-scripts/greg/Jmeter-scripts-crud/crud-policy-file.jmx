@@ -160,12 +160,21 @@
           </HeaderManager>
           <hashTree/>
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">cookieID</stringProp>
+            <stringProp name="RegexExtractor.regex">Set-Cookie: (.+?);</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">jsessionID</stringProp>
             <stringProp name="RegexExtractor.regex">Set-Cookie: (.+?);</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
             <stringProp name="RegexExtractor.default"></stringProp>
-            <stringProp name="RegexExtractor.match_number"></stringProp>
+            <stringProp name="RegexExtractor.match_number">2</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
@@ -219,6 +228,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -280,6 +293,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -405,6 +422,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -586,6 +607,10 @@
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -643,6 +668,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -727,6 +756,10 @@
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -787,6 +820,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -871,6 +908,10 @@
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -944,6 +985,10 @@
                   <stringProp name="Header.name">Cookie</stringProp>
                   <stringProp name="Header.value">${jsessionID}</stringProp>
                 </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Cookie</stringProp>
+                  <stringProp name="Header.value">${cookieID}</stringProp>
+                </elementProp>
               </collectionProp>
             </HeaderManager>
             <hashTree/>
@@ -1007,6 +1052,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -1074,6 +1123,10 @@
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -1128,6 +1181,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Cookie</stringProp>
                 <stringProp name="Header.value">${jsessionID}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">${cookieID}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
