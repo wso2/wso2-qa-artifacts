@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="xslt_seq_1">
+   <property name="xslt" value="transform/XSLTTransformer.xsl"/>
+   <xslt xmlns:ns="http://org.apache.synapse/xsd" key="{get-property('xslt')}"/>
+   <log level="full"/>
+</sequence>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="class_seq_2">
+   <class name="org.wso2.sample.org.wso2.sample.classMediator.first.FirstClassMediator"/>
+</sequence>
