@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="filter_1">
+   <log level="full"/>
+   <filter xmlns:ns="http://org.apache.synapse/xsd"
+           source="get-property('Action')"
+           regex=".*getMacMenu">
+      <then>
+         <send>
+            <endpoint>
+               <address uri="http://10.100.5.63:9793/services/MenuProvider/getMacMenu"/>
+            </endpoint>
+         </send>
+         <log level="custom">
+            <property name="macMenu" value="INSIDE MAC MENU"/>
+         </log>
+      </then>
+      <else>
+         <send>
+            <endpoint>
+               <address uri="http://10.100.5.63:9793/services/MenuProvider/getOtherMenu"/>
+            </endpoint>
+         </send>
+         <log level="custom">
+            <property name="otherMenu" value="INSIDE OTHER MENU"/>
+         </log>
+      </else>
+   </filter>
+   <log/>
+</sequence>
