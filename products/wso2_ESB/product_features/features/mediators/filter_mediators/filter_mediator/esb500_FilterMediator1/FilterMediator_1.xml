@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="FilterMediator_1"
+       transports="http https"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target inSequence="filter_1"/>
+   <publishWSDL uri="http://10.100.5.63:9793/services/MenuProvider?wsdl"/>
+</proxy>
