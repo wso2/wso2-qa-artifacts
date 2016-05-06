@@ -1,10 +1,13 @@
-ompiled source 
+#compiled source 
 *.com
 *.class
 *.dll
 *.exe
 *.o
 *.so
+
+#svn meta files
+.svn
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
