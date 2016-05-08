@@ -24,6 +24,8 @@ other than that this needs following two configuration values as well.
 Summary of Sub Directories
 --------------------------
 JSON:
-Includes differnet JSON formats which we can use as Input or Output schemas for DataMapper configurations.
+Includes different JSON formats which we can use as Input or Output schemas for DataMapper configurations.
 XML:
-Includes differnet XML formats which we can use as Input or Output schemas for DataMapper configurations.
+Includes different XML formats which we can use as Input or Output schemas for DataMapper configurations.
+CAPPS:
+Includes different Composite Applications which created packing with necessary artifacts(input schema, output schema and mapping config files) to test the DataMapper mediator.
