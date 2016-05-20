@@ -1,12 +1,62 @@
+#compiled source 
+*.com
 *.class
+*.dll
+*.exe
+*.o
+*.so
+
+#svn meta files
+.svn
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
+*.jar
+*.war
 *.ear
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-.DS_Store
+# ignore Intellij-IDEA files
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.settings
+*.project
+.idea
+
+
+#Ignore Eclipse files
+*.pydevproject
+.project
+.metadata
+bin/
+target/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+
+
+# ignore logs
+*.log
+
+# ignore target directories
+target/

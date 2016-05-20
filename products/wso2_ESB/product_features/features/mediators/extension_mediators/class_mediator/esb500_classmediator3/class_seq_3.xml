@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="class_seq_3">
+   <class name="org.wso2.sample.secondClassMediator.SecondClassMediator"/>
+   <log level="custom">
+      <property name="newProperty" expression="get-property('myProperty')"/>
+   </log>
+</sequence>
