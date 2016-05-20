@@ -6,6 +6,9 @@
 *.o
 *.so
 
+#mac specific files
+.DS_Store
+
 #svn meta files
 .svn
 
@@ -13,7 +16,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.7z
