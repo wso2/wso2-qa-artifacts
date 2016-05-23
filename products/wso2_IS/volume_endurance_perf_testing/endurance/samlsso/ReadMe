@@ -1,0 +1,13 @@
+Intro
+=====
+- This Script can use to test SSO login logout scenario for a Load Test or a Long Running Test
+
+
+Prerequisites
+=============
+- Travelocity and Avis apps need to be hosted and configured
+- Tenants need to be created as a sequence. (ex: tenny1.com | tenny2.com | tenny3.com)
+- User need to be created in each tenant with same name (can edit the script if needed, to support multiple usernames)
+- Update the relavant details in the script accordingly.
+- Adjust the 'Number of Threads' and 'loop counts' as per the requirement.
+
