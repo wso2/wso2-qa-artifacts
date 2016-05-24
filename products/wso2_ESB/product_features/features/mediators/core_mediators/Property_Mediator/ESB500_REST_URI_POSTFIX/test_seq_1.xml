@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="test_seq_1">
+   <property xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"
+             xmlns:ns="http://org.apache.synapse/xsd"
+             xmlns:ns3="http://org.apache.synapse/xsd"
+             name="REST_URL_POSTFIX"
+             expression="fn:concat('/user/users address/address new/2016.05', get-property('axis2','REST_URL_POSTFIX'))"
+             scope="axis2"
+             type="STRING"/>
+   <log level="custom">
+      <property xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"
+                xmlns:ns="http://org.apache.synapse/xsd"
+                xmlns:ns3="http://org.apache.synapse/xsd"
+                name="NewProperty"
+                expression="get-property('axis2','REST_URL_POSTFIX')"/>
+   </log>
+   <send>
+      <endpoint>
+         <http uri-template="http://10.100.5.63:9793/SampleRestService/restservice/TestUserService"/>
+      </endpoint>
+   </send>
+</sequence>
