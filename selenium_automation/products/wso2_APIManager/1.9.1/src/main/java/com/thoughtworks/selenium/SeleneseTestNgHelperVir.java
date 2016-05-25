@@ -16,6 +16,8 @@ import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,6 +36,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -44,10 +48,9 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-
 import org.openqa.selenium.opera.OperaDriver;
+
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
-import com.virtusa.VTAF.reporter.reader.ReportBase;
 import com.virtusa.isq.vtaf.report.reporter.Reporter;
 import com.virtusa.isq.vtaf.utils.PropertyHandler;
 
@@ -57,9 +60,6 @@ import com.virtusa.isq.vtaf.utils.PropertyHandler;
  * The Class SeleneseTestNgHelperVir.
  */
 public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
-
-    /** The reporter. */
-    private static ReportBase reporter;
 
     /** The robot. */
     private static Robot robot;
@@ -108,6 +108,8 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
 
     /** The total execution time taken. */
     private long totalExecutionTimeTaken;
+    private String currentBC = "";
+    private String currentStatus = "PASSED";
 
     /**
      * Sets the before test configuration for the test.
@@ -122,7 +124,7 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
      *             the exception
      */
     @BeforeTest
-    @Parameters({"selenium.url", "selenium.browser" })
+    @Parameters({"selenium.url", "selenium.browser"})
     public final void setUp(
             @Optional("http://www.google.com") final String url,
             @Optional final String browserString, final ITestContext context)
@@ -253,8 +255,6 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
         Logger log = getLog();
         log.info("Started the selenium webdriver session.");
 
-        reporter.startReporter(method.getDeclaringClass().getCanonicalName(),
-                method.getName());
         log.info("Executing the test case : "
                 + method.getDeclaringClass().getSimpleName() + "."
                 + method.getName());
@@ -307,6 +307,82 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
 
             DesiredCapabilities.opera();
             driver = new OperaDriver(capabilities);
+
+        } else if (browserString.contains("remotewebdriver")) {
+
+            // Reading remote driver capabilities form property file
+
+            PropertyHandler propHandler =
+                    new PropertyHandler("runtime.properties");
+            String url = propHandler.getRuntimeProperty("REMOTE_DRIVER_URL");
+            String strCaps =
+                    propHandler.getRuntimeProperty("BROWSER_CAPABILITIES");
+
+            if (url.equalsIgnoreCase("")) {
+                getLog().info(
+                        "Remote URL is not configured for remote web driver in \"runtime.properties\"");
+                throw new AssertionError(
+                        "Remote URL is not configured for remote web driver in \"runtime.properties\"");
+            }
+
+            if (!strCaps.equalsIgnoreCase("")) {
+                if (strCaps.contains(",")) {
+                    String arrcaps[] = strCaps.split(",");
+                    for (String cap : arrcaps) {
+                        String[] arrPops = cap.split("=");
+                        if (arrPops.length == 2) {
+                            capabilities.setCapability(arrPops[0], arrPops[1]);
+                        } else {
+                            getLog().info(
+                                    "invalid capability is passed to remote web driver ["
+                                            + cap + "]");
+                            throw new AssertionError(
+                                    "invalid capability is passed to remote web driver ["
+                                            + cap + "]");
+                        }
+
+                    }
+                } else {
+                    String[] arrPops = strCaps.split("=");
+                    if (arrPops.length == 2) {
+                        capabilities.setCapability(arrPops[0], arrPops[1]);
+                    } else {
+                        getLog().info(
+                                "invalid capability is passed to remote web driver ["
+                                        + strCaps + "]");
+                        throw new AssertionError(
+                                "invalid capability is passed to remote web driver ["
+                                        + strCaps + "]");
+                    }
+                }
+
+            } else {
+                getLog().info(
+                        "capabilities not configured for remote web driver in \"runtime.properties\"");
+                throw new AssertionError(
+                        "capabilities not configured for remote web driver in \"runtime.properties\"");
+            }
+
+            getLog().info("Starting Remorte Web Driver at " + url);
+            URL cUrl = null;
+            try {
+                cUrl = new URL(url);
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                getLog().info(
+                        "The URL passed to RemoteWebDriver is Malformed. URL ["
+                                + url + "]");
+                e.printStackTrace();
+                throw new AssertionError(
+                        "The URL passed to RemoteWebDriver is Malformed. URL ["
+                                + url + "]");
+
+            }
+            driver = new RemoteWebDriver(cUrl, capabilities);
+            
+            RemoteWebDriver driverLFD = new RemoteWebDriver(cUrl,capabilities); 
+			 driverLFD.setFileDetector(new LocalFileDetector());
+			 driver = driverLFD;
 
         } else {
             getLog().info("Unsupported browser type passed " + browserString);
@@ -434,7 +510,6 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
         resultReporter.endTestReporting();
         setSeleniumInstances(new HashMap<String, WebDriver>());
         setDatabaseInstances(new HashMap<String, Connection>());
-        endTestReporting(false);
         super.checkForVerificationErrors();
         this.cleanBrowserSessions();
     }
@@ -498,7 +573,6 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
      * Inits the reporter.
      */
     public static synchronized void initReporter() {
-        reporter = new ReportBase();
         resultReporter = new Reporter();
     }
 
@@ -549,12 +623,10 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
     public final void reportresult(final boolean isAssert, final String step,
             final String result, final String messageString) {
         String message = messageString;
-
+        WebDriver driver = getDriver();
         Logger log = getStackTrace(step, result, message);
 
         logTime(step, getCommandStartTime(), getCurrentTime(), log);
-
-        reporter.reportResult(step, result, message);
 
         // Adding data to the new reporter
         try {
@@ -567,20 +639,20 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
                     testMessage = "Passed";
                 }
                 if (callingClassName.contains("LIBRARY_RECOVERY")) {
-                    resultReporter.reportStepResults(true, "RECOVERY : "
+                    resultReporter.reportStepResults(driver,true, "RECOVERY : "
                             + testStep, testMessage, "Success", "");
                 } else {
-                    resultReporter.reportStepResults(true, testStep,
+                    resultReporter.reportStepResults(driver,true, testStep,
                             testMessage, "Success", "");
                 }
             } else {
                 if (callingClassName.contains("LIBRARY_RECOVERY")) {
-                    resultReporter.reportStepResults(false, "RECOVERY : "
+                    resultReporter.reportStepResults(driver,false, "RECOVERY : "
                             + testStep, message, "Error",
                             getSourceLines(new Throwable(message)
                                     .getStackTrace()));
                 } else {
-                    resultReporter.reportStepResults(false, testStep, message,
+                    resultReporter.reportStepResults(driver,false, testStep, message,
                             "Error", getSourceLines(new Throwable(message)
                                     .getStackTrace()));
                 }
@@ -631,23 +703,17 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
                     + callingMethod);
             currentMethod = callingMethod;
         }
-
+        setCurrentBC(callingMethod);
+        if (!("PASSED".equals(result))) {
+            setCurrentStatus("FAIELD");
+        }
+        
+        System.out.println("CurrentBC :"+getCurrentBC()+" ---- Status :"+getCurrentStatus());
+        
         log.info("Step : " + step + "\t|\tResult : " + result
                 + "\t|\tMessage : " + message);
 
         return log;
-    }
-
-    /**
-     * End test reporting.
-     * 
-     * @param testFailed
-     *            the test failed
-     */
-    public final void endTestReporting(final boolean testFailed) {
-
-        reporter.endResultReporting(testFailed);
-
     }
 
     /**
@@ -705,25 +771,6 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
         } catch (Exception e) {
             log.info(e.getMessage());
         }
-    }
-
-    /**
-     * Gets the reporter.
-     * 
-     * @return the reporter
-     */
-    public static final ReportBase getReporter() {
-        return reporter;
-    }
-
-    /**
-     * Sets the reporter.
-     * 
-     * @param reporterObj
-     *            the reporter to set
-     */
-    public static final void setReporter(final ReportBase reporterObj) {
-        SeleneseTestNgHelperVir.reporter = reporterObj;
     }
 
     /**
@@ -990,4 +1037,35 @@ public class SeleneseTestNgHelperVir extends SeleneseTestBaseVir {
 
         setLogTimeCSVFileBuilder(builder.toString());
     }
+
+    /**
+     * @return the currentBC
+     */
+    public String getCurrentBC() {
+        return currentBC;
+    }
+
+    /**
+     * @param currentBC
+     *            the currentBC to set
+     */
+    public void setCurrentBC(String currentBC) {
+        this.currentBC = currentBC;
+    }
+
+    /**
+     * @return the currentStatus
+     */
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    /**
+     * @param currentStatus the currentStatus to set
+     */
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
+    }
+
+    
 }

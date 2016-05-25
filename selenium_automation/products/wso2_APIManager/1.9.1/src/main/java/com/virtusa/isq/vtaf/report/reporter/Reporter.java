@@ -12,6 +12,7 @@
 package com.virtusa.isq.vtaf.report.reporter;
 
 import java.awt.AWTException;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -26,6 +27,9 @@ import javax.imageio.ImageIO;
 import org.apache.commons.io.FileUtils;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 /**
  * The Class Reporter.
@@ -136,7 +140,7 @@ public class Reporter {
      * @param stacktrace
      *            the stacktrace
      */
-    public final void reportStepResults(final boolean isPassed,
+    public final void reportStepResults(WebDriver driver,final boolean isPassed,
             final String category, final String message, final String loglvl,
             final String stacktrace) {
 
@@ -154,17 +158,120 @@ public class Reporter {
             }
             
         } else {
-
-            String screenShot =
-                    saveScreenShot(builder.getReportFolderLocation());
-            String thumbScreenShot = saveScreenshotThumb(screenShot);
-            builder.addNewTestStep(isPassed, category, "images"
-                    + File.separator + screenShot, thumbScreenShot, message,
-                    stacktrace, "Error");
+            
+            String thumbScreenShot;
+            String screenShot;
+            try {
+                screenShot = saveFullScreenShot(driver, builder.getReportFolderLocation());
+                
+                thumbScreenShot = saveFullScreenshotThumb(screenShot);
+                builder.addNewTestStep(isPassed, category, "images"
+                        + File.separator + screenShot, thumbScreenShot, message,
+                        stacktrace, "Error");
+            } catch (Exception e) {
+                
+                screenShot =
+                        saveScreenShot(builder.getReportFolderLocation());
+                
+                thumbScreenShot = saveScreenshotThumb(screenShot);
+                builder.addNewTestStep(isPassed, category, "images"
+                        + File.separator + screenShot, thumbScreenShot, message,
+                        stacktrace, "Error");
+               
+            }
+            
+            
+           
         }
 
     }
+    public static void resize(String inputImagePath,
+            String outputImagePath, double percent) throws IOException {
+        File inputFile = new File(inputImagePath);
+        BufferedImage inputImage = ImageIO.read(inputFile);
+        int scaledWidth = (int) (inputImage.getWidth() * percent);
+        int scaledHeight = (int) (inputImage.getHeight() * percent);
+        resize(inputImagePath, outputImagePath, scaledWidth, scaledHeight);
+    }
+    public static void resize(String inputImagePath,
+            String outputImagePath, int scaledWidth, int scaledHeight)
+            throws IOException {
+        // reads input image
+        File inputFile = new File(inputImagePath);
+        BufferedImage inputImage = ImageIO.read(inputFile);
+ 
+        // creates output image
+        BufferedImage outputImage = new BufferedImage(scaledWidth,
+                scaledHeight, inputImage.getType());
+ 
+        // scales the input image to the output image
+        Graphics2D g2d = outputImage.createGraphics();
+        g2d.drawImage(inputImage, 0, 0, scaledWidth, scaledHeight, null);
+        g2d.dispose();
+ 
+        // extracts extension of output file
+        String formatName = outputImagePath.substring(outputImagePath
+                .lastIndexOf(".") + 1);
+ 
+        // writes to output file
+        ImageIO.write(outputImage, formatName, new File(outputImagePath));
+    }
+    
+    private String saveFullScreenshotThumb(final String screenShotFile) {
+        String screenShotThumbPath =
+                "images" + File.separator + screenShotFile + "_Thumb.png";
+        String screenShotThumb =
+                builder.getReportFolderLocation() + File.separator
+                + "images" + File.separator  + screenShotFile + "_Thumb.png";
+        try {
+            String screenShotOriginalFile =
+                    builder.getReportFolderLocation() + File.separator
+                            + "images" + File.separator + screenShotFile;
+            
+            double percent = 0.05;
+            resize(screenShotOriginalFile, screenShotThumb, percent);
+ 
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenShotThumbPath;
+    }
+
+    
+    private String saveFullScreenShot(WebDriver driver,final String reportFolderLocation) throws Exception {
+
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
+        String timestamp = sdf.format(date);
+       
+        String screenShotFile = timestamp + ".png";
+        String screenShotImgFolder =
+                reportFolderLocation + File.separator + "images";
+        try {
+          
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    
+            File screenShotImgFolderFile = new File(screenShotImgFolder);
+
+            if (!screenShotImgFolderFile.exists()
+                    && !screenShotImgFolderFile.mkdirs()) {
+
+                throw new RuntimeException(
+                        "Cannot create new folder in location "
+                                + screenShotImgFolderFile.getAbsolutePath());
+            }
+            FileUtils.copyFile(scrFile, new File(screenShotImgFolder+File.separator+screenShotFile));
+        
+        } catch (Exception e) {
+            throw e;
+        }
+        return screenShotFile;
+    }
+
+    
+    
+    
     /**
      * Save screen shot.
      * 
