@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">10.100.1.90</stringProp>
+            <stringProp name="Argument.value">172.17.0.1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="http_port" elementType="Argument">
@@ -27,6 +27,15 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random App Number" enabled="true">
+        <stringProp name="maximumValue">9999</stringProp>
+        <stringProp name="minimumValue">100</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">randAppNum</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Android Device Management" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -59,7 +68,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{  &#xd;
    &quot;callbackUrl&quot;:&quot;www.google.lk&quot;,&#xd;
-   &quot;clientName&quot;:&quot;app_15&quot;,&#xd;
+   &quot;clientName&quot;:&quot;app_${randAppNum}&quot;,&#xd;
    &quot;tokenScope&quot;:&quot;Production&quot;,&#xd;
    &quot;owner&quot;:&quot;admin&quot;,&#xd;
    &quot;grantType&quot;:&quot;password refresh_token&quot;,&#xd;
@@ -1788,7 +1797,7 @@ vars.put(&quot;base64encodedId&quot;,new String(encryptedId));</stringProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+        <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
           <stringProp name="FileSaver.filename">Results</stringProp>
           <boolProp name="FileSaver.errorsonly">false</boolProp>
           <boolProp name="FileSaver.skipautonumber">false</boolProp>
