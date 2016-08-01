@@ -14,7 +14,7 @@ Description:
      	Set Challenge question of a user
      	Confirm user self registration and activate the user account, 2 minutes after account creation
      
-Pre-Condition:
+Pre-Conditions:
 - Account confirmation and mail sending should be enabled in Identity servers (Instructions can be under 'Environment Setup Instructions' below)
 - If you are running this script for a tenant in IS 5.1.0 make sure to add challange questions for that tenant prior to running this script. This is not necessary for the super tenant.
   
@@ -59,7 +59,7 @@ Description:
 - Therefore these 3 loop controllers  can be run together or you can disable 'SetChallengeQuestionOfUser Loop Controller' and 'ConfirmUserRegistration Loop Controller'  and run them later using the details of user accounts created by the 'User Creation Loop Controller'
       
      
-Pre-Condition:
+Pre-Conditions:
 - Account confirmation and mail sending should be enabled in Identity servers (Instructions can be under 'Environment Setup Instructions' below)
 - If you are running this script for a tenant in IS 5.1.0 make sure to add challange questions for that tenant prior to running this script. This is not necessary for the super tenant.
  
