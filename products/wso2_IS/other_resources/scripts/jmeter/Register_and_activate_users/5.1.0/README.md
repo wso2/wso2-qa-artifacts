@@ -83,9 +83,11 @@ HTTP Authorization Manager
 
 ------------------------------------------------------------------------------
 
-	Environment Setup Instructions :
 
+    Environment Setup Instructions for IS 5.1.0 :
+    
 
+-   Enable following event listener in <IS_HOME>/repository/conf/identity/identity.xml  
 
         <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
 
@@ -102,7 +104,7 @@ HTTP Authorization Manager
 
         <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
 
-Enable mailto trnasport in <IS_HOME>/repository/conf/axis/axis2.xml 
+-   Enable mailto trnasport in <IS_HOME>/repository/conf/axis/axis2.xml 
 
         <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
   	     <parameter name="mail.smtp.from">sender_email@gmail.com</parameter>
