@@ -1,0 +1,40 @@
+{
+  "name": "InputStream",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "NumPregnancies",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "TSFT",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "DPF",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "BMI",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "DBP",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "PG2",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "SI2",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "Age",
+      "type": "DOUBLE"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('TSumExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Import('tFeed:1.0.0')
+define stream TwitterFeed (company string, wordCount int);
+
+@Export('TweetsSum:1.0.0')
+define stream TweetsSum (company string, sum long);
+
+partition with (company of TwitterFeed) 
+begin @info(name = 'query1') 
+from TwitterFeed
+select company as company, sum(wordCount) as sum 
+having sum >= 10
+insert into TweetsSum;
+end ;
