@@ -100,11 +100,11 @@ HTTP Authorization Manager
         Authentication.Policy.Enable=true
         Captcha.Verification.Internally.Managed=false
 
--   Add the following formatter in <IS_HOME>/repository/conf/axis/axis2.xml 
+-   Add the following message formatter in <IS_HOME>/repository/conf/axis2/axis2.xml 
 
         <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
 
--   Enable mailto trnasport in <IS_HOME>/repository/conf/axis/axis2.xml 
+-   Enable mailto transport sender in <IS_HOME>/repository/conf/axis2/axis2.xml 
 
         <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
   	     <parameter name="mail.smtp.from">sender_email@gmail.com</parameter>
