@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Register User - Multiple Threads" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1375939144000</longProp>
+        <longProp name="ThreadGroup.end_time">1375939144000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">9999999999999</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="outputFormat"></stringProp>
+          <boolProp name="perThread">false</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">userNo</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User details" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="userNamePrefix" elementType="Argument">
+              <stringProp name="Argument.name">userNamePrefix</stringProp>
+              <stringProp name="Argument.value">testUser</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">pass#word2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="tenantDomain" elementType="Argument">
+              <stringProp name="Argument.name">tenantDomain</stringProp>
+              <stringProp name="Argument.value">carbon.super</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="email" elementType="Argument">
+              <stringProp name="Argument.name">email</stringProp>
+              <stringProp name="Argument.value">receiver_email@gmail.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server details" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="server" elementType="Argument">
+              <stringProp name="Argument.name">server</stringProp>
+              <stringProp name="Argument.value">localhost:9443</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">https://${server}</stringProp>
+              <stringProp name="Authorization.username">admin</stringProp>
+              <stringProp name="Authorization.password">admin</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+          </collectionProp>
+        </AuthManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="User Creation Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="RegisterUserRequest" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ser=&quot;http://services.mgt.identity.carbon.wso2.org&quot; xmlns:xsd=&quot;http://dto.mgt.identity.carbon.wso2.org/xsd&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ser:registerUser&gt;
+         &lt;ser:userName&gt;${userNamePrefix}${userNo}&lt;/ser:userName&gt;
+         &lt;ser:password&gt;${password}&lt;/ser:password&gt;
+         &lt;ser:claims&gt;
+            &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;
+            &lt;xsd:claimValue&gt;${email}&lt;/xsd:claimValue&gt;
+         &lt;/ser:claims&gt;
+         &lt;ser:profileName&gt;default&lt;/ser:profileName&gt;
+         &lt;ser:tenantDomain&gt;${tenantDomain}&lt;/ser:tenantDomain&gt;
+      &lt;/ser:registerUser&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:registerUser</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert=true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-262890568">verified&gt;true&lt;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="ConfirmationCodeExtractor" enabled="true">
+              <stringProp name="TestPlan.comments">/soapenv:Envelope/soapenv:Body/ns:getCaptchaResponse/ns:return/ax2348:imagePath/text()</stringProp>
+              <stringProp name="XPathExtractor.default">NONE</stringProp>
+              <stringProp name="XPathExtractor.refname">code</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;key&apos;]</stringProp>
+              <boolProp name="XPathExtractor.validate">true</boolProp>
+              <boolProp name="XPathExtractor.tolerant">false</boolProp>
+              <boolProp name="XPathExtractor.namespace">true</boolProp>
+              <stringProp name="Scope.variable">imagePath</stringProp>
+            </XPathExtractor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+ 
+
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss a&quot;);
+Calendar cal = Calendar.getInstance();
+Date resTime = cal.getTime();
+String respondedTime = sdf.format(resTime);
+vars.put(&quot;respondedTime&quot;,respondedTime);
+print(&quot;RESPONDED TIME  &quot; + respondedTime);</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="GetAllChallengeQuestions" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ser=&quot;http://services.mgt.identity.carbon.wso2.org&quot;&gt;
+  &lt;soapenv:Header/&gt;
+  &lt;soapenv:Body&gt;
+     &lt;ser:getAllChallengeQuestions/&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:getAllChallengeQuestions</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree/>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SetChallengeQuestionOfUser" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/UserIdentityManagementAdminService.UserIdentityManagementAdminServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ser=&quot;http://services.mgt.identity.carbon.wso2.org&quot; xmlns:xsd=&quot;http://dto.mgt.identity.carbon.wso2.org/xsd&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ser:setChallengeQuestionsOfUser&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:userName&gt;${userNamePrefix}${userNo}&lt;/ser:userName&gt;
+         &lt;!--Zero or more repetitions:--&gt;
+         &lt;ser:challengesDTOs&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:answer&gt;testAnswer&lt;/xsd:answer&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:error&gt;?&lt;/xsd:error&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:id&gt;http://wso2.org/claims/challengeQuestion1&lt;/xsd:id&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:key&gt;${code}&lt;/xsd:key&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:order&gt;0&lt;/xsd:order&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:question&gt;Favorite food ?&lt;/xsd:question&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:verfied&gt;false&lt;/xsd:verfied&gt;
+         &lt;/ser:challengesDTOs&gt;
+      &lt;/ser:setChallengeQuestionsOfUser&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:setChallengeQuestionsOfUser</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+            <stringProp name="TestPlan.comments">http://wso2.org/claims/challengeQuestion1</stringProp>
+          </SoapSampler>
+          <hashTree/>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Login before activation" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;aut:login&gt;
+         &lt;aut:username&gt;${userNamePrefix}${userNo}@${tenantDomain}&lt;/aut:username&gt;
+         &lt;aut:password&gt;${password}&lt;/aut:password&gt;
+      &lt;/aut:login&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:login</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert=false" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1006245958">&lt;ns:return&gt;false&lt;/ns:return&gt;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="ConfirmUserSelfRegistration" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ser=&quot;http://services.mgt.identity.carbon.wso2.org&quot; xmlns:xsd=&quot;http://beans.mgt.captcha.carbon.wso2.org/xsd&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ser:confirmUserSelfRegistration&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:username&gt;${userNamePrefix}${userNo}&lt;/ser:username&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:code&gt;${code}&lt;/ser:code&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:captcha&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:imagePath&gt;?&lt;/xsd:imagePath&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:secretKey&gt;?&lt;/xsd:secretKey&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:userAnswer&gt;?&lt;/xsd:userAnswer&gt;
+         &lt;/ser:captcha&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:tenantDomain&gt;${tenantDomain}&lt;/ser:tenantDomain&gt;
+      &lt;/ser:confirmUserSelfRegistration&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:confirmUserSelfRegistration</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+              <stringProp name="ConstantTimer.delay">6000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date; 
+
+/////**************get time to confirm
+String oldTime = vars.get(&quot;respondedTime&quot;);
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss a&quot;);
+Date before = sdf.parse(oldTime);
+Calendar cal1 = Calendar.getInstance();
+cal1.setTime(before);
+cal1.add(Calendar.MINUTE, +2);
+Date after = cal1.getTime();
+String timeToConfirm = sdf.format(after);
+print(&quot;TIME TO CONFIRM &quot; + timeToConfirm);
+
+/////**************get current time
+Date now = new Date(); 
+Calendar cal2 = Calendar.getInstance();
+cal2.setTime(now);
+String currentTime = sdf.format(now);
+print(&quot;CURRENT TIME    &quot; + currentTime);
+
+
+
+//Calculate time difference in seconds
+Integer sleepH = ((cal1.get(Calendar.HOUR_OF_DAY)-cal2.get(Calendar.HOUR_OF_DAY))*60*60);
+//print (&quot;sleepHours   &quot; +sleepH);
+Integer sleepM = ((cal1.get(Calendar.MINUTE)-cal2.get(Calendar.MINUTE))*60);
+//print (&quot;sleepMinutes &quot; +sleepM);
+Integer sleepS = (cal1.get(Calendar.SECOND)-cal2.get(Calendar.SECOND));
+//print (&quot;sleepSeconds &quot; +sleepS);
+ 
+if (sleepS &lt; 1) 
+{
+ 	sleepS = 60 +sleepS;
+ 	sleepM = sleepM -60;
+}
+
+if (sleepM &lt; 1) 
+ {
+     sleepS = 60-sleepM;
+ 	sleepH = sleepH -3600;
+}
+
+//print(&quot;sleepSecondsModified :&quot; + sleepS);
+Integer diff1 = sleepH + sleepM + sleepS;
+
+
+
+username = vars.get(&quot;userNamePrefix&quot;)+vars.get(&quot;userNo&quot;)+vars.get(&quot;emailDomain&quot;);
+
+print(&quot;Time to wait  for &quot; + username + &quot; : &quot; + diff1);
+
+ if (diff1 &gt; 0 )
+ {
+ 	Thread.sleep(diff1*1000);
+ 	//print (&quot;sleeping&quot;);
+ 	
+ }
+
+//print (&quot;resumed&quot;);
+
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert=true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-262890568">verified&gt;true&lt;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Login after activation" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;aut:login&gt;
+         &lt;aut:username&gt;${userNamePrefix}${userNo}@${tenantDomain}&lt;/aut:username&gt;
+         &lt;aut:password&gt;${password}&lt;/aut:password&gt;
+      &lt;/aut:login&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:login</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert=true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="126244911">&lt;ns:return&gt;true&lt;/ns:return&gt;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Logout" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">https://${server}/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;aut:logout/&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">urn:logout</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
