@@ -17,6 +17,7 @@ Description:
 Pre-Condition:
 - Account confirmation and mail sending should be enabled in Identity servers (Instructions can be under 'Environment Setup Instructions' below)
 - If you are running this script for a tenant in IS 5.1.0 make sure to add challange questions for that tenant prior to running this script. This is not necessary for the super tenant.
+  
   Eg : Challenge question ID : http://wso2.org/claims/challengeQuestion1
        Challenge question : Favorite food ?
 
@@ -48,18 +49,20 @@ Description:
 - This script can be used to register users and activate user accounts by reading user account details from file.
 - The purpose of this script is to make the task of setting challenge questions and account activation independent of the user registration script. 
 - There are 3 loop controllers to invoke the 3 operations , account creation , setting the challenge question and account activation.
-      User Creation Loop Controller
-      SetChallengeQuestionOfUser Loop Controller
-      ConfirmUserRegistration Loop Controller
-  When 'User Creation Loop Controller' is invoked 'User name' and 'confirmation code' are written to a file 
-  When 'SetChallengeQuestionOfUser Loop Controller' and 'ConfirmUserRegistration Loop Controller' are invoked, they use the data from the above file.
-- Therefore these 3 loop controllers  can be run together or you can disable the following loop controllers and run them later using the details of user accounts created by the 'User Creation Loop Controller'
-      SetChallengeQuestionOfUser Loop Controller
-      ConfirmUserRegistration Loop Controller
+
+    1.  User Creation Loop Controller
+    2.  SetChallengeQuestionOfUser Loop Controller
+    3.  ConfirmUserRegistration Loop Controller
+
+- When 'User Creation Loop Controller' is invoked 'User name' and 'confirmation code' are written to a file 
+- When 'SetChallengeQuestionOfUser Loop Controller' and 'ConfirmUserRegistration Loop Controller' are invoked, they use the data from the above file.
+- Therefore these 3 loop controllers  can be run together or you can disable 'SetChallengeQuestionOfUser Loop Controller' and 'ConfirmUserRegistration Loop Controller'  and run them later using the details of user accounts created by the 'User Creation Loop Controller'
+      
      
 Pre-Condition:
 - Account confirmation and mail sending should be enabled in Identity servers (Instructions can be under 'Environment Setup Instructions' below)
 - If you are running this script for a tenant in IS 5.1.0 make sure to add challange questions for that tenant prior to running this script. This is not necessary for the super tenant.
+ 
   Eg : Challenge question ID : http://wso2.org/claims/challengeQuestion1
        Challenge question : Favorite food ?
 
