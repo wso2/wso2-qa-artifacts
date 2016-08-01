@@ -87,25 +87,24 @@ HTTP Authorization Manager
 
 
 
-1. Enable following event listener in <IS_HOME>/repository/conf/identity/identity.xml  
+        <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
 
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
+-   Enable/disable following properties in <IS_HOME>/repository/conf/identity/identity­-mgt.properties
 
-2.  Enable/disable following properties in <IS_HOME>/repository/conf/identity/identity­-mgt.properties
--   Notification.Sending.Internally.Managed=true
--   Authentication.Policy.Account.Lock.On.Creation=true
--   Notification.Expire.Time=7200
--   Notification.Sending.Enable=true
--   Authentication.Policy.Enable=true
--   Captcha.Verification.Internally.Managed=false
+        Notification.Sending.Internally.Managed=true
+        Authentication.Policy.Account.Lock.On.Creation=true
+        Notification.Expire.Time=7200
+        Notification.Sending.Enable=true
+        Authentication.Policy.Enable=true
+        Captcha.Verification.Internally.Managed=false
 
-3.  Add the following formatter in <IS_HOME>/repository/conf/axis/axis2.xml 
+-   Add the following formatter in <IS_HOME>/repository/conf/axis/axis2.xml 
 
-    <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
+        <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
 
-4.  Enable mailto transport sender in <IS_HOME>/repository/conf/axis/axis2.xml 
+Enable mailto trnasport in <IS_HOME>/repository/conf/axis/axis2.xml 
 
-  	 <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
+        <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
   	     <parameter name="mail.smtp.from">sender_email@gmail.com</parameter>
   	     <parameter name="mail.smtp.user">sender_email@gmail.com</parameter>
   	     <parameter name="mail.smtp.password">sender_email_password</parameter>
