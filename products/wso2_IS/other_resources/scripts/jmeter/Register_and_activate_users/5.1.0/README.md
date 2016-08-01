@@ -85,12 +85,13 @@ HTTP Authorization Manager
 
 	Environment Setup Instructions :
 
-  Environment Setup Instructions for IS 5.1.0 :
 
-Enable following event listener in <IS_HOME>/repository/conf/identity/identity.xml  
-- 	<EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
 
-Enable/disable following properties in <IS_HOME>/repository/conf/identity/identity­-mgt.properties
+1. Enable following event listener in <IS_HOME>/repository/conf/identity/identity.xml  
+
+    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
+
+2.  Enable/disable following properties in <IS_HOME>/repository/conf/identity/identity­-mgt.properties
 -   Notification.Sending.Internally.Managed=true
 -   Authentication.Policy.Account.Lock.On.Creation=true
 -   Notification.Expire.Time=7200
@@ -98,10 +99,11 @@ Enable/disable following properties in <IS_HOME>/repository/conf/identity/identi
 -   Authentication.Policy.Enable=true
 -   Captcha.Verification.Internally.Managed=false
 
-Add the following formatter in <IS_HOME>/repository/conf/axis/axis2.xml 
--   <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
+3.  Add the following formatter in <IS_HOME>/repository/conf/axis/axis2.xml 
 
-Enable mailto transport sender in <IS_HOME>/repository/conf/axis/axis2.xml 
+    <messageFormatter contentType="text/html" class="org.apache.axis2.transport.http.ApplicationXMLFormatter"/>
+
+4.  Enable mailto transport sender in <IS_HOME>/repository/conf/axis/axis2.xml 
 
   	 <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
   	     <parameter name="mail.smtp.from">sender_email@gmail.com</parameter>
