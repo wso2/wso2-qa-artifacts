@@ -1309,6 +1309,575 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;,&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Configuration Management - GET Configuration " enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/configuration</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Configuration Management - PUT Configuration" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;type&quot;: &quot;android&quot;,&#xd;
+  &quot;configuration&quot;: [&#xd;
+    {&#xd;
+      &quot;name&quot;: &quot;SampleConfiguration&quot;,&#xd;
+      &quot;contentType&quot;: &quot;text&quot;,&#xd;
+      &quot;value&quot;: &quot;This is a sample Configuration&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/configuration</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Configuration Management - GET Configuration Licence" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/configuration/license</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - POST Device" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{  &#xd;
+   &quot;id&quot;:1000${DeviceID},&#xd;
+   &quot;name&quot;:&quot;androiddevice1000${DeviceID}&quot;,&#xd;
+   &quot;type&quot;:&quot;android&quot;,&#xd;
+   &quot;description&quot;:&quot;this is an android device&quot;,&#xd;
+   &quot;deviceIdentifier&quot;:&quot;d24f870f390352a41000${DeviceID}&quot;,&#xd;
+   &quot;enrolmentInfo&quot;:{  &#xd;
+      &quot;id&quot;:1000${DeviceID},&#xd;
+      &quot;device&quot;:{  &#xd;
+&#xd;
+      },&#xd;
+      &quot;dateOfEnrolment&quot;:0,&#xd;
+      &quot;dateOfLastUpdate&quot;:0,&#xd;
+      &quot;ownership&quot;:&quot;BYOD&quot;,&#xd;
+      &quot;status&quot;:&quot;CREATED&quot;,&#xd;
+      &quot;owner&quot;:&quot;admin&quot;&#xd;
+   },&#xd;
+   &quot;features&quot;:[  &#xd;
+      {  &#xd;
+         &quot;id&quot;:10,&#xd;
+         &quot;code&quot;:&quot;aaaa1111&quot;,&#xd;
+         &quot;name&quot;:&quot;newfeature1&quot;,&#xd;
+         &quot;description&quot;:&quot;this is the new feature 1&quot;,&#xd;
+         &quot;deviceType&quot;:&quot;android&quot;,&#xd;
+         &quot;metadataEntries&quot;:[  &#xd;
+            {  &#xd;
+               &quot;id&quot;:10,&#xd;
+               &quot;value&quot;:{  &#xd;
+&#xd;
+               }&#xd;
+            }&#xd;
+         ]&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;properties&quot;:[  &#xd;
+      {  &#xd;
+         &quot;name&quot;:&quot;property1&quot;,&#xd;
+         &quot;value&quot;:&quot;value1&quot;&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;deviceInfo&quot;:{  &#xd;
+      &quot;deviceModel&quot;:&quot;S8&quot;,&#xd;
+      &quot;vendor&quot;:&quot;SAMSUNG&quot;,&#xd;
+      &quot;osVersion&quot;:&quot;5.1&quot;,&#xd;
+      &quot;batteryLevel&quot;:1,&#xd;
+      &quot;internalTotalMemory&quot;:32,&#xd;
+      &quot;internalAvailableMemory&quot;:24,&#xd;
+      &quot;externalTotalMemory&quot;:64,&#xd;
+      &quot;externalAvailableMemory&quot;:60,&#xd;
+      &quot;operator&quot;:&quot;dialog&quot;,&#xd;
+      &quot;connectionType&quot;:&quot;GSM&quot;,&#xd;
+      &quot;mobileSignalStrength&quot;:1,&#xd;
+      &quot;ssid&quot;:&quot;picassowifi&quot;,&#xd;
+      &quot;cpuUsage&quot;:0,&#xd;
+      &quot;totalRAMMemory&quot;:2,&#xd;
+      &quot;availableRAMMemory&quot;:1,&#xd;
+      &quot;pluggedIn&quot;:false,&#xd;
+      &quot;location&quot;:{  &#xd;
+         &quot;deviceId&quot;:0,&#xd;
+         &quot;deviceIdentifier&quot;:{  &#xd;
+            &quot;id&quot;:&quot;string&quot;,&#xd;
+            &quot;type&quot;:&quot;string&quot;&#xd;
+         },&#xd;
+         &quot;latitude&quot;:0,&#xd;
+         &quot;longitude&quot;:0,&#xd;
+         &quot;street1&quot;:&quot;string&quot;,&#xd;
+         &quot;street2&quot;:&quot;string&quot;,&#xd;
+         &quot;city&quot;:&quot;string&quot;,&#xd;
+         &quot;state&quot;:&quot;string&quot;,&#xd;
+         &quot;zip&quot;:&quot;string&quot;,&#xd;
+         &quot;country&quot;:&quot;string&quot;&#xd;
+      },&#xd;
+      &quot;deviceDetailsMap&quot;:{  &#xd;
+&#xd;
+      },&#xd;
+      &quot;imei&quot;:&quot;string&quot;,&#xd;
+      &quot;imsi&quot;:&quot;string&quot;&#xd;
+   },&#xd;
+   &quot;applications&quot;:[  &#xd;
+      {  &#xd;
+         &quot;id&quot;:0,&#xd;
+         &quot;platform&quot;:&quot;string&quot;,&#xd;
+         &quot;category&quot;:&quot;string&quot;,&#xd;
+         &quot;name&quot;:&quot;string&quot;,&#xd;
+         &quot;locationUrl&quot;:&quot;string&quot;,&#xd;
+         &quot;imageUrl&quot;:&quot;string&quot;,&#xd;
+         &quot;version&quot;:&quot;string&quot;,&#xd;
+         &quot;type&quot;:&quot;string&quot;,&#xd;
+         &quot;appProperties&quot;:{  &#xd;
+&#xd;
+         },&#xd;
+         &quot;applicationIdentifier&quot;:&quot;string&quot;,&#xd;
+         &quot;memoryUsage&quot;:0&#xd;
+      }&#xd;
+   ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/devices</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - PUT (Update Device)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{  &#xd;
+   &quot;id&quot;:1000${DeviceID},&#xd;
+   &quot;name&quot;:&quot;androiddevice1000${DeviceID}&quot;,&#xd;
+   &quot;type&quot;:&quot;android&quot;,&#xd;
+   &quot;description&quot;:&quot;this is an android device&quot;,&#xd;
+   &quot;deviceIdentifier&quot;:&quot;d24f870f390352a41000${DeviceID}&quot;,&#xd;
+   &quot;enrolmentInfo&quot;:{  &#xd;
+      &quot;id&quot;:1000${DeviceID},&#xd;
+      &quot;device&quot;:{  &#xd;
+&#xd;
+      },&#xd;
+      &quot;dateOfEnrolment&quot;:0,&#xd;
+      &quot;dateOfLastUpdate&quot;:0,&#xd;
+      &quot;ownership&quot;:&quot;BYOD&quot;,&#xd;
+      &quot;status&quot;:&quot;CREATED&quot;,&#xd;
+      &quot;owner&quot;:&quot;admin&quot;&#xd;
+   },&#xd;
+   &quot;features&quot;:[  &#xd;
+      {  &#xd;
+         &quot;id&quot;:10,&#xd;
+         &quot;code&quot;:&quot;aaaa1111&quot;,&#xd;
+         &quot;name&quot;:&quot;newfeature2&quot;,&#xd;
+         &quot;description&quot;:&quot;this is the new feature 2&quot;,&#xd;
+         &quot;deviceType&quot;:&quot;android&quot;,&#xd;
+         &quot;metadataEntries&quot;:[  &#xd;
+            {  &#xd;
+               &quot;id&quot;:10,&#xd;
+               &quot;value&quot;:{  &#xd;
+&#xd;
+               }&#xd;
+            }&#xd;
+         ]&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;properties&quot;:[  &#xd;
+      {  &#xd;
+         &quot;name&quot;:&quot;property1&quot;,&#xd;
+         &quot;value&quot;:&quot;value1&quot;&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;deviceInfo&quot;:{  &#xd;
+      &quot;deviceModel&quot;:&quot;S8&quot;,&#xd;
+      &quot;vendor&quot;:&quot;SAMSUNG&quot;,&#xd;
+      &quot;osVersion&quot;:&quot;5.1&quot;,&#xd;
+      &quot;batteryLevel&quot;:1,&#xd;
+      &quot;internalTotalMemory&quot;:32,&#xd;
+      &quot;internalAvailableMemory&quot;:24,&#xd;
+      &quot;externalTotalMemory&quot;:64,&#xd;
+      &quot;externalAvailableMemory&quot;:60,&#xd;
+      &quot;operator&quot;:&quot;dialog&quot;,&#xd;
+      &quot;connectionType&quot;:&quot;GSM&quot;,&#xd;
+      &quot;mobileSignalStrength&quot;:1,&#xd;
+      &quot;ssid&quot;:&quot;picassowifi&quot;,&#xd;
+      &quot;cpuUsage&quot;:0,&#xd;
+      &quot;totalRAMMemory&quot;:2,&#xd;
+      &quot;availableRAMMemory&quot;:1,&#xd;
+      &quot;pluggedIn&quot;:false,&#xd;
+      &quot;location&quot;:{  &#xd;
+         &quot;deviceId&quot;:0,&#xd;
+         &quot;deviceIdentifier&quot;:{  &#xd;
+            &quot;id&quot;:&quot;string&quot;,&#xd;
+            &quot;type&quot;:&quot;string&quot;&#xd;
+         },&#xd;
+         &quot;latitude&quot;:0,&#xd;
+         &quot;longitude&quot;:0,&#xd;
+         &quot;street1&quot;:&quot;string&quot;,&#xd;
+         &quot;street2&quot;:&quot;string&quot;,&#xd;
+         &quot;city&quot;:&quot;string&quot;,&#xd;
+         &quot;state&quot;:&quot;string&quot;,&#xd;
+         &quot;zip&quot;:&quot;string&quot;,&#xd;
+         &quot;country&quot;:&quot;string&quot;&#xd;
+      },&#xd;
+      &quot;deviceDetailsMap&quot;:{  &#xd;
+&#xd;
+      },&#xd;
+      &quot;imei&quot;:&quot;string&quot;,&#xd;
+      &quot;imsi&quot;:&quot;string&quot;&#xd;
+   },&#xd;
+   &quot;applications&quot;:[  &#xd;
+      {  &#xd;
+         &quot;id&quot;:0,&#xd;
+         &quot;platform&quot;:&quot;string&quot;,&#xd;
+         &quot;category&quot;:&quot;string&quot;,&#xd;
+         &quot;name&quot;:&quot;string&quot;,&#xd;
+         &quot;locationUrl&quot;:&quot;string&quot;,&#xd;
+         &quot;imageUrl&quot;:&quot;string&quot;,&#xd;
+         &quot;version&quot;:&quot;string&quot;,&#xd;
+         &quot;type&quot;:&quot;string&quot;,&#xd;
+         &quot;appProperties&quot;:{  &#xd;
+&#xd;
+         },&#xd;
+         &quot;applicationIdentifier&quot;:&quot;string&quot;,&#xd;
+         &quot;memoryUsage&quot;:0&#xd;
+      }&#xd;
+   ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/devices/d24f870f390352a41000${DeviceID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - PUT Applications" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[&#xd;
+  {&#xd;
+    &quot;id&quot;: 10,&#xd;
+    &quot;platform&quot;: &quot;android&quot;,&#xd;
+    &quot;category&quot;: &quot;Business&quot;,&#xd;
+    &quot;name&quot;: &quot;Graphical&quot;,&#xd;
+    &quot;locationUrl&quot;: &quot;string&quot;,&#xd;
+    &quot;imageUrl&quot;: &quot;string&quot;,&#xd;
+    &quot;version&quot;: &quot;1.0.0&quot;,&#xd;
+    &quot;type&quot;: &quot;string&quot;,&#xd;
+    &quot;appProperties&quot;: {},&#xd;
+    &quot;applicationIdentifier&quot;: &quot;string&quot;,&#xd;
+    &quot;memoryUsage&quot;: 0&#xd;
+  }&#xd;
+]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/devices/d24f870f390352a41000${DeviceID}/applications</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - PUT Pending Operations" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[&#xd;
+  {&#xd;
+    &quot;code&quot;: &quot;aaa&quot;,&#xd;
+    &quot;properties&quot;: {},&#xd;
+    &quot;type&quot;: &quot;CONFIG&quot;,&#xd;
+    &quot;id&quot;: 0,&#xd;
+    &quot;status&quot;: &quot;IN_PROGRESS&quot;,&#xd;
+    &quot;control&quot;: &quot;REPEAT&quot;,&#xd;
+    &quot;receivedTimeStamp&quot;: &quot;string&quot;,&#xd;
+    &quot;createdTimeStamp&quot;: &quot;string&quot;,&#xd;
+    &quot;payLoad&quot;: {},&#xd;
+    &quot;operationResponse&quot;: &quot;string&quot;,&#xd;
+    &quot;activityId&quot;: &quot;string&quot;,&#xd;
+    &quot;responses&quot;: [&#xd;
+      {&#xd;
+        &quot;response&quot;: &quot;string&quot;,&#xd;
+        &quot;receivedTimeStamp&quot;: &quot;string&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;enabled&quot;: false&#xd;
+  }&#xd;
+]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/devices/d24f870f390352a41000${DeviceID}/pending-operations</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - GET Status" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/android/v1.0/devices/d24f870f390352a41000${DeviceID}/status</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Requesting the List of Installed Applications on Android Devices" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2543,77 +3112,139 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;,&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
           <stringProp name="ConstantTimer.delay">1000</stringProp>
         </ConstantTimer>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>false</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-            </value>
-          </objProp>
-          <objProp>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>false</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
-          <stringProp name="FileSaver.filename">Results</stringProp>
-          <boolProp name="FileSaver.errorsonly">false</boolProp>
-          <boolProp name="FileSaver.skipautonumber">false</boolProp>
-          <boolProp name="FileSaver.skipsuffix">false</boolProp>
-          <boolProp name="FileSaver.successonly">false</boolProp>
-          <boolProp name="FileSaver.addTimstamp">true</boolProp>
-        </ResultSaver>
-        <hashTree/>
       </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
+        <stringProp name="FileSaver.filename">Results</stringProp>
+        <boolProp name="FileSaver.errorsonly">false</boolProp>
+        <boolProp name="FileSaver.skipautonumber">false</boolProp>
+        <boolProp name="FileSaver.skipsuffix">false</boolProp>
+        <boolProp name="FileSaver.successonly">false</boolProp>
+        <boolProp name="FileSaver.addTimstamp">true</boolProp>
+      </ResultSaver>
+      <hashTree/>
+      <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
