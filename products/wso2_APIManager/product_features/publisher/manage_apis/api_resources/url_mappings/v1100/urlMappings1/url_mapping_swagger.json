@@ -1,0 +1,41 @@
+{
+    "paths": {
+        "/x/y/z/*": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\nvar response = { \"url-mapping\" : \"/x/y/z/*\"};\nmc.setPayloadJSON(response);",
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/a/b": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\nvar response = { \"url-mapping\" : \"/a/b\"};\nmc.setPayloadJSON(response);\n",
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/a/b*": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\nvar response = { \"url-mapping\" : \"/a/b*\"};\nmc.setPayloadJSON(response);\n",
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/x/y/*": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\nvar response = { \"url-mapping\" : \"/x/y/*\"};\nmc.setPayloadJSON(response);",
+                "responses": {
+                    "200": {}
+                }
+            }
+        }
+    },
+    "swagger": "2.0",
+    "info": {
+        "title": "url_mapping",
+        "version": "v1"
+    }
+}
