@@ -4204,7 +4204,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;,&#xd;
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer 70c51f78bb787fa436fd10aa4c5c3a16</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
