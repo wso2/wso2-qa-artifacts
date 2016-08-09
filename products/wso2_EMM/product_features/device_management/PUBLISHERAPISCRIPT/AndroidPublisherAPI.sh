@@ -9,7 +9,7 @@ CLIENTSEC="";
 OAUTH_BASIC_TOKEN="";
 PUB_SCOPED_TOKEN="";
 CRE_SCOPED_TOKEN="";
-
+UPD_SCOPED_TOKEN="";
 
 #REG OAUTH APP
 OAUTH_RESP=$(curl -k -H "Content-Type: application/json" -X POST -d '{"owner":"admin","clientName":"admin_emm","grantType":"refresh_token password client_credentials","tokenScope":"prod"}' "https://$1:$2/dynamic-client-web/register")
@@ -18,7 +18,7 @@ CLIENTSEC=$(echo $OAUTH_RESP | cut -d "," -f2 | cut -c18-45)
 OAUTH_BASIC_TOKEN=$(echo "$CLIENTID:$CLIENTSEC" | base64 | head -n 1);
 
 
-#GEN CREATE TOKEN
+#GEN CREATE SCOPED TOKEN
 CRE_SCOPED_TOKEN=$(curl -k -d "grant_type=password&username=admin&password=admin&scope=appm:create" -H "Authorization: Basic $OAUTH_BASIC_TOKEN" -H "Content-Type: application/x-www-form-urlencoded" "https://$1:$2/oauth2/token" | cut -d "," -f1 | cut -c18-49) ;
 
 
@@ -81,7 +81,7 @@ APK=$(curl -X POST -H "Content-Type: multipart/form-data" -H "Authorization: Bea
 
 IMG=$(curl -X POST -H "Authorization: Bearer $CRE_SCOPED_TOKEN" -H "Content-Type: multipart/form-data" -F "file=@TEST.jpg" -k -v "https://$1:$2/api/appm/publisher/v1.0/apps/static-contents?appType=mobileapp" | cut -d "/" -f5 | cut -c1-19)
 
-OPP="approve";
+OPP="opppub";
 
 sed -i -- "s/APKHOLDER/$APK/g" payload.json ;
 sed -i -- "s/IMGHOLDER/$IMG/g" payload.json ;
@@ -89,7 +89,6 @@ sed -i -- "s/OPPHOLDER/$OPP/g" payload.json ;
 
 APPID=$(curl -X POST -H "Authorization: Bearer $CRE_SCOPED_TOKEN" -H "Content-Type: application/json" -d @payload.json -k -v "https://$1:$2/api/appm/publisher/v1.0/apps/mobileapp" | grep "visibleRoles" | cut -d "," -f6 | cut -c7-42)
 
-echo "------- app id = $APPID ----------"
 
 sed -i -- "s/$APK/APKHOLDER/g" payload.json ;
 sed -i -- "s/$IMG/IMGHOLDER/g" payload.json ;
@@ -120,6 +119,21 @@ if [ $? -gt 0 ]; then
         echo  "$(date) - error while publishing app" >> errorlog.log ;
 fi
 
+#PART UPDATE APP
+UPD_SCOPED_TOKEN=$(curl -k -d "grant_type=password&username=admin&password=admin&scope=appm:update" -H "Authorization: Basic $OAUTH_BASIC_TOKEN" -H "Content-Type: application/x-www-form-urlencoded" "https://$1:$2/oauth2/token" | cut -d "," -f1 | cut -c18-49) ;
+
+curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer $UPD_SCOPED_TOKEN" -H "Cache-Control: no-cache" -d '{ "displayName": "Anti Virus LATEST" }' -k -v "https://$1:$2/api/appm/publisher/v1.0/apps/mobileapp/id/$APPID"
+
+if [ $? -gt 0 ]; then
+        echo  "$(date) - error while partially updating app" >> errorlog.log ;
+fi
+
+#DELETE APP
+curl -X DELETE -H "Authorization: Bearer $CRE_SCOPED_TOKEN" -k -v "https://$1:$2/api/appm/publisher/v1.0/apps/mobileapp/id/$APPID"
+
+if [ $? -gt 0 ]; then
+        echo  "$(date) - error while deleting app" >> errorlog.log ;
+fi
 
 
 echo "-------- Script run complete. --------"
