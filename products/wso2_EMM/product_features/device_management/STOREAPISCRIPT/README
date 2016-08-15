@@ -3,4 +3,4 @@ The script invokes and tests the EMM store API. Execute the script with IP/Host 
 
 e.g.
 
-sh AndroidPublisherAPI.sh localhost 9443
+sh AndroidStoreAPI.sh localhost 9443

@@ -83,5 +83,42 @@ fi
 #RESET PAYLOAD
 sed -i -- "s/$APPID/APHOLDER/g" payload2.json ;
 
+
+
+
+#REMOTE INSTALL UNINSTALL
+
+APK=$(curl -X POST -H "Content-Type: multipart/form-data" -H "Authorization: Bearer $CRE_SCOPED_TOKEN" -F "file=@app-debug.apk" -k -v "https://$1:$2/api/appm/publisher/v1.0/apps/mobile/binaries" | cut -d "/" -f5 | cut -c1-19)
+
+sed -i -- "s/APKHOLDER/$APK/g" payload5.json ;
+sed -i -- "s/HOHOLDER/$1/g" payload5.json ;
+sed -i -- "s/POHOLDER/$2/g" payload5.json ;
+sed -i -- "s/APKHOLDER/$APK/g" payload6.json ;
+sed -i -- "s/HOHOLDER/$1/g" payload6.json ;
+sed -i -- "s/POHOLDER/$2/g" payload6.json ;
+
+
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $SUB_SCOPED_TOKEN" -d @payload5.json -k "https://$1:$2/api/device-mgt/android/v1.0/admin/devices/install-application" | grep "INSTALL_APPLICATION"
+
+if [ $? -gt 0 ]; then
+        echo  "$(date) - App remote install error." >> errorlog.log ;
+fi
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $SUB_SCOPED_TOKEN" -d @payload6.json -k "https://$1:$2/api/device-mgt/android/v1.0/admin/devices/uninstall-application" | grep "UNINSTALL_APPLICATION"
+
+if [ $? -gt 0 ]; then
+        echo  "$(date) - App remote uninstall error." >> errorlog.log ;
+fi
+
+sed -i -- "s/$APK/APKHOLDER/g" payload5.json ;
+sed -i -- "s/$1/HOHOLDER/g" payload5.json ;
+sed -i -- "s/$2/POHOLDER/g" payload5.json ;
+sed -i -- "s/$APK/APKHOLDER/g" payload6.json ;
+sed -i -- "s/$1/HOHOLDER/g" payload6.json ;
+sed -i -- "s/$2/POHOLDER/g" payload6.json ;
+
+
+
 echo "-------- Script run complete. --------"
 
