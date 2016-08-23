@@ -1,0 +1,21 @@
+Intro
+=====
+This script can use to simulate token generation and endpoint invocation using the generated token, through Playground sample App.
+
+Prerequisites
+=============
+- Playground2 app need to be hosted and configured
+- Tenants and Users need to be created.
+- All User credential and related 'consumerKey' and 'consumerSecret' need to add to the './keylist.csv' file as per the scenarios need to be executed. 
+eg: <username><password><consumerKey><consumerSecret>
+- These entries in 'keylist.csv' can be use to verify the SAAS scenarios. Refer the sample entries given below.
+
+eg:
+adminSuperTenant,adminSuperTenant,<consumerKey-adminSuperTenant>,<consumerSecret-adminSuperTenant>,
+userSuperTenant,userSuperTenant,<consumerKey-adminSuperTenant>,<consumerSecret-adminSuperTenant>,
+user@tenny2.com,user@tenny2,<consumerKeyuser@tenny2>,<consumerSecretuser@tenny2>,
+user@tenny2.com,user@tenny2,<consumerKey-adminSuperTenant>,<consumerSecret-adminSuperTenant>,
+userSuperTenant,userSuperTenant,<consumerKey-user@tenny2>,<consumerSecret-user@tenny2>,
+admin@tenny1.com,user@tenny1,<consumerKeyuser@tenny2>,<consumerSecretuser@tenny2>,
+adminSuperTenant,adminSuperTenant,<consumerKey-userSuperTenant>,<consumerSecret-userSuperTenant>,
+admin@tenny3.com,user@tenny3,<consumerKey-userSuperTenant>,<consumerSecret-userSuperTenant>,

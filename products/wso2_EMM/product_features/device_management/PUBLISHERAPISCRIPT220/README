@@ -1,0 +1,6 @@
+The script invokes and tests the EMM publisher API. Execute the script with IP/Host and HTTPS port value as parameters. If there are any assertion failures they will be logged to errorlog.log.
+
+
+e.g.
+
+sh AndroidPublisherAPI.sh localhost 9443
