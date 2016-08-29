@@ -1,0 +1,16 @@
+{
+  "name": "TweetsAvg",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "company",
+      "type": "STRING"
+    },
+    {
+      "name": "average",
+      "type": "DOUBLE"
+    }
+  ]
+}

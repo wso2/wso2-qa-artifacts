@@ -1,0 +1,23 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('TCOUNTExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Import('tFeed:1.0.0')
+define stream TwitterFeed (company string, wordCount int);
+
+@Export('TweetsCount:1.0.0')
+define stream TweetsCount (company string, Count long);
+
+partition with (company of TwitterFeed) 
+begin @info(name = 'query1') 
+from TwitterFeed
+select company as company, count(wordCount) as Count 
+insert into TweetsCount;
+end ;
+
+                    
