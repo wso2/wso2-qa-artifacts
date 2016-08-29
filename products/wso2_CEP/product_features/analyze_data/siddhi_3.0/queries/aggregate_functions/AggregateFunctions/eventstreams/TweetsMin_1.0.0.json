@@ -1,0 +1,16 @@
+{
+  "name": "TweetsMin",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "company",
+      "type": "STRING"
+    },
+    {
+      "name": "minimum",
+      "type": "INT"
+    }
+  ]
+}
