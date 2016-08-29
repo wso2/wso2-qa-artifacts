@@ -1,0 +1,23 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('TMINExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Plan:statistics('true')
+
+@Import('tFeed:1.0.0')
+define stream TwitterFeed (company string, wordCount int);
+
+@Export('TweetsMin:1.0.0')
+define stream TweetsMin (company string, minimum int);
+
+partition with (company of TwitterFeed) 
+begin @info(name = 'query1') 
+from TwitterFeed
+select company as company, min(wordCount) as minimum 
+insert into TweetsMin;
+end ;

@@ -1,0 +1,21 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('TAVGExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Plan:statistics('true')
+
+@Import('tFeed:1.0.0')
+define stream TwitterFeed (company string, wordCount int);
+
+@Export('TweetsAvg:1.0.0')
+define stream TweetsAvg (company string, average double);
+ 
+from TwitterFeed
+select company as company, Avg(wordCount) as average 
+group by company
+insert into TweetsAvg;

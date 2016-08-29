@@ -1,0 +1,16 @@
+{
+  "name": "tFeed",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "company",
+      "type": "STRING"
+    },
+    {
+      "name": "wordCount",
+      "type": "INT"
+    }
+  ]
+}

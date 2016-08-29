@@ -1,0 +1,26 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('TSTDDEVExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Import('tFeed:1.0.0')
+define stream TwitterFeed (company string, wordCount int);
+
+
+@Export('TweetsDeviation:1.0.0')
+define stream TweetsDeviation (company string, Deviation double);
+
+partition with (company of TwitterFeed) 
+begin @info(name = 'query1') 
+from TwitterFeed
+select company as company, stddev(wordCount) as Deviation 
+insert into TweetsDeviation;
+end ;
+
+                    
+
+                    
