@@ -11,7 +11,9 @@ Unzip and start ESB 4.9.0 pack.
 Navigate to <ESB_HOME>/ bin folder
 Run wso2server.sh file in order to start the server.
 Copy timeoutClone.xml file into <ESB_HOME>/repository/deployment/server/synapse-configs/default/proxy-services folder.
+Copy createCloneSeq.xml and sendClone.xml files into <ESB_HOME>/repository/deployment/server/synapse-configs/default/sequences folder.
+
 
 
 Note :-
-When the artifacts successfully deployed you should be able to see a proxyservice with name “timeoutClone”
+When the artifacts successfully deployed you should be able to see a proxyservice with name “timeoutIterator” and two sequences with createCloneSeq and sendClone names.
