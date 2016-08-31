@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventReceiver name="mlReceiver" statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventreceiver">
+    <from eventAdapterType="http">
+        <property name="transports">all</property>
+    </from>
+    <mapping customMapping="disable" type="json"/>
+    <to streamName="InputStream" version="1.0.0"/>
+</eventReceiver>

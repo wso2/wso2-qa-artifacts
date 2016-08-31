@@ -1,0 +1,25 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('ExecutionPlanML')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+
+@Plan:trace('true')
+
+@Import('InputStream:1.0.0')
+define stream InputStream (NumPregnancies double, TSFT double, DPF double, BMI double, DBP double, PG2 double, SI2 double, Age double);
+
+
+@Export('PredictionStream1:1.0.0')
+define stream PredictionStream1 (NumPregnancies double, TSFT double, DPF double, BMI double, DBP double, PG2 double, SI2 double, Age double, Class double);
+
+from InputStream#ml:predict('registry:/_system/governance/downloaded-ml-model', 'double')
+select *
+insert into PredictionStream1;
+
+
+
+
