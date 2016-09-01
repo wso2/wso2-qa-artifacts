@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="TimoutTestPropertyAPI"
+     context="/testpropertyapi">
+   <resource methods="GET" inSequence="timout_test_property_seq"/>
+</api>
