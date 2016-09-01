@@ -6,7 +6,7 @@
 
 **Related public jira :** [Link to public JIRA]
 
-**Related testcase :** [Link to Testlink testcase]
+**Related testcase :** [Provide the testcase ID in Testlink]
 
 
 ###Description
