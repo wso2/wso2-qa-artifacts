@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<api xmlns="http://ws.apache.org/ns/synapse"
-     name="TestAPI"
-     context="/testapi">
-   <resource methods="GET" inSequence="seq_1"/>
-</api>

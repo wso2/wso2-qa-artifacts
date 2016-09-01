@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<api xmlns="http://ws.apache.org/ns/synapse"
-     name="TestAPI"
-     context="/testapi">
-   <resource methods="DELETE POST PUT GET" inSequence="test_seq_1"/>
-</api>
