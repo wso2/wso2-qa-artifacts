@@ -1,16 +1,18 @@
 # README
 
 **Author :** [Author's Name]
+
 **Last modified by :** [Update your name if you are updating an existing artifact]
+
 **Related public jira :** [Link to public JIRA]
 
 
 
 ###Description
-[Provide a brief description about the artifact and what can be achieved.]
+[Provide a brief description about the artifact and what can be achieved. Make sure you give a clear idea about the artifacts here.]
 
 ###Setup
-[By default this should be "Standalone". If for any reason it requires a specific setup, then provide the details here.]
+[By default, this should be "Standalone". If it requires a specific setup for any reason, then provide the setup details here.]
 
 > Product Version: [The product version used for the artifact when creating.]
 
