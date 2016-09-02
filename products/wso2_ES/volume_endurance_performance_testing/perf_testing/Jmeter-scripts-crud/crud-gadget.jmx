@@ -17,8 +17,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">300</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">2</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1449384050000</longProp>
         <longProp name="ThreadGroup.end_time">1449384050000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -49,7 +49,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="asset" elementType="Argument">
               <stringProp name="Argument.name">asset</stringProp>
-              <stringProp name="Argument.value">gadget1</stringProp>
+              <stringProp name="Argument.value">gadget</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="assetID" elementType="Argument">
@@ -338,8 +338,8 @@
             <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
             <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
               <collectionProp name="HTTPFileArgs.files">
-                <elementProp name="${SCRIPT_PATH}/thumbnail.png" elementType="HTTPFileArg">
-                  <stringProp name="File.path">${SCRIPT_PATH}/thumbnail.png</stringProp>
+                <elementProp name="${SCRIPT_PATH}/${images_thumbnail}" elementType="HTTPFileArg">
+                  <stringProp name="File.path">${SCRIPT_PATH}/${images_thumbnail}</stringProp>
                   <stringProp name="File.paramname">images_thumbnail</stringProp>
                   <stringProp name="File.mimetype">image/png</stringProp>
                 </elementProp>
