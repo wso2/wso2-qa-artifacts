@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="timout_test_seq">
+   <send>
+      <endpoint>
+         <address uri="http://10.100.5.63:8080/abc">
+            <timeout>
+               <duration>{get-property('timeout')}</duration>
+               <responseAction>discard</responseAction>
+            </timeout>
+         </address>
+      </endpoint>
+   </send>
+</sequence>
