@@ -18,7 +18,7 @@ public class QueueSendDefault {
     String password = "admin";
     private static String CARBON_CLIENT_ID = "carbon";
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
-    private static String CARBON_DEFAULT_HOSTNAME = "loclahost";
+    private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
     String topicName = "DefaultQueue";
 
@@ -52,7 +52,7 @@ public class QueueSendDefault {
 
         for (int TTL=1000; TTL<=5000; TTL=TTL+100)
         {
-            TextMessage textMessage = topicSession.createTextMessage("This is a message with an incremental TTL value :" + TTL);
+            TextMessage textMessage = topicSession.createTextMessage("This is a message with an incremental TTL value :" + TTL + " ms.");
             topicPublisher.send(textMessage,DeliveryMode.PERSISTENT,4,TTL);
         }
 
