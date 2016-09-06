@@ -25,7 +25,7 @@ public class QueueReceiveDefault {
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
-    String topicName = "DefaultQueue";
+    String queueName = "DefaultQueue";
 
 
     public static void main(String[] args) throws NamingException, JMSException {
@@ -34,32 +34,37 @@ public class QueueReceiveDefault {
     }
 
     public void receiveMessages() throws NamingException, JMSException {
+
+
+
         Properties properties = new Properties();
         properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
         properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
+        properties.put("queue."+ queueName,queueName);
         System.out.println("getTCPConnectionURL(userName,password) = " + getTCPConnectionURL(userName, password));
         InitialContext ctx = new InitialContext(properties);
+
         // Lookup connection factory
-        TopicConnectionFactory connFactory = (TopicConnectionFactory) ctx.lookup(CF_NAME);
-        TopicConnection topicConnection = connFactory.createTopicConnection();
-        topicConnection.start();
-        TopicSession topicSession =
-                topicConnection.createTopicSession(false, QueueSession.AUTO_ACKNOWLEDGE);
-        Topic topic = topicSession.createTopic(topicName);
+        QueueConnectionFactory connFactory = (QueueConnectionFactory) ctx.lookup(CF_NAME);
+        QueueConnection queueConnection = connFactory.createQueueConnection();
+        queueConnection.start();
 
-        javax.jms.TopicSubscriber topicSubscriber = topicSession.createSubscriber(topic);
+        QueueSession queueSession =queueConnection.createQueueSession(false,QueueSession.AUTO_ACKNOWLEDGE );
 
-        int count = 1;
+        Queue queue =  (Queue) ctx.lookup(queueName);
+        MessageConsumer queueReceiver =  queueSession.createConsumer(queue);
+        int count=1;
 
-        while (true) {
+        while(true) {
 
-            TextMessage message = (TextMessage) topicSubscriber.receive();
+            TextMessage message = (TextMessage) queueReceiver.receive();
 
             System.out.println("::Message Count::" + count + ":::::::::::::Received message with content::::::::::::" + message.getText());
 
             count++;
-
         }
+
+
 
     }
 

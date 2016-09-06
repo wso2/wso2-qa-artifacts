@@ -20,7 +20,7 @@ public class QueueSendDefault {
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
-    String topicName = "DefaultQueue";
+    String queueName = "DefaultQueue";
 
     public static void main(String[] args) throws NamingException, JMSException {
         QueueSendDefault queueSender = new QueueSendDefault();
@@ -29,12 +29,50 @@ public class QueueSendDefault {
 
     public void sendMessages() throws NamingException, JMSException {
 
+        /*
         Properties properties = new Properties();
         properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
         properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
         System.out.println("getTCPConnectionURL(userName,password) = " + getTCPConnectionURL(userName, password));
         InitialContext ctx = new InitialContext(properties);
         // Lookup connection factory
+
+        QueueConnectionFactory connFactory = (QueueConnectionFactory) ctx.lookup(CF_NAME);
+        QueueConnection queueConnection = connFactory.createQueueConnection();
+        queueConnection.start();
+        QueueSession queueSession = queueConnection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE);
+        //Send message
+        Queue queue = queueSession.createQueue(queueName);
+        javax.jms.QueueSender queueSender = queueSession.createSender(queue);
+        */
+
+
+        Properties properties = new Properties();
+        properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
+        properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
+        properties.put(QUEUE_NAME_PREFIX + queueName, queueName);
+
+        Properties properties2 = new Properties();
+        properties2.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
+        properties2.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
+
+
+        System.out.println("getTCPConnectionURL(userName,password) = " + getTCPConnectionURL(userName, password));
+        InitialContext ctx = new InitialContext(properties);
+
+
+        // Lookup connection factory
+        QueueConnectionFactory connFactory = (QueueConnectionFactory) ctx.lookup(CF_NAME);
+        QueueConnection queueConnection = connFactory.createQueueConnection();
+        queueConnection.start();
+        QueueSession queueSession =  queueConnection.createQueueSession(false,QueueSession.AUTO_ACKNOWLEDGE );//
+
+        Queue queue = (Queue)ctx.lookup(queueName);
+
+        javax.jms.QueueSender queueSender = queueSession.createSender(queue);
+
+
+        /*
         TopicConnectionFactory connFactory = (TopicConnectionFactory) ctx.lookup(CF_NAME);
         TopicConnection topicConnection = connFactory.createTopicConnection();
         topicConnection.start();
@@ -42,7 +80,7 @@ public class QueueSendDefault {
         // Send message
         Topic topic = topicSession.createTopic(topicName);
         javax.jms.TopicPublisher topicPublisher = topicSession.createPublisher(topic);
-
+        */
 
 
 
@@ -52,14 +90,14 @@ public class QueueSendDefault {
 
         for (int TTL=1000; TTL<=5000; TTL=TTL+100)
         {
-            TextMessage textMessage = topicSession.createTextMessage("This is a message with an incremental TTL value :" + TTL + " ms.");
-            topicPublisher.send(textMessage,DeliveryMode.PERSISTENT,4,TTL);
+            TextMessage textMessage = queueSession.createTextMessage("This is a message with an incremental TTL value :" + TTL + " ms.");
+            queueSender.send(textMessage,DeliveryMode.PERSISTENT,4,TTL);
         }
 
 
 
-        topicSession.close();
-        topicConnection.close();
+        queueSession.close();
+        queueConnection.close();
 
 
     }
