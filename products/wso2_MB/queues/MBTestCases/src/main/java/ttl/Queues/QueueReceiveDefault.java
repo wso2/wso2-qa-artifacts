@@ -36,7 +36,6 @@ public class QueueReceiveDefault {
     public void receiveMessages() throws NamingException, JMSException {
 
 
-
         Properties properties = new Properties();
         properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
         properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
@@ -59,7 +58,7 @@ public class QueueReceiveDefault {
 
             TextMessage message = (TextMessage) queueReceiver.receive();
 
-            System.out.println("::Message Count::" + count + ":::::::::::::Received message with content::::::::::::" + message.getText());
+            System.out.println("::Message Count::" + count + ":::::::::::::Recieved message with content::::::::::::" + message.getText());
 
             count++;
         }
