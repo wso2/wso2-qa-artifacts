@@ -23,7 +23,7 @@ public class QueueReceiveDefault {
     String password = "admin";
     private static String CARBON_CLIENT_ID = "carbon";
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
-    private static String CARBON_DEFAULT_HOSTNAME = "10.100.7.95";
+    private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
     String topicName = "DefaultQueue";
 

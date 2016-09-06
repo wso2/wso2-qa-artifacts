@@ -18,7 +18,7 @@ public class QueueSendDefault {
     String password = "admin";
     private static String CARBON_CLIENT_ID = "carbon";
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
-    private static String CARBON_DEFAULT_HOSTNAME = "10.100.7.95";
+    private static String CARBON_DEFAULT_HOSTNAME = "loclahost";
     private static String CARBON_DEFAULT_PORT = "5672";
     String topicName = "DefaultQueue";
 
@@ -44,22 +44,15 @@ public class QueueSendDefault {
         javax.jms.TopicPublisher topicPublisher = topicSession.createPublisher(topic);
 
 
-        //Sending a single message with a TTL range
-        /*
-        for (int TTL=1; TTL<=3000;TTL=TTL+1)
-        {
-            TextMessage textMessageSingle = topicSession.createTextMessage("This is a single message with TTL: "+TTL);
-            topicPublisher.send(textMessageSingle,DeliveryMode.PERSISTENT,4, TTL);
-        }
-        */
 
 
 
-        //Sending messages with small TTL values
+
+        //Sending messages with incremental TTL values
 
         for (int TTL=1000; TTL<=5000; TTL=TTL+100)
         {
-            TextMessage textMessage = topicSession.createTextMessage("This is a message with a small TTL value: " + TTL + " TTL is : "+ TTL);
+            TextMessage textMessage = topicSession.createTextMessage("This is a message with an incremental TTL value :" + TTL);
             topicPublisher.send(textMessage,DeliveryMode.PERSISTENT,4,TTL);
         }
 
