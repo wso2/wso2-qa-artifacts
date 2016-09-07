@@ -6,7 +6,9 @@
 
 **Related public jira :** [Link to public JIRA]
 
-**Related testcase :** [Provide the testcase ID in Testlink]
+**Related testcases :** [Provide the testcase ID in Testlink]
+
+**Deprecated :** [This is an optional field. Please provide the product version when the artifact is deprecated]
 
 
 ###Description
