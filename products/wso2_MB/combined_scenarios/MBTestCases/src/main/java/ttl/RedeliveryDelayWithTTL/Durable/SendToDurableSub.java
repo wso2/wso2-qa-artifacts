@@ -1,8 +1,4 @@
-package ttl.DurableTopic;
-
-/**
- * Created by pubudup on 9/9/16.
- */
+package ttl.RedeliveryDelayWithTTL.Durable;
 
 import javax.jms.*;
 import javax.naming.Context;
@@ -10,7 +6,11 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Properties;
 
-public class DurableTopicReceive {
+/**
+ * Created by pubudup on 9/9/16.
+ */
+public class SendToDurableSub {
+
 
     public static final String QPID_ICF = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory";
     private static final String CF_NAME_PREFIX = "connectionfactory.";
@@ -21,15 +21,13 @@ public class DurableTopicReceive {
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
-    String topicName = "DurableTopic";
-    String DurableSubID = "SubID1";
+    String topicName = "DueSub1";
 
     public static void main(String[] args) throws NamingException, JMSException {
-        DurableTopicReceive topicReceiver = new DurableTopicReceive();
-        topicReceiver.receiveMessages();
+        SendToDurableSub topicPublisher = new SendToDurableSub();
+        topicPublisher.publishMessage();
     }
-
-    public void receiveMessages() throws NamingException, JMSException {
+    public void publishMessage() throws NamingException, JMSException {
         Properties properties = new Properties();
         properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
         properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
@@ -40,26 +38,27 @@ public class DurableTopicReceive {
         TopicConnection topicConnection = connFactory.createTopicConnection();
         topicConnection.start();
         TopicSession topicSession =
-                topicConnection.createTopicSession(false,QueueSession.AUTO_ACKNOWLEDGE);
+                topicConnection.createTopicSession(false, QueueSession.AUTO_ACKNOWLEDGE);
+        // Send message
         Topic topic = topicSession.createTopic(topicName);
 
-        javax.jms.TopicSubscriber topicSubscriber = topicSession.createDurableSubscriber(topic,DurableSubID);
+        for(Integer TTL=1000;TTL<=20000;TTL=TTL+1000){
 
-        int count=1;
+            // create the message to send
 
-        while(true){
+            TextMessage message = topicSession.createTextMessage("Text Message with"+TTL+"::Published From IP::"+CARBON_DEFAULT_HOSTNAME);
+            //message.setStringProperty("msgID",TTL.toString());
+            javax.jms.TopicPublisher topicPublisher = topicSession.createPublisher(topic);
+            topicPublisher.publish(message);
 
-            TextMessage message = (TextMessage) topicSubscriber.receive();
+            topicPublisher.publish(message,DeliveryMode.PERSISTENT,4,10000);
+            topicPublisher.publish(message, DeliveryMode.PERSISTENT,4,40000);
 
-            System.out.println("::Message Count::"+count+":::::::::::::Recieved message with content::::::::::::" + message.getText());
-
-            count++;
 
         }
-        //queueReceiver.close();
-        // queueSession.close();
-        // queueConnection.stop();
-        //queueConnection.close();
+
+        topicSession.close();
+        topicConnection.close();
     }
     public String getTCPConnectionURL(String username, String password) {
         // amqp://{username}:{password}@carbon/carbon?brokerlist='tcp://{hostname}:{port}'

@@ -1,8 +1,4 @@
-package ttl.DurableTopic;
-
-/**
- * Created by pubudup on 9/9/16.
- */
+package ttl.RedeliveryDelayWithTTL.Queues;
 
 import javax.jms.*;
 import javax.naming.Context;
@@ -10,10 +6,14 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Properties;
 
-public class DurableTopicReceive {
+/**
+ * Created by pubudup on 9/9/16.
+ */
+public class SendToQueue {
 
     public static final String QPID_ICF = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory";
     private static final String CF_NAME_PREFIX = "connectionfactory.";
+    private static final String QUEUE_NAME_PREFIX = "queue.";
     private static final String CF_NAME = "qpidConnectionfactory";
     String userName = "admin";
     String password = "admin";
@@ -21,46 +21,62 @@ public class DurableTopicReceive {
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
-    String topicName = "DurableTopic";
-    String DurableSubID = "SubID1";
+    String queueName = "RedeliveryDelayQueue2";
 
     public static void main(String[] args) throws NamingException, JMSException {
-        DurableTopicReceive topicReceiver = new DurableTopicReceive();
-        topicReceiver.receiveMessages();
+        SendToQueue queueSender = new SendToQueue();
+        queueSender.sendMessages();
     }
 
-    public void receiveMessages() throws NamingException, JMSException {
+    public void sendMessages() throws NamingException, JMSException {
+
+
         Properties properties = new Properties();
         properties.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
         properties.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
+        properties.put(QUEUE_NAME_PREFIX + queueName, queueName);
+
+        Properties properties2 = new Properties();
+        properties2.put(Context.INITIAL_CONTEXT_FACTORY, QPID_ICF);
+        properties2.put(CF_NAME_PREFIX + CF_NAME, getTCPConnectionURL(userName, password));
+
+
         System.out.println("getTCPConnectionURL(userName,password) = " + getTCPConnectionURL(userName, password));
         InitialContext ctx = new InitialContext(properties);
+
+
         // Lookup connection factory
-        TopicConnectionFactory connFactory = (TopicConnectionFactory) ctx.lookup(CF_NAME);
-        TopicConnection topicConnection = connFactory.createTopicConnection();
-        topicConnection.start();
-        TopicSession topicSession =
-                topicConnection.createTopicSession(false,QueueSession.AUTO_ACKNOWLEDGE);
-        Topic topic = topicSession.createTopic(topicName);
+        QueueConnectionFactory connFactory = (QueueConnectionFactory) ctx.lookup(CF_NAME);
+        QueueConnection queueConnection = connFactory.createQueueConnection();
+        queueConnection.start();
+        QueueSession queueSession =  queueConnection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE );//
 
-        javax.jms.TopicSubscriber topicSubscriber = topicSession.createDurableSubscriber(topic,DurableSubID);
+        Queue queue = (Queue)ctx.lookup(queueName);
 
-        int count=1;
+        javax.jms.QueueSender queueSender = queueSession.createSender(queue);
 
-        while(true){
 
-            TextMessage message = (TextMessage) topicSubscriber.receive();
 
-            System.out.println("::Message Count::"+count+":::::::::::::Recieved message with content::::::::::::" + message.getText());
+        //Sending messages with incremental TTL values
 
-            count++;
+        for (int i=1; i<=5; i=i+1)
+        {
+            //TextMessage textMessage = queueSession.createTextMessage("This is a message with an incremental TTL value :" + 1000 + " ms.");
+            //queueSender.send(textMessage,DeliveryMode.PERSISTENT,4,1000);
 
+            TextMessage textMessage1 = queueSession.createTextMessage("This is a message with an incremental TTL value :" + 60000 + " ms.");
+            queueSender.send(textMessage1,DeliveryMode.PERSISTENT,4,60000);
         }
-        //queueReceiver.close();
-        // queueSession.close();
-        // queueConnection.stop();
-        //queueConnection.close();
+
+
+
+        queueSession.close();
+        queueConnection.close();
+
+
     }
+
+
     public String getTCPConnectionURL(String username, String password) {
         // amqp://{username}:{password}@carbon/carbon?brokerlist='tcp://{hostname}:{port}'
         return new StringBuffer()

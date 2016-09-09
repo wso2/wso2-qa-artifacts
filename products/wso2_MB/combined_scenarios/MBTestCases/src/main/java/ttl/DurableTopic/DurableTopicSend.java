@@ -23,7 +23,6 @@ public class DurableTopicSend {
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
     private static String CARBON_DEFAULT_PORT = "5672";
     String topicName = "DurableTopic";
-    int pubMsgCount=2000;
 
     public static void main(String[] args) throws NamingException, JMSException {
         DurableTopicSend topicPublisher = new DurableTopicSend();
