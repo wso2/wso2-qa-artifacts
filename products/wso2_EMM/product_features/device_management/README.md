@@ -4,7 +4,7 @@ Contains Jmeter/Bash scripts made to test EMM API.
 
 Name | Description | Compatible Version
 --- | --- | ---
-ndroidDeviceManagementAPI.jmx | Covers core Device Managemnt Android API | 2.1.0 
+AndroidDeviceManagementAPI.jmx | Covers core Device Managemnt Android API | 2.1.0 
 AndroidDeviceManagementAPI_Negative_Tests.jmx | Contains negative test scenarios for  Device Managemnt Android API. | 2.1.0 
 AndroidDeviceManagementAPIAdditionalPermutations.jmx | Covers the optional parameters of the Core Device Management API. | 2.1.0 
 AndroidDeviceManagementAPI_Negative_Tests_for_EMM220.jmx | Contains negative test scenarios for  Device Managemnt Android API. | 2.2.0 
