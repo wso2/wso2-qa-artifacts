@@ -47,6 +47,7 @@ jndipath - Point this to the location of 'jndiqueues.properties' file in both Su
 
 
 ### Pre-conditions
+- jndiqueuees.propertis file should be updated with relecant user credentials, ip addresses of MB nodes and relevant ports being used in connection url (default port 5672)
 - jndipath should be updated in both Publisher.jmx and Subscriber.jmx scripts
 - Shared subscriptions should be enabled in [$HOME]/repository/conf/broker.xml for Shared subscriptions to work. (Set 'maximumRedeliveryAttempts' to true before you start the MB nodes for all nodes.)
 
