@@ -62,9 +62,9 @@ public class DifferentTTLSend {
 
         for (int TTL=1000; TTL<=20000; TTL=TTL+1000)
         {
-            TextMessage textMessage = queueSession.createTextMessage("This is a message with a TTL value of 10000ms.");
+            TextMessage textMessage = queueSession.createTextMessage("This is a message with a TTL value of "+ TTL + "ms.");
             queueSender.send(textMessage,DeliveryMode.PERSISTENT,4,10000);
-            TextMessage textMessage1 = queueSession.createTextMessage("This is a message with a TTL value of 40000ms.");
+            TextMessage textMessage1 = queueSession.createTextMessage("This is a message with a TTL value of "+ TTL + "ms.");
             queueSender.send(textMessage1,DeliveryMode.PERSISTENT,4,40000);
         }
 
