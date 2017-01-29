@@ -1,0 +1,82 @@
+<artifactType hasNamespace="false" iconSet="9" pluralLabel="Universities" shortName="universities"
+singularLabel="University" type="application/vnd.wso2-university+xml">
+<storagePath>/universities/@{name}/@{students_number}</storagePath>
+<nameAttribute>uni_universityname</nameAttribute>
+<ui>
+	<list>
+	<column name="University">
+		<data href="@{storagePath}" type="path" value="uni_universityname"/>
+	</column>
+
+	<column name="Name">
+                <data href="@{storagePath}" type="path" value="students_name"/>                 
+       </column>
+
+	<column name="Name">
+                <data href="@{storagePath}" type="path" value="students_number"/>                 
+       </column>
+
+	<column name="Name">
+                 <data href="@{storagePath}" type="path" value="courses_name"/>                 
+       </column>               
+	</list>
+</ui>
+
+ <relationships>
+      <association type="isConsumedBy" source="@{assets_entry:value}"/>
+   </relationships>
+<content>
+
+<table name="uni">
+	<field type="text" required="true">
+	<name>Universityname</name>
+	</field>
+	<field type="text" required="true">
+	<name>StatedYear</name>
+	</field>
+	<field type="text" required="true">
+	<name>Chancerllar</name>
+	</field>
+</table>
+
+<table name="students">
+  	<field type="text" required="true" >
+        <name>Name</name>
+        </field>
+
+  	<field type="text" required="true" >
+        <name>Number</name>
+        </field>
+
+   	<field type="text" required="true" >
+       	<name>Address</name>
+        </field>
+
+  	<field type="text" required="true" >
+        <name>PhoneNumber</name>
+       </field>
+
+ </table>
+ 
+<table name="courses">
+  	<field type="text" required="true" >
+        <name>name</name>
+        </field>
+   	<field type="text" required="true" >
+        <name>number</name>
+        </field>
+     	<field type="text" required="true" >
+        <name>moduels</name>
+        </field>
+      <field type="text" required="true" >
+      <name>credits</name>
+      </field>
+ </table>
+
+</content>
+ 
+</artifactType>
+
+                
+                
+
