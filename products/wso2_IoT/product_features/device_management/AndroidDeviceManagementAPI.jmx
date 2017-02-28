@@ -821,7 +821,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - POST devices" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - Search devices" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -830,10 +830,10 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
                 <stringProp name="Argument.value">{&#xd;
   &quot;conditions&quot;: [&#xd;
     {&#xd;
-      &quot;key&quot;: &quot;deviceIdentifier&quot;,&#xd;
-      &quot;value&quot;: &quot;d24f870f390352a4${DeviceID}&quot;,&#xd;
-      &quot;operator&quot;: &quot;string&quot;,&#xd;
-      &quot;state&quot;: &quot;AND&quot;&#xd;
+      &quot;key&quot;: &quot;vendor&quot;,&#xd;
+      &quot;value&quot;: &quot;SAMSUNG&quot;,&#xd;
+      &quot;operator&quot;: &quot;=&quot;,&#xd;
+      &quot;state&quot;: &quot;OR&quot;&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>
@@ -1118,7 +1118,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - GET User Devices" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - GET User Devices" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -1168,45 +1168,6 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/api/device-mgt/v1.0/activities</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - GET Activities By ID" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${host}</stringProp>
-          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/device-mgt/v1.0/activities/ACTIVITY_1</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1352,7 +1313,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Configuration Management - PUT Configuration" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Configuration Management - PUT Configuration" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1776,7 +1737,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - PUT Pending Operations" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Android Device Management - PUT Pending Operations" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1970,7 +1931,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get BlackListed Applications" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get BlackListed Applications" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -2208,7 +2169,7 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Configuring VPN on Android devices" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Configuring VPN on Android devices" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -2648,10 +2609,11 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
   &quot;deviceIDs&quot;: [&#xd;
     &quot;d24f870f390352a4${DeviceID}&quot;&#xd;
   ],&#xd;
-  &quot;operation&quot;: {&#xd;
-    &quot;appIdentifier&quot;: &quot;string&quot;,&#xd;
-    &quot;type&quot;: &quot;string&quot;,&#xd;
-    &quot;url&quot;: &quot;string&quot;&#xd;
+  &quot;operation&quot;: { &#xd;
+    &quot;appIdentifier&quot;: &quot;org.wso2.emm.agent&quot;, &#xd;
+    &quot;type&quot;: &quot;Enterprise&quot;, &#xd;
+    &quot;schedule&quot;: &quot;2017-03-05T11:46:00+0530&quot;,&#xd;
+    &quot;url&quot;: &quot;https://device.cloud.wso2.com/android-web-agent/public/mdm.page.enrollments.android.download-agent/asset/android-agent.apk&quot; &#xd;
   }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3530,10 +3492,8 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
     &quot;d24f870f390352a4${DeviceID}&quot;&#xd;
   ],&#xd;
   &quot;operation&quot;: {&#xd;
-    &quot;appIdentifier&quot;: &quot;string&quot;,&#xd;
-    &quot;type&quot;: &quot;string&quot;,&#xd;
-    &quot;url&quot;: &quot;string&quot;,&#xd;
-    &quot;name&quot;: &quot;string&quot;&#xd;
+    &quot;appIdentifier&quot;: &quot;org.wso2.emm.agent&quot;, &#xd;
+    &quot;type&quot;: &quot;Enterprise&quot;&#xd;
   }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3715,11 +3675,11 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
   &quot;deviceIDs&quot;: [&#xd;
     &quot;d24f870f390352a4${DeviceID}&quot;&#xd;
   ],&#xd;
-  &quot;operation&quot;: {&#xd;
-    &quot;appIdentifier&quot;: &quot;string&quot;,&#xd;
-    &quot;type&quot;: &quot;string&quot;,&#xd;
-    &quot;url&quot;: &quot;string&quot;,&#xd;
-    &quot;schedule&quot;: &quot;string&quot;&#xd;
+  &quot;operation&quot;: { &#xd;
+    &quot;appIdentifier&quot;: &quot;org.wso2.emm.agent&quot;, &#xd;
+    &quot;type&quot;: &quot;Enterprise&quot;, &#xd;
+    &quot;schedule&quot;: &quot;2017-03-05T11:46:00+0530&quot;,&#xd;
+    &quot;url&quot;: &quot;https://device.cloud.wso2.com/android-web-agent/public/mdm.page.enrollments.android.download-agent/asset/android-agent.apk&quot; &#xd;
   }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3814,8 +3774,8 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
     &quot;d24f870f390352a4${DeviceID}&quot;&#xd;
   ],&#xd;
   &quot;operation&quot;: {&#xd;
-    &quot;schedule&quot;: &quot;string&quot;,&#xd;
-    &quot;server&quot;: &quot;string&quot;&#xd;
+    &quot;schedule&quot;: &quot;2017-03-05T11:46:00+0530&quot;,&#xd;
+    &quot;server&quot;: &quot;https://device.cloud.wso2.com/android-web-agent/&quot;&#xd;
   }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4120,14 +4080,51 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="35394935">PENDING</stringProp>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Device Management  - GET Activities By ID" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
             </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">20</intProp>
-          </ResponseAssertion>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${https_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/device-mgt/v1.0/activities/ACTIVITY_1</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Requesting Information from Android Devices" enabled="true">
@@ -4176,13 +4173,13 @@ GEL4ZNjZ+jnwSkzwBU5vh/QS&quot;&#xd;
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Operation Completed Response for Request Info" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Operation Completed Response for Request Info" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">[{&quot;enabled&quot;:false,&quot;code&quot;:&quot;DEVICE_INFO&quot;,&quot;type&quot;:&quot;COMMAND&quot;,&quot;id&quot;:23,&quot;status&quot;:&quot;COMPLETED&quot;,&quot;createdTimeStamp&quot;:&quot;2016-08-03 15:30:16.779&quot;,&quot;isEnabled&quot;:false}]</stringProp>
+                <stringProp name="Argument.value">[{&quot;enabled&quot;:false,&quot;code&quot;:&quot;DEVICE_INFO&quot;,&quot;type&quot;:&quot;COMMAND&quot;,&quot;id&quot;:23,&quot;status&quot;:&quot;ERROR&quot;,&quot;createdTimeStamp&quot;:&quot;2016-08-03 15:30:16.779&quot;,&quot;isEnabled&quot;:false}]</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
