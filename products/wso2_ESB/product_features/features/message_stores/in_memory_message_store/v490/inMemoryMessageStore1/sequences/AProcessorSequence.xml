@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="AProcessorSequence">
+   <log level="custom">
+      <property name="OMproperty" expression="$ctx:anOMProperty"/>
+   </log>
+   <log level="custom">
+      <property name="anIntegerProperty" expression="get-property('anIntegerProperty')"/>
+   </log>
+   <log level="custom">
+      <property name="anBooleanProperty" expression="get-property('anBooleanProperty')"/>
+   </log>
+   <log level="custom">
+      <property name="anStringProperty" expression="get-property('anStringProperty')"/>
+   </log>
+   <log level="custom">
+      <property name="anDoubleProperty" expression="get-property('anDoubleProperty')"/>
+   </log>
+   <drop/>
+</sequence>
