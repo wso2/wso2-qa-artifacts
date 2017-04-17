@@ -1,0 +1,12 @@
+######################### Ballerina Test Artifacts Location ######################
+
+Ballerina is a general purpose, concurrent and strongly typed programming language
+with both textual and graphical syntaxes, optimized for integration.
+For more details Visit: http://ballerinalang.org/
+
+Ballerina language mainly provides inbuilt support for programs
+and services developments. Ballerina language was tested writing programs and
+services using different ballerina providing language capabilities.
+
+Following folder will list test artifacts developed for ballerina
+language testing.
