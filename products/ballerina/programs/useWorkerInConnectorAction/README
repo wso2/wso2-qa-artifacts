@@ -1,0 +1,14 @@
+
+This programs has used workers inside a connector action and validate such scenario works as expected.
+
+Steps to run the sample:
+
+Run the following command to run the ballerina program
+./ballerina run main useWorkerInConnectorAction.bal
+
+
+Result:
+User should get a response similar to below
+response: Calculator2
+In worker 2
+respose: 1000

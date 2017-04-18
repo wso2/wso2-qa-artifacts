@@ -1,0 +1,35 @@
+Steps to run the sample:
+
+1. Start the etcd server using below command. Starting etcd server as a docker container
+
+docker run -p 2379:2379 --name etcd quay.io/coreos/etcd:v3.0.0 /usr/local/bin/etcd -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379
+
+2. Start SimpleStockQuoteAxis2 service comes by default with WSO2 products
+
+3. Start the ballerina service with below command
+./ballerina run service org/asanka/etcdUsesample.bal
+
+4. Create a text file with below message body
+{
+"market":"NYSE",
+"symbol":"IBM"
+}
+
+5. Invoke the service with below curl command
+curl -X POST -d @create.xml http://localhost:9090/etcdUsesample
+
+
+
+
+Result:
+Should get a response similar to below
+
+{
+  "action": "get",
+  "node": {
+    "key": "/IBM",
+    "value": "<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns:getQuoteResponse xmlns:ns=\"http://services.samples\"><ns:return xmlns:ax21=\"http://services.samples/xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ax21:GetQuoteResponse\"><ax21:change>3.9559974981448685</ax21:change><ax21:earnings>13.81626152225793</ax21:earnings><ax21:high>195.2234432720023</ax21:high><ax21:last>189.25734033668238</ax21:last><ax21:lastTradeTimestamp>Sat Feb 18 12:57:33 IST 2017</ax21:lastTradeTimestamp><ax21:low>197.41358194834166</ax21:low><ax21:marketCap>4.764568279250249E7</ax21:marketCap><ax21:name>IBM Company</ax21:name><ax21:open>195.73665456081633</ax21:open><ax21:peRatio>-17.664702164109926</ax21:peRatio><ax21:percentageChange>1.8473157844713368</ax21:percentageChange><ax21:prevClose>214.14841638875467</ax21:prevClose><ax21:symbol>IBM</ax21:symbol><ax21:volume>9994</ax21:volume></ns:return></ns:getQuoteResponse></soapenv:Body></soapenv:Envelope>",
+    "modifiedIndex": 6,
+    "createdIndex": 6
+  }
+}
