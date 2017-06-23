@@ -10,15 +10,15 @@
 - 500 users must created 
 
 ## User Defined Variables:
-- serverHostName	identity.cloud.wso2.com
+- serverHostName
 - serverPort:If port is not exposed leave this blank	
 - tenantName	
 - username	
 - tenantAdminUsername	
-- tenantAdminPassword	Chankx_123
-- addUsername	cloudUser
-- addPassword	Password_1
-- maxSessionIDcount	200
+- tenantAdminPassword
+- addUsername	
+- addPassword	
+- maxSessionIDcount	
 
 - Variable Names : Do not change
 -----------------------------------------------------------------------------
