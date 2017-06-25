@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="StockQuoteProxyEncrypted"
+       transports="vfs"
+       startOnLoad="true">
+   <description/>
+   <target>
+      <endpoint>
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService"
+                  format="soap12"/>
+      </endpoint>
+      <outSequence>
+         <property name="transport.vfs.ReplyFileName"
+                   expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')"
+                   scope="transport"/>
+         <property name="OUT_ONLY" value="true"/>
+         <property name="ClientApiNonBlocking"
+                   value="true"
+                   scope="axis2"
+                   action="remove"/>
+         <send>
+            <endpoint>
+               <address uri="vfs:file:///home/chaminda/Documents/Testing/ESB/5.0.0/runtime/beta2/vfs/out"/>
+            </endpoint>
+         </send>
+      </outSequence>
+   </target>
+   <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+   <parameter name="transport.PollInterval">15</parameter>
+   <parameter name="transport.vfs.FileURI">smb://{wso2:vault-decrypt('OCCnH3aIsFa2r454x2aGqTuT6MwnwliVaEzEB22Efs7ZhDeSuVhFI0UCwo69hoswIA23L2cAjeT+tQgpGOrvwF3hTsT29a/3MaNUCQLyCJw4JB8NeMEIXGnrKuDlj472f/hiGxujocf6mx6+Yo7HUdjx2c82U60398FQKp98mn4=')}@localhost/share/test1</parameter>
+   <parameter name="transport.vfs.ContentType">text/xml</parameter>
+   <parameter name="transport.vfs.ActionAfterProcess">NONE</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">file:///home/chaminda/Documents/Testing/ESB/5.0.0/runtime/beta2/vfs/original</parameter>
+   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+   <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
+   <!--parameter locked="false" name="security.provider">BC</parameter-->
+   <parameter locked="false" name="transport.vfs.FileSizeLimit">399</parameter>
+  <parameter locked="false" name="transport.vfs.ClusterAware">true</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">file:///home/chaminda/Documents/Testing/ESB/5.0.0/runtime/beta2/vfs/original</parameter>
+</proxy>
