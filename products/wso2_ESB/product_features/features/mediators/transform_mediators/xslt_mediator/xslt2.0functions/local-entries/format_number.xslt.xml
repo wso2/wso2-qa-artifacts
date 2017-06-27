@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="format_number.xslt">
+   <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+      <xsl:template match="/">
+         <html>
+            <body>
+               <xsl:value-of select="format-number(500100, &#34;#.00&#34;)"/>
+               <br/>
+               <xsl:value-of select="format-number(500100, &#34;#.0&#34;)"/>
+               <br/>
+               <xsl:value-of select="format-number(500100, &#34;###,###.00&#34;)"/>
+               <br/>
+               <xsl:value-of select="format-number(0.23456, &#34;##%&#34;)"/>
+               <br/>
+               <xsl:value-of select="format-number(500100, &#34;#######&#34;)"/>
+            </body>
+         </html>
+      </xsl:template>
+   </xsl:stylesheet>
+   <description/>
+</localEntry>
