@@ -19,7 +19,7 @@ public class MBTopicPublisher {
     //Port of MB
     private static String CARBON_DEFAULT_PORT = "5672";
 
-    ///Queue Name
+    //Topic Name
     String topicName = "TestTopic";
     //For tenants' topic : Should include tenant domain
     //String topicName = "dilshani.wso2.com/TestQueue";
