@@ -18,7 +18,7 @@ public class MBQueuePublisher {
     private static String CARBON_DEFAULT_PORT = "5672";
 
     //Queue Name
-    String queueName = "TestQueue3";
+    String queueName = "TestQueue";
     //For tenants' queue
     //String queueName = "dilshani.wso2.com/TestQueue";
 
