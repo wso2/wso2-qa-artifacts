@@ -1,0 +1,101 @@
+{
+    "paths": {
+        "/a/{var1}/*": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\n\nvar var1 = mc.getProperty('uri.var.var1');\nvar response = { \"url-template\" : \"/a/{var1}/*\"};\n\nmc.setPayloadJSON(response);\n",
+                "parameters": [
+                    {
+                        "name": "var1",
+                        "required": true,
+                        "type": "string",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/c/{var1}/{var2}": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\n\nvar var1 = mc.getProperty('uri.var.var1');\nvar var2 = mc.getProperty('uri.var.var2');\n\nvar response = { \"url-template\" : \"/c/{var1}/{var2}\", \"variables\":{\"var1\":var1, \"var2\":var2}};\n\nmc.setPayloadJSON(response);\n\n\n\n",
+                "parameters": [
+                    {
+                        "name": "var1",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "var2",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/a/{var1}": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\r\n\r\nvar var1 = mc.getProperty('uri.var.var1');\r\nvar response = { \"url-template\" : \"/a/{var1}\"};\r\n\r\nmc.setPayloadJSON(response);",
+                "parameters": [
+                    {
+                        "name": "var1",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/b/{var1}/{var2}": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\n\nvar var1 = mc.getProperty('uri.var.var1');\nvar response = { \"url-template\" : \"/b/{var1/{var2}\"};\n\nmc.setPayloadJSON(response);\n",
+                "parameters": [
+                    {
+                        "name": "var1",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "var2",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/b/c/{var1}": {
+            "get": {
+                "x-mediation-script": "mc.setProperty('CONTENT_TYPE', 'application/json');\n\nvar var1 = mc.getProperty('uri.var.var1');\nvar response = { \"url-template\" : \"/b/c/{var1}\"};\n\nmc.setPayloadJSON(response);\n",
+                "parameters": [
+                    {
+                        "name": "var1",
+                        "required": true,
+                        "type": "string",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {}
+                }
+            }
+        }
+    },
+    "swagger": "2.0",
+    "info": {
+        "title": "url_template",
+        "version": "v1"
+    }
+}

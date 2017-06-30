@@ -1,0 +1,16 @@
+{
+  "name": "TweetsDeviation",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "company",
+      "type": "STRING"
+    },
+    {
+      "name": "Deviation",
+      "type": "DOUBLE"
+    }
+  ]
+}

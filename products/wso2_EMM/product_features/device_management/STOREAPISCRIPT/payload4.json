@@ -1,0 +1,1 @@
+{ "deviceIDs": [ "d24f860f390352a49" ], "operation": { "appIdentifier": "com.example.dumiduh.h", "type": "Enterprise", "url": "https://HOSTHOLDER:PORTHOLDER/publisher/api/mobileapp/getfile/APKHOLDER" } }

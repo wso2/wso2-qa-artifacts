@@ -1,0 +1,82 @@
+<!--Test_suite xml for running testng test-->
+<suite name="WSO2" verbose="3">
+	
+	<test name="WSO2" preserve-order="true">
+		<classes><class name="com.wire.ts_UserCreation">
+				<methods>
+					<include name="tc_Tenant_Creation"></include>
+					<include name="tc_Tenant_UserCreation"></include>
+					<include name="tc_Admin_UserCreation"></include>
+				</methods>
+			</class><class name="com.wire.ts_DevelopAPI_CustomAttributeHandling">
+				<methods>
+					<include name="tc_APIM_702"></include>
+					<include name="tc_APIM_709"></include>
+					<include name="tc_APIM_717"></include>
+					<include name="tc_APIM_688"></include>
+				</methods>
+			</class><class name="com.wire.ts_DevelopAPI_DesignNewAPI">
+				<methods>
+					<include name="tc_APIM_757"></include>
+					<include name="tc_APIM_758"></include>
+				</methods>
+			</class><class name="com.wire.ts_ManageAPI_TagManagement">
+				<methods>
+					<include name="tc_APIM_527"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIDocumentation_UpdateDocuments">
+				<methods>
+					<include name="tc_APIM_100"></include>
+					<include name="tc_APIM_997"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIDocumentation_DocumentVisibility">
+				<methods>
+					<include name="tc_APIM_1011"></include>
+					<include name="tc_APIM_1052"></include>
+					<include name="tc_APIM_1053"></include>
+					<include name="tc_APIM_1060"></include>
+					<include name="tc_APIM_1055"></include>
+					<include name="tc_APIM_1056"></include>
+				</methods>
+			</class><class name="com.wire.ts_TestCasesWith_FireEvents">
+				<methods>
+					<include name="tc_APIM_730"></include>
+					<include name="tc_APIM_731"></include>
+				</methods>
+			</class><class name="com.wire.ts_TierManagement_TierPermission">
+				<methods>
+				</methods>
+			</class><class name="com.wire.ts_APILifecycleManagement_APIStates_Deprecated">
+				<methods>
+					<include name="tc_APIM_609"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIVersioning_PluggableVersionContext">
+				<methods>
+				</methods>
+			</class><class name="com.wire.ts_Scope">
+				<methods>
+					<include name="tc_APIM_762"></include>
+					<include name="tc_APIM_763"></include>
+					<include name="tc_APIM_764"></include>
+					<include name="tc_APIM_765"></include>
+					<include name="tc_APIM_766"></include>
+					<include name="tc_APIM_767"></include>
+					<include name="tc_APIM_768"></include>
+					<include name="tc_APIM_769"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIVersioning_Default_Version">
+				<methods>
+					<include name="tc_APIM_4"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIVersioning_WithoutDefaultVersion">
+				<methods>
+					<include name="tc_APIM_10"></include>
+				</methods>
+			</class><class name="com.wire.ts_APIVersioning_LifeCycle">
+				<methods>
+					<include name="tc_APIM_501"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
