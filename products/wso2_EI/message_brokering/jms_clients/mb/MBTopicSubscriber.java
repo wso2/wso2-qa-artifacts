@@ -18,7 +18,7 @@ public class MBTopicSubscriber {
     private static String CARBON_DEFAULT_PORT = "5672";
 
     //Topic Name
-    String topicName = "TestTopic2";
+    String topicName = "TestTopic";
     //For tenants' topic : Should include tenant domain
     //String topicName = "dilshani.wso2.com/TestTopic2";
     //For hierarchical topics
