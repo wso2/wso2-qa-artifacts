@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="SS_150_Release_Test" duration-ms="4543" started-at="2015-02-23T18:13:16Z" finished-at="2015-02-23T18:13:20Z">
+    <groups>
+    </groups>
+    <test name="SS_SMOKE_MYSQL" duration-ms="4543" started-at="2015-02-23T18:13:16Z" finished-at="2015-02-23T18:13:20Z">
+      <class name="com.ss150.test.SS_150_SmokeTest">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.ss150.test.SS_150_SmokeTest@52751a9b]" name="setUp" is-config="true" duration-ms="1959" started-at="2015-02-23T23:43:16Z" finished-at="2015-02-23T23:43:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://localhost:9463/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[FF]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLogin(java.lang.String, java.lang.String)[pri:0, instance:com.ss150.test.SS_150_SmokeTest@52751a9b]" name="testLogin" duration-ms="2505" started-at="2015-02-23T23:43:18Z" finished-at="2015-02-23T23:43:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ss150.test.SS_150_SmokeTest@52751a9b]" name="tearDown" is-config="true" duration-ms="70" started-at="2015-02-23T23:43:20Z" finished-at="2015-02-23T23:43:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.ss150.test.SS_150_SmokeTest -->
+    </test> <!-- SS_SMOKE_MYSQL -->
+  </suite> <!-- SS_150_Release_Test -->
+</testng-results>

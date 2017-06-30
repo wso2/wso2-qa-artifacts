@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite thread-count="5" verbose="10" name="SS_150_Release_Test"
+	parallel="false" annotations="JDK">
+	<parameter name="config_param" value="./ss150.properties" />
+	<parameter name="browser_code" value="FF" />
+	<parameter name="baseUrl" value="https://localhost:9463/" />
+	<parameter name="carbon_user" value="admin" />
+	<parameter name="carbon_pass" value="admin" />
+
+	<test name="SS_SMOKE_MYSQL">
+		<parameter name="browser" value="IE" />
+		<parameter name="db_name" value="rss_testdb_1" />
+		<!-- privilege template params -->
+		<parameter name="tmplt_name_admin" value="Admin" />
+		<parameter name="tmplt_name_user" value="User" />
+		<parameter name="tmplt_name_common" value="all_user" />
+		<!-- Database instance params -->
+		<parameter name="instance_name" value="MYSQLINST" />
+		<parameter name="instance_type" value="SYSTEM" />
+		<parameter name="environment" value="DEFAULT" />
+		<parameter name="server_url" value="jdbc:mysql:/localhost:3306/" />
+		<parameter name="driver_class" value="com.mysql.jdbc.Driver" />
+		<parameter name="db_username" value="root" />
+		<parameter name="db_password" value="root" />
+		<!-- User params -->
+		<parameter name="user_name" value="rssadmin" />
+		<parameter name="user_password" value="admin@12" />
+		<parameter name="environment" value="DEFAULT" />		
+		<classes>
+			<class name="com.ss150.test.SS_150_SmokeTest"></class>
+		</classes>
+	</test>
+</suite>

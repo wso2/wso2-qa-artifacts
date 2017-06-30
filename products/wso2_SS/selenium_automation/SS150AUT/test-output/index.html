@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-SS_150_Release_Test">
+              <span class="suite-name border-passed">SS_150_Release_Test</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-SS_150_Release_Test">
+                    <span>ss_test_mysql.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-SS_150_Release_Test">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-SS_150_Release_Test">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-SS_150_Release_Test">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-SS_150_Release_Test">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-SS_150_Release_Test">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-SS_150_Release_Test">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">1 method,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-SS_150_Release_Test" class="hide-methods passed suite-SS_150_Release_Test"> (hide)</a> <!-- hide-methods passed suite-SS_150_Release_Test -->
+                      <a href="#" panel-name="suite-SS_150_Release_Test" class="show-methods passed suite-SS_150_Release_Test"> (show)</a> <!-- show-methods passed suite-SS_150_Release_Test -->
+                    </span>
+                    <div class="method-list-content passed suite-SS_150_Release_Test">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SS_150_Release_Test" title="com.ss150.test.SS_150_SmokeTest" hash-for-method="testLogin(admin, admin)">testLogin(admin, admin)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-SS_150_Release_Test -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-SS_150_Release_Test" class="panel SS_150_Release_Test">
+          <div class="suite-SS_150_Release_Test-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ss150.test.SS_150_SmokeTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLogin(admin, admin)">
+                  </a> <!-- testLogin(admin, admin) -->
+                  <span class="method-name">testLogin</span>
+                  <span class="parameters">(admin, admin)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SS_150_Release_Test-class-passed -->
+        </div> <!-- panel SS_150_Release_Test -->
+        <div panel-name="test-xml-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/home/chaminda/Documents/WPKP/SS150AUT/config/temp/com/ss150/testxml/ss_test_mysql.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;10&quot; name=&quot;SS_150_Release_Test&quot;&gt;
+  &lt;parameter name=&quot;baseUrl&quot; value=&quot;https://localhost:9463/&quot;/&gt;
+  &lt;parameter name=&quot;browser_code&quot; value=&quot;FF&quot;/&gt;
+  &lt;parameter name=&quot;config_param&quot; value=&quot;./ss150.properties&quot;/&gt;
+  &lt;parameter name=&quot;carbon_user&quot; value=&quot;admin&quot;/&gt;
+  &lt;parameter name=&quot;carbon_pass&quot; value=&quot;admin&quot;/&gt;
+  &lt;test name=&quot;SS_SMOKE_MYSQL&quot;&gt;
+    &lt;parameter name=&quot;instance_type&quot; value=&quot;SYSTEM&quot;/&gt;
+    &lt;parameter name=&quot;tmplt_name_admin&quot; value=&quot;Admin&quot;/&gt;
+    &lt;parameter name=&quot;server_url&quot; value=&quot;jdbc:mysql:/localhost:3306/&quot;/&gt;
+    &lt;parameter name=&quot;db_name&quot; value=&quot;rss_testdb_1&quot;/&gt;
+    &lt;parameter name=&quot;driver_class&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;parameter name=&quot;db_password&quot; value=&quot;root&quot;/&gt;
+    &lt;parameter name=&quot;instance_name&quot; value=&quot;MYSQLINST&quot;/&gt;
+    &lt;parameter name=&quot;db_username&quot; value=&quot;root&quot;/&gt;
+    &lt;parameter name=&quot;user_name&quot; value=&quot;rssadmin&quot;/&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;DEFAULT&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;IE&quot;/&gt;
+    &lt;parameter name=&quot;user_password&quot; value=&quot;admin@12&quot;/&gt;
+    &lt;parameter name=&quot;tmplt_name_common&quot; value=&quot;all_user&quot;/&gt;
+    &lt;parameter name=&quot;tmplt_name_user&quot; value=&quot;User&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.ss150.test.SS_150_SmokeTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- SS_SMOKE_MYSQL --&gt;
+&lt;/suite&gt; &lt;!-- SS_150_Release_Test --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for SS_150_Release_Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">SS_SMOKE_MYSQL (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for SS_150_Release_Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for SS_150_Release_Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_SS_150_Release_Test');
+function tableData_SS_150_Release_Test() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testLogin')
+data.setCell(0, 2, 'com.ss150.test.SS_150_SmokeTest')
+data.setCell(0, 3, 2505);
+window.suiteTableData['SS_150_Release_Test']= { tableData: data, tableDiv: 'times-div-SS_150_Release_Test'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <div id="times-div-SS_150_Release_Test">
+              </div> <!-- times-div-SS_150_Release_Test -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for SS_150_Release_Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-SS_150_Release_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ss150.test.SS_150_SmokeTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(https://localhost:9463/, FF)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">testLogin(admin, admin)</span>
+                <span class="method-start">1966 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">4472 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
