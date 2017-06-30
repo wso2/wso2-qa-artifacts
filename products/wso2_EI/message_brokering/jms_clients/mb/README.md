@@ -29,6 +29,7 @@ Here describe main parameters according to the class. Other than that, you can c
   - CARBON_DEFAULT_PORT - Default port MB is "5672". If you changed the offset of MB, change the port accordingly.
   - msgCount - Number of messages going to subscribe (After recieving this number of messages, connection going to close)
   - queueName - Name of the queue going to subscribe
+Note: When you are running subscriber for queue, it should be already available in MB (This is not needed after MB 4.0 release)
   
 3. MBTopicPublisher.java 
   - CARBON_DEFAULT_HOSTNAME - Default hostname is "localhost". If you are using remote MB, use hostname accordingly.
@@ -42,6 +43,7 @@ Here describe main parameters according to the class. Other than that, you can c
   - CARBON_DEFAULT_PORT - Default port MB is "5672". If you changed the offset of MB, change the port accordingly.
   - subscriptionName - When creating durable subscribers, unique subcription name should be given to identify the subscription
   - topicName - Name of the topic going to subscribe
+Note: When you are running subscriber for topic, it should be already available in MB (This is not needed after MB 4.0 release)
     
 ### Pre-conditions
 
