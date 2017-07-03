@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="generate_id.xslt">
+   <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+      <xsl:template match="/">
+         <html>
+            <body>
+               <h3>Artists:</h3>
+               <ul>
+                  <xsl:for-each select="catalog/cd">
+                     <li>
+                        <a href="#{generate-id(artist)}">
+                           <xsl:value-of select="artist"/>
+                        </a>
+                     </li>
+                  </xsl:for-each>
+               </ul>
+            </body>
+         </html>
+      </xsl:template>
+   </xsl:stylesheet>
+   <description/>
+</localEntry>

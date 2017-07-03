@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="xslt_function_available"
+       transports="http https"
+       startOnLoad="true">
+   <description/>
+   <target>
+      <inSequence>
+         <xslt key="function_available.xslt"/>
+         <respond/>
+      </inSequence>
+   </target>
+</proxy>
