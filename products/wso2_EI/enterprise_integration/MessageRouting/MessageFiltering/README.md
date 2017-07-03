@@ -24,9 +24,12 @@ Sample scenarios related to message filtering based on following criteria;
 Following service should be up and running before executing the above scenarios.
 1. SimpleStockQuote Service - Start the SimpleStockQuote Service that bundles with the ESB500 product (Build SimpleStockQuoteService and then go to <ESB_HOME>/samples/axis2Server and execute sh axis2.sh to start the backend server)
 
-Following three backends services will get deployed automatically once you execute the package, as those are ballerina services included in the package itself.
-2. BE_SimpleStockQuoteService.bal - This ballerina service _(/simpleStockQuote)_ will return a XML response. This service will send a stock quote response depending on the stock symbol received to the service 
+Following three backends services will get deployed automatically once you execute the package, as those are ballerina services included in the package itself. 
+
+2. BE_SimpleStockQuoteService.bal - This ballerina service _(/simpleStockQuote)_ will return a XML response. This service will send a stock quote response depending on the stock symbol received to the service
+
 3. BE_DefaultStockQuoteService.bal - This ballerina service _(/defaultStockQuote)_ will return a XML response. This service will send a stock quote response depending on the stock symbol received to the service. Response From this service is different to the one that is generated form the 'BE_SimpleStockQuoteService.bal'.
+
 4. BE_JSONStockQuoteService.bal - This ballerina service will return a JSON response based on the incoming stock value received to the service. 
 
 #### **How to run this sample**
@@ -40,11 +43,15 @@ Download the samples and go to 'enterprise_integration' directory. Then execute 
 If name is "nyse" then message goes to the BE, else message dropped
 > _Request_ - http://localhost:9090/jsonpathfilter 
 
+> _HTTP Method_ - POST
+
 > _Payload_ - {"name" : "nyse"}
 
 ##### **Service 02** - JSONArrayFilter.bal
 If symbol of the second element in stock array is "WSO2" then message goes to the BE, else message dropped
 > _Request_ - http://localhost:9090/jsonarrayfilter 
+
+> _HTTP Method_ - POST
 
 > _Payload_ - 
 ```
@@ -74,6 +81,8 @@ If symbol is "foo" then message goes to the BE, else message dropped
 
 > _Request_ - http://localhost:9090/xpathwithoutNameSpacefilter 
 
+> _HTTP Method_ - POST
+
 > _Payload_ - ```<getQuote><symbol>foo</symbol></getQuote>```
 
 ##### **Service 04** - XPathNameSpaceFilter.bal
@@ -81,6 +90,8 @@ If symbol is "IBM" then message goes to the BE, else message dropped
 > _Request_ - http://localhost:9090/xpathNameSpacefilter 
 
 > _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
+
+> _HTTP Method_ - POST
 
 > _Payload_ - 
 
@@ -104,6 +115,8 @@ If stock name of the id '3' is "WSO2" then message goes to the BE, else message 
 
 > _Request_ - http://localhost:9090/xpathwithattributesfilter 
 
+> _HTTP Method_ - POST
+
 > _Payload_ - 
 ```
 <getQuote>
@@ -119,6 +132,7 @@ If stock name of the id '3' is "WSO2" then message goes to the BE, else message 
 If 'ID' of the given xml equals to '990' then message processed, else message dropped
 > _Request_ - http://localhost:9090/anymatchingxpathfilter 
 
+> _HTTP Method_ - POST
 
 > _Payload_ - 
 ```
@@ -140,6 +154,8 @@ If 'ID' of the given xml equals to '990' then message processed, else message dr
 ##### **Service 07** - XPathwithspecialcharachters.bal
 Select the message where the stock 'ID' less than 3 and more than 1, then process the message, else dropped the message
 > _Request_ - http://localhost:9090/xpathspecialcharachterfilter 
+
+> _HTTP Method_ - POST
 
 > _Payload_ - 
 ```
@@ -170,6 +186,8 @@ If the query parameter value is 'IBM' the process the message, else message drop
 If the both ariterias met then process the message, else message dropped
 > _Request_ - http://localhost:9090/routeusingand
 
+> _HTTP Method_ - POST
+
 > _Header_ - exchange : nasdaq
 
 > _Payload_ - {"name" : "IBM"}
@@ -178,6 +196,8 @@ If the both ariterias met then process the message, else message dropped
 If the request fulfils any of the given criteria then process the message, else message dropped
 > _Request_ - http://localhost:9090/routeusingor
 
+> _HTTP Method_ - POST
+
 > _Header_ - exchange : nasdaq
 
 > _Payload_ - {"name" : "IBM"}
@@ -185,6 +205,8 @@ If the request fulfils any of the given criteria then process the message, else 
 ##### **Service 12** - RouteUsingAndOr.bal
 If stock url contains "routeusingandor" AND stockvalue = "IBM"  Then verify whether price >= 180 OR exchange = "nasdaq". if criteria met message processed, else message dropped
 > _Request_ - http://localhost:9090/routeusingandor
+
+> _HTTP Method_ - POST
 
 > _Header_ - exchange : nasdaq
 
@@ -211,6 +233,8 @@ If stock url contains "routeusingandor" AND stockvalue = "IBM"  Then verify whet
 ##### **Service 13** - RouteUsingAndOrNot.bal
 If the 'requestor' is not "Peter" then verify If stock url contains "routeusingandor" AND stockvalue = "IBM", Then verify whether price >= 180 OR exchange = "nasdaq". if criteria met message processed, else message dropped
 > _Request_ - http://localhost:9090/routeusingandornot
+
+> _HTTP Method_ - POST
 
 > _Header_ - exchange : nasdaq , requestor : EITeam
 
@@ -241,6 +265,8 @@ If the 'requestor' is not "Peter" then verify If stock url contains "routeusinga
 If multiple cases exists for a given xpath, direct to the correct case based on the value and process the message, else send the message to the default case.
 > _Request_ - http://localhost:9090/xpathmultiplecasewithdefault
 
+> _HTTP Method_ - POST
+
 > _Payload_ - 
 ```
 <getQuote>
@@ -253,6 +279,8 @@ If multiple cases exists for a given xpath, direct to the correct case based on 
 If multiple cases exists for a given xpath, direct to the correct case based on the value and process the message, else send the message to the default case.
 > _Request_ - http://localhost:9090/jsonpathmultiplecasewithdefault
 
+> _HTTP Method_ - POST
+
 > _Payload_ -  {"name" : "WSO2"} 
 
 
@@ -260,5 +288,7 @@ If multiple cases exists for a given xpath, direct to the correct case based on 
 If symbol is "foo/Foo/FOO" (without considering the casesensitivity of the extracted value) then message goes to the BE, else message dropped
 
 > _Request_ - http://localhost:9090/caseinsensitivefilter 
+
+> _HTTP Method_ - POST
 
 > _Payload_ - ```<getQuote><symbol>FOO</symbol></getQuote>```

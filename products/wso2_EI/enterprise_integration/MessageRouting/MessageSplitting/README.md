@@ -24,6 +24,9 @@ Download the samples and go to 'enterprise_integration' directory. Then execute 
 This service will split the incoming message based on the stocks as "[{"symbol":"IBM","price":"189.00"}][{"symbol":"WSO2","price":"230.18"}][{"symbol":"Oracle","price":"170.08"}]".
 
 > _Request_ - http://localhost:9090/jsonpathsplitter 
+
+> _HTTP Method_ - POST
+
 > _Payload_ - 
 ``` 
 { 
@@ -58,6 +61,9 @@ This service will split the incoming message based on the stocks as "[{"symbol":
 This service will split the incoming message based on the symbol. (Check the product logs for the output)
 
 > _Request_ - http://localhost:9090/xpathsplitter
+
+> _HTTP Method_ - POST
+
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
@@ -82,6 +88,9 @@ This service will split the incoming message based on the symbol. (Check the pro
 This service will split the incoming message based on the stocks. (Check the product logs for the output)
 
 > _Request_ - http://localhost:9090/xpathsplitterwithoutnamespace
+
+> _HTTP Method_ - POST
+
 > _Payload_ - 
 ```
 <StockDetails>
@@ -110,8 +119,13 @@ This service will split the incoming message based on the stocks. (Check the pro
 This service will split the incoming message based on the symbol and attach the split content to the original message and send to the 'SimpleStockQuoteService'. (Check the logs of 'SimpleStockQuoteService' to verify the service invocations)
 
 > _Request_ - http://localhost:9090/xmlsliptmergedoriginal
+
+> _HTTP Method_ - POST
+
 > _PreRequisites_ - Deploy and Start the SimpleStockQuote Service 
+
 > _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
+
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
@@ -136,8 +150,13 @@ This service will split the incoming message based on the symbol and attach the 
 This service will split the incoming message based on the symbol and create a new message using the split content and send to the 'SimpleStockQuoteService'. (Check the logs of 'SimpleStockQuoteService' to verify the service invocations)
 
 > _Request_ - http://localhost:9090/xpathsplitcreatepayload
+
+> _HTTP Method_ - POST
+
 > _PreRequisites_ - Deploy and Start the SimpleStockQuote Service 
+
 > _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
+
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
@@ -162,8 +181,13 @@ This service will split the incoming message based on the symbol and create a ne
 This service will create clones of an incoming message and send to different backend services (Check the logs of 'SimpleStockQuoteService' to verify the service invocations)
 
 > _Request_ - http://localhost:9090/clone
-> _PreRequisites_ - Start multiple instances of SimpleStockQuote Service in following http ports (9000,9001,9003) ex: ./axis2server.sh -http 9001 -https 9005 -name MyServer1
+
+> _HTTP Method_ - POST
+
+> _PreRequisites_ - Start multiple instances of SimpleStockQuote Service in following http ports (9000,9001,9003) ex: ./axis2server.sh -http 9001 -https 9005 -name MyServer1.
+
 > _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
+
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
