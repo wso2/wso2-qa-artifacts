@@ -6,8 +6,8 @@ import ballerina.lang.jsons;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 import ballerina.lang.strings;
 
-@http:BasePath{value: "/routeusingandornot"}
-service UseAndOrNotService {
+@http:config {basePath:"/routeusingandornot"}
+service<http> UseAndOrNotService {
 
     @http:POST{}
     @http:Path{value:"/"}
@@ -15,10 +15,12 @@ service UseAndOrNotService {
 	http:ClientConnector jsonEP = create http:ClientConnector(endpoints:jsonEPurl);
         json jsonMsg = messages:getJsonPayload(m);
         string requesturl = http:getRequestURL(m);
-        string urlexists = strings:contains(requesturl, "routeusingandor");
+        string urlexists;
+        urlexists, _ = <string> strings:contains(requesturl, "routeusingandor");
 	    string exchange = messages:getHeader(m, "exchange");
 	    string requestor = messages:getHeader(m, "requestor");
-        float price = (float) jsons:getString(jsonMsg, "$.Stocks[0].price");
+	    float price;
+        price, _ = <float> jsons:getString(jsonMsg, "$.Stocks[0].price");
         string stockvalue = jsons:getString(jsonMsg, "$.Stocks[0].symbol");
 	    
 	    messages:setStringPayload( m, stockvalue);

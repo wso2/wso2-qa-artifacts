@@ -4,8 +4,8 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 import ballerina.lang.xmls;
 
-@http:BasePath{value: "/xpathNameSpacefilter"}
-service xpathNameSpacefilter {
+@http:config {basePath:"/xpathNameSpacefilter"}
+service<http> xpathNameSpacefilter {
 
     @http:POST{}
     @http:Path{value:"/"}

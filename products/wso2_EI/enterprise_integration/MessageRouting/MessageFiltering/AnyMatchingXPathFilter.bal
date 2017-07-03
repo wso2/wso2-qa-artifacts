@@ -6,10 +6,11 @@ import ballerina.lang.xmls;
 import ballerina.lang.system;
 import ballerina.lang.errors;
 
-@http:BasePath{value: "/anymatchingxpathfilter"}
-service AnyMatchingXpathFilterService {
+@http:config {basePath:"/anymatchingxpathfilter"}
+service<http> AnyMatchingXpathFilterService {
 
     @http:POST{}
+    @http:Path{value:"/"}
     resource AnyMatchingXpathFilterResource(message m) {
         string empID = "990";
         string var1;
@@ -31,7 +32,7 @@ service AnyMatchingXpathFilterService {
                 system:println("xpath not exists.");
             }
         
-        if (var1 == empID || var2 == empID ) {
+        if (empID == var1 || empID == var2 ) {
             string payload = "Welcome Peter";
             messages:setStringPayload(response, payload);
         } else {

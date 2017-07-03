@@ -7,8 +7,8 @@ import MessageRouting.MessageFiltering.Endpoints as endpoints;
 import ballerina.lang.strings;
 
 
-@http:BasePath{value: "/caseinsensitivefilter"}
-service CaseInsensitiveFilter {
+@http:config {basePath:"/caseinsensitivefilter"}
+service<http> CaseInsensitiveFilter {
 
     @http:POST{}
     @http:Path{value:"/"}

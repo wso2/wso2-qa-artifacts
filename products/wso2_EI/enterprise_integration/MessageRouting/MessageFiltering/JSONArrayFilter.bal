@@ -5,8 +5,8 @@ import ballerina.lang.jsons;
 import ballerina.lang.messages;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath {value:"/jsonarrayfilter"}
-service JSONArrayFilterServie {
+@http:config {basePath:"/jsonarrayfilter"}
+service<http> JSONArrayFilterServie {
     
     @http:POST{}
     @http:Path{value:"/"}

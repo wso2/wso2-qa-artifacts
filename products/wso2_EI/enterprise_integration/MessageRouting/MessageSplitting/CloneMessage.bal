@@ -3,9 +3,8 @@ package MessageRouting.MessageSplitting;
 import ballerina.net.http;
 import ballerina.lang.messages;
 
-
-@http:BasePath{value: "/clone"}
-service cloneService {
+@http:config {basePath:"/clone"}
+service<http> cloneService {
 
    @http:POST{}
    @http:Path{value:"/"}

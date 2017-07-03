@@ -5,8 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.jsons;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath{value: "/routeusingor"}
-service UseORService {
+@http:config {basePath:"/routeusingor"}
+service<http> UseORService {
 
     @http:POST{}
     @http:Path{value:"/"}

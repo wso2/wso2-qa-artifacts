@@ -4,9 +4,8 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-
-@http:BasePath{value: "/headerfilter"}
-service headerFilterService {
+@http:config {basePath:"/headerfilter"}
+service<http> headerFilterService {
 
     @http:GET{}
     @http:Path{value:"/"}

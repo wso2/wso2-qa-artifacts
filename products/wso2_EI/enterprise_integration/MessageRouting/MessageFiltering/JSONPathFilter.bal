@@ -5,8 +5,8 @@ import ballerina.lang.jsons;
 import ballerina.lang.messages;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath {value:"/jsonpathfilter"}
-service JSONPathFilter {
+@http:config {basePath:"/jsonpathfilter"}
+service<http> JSONPathFilter {
     
     @http:POST{}
     @http:Path{value:"/"}

@@ -5,8 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath{value: "/xpathmultiplecasewithdefault"}
-service XpathMultipleCaseWithDefaultService {
+@http:config {basePath:"/xpathmultiplecasewithdefault"}
+service<http> XpathMultipleCaseWithDefaultService {
 
     @http:POST{}
     @http:Path{value:"/"}

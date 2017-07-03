@@ -5,14 +5,15 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import ballerina.lang.system;
 
-@http:BasePath{value: "/xpathsplitterwithoutnamespace"}
-service xpathSplitwithoutNameSpaceService {
+@http:config {basePath:"/xpathsplitterwithoutnamespace"}
+service<http> xpathSplitwithoutNameSpaceService {
 
     @http:POST{}
     @http:Path{value:"/"}
     resource xpathSplitwithoutNameSpaceResource(message m) {
         xml incomingPayload = messages:getXmlPayload(m);
-        int sliptcount = (int) xmls:getString(incomingPayload, "count(//StockDetails/Stocks)");
+	int sliptcount;
+        sliptcount, _ = <int> xmls:getString(incomingPayload, "count(//StockDetails/Stocks)");
         
         message response = {};
         int i = 1;

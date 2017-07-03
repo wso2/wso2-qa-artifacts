@@ -4,9 +4,8 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 import ballerina.lang.xmls;
 
-
-@http:BasePath{value: "/xmlsliptmergedoriginal"}
-service xpathSplitMergedToOriginalService {
+@http:config {basePath:"/xmlsliptmergedoriginal"}
+service<http> xpathSplitMergedToOriginalService {
 
    @http:POST{}
    @http:Path{value:"/"}
@@ -14,7 +13,8 @@ service xpathSplitMergedToOriginalService {
        http:ClientConnector stockEP = create http:ClientConnector("http://localhost:9000/services/SimpleStockQuoteService");
        xml incomingPayload = messages:getXmlPayload(m);
        map namespace = {"m0":"http://services.samples"};
-       int sliptcount = (int) xmls:getStringWithNamespace(incomingPayload,"count(//m0:getQuote/m0:request)",namespace);
+       int sliptcount;
+       sliptcount, _ = <int> xmls:getStringWithNamespace(incomingPayload,"count(//m0:getQuote/m0:request)",namespace);
        
        xml copyofpayload = xmls:copy(incomingPayload);
        xmls:removeWithNamespace(copyofpayload,"//m0:getQuote/m0:request[*]",namespace);

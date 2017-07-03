@@ -4,8 +4,8 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath{value: "/queryparamfilter"}
-service queryparamFilterService {
+@http:config {basePath:"/queryparamfilter"}
+service<http> queryparamFilterService {
 
     @http:GET{}
     @http:Path{value:"/"}

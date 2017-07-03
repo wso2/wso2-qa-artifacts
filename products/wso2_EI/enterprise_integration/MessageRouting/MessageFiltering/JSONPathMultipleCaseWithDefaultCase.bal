@@ -5,8 +5,8 @@ import ballerina.lang.jsons;
 import ballerina.lang.messages;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath{value: "/jsonpathmultiplecasewithdefault"}
-service JSONPathMultipleCaseWithDefaultService {
+@http:config {basePath:"/jsonpathmultiplecasewithdefault"}
+service<http> JSONPathMultipleCaseWithDefaultService {
 
     @http:POST{}
     @http:Path{value:"/"}

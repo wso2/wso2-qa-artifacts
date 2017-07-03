@@ -5,8 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.jsons;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-@http:BasePath{value: "/routeusingand"}
-service UseANDService {
+@http:config {basePath:"/routeusingand"}
+service<http> UseANDService {
 
     @http:POST{}
     @http:Path{value:"/"}

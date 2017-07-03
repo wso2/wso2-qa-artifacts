@@ -5,8 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.system;
 import ballerina.lang.jsons;
 
-@http:BasePath {value:"/jsonStocks"}
-service JSONStockQuoteService {
+@http:config {basePath:"/jsonStocks"}
+service<http> JSONStockQuoteService {
     
     @http:POST{}
 @http:Path{value:"/"}

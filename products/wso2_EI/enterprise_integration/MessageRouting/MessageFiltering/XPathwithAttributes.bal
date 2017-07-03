@@ -5,9 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-
-@http:BasePath{value: "/xpathwithattributesfilter"}
-service xpathWithAttributesService {
+@http:config {basePath:"/xpathwithattributesfilter"}
+service<http> xpathWithAttributesService {
 
     @http:POST{}
     @http:Path{value:"/"}

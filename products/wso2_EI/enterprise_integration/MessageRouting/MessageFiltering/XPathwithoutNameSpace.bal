@@ -5,9 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-
-@http:BasePath{value: "/xpathwithoutNameSpacefilter"}
-service xpathwithoutNameSpaceFilter {
+@http:config {basePath:"/xpathwithoutNameSpacefilter"}
+service<http> xpathwithoutNameSpaceFilter {
 
     @http:POST{}
     @http:Path{value:"/"}

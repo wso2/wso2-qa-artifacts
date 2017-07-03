@@ -5,17 +5,17 @@ import ballerina.lang.messages;
 import ballerina.lang.jsons;
 import ballerina.lang.system;
 
-
-@http:BasePath{value: "/jsonpathsplitter"}
-service JOSNPathSplitService {
+@http:config {basePath:"/jsonpathsplitter"}
+service<http> JOSNPathSplitService {
 
    @http:POST{}
    @http:Path{value:"/"}
    resource JOSNPathSplitResource(message m) {
+       
       json jsonMsg = messages:getJsonPayload(m);
       json arraylengthjson = jsons:getJson(jsonMsg,"$..Stocks.length()");
-      int arraylengthint = (int) arraylengthjson[0];
-      int arraylength = arraylengthint - 1;
+      var arraylengthint, _ = (int) arraylengthjson[0];
+      int arraylength  = arraylengthint - 1;
 
        message response = {};
        int i = 0;

@@ -5,9 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import MessageRouting.MessageFiltering.Endpoints as endpoints;
 
-
-@http:BasePath{value: "/xpathspecialcharachterfilter"}
-service xpathwithoSpeacialCharachterFilter {
+@http:config {basePath:"/xpathspecialcharachterfilter"}
+service<http> xpathwithoSpeacialCharachterFilter {
 
     @http:POST{}
     @http:Path{value:"/"}

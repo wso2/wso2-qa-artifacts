@@ -5,16 +5,16 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import ballerina.lang.system;
 
-
-@http:BasePath{value: "/xpathsplitter"}
-service xpathSplitService {
+@http:config {basePath:"/xpathsplitter"}
+service<http> xpathSplitService {
 
    @http:POST{}
    @http:Path{value:"/"}
    resource xpathSplitResource(message m) {
        xml incomingPayload = messages:getXmlPayload(m);
        map namespace = {"m0":"http://services.samples"};
-       int sliptcount = (int) xmls:getStringWithNamespace(incomingPayload, "count(//m0:getQuote/m0:request)", namespace);
+       int sliptcount;
+       sliptcount, _ = <int> xmls:getStringWithNamespace(incomingPayload, "count(//m0:getQuote/m0:request)", namespace);
 
        message response = {};
        int i = 1;

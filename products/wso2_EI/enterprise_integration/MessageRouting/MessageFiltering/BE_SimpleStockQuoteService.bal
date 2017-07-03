@@ -5,8 +5,8 @@ import ballerina.lang.messages;
 import ballerina.lang.xmls;
 import ballerina.lang.system;
 
-@http:BasePath{value: "/simpleStockQuote"}
-service simpleStockQuote {
+@http:config {basePath:"/simpleStockQuote"}
+service<http> simpleStockQuote {
 
 
     @http:POST{}

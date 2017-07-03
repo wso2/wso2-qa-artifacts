@@ -111,6 +111,7 @@ This service will split the incoming message based on the symbol and attach the 
 
 > _Request_ - http://localhost:9090/xmlsliptmergedoriginal
 > _PreRequisites_ - Deploy and Start the SimpleStockQuote Service 
+> _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
@@ -136,6 +137,7 @@ This service will split the incoming message based on the symbol and create a ne
 
 > _Request_ - http://localhost:9090/xpathsplitcreatepayload
 > _PreRequisites_ - Deploy and Start the SimpleStockQuote Service 
+> _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
@@ -160,7 +162,8 @@ This service will split the incoming message based on the symbol and create a ne
 This service will create clones of an incoming message and send to different backend services (Check the logs of 'SimpleStockQuoteService' to verify the service invocations)
 
 > _Request_ - http://localhost:9090/clone
-> _PreRequisites_ - Start multiple instances of SimpleStockQuote Service in following http ports (9000,9001,9003)
+> _PreRequisites_ - Start multiple instances of SimpleStockQuote Service in following http ports (9000,9001,9003) ex: ./axis2server.sh -http 9001 -https 9005 -name MyServer1
+> _Header_ - SOAPAction:urn:getQuote , Content-Type:text/xml;charset=UTF-8
 > _Payload_ - 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m0="http://services.samples">
