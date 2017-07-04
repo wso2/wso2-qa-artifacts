@@ -56,7 +56,7 @@ end myPackage;
 ##### **Creating the Data Service**
 1. Add the ojdbc7.jar to the <EI_HOME>/lib
 2. Edit the given **"NestedUDT.dbs"** by adding the Oracle Database configurations (url, username and password) under <config> property. 
-3. Then updated "NestedUDT.dbs" to the <EI_HOME>/repository/deployment/server/dataservices directory
+3. Then copy the updated "NestedUDT.dbs" to the <EI_HOME>/repository/deployment/server/dataservices directory (If the 'dataservices' is not exists, then you can create the directory and add the dataservice file)
 2. Start the EI Server
 
 #### **Invoking the DataService**
