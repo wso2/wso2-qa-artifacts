@@ -1,0 +1,20 @@
+<data name="NestedUDT" transports="http https local">
+   <config enableOData="false" id="oracleds">
+      <property name="driverClassName">oracle.jdbc.driver.OracleDriver</property>
+      <property name="url">jdbc:oracle:thin:@XXXX</property>
+      <property name="username">XXX</property>
+      <property name="password">XXX</property>
+   </config>
+   <query id="qDetails" useConfig="oracleds">
+      <sql>{call ?:=mypackage.getData()}</sql>
+      <result element="MYDetailResponse" rowName="Details" useColumnNumbers="true">
+         <element column="1" name="Region" xsdType="string"/>
+         <element arrayName="myarray" column="2" name="CountryDetails" xsdType="string"/>
+         <element column="3" name="Currency" xsdType="string"/>
+      </result>
+      <param name="cur" ordinal="1" sqlType="ORACLE_REF_CURSOR" type="OUT"/>
+   </query>
+   <resource method="GET" path="data">
+      <call-query href="qDetails"/>
+   </resource>
+</data>

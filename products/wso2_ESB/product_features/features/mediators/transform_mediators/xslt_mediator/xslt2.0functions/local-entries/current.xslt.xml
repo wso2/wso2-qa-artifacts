@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="current.xslt">
+  <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="/">
+  <html xmlns="http://ws.apache.org/ns/synapse">
+  <body>
+  <xsl:for-each select="catalog/cd/artist">
+    Current node: <xsl:value-of select="current()"/>
+    <br/>
+  </xsl:for-each>
+  </body>
+  </html>
+</xsl:template>
+</xsl:stylesheet>
+   <description/>
+</localEntry>
