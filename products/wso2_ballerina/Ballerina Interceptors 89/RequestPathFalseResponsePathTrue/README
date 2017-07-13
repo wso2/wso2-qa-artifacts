@@ -1,0 +1,12 @@
+///README///
+
+
+This artifact was created for ballerina runtime version .89 and should be validated for syntax if it needs to be used with any other version. As the request path interceptor returns a false, the response should be returned to the client without hitting the response path interceptor.
+
+1. create the folder <BALLERINA_HOME>/interceptors and copy the two bmz files inside.
+2. replace the deployment.yaml in bre/conf with the one provided.
+3. run service hellowordservice and validate scenario.
+
+
+
+

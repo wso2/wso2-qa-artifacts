@@ -1,0 +1,9 @@
+package inter.sample;
+import ballerina.lang.system;
+
+
+function responseInterceptor (message m) (boolean, message) {
+	system:println(---resp interceptor hit ----);	
+	return true, m; 
+}
+
