@@ -2,8 +2,19 @@
 **Author :** Dilshani Subasinghe
 
 ### Description
+
+The BPEL specification defines human tasks for the business processes that need human interactions in order to make decisions. These human tasks can generate notifications to inform the users of the various decisions that need to be made. Certain users were able to view the notifications from their account. However, with the email and SMS notification support, users can configure the BPS to send messages to the specified email addresses when a notification is created. So this sample created to test particular use case
+
 This folder contains sample for BPS Human task email notifications which will trigger mail due to a defined deadline.
- * taskDeadlineWithNotifications.zip
+ * ClaimsApprovalTask.ht
+ * ClaimsApprovalTaskService.wsdl
+ * htconfig.xml
+ * ApproveClaim-input.jsp
+ * ApproveClaim-output.jsp
+ * ApproveClaim-response.jsp
+ * ClaimApprovalReminder-input.jsp
+
+Note: Create zip file using taskDeadlineWithNotifications folder
 
 ### Setup 
 
@@ -24,7 +35,7 @@ Refer: https://docs.wso2.com/display/BPS360/Enabling+Email+and+SMS+Notifications
 ### Execution steps
 1. Start business process profile 
 2. Login in to carbon console (Ex: https://localhost:9443/carbon/)
-3. Create roles as "regionalClerks","regionalManager" and "clerksManager"
+3. Create roles as "regionalManagerRole" and "regionalClerksRole"
 4. Create users for the respective roles and assign those users to the roles.
 5. Deploy sample in human tasks.
 
