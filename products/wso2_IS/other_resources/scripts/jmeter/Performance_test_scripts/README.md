@@ -27,19 +27,19 @@
 |  | AuthenticateTenantUser.jmx | TestData-AddTenantsAndTenantUsers.jmx |  |
 | OAuth2 |OAuth_Password.jmx  |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx |  |
 |  | OAuth_ClientCredentials.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  |  |
-|  | OAuth_AuthCode_Redirect_SkipConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" | 
+|  | OAuth_AuthCode_Redirect_SkipConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : SkipUserConsent=true | 
 |  |OAuth_AuthCode_Redirect_WithConsent.jmx  | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx |  |
 |  | OAuth_Implicit_Redirect_WithConsent.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx |  |
-|  |OAuth_Implicit_Redirect_SkipConsent.jmx   |  TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" |
-|  | OAuth_RefreshToken.jmx  |  TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx / TestData-Write_Tokens.jmx | identity.xml : "<RenewRefreshTokenForRefreshGrant>false</RenewRefreshTokenForRefreshGrant>" |
+|  |OAuth_Implicit_Redirect_SkipConsent.jmx   |  TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx | identity.xml : SkipUserConsent=true |
+|  | OAuth_RefreshToken.jmx  |  TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx / TestData-Write_Tokens.jmx | identity.xml : RenewRefreshTokenForRefreshGrant=false |
 |  | OAuth_TokenIntrospection.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx / TestData-Write_Tokens.jmx |  |
 |  | OAuth_RevokeToken.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx / TestData-Write_Tokens.jmx   |  |
-|OIDC  | OIDC_AuthCode_Redirect_SkipConsent.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" |
+|OIDC  | OIDC_AuthCode_Redirect_SkipConsent.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx |identity.xml : SkipUserConsent=true |
 |  | OIDC_AuthCode_Redirect_WithConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  |  |
-|  |OIDC_OAuth_AuthCode_RequestPath_SkipConsent.jmx  | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" |
+|  |OIDC_OAuth_AuthCode_RequestPath_SkipConsent.jmx  | TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx | identity.xml : SkipUserConsent=true |
 |  | OIDC_Implicit_Redirect_WithConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  |  |
-|  |OIDC_Implicit_Redirect_SkipConsent.jmx  |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" |
-|  | OIDC_Implicit_RequestPath_SkipConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : "<SkipUserConsent>true</SkipUserConsent>" |
+|  |OIDC_Implicit_Redirect_SkipConsent.jmx  |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : identity.xml : SkipUserConsent=true |
+|  | OIDC_Implicit_RequestPath_SkipConsent.jmx |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx  | identity.xml : SkipUserConsent=true |
 |  |OIDC_UserInfoEndpoint.jmx   |TestData-AddSuperTenantUsers.jmx / TestData-AddOAuthApps.jmx / TestData-Write_Tokens.jmx   |  |
 | STS | PassiveSTS.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOtherApps.jmx |  |
 | SAML| SAML2-SSO-RedirectBinding.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOtherApps.jmx |  |
