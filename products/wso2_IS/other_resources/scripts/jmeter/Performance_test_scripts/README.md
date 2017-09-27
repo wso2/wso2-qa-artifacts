@@ -21,7 +21,7 @@
 
 ### Test Scripts
 
-| Category | Script | Test data script(s) | IS Configurations |
+| Category | Script | Test data scripts(s)/ requirements | IS Configurations |
 | ------ | ------ | ------ | ------ |
 | Authentication | AuthenticateSuperTenantUser.jmx |TestData-AddSuperTenantUsers.jmx  |    |
 |  | AuthenticateTenantUser.jmx | TestData-AddTenantsAndTenantUsers.jmx |  |
@@ -44,9 +44,12 @@
 | STS | PassiveSTS.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOtherApps.jmx |  |
 | SAML| SAML2-SSO-RedirectBinding.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOtherApps.jmx |  |
 |  |SAML2-SSO-RequestPathAuthentication.jmx | TestData-AddSuperTenantUsers.jmx / TestData-AddOtherApps.jmx |  |
-| SCIM1 |SCIM-Add-user.jmx  |  |  |
-|  |SCIM-Update-user.jmx  |SCIM-Add-user.jmx  |  |
-|  |SCIM-Add-Get-Update.jmx  |  |  |
+| SCIM1 |SCIM-Add-user.jmx  | Publish an OAuth app and Generate an access token with infinite expiration time |  |
+|  |SCIM-Update-user.jmx  |SCIM-Add-user.jmx / Publish an OAuth app and Generate an access token with infinite expiration time |  |
+|  |SCIM-Add-Get-Update.jmx  | Publish an OAuth app and Generate an access token with infinite expiration time |  |
+ SCIM2 |SCIM2-Add-user.jmx  | Publish an OAuth app and Generate an access token with infinite expiration time |  Disable "org.wso2.carbon.identity.scim.common.listener.SCIMUserOperationListener and enable "org.wso2.carbon.identity.scim2.common.listener.SCIMUserOperationListener"|
+|  |SCIM2-Update-user.jmx  |SCIM2-Add-user.jmx  / Publish an OAuth app and Generate an access token with infinite expiration time |Disable "org.wso2.carbon.identity.scim.common.listener.SCIMUserOperationListener and enable "org.wso2.carbon.identity.scim2.common.listener.SCIMUserOperationListener"  |
+|  |SCIM2-Add-Get-Update.jmx  | Publish an OAuth app and Generate an access token with infinite expiration time  | Disable "org.wso2.carbon.identity.scim.common.listener.SCIMUserOperationListener and enable "org.wso2.carbon.identity.scim2.common.listener.SCIMUserOperationListener" |
 | XACML | XACML-SingleRequest.jmx |Publish a single policy using TestData-PublishXACMLPolicies.jmx  |  |
 |  | XACML-MultipleRequests.jmx |Use scripts provided in http://xacmlinfo.org/2013/10/15/xacml-pdp-performance-testing/ and create and publish 10000 policies |  |
 

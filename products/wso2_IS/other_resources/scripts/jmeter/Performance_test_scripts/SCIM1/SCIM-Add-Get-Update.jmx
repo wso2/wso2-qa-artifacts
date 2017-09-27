@@ -48,7 +48,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="userPrefix" elementType="Argument">
             <stringProp name="Argument.name">userPrefix</stringProp>
-            <stringProp name="Argument.value">scimuser_</stringProp>
+            <stringProp name="Argument.value">scim1user</stringProp>
             <stringProp name="Argument.desc">Server hostname or ip</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
