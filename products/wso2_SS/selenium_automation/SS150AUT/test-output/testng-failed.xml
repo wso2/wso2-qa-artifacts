@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="10" name="Failed suite [SS_150_Release_Test]">
+  <parameter name="username" value="AUTO_C"/>
+  <parameter name="browser" value="IE"/>
+  <parameter name="config_param" value="./ss150.properties"/>
+  <parameter name="url" value="http://172.26.132.203/ezCashWeb/Login.aspx"/>
+  <test name="Test_SS_Login(failed)">
+    <parameter name="username" value="AUTO_C"/>
+    <parameter name="browser" value="IE"/>
+    <classes>
+      <class name="com.ss150.test.SS_150_SmokeTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testCreatePriviTemplate"/>
+          <include name="tearDown"/>
+          <include name="testLogin"/>
+        </methods>
+      </class> <!-- com.ss150.test.SS_150_SmokeTest -->
+    </classes>
+  </test> <!-- Test_SS_Login(failed) -->
+</suite> <!-- Failed suite [SS_150_Release_Test] -->

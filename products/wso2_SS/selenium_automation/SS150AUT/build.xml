@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SS150" default="usage" basedir=".">
+	<property environment="env" />
+	<property file="./build.properties" />
+	<property file="./ss150.properties"/>
+
+	<target name="setClassPath" unless="test.classpath">
+		<path id="classpath_jars">
+			<fileset dir="${ws.home}/lib" includes="*.jar" />
+		</path>
+		<pathconvert pathsep=":" property="test.classpath" refid="classpath_jars" />
+	</target>
+
+	<target name="init" depends="setClassPath">
+		<tstamp>
+			<format property="start.time" pattern="MM/dd/yyyy hh:mm aa" />
+		</tstamp>
+		<condition property="ANT" value="${env.ANT_HOME}/bin/ant.sh"
+			else="${env.ANT_HOME}/bin/ant">
+			<!-- os:- unix, mac, windows -->
+			<os family="unix" />
+		</condition>
+		<taskdef name="testng" classpath="${test.classpath}"
+			classname="org.testng.TestNGAntTask" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${test.dest}" />
+		<!--<delete dir="${test.report}" /> -->
+		<delete dir="${ws.home}/config/temp" />
+	</target>
+
+	<target name="compile" depends="init, clean">
+		<delete includeemptydirs="true" quiet="true">
+			<fileset dir="${test.dest}" includes="**/*" />
+		</delete>
+		<echo message="making directory..." />
+		<mkdir dir="${test.dest}" />
+		<echo message="classpath: ${test.classpath}" />
+		<echo message="compiling..." />
+		<echo message="${test.src}/**/*.java" />
+		<javac debug="true" destdir="${test.dest}" includes="**/*.java"
+			srcdir="${test.src}" target="1.7" classpath="${test.classpath}" includeantruntime="false">
+		</javac> 
+	</target>
+
+	<target name="setup-config">
+		<mkdir dir="${ws.home}/config/temp" />
+		<copy todir="${ws.home}/config/temp" overwrite="true">
+			<fileset dir="${ws.home}/config" includes="**/*.xml" excludes="" />
+		</copy>
+		<copy todir="${ws.home}/config/temp" overwrite="true">
+			<fileset dir="${test.src}" includes="**/*.xml" excludes="" />
+		</copy>
+	</target>
+
+	<target name="TestLogin_Mysql" depends="compile, setup-config">
+		<testng classpath="${test.classpath}:${test.dest}" suitename="Smoke_Test_SS150">
+			<xmlfileset dir="${ws.home}/config/temp/com/ss150/testxml" includes="ss_test_mysql.xml" />
+		</testng>
+	</target>
+
+	<target name="TestLogin_Mssql" depends="compile, setup-config">
+		<testng classpath="${test.classpath}:${test.dest}" suitename="Smoke_Test_SS150">
+			<xmlfileset dir="${ws.home}/config/temp/com/ss150/testxml" includes="ss_test_mssql.xml" />
+		</testng>
+	</target>
+	
+	<target name="TestLogin_Postgres" depends="compile, setup-config">
+		<testng classpath="${test.classpath}:${test.dest}" suitename="Smoke_Test_SS150">
+			<xmlfileset dir="${ws.home}/config/temp/com/ss150/testxml" includes="ss_test_postgresql.xml" />
+		</testng>
+	</target>
+	
+<!--sample for including all xmls.--> 
+	<!--target name="Test" depends="compile, setup-config">
+		<testng classpath="${test.classpath}:${test.dest}" suitename="MiniPortal2">
+			<xmlfileset dir="${ws.home}/config/temp/com/ezcash/test" includes="test*.xml" />
+		</testng>
+	</target-->
+	
+
+	<target name="usage">
+		<echo>
+			ant run will execute the test
+        </echo>
+	</target>
+</project>
