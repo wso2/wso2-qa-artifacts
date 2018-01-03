@@ -6,12 +6,12 @@ This artifact (agent folder) consists a python code which can detect sensor data
 	HC-SR04 Module
 	Resistors: 330Ω and 470Ω
 	Jumper wires
+	
+
 
 ### Steps
 
 - Configure the raspbery pi as per the below sketch using the above hardware.
-	![Alt text](/images/sketch.png?raw=true "Login")
-
 - Download IoT 1.0.0 server and create a device archetype using the maven archetype shipped OOB
 - Navigate to Agent code section in the archetype -> feature/src/main/resources/agent
 - Replace the agent folder with the provided agent folder
@@ -22,3 +22,7 @@ This artifact (agent folder) consists a python code which can detect sensor data
 - The agent code consists a class named agent.py this is where the distance calculation method is implemented - getSensorValue():
 - If the sensor values are failing to retrive when the raspberry pi is turned on the first time, try restarting the raspbery pi. If it keeps failing check if the GPIO pins that you configured are correct. e.g - GPIO_TRIGGER = 23,GPIO_ECHO = 24 found in agent.py class
 - You can read more from https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/ to get an idea about the implementation of the python code.
+
+
+
+![alt tag](https://github.com/jsonds/wso2-qa-artifacts/blob/master/products/wso2_IOT/distance_calculator/images/sketch.png?raw=true)
