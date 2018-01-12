@@ -49,7 +49,7 @@ public class ZeroTTLSend {
         QueueConnectionFactory connFactory = (QueueConnectionFactory) ctx.lookup(CF_NAME);
         QueueConnection queueConnection = connFactory.createQueueConnection();
         queueConnection.start();
-        QueueSession queueSession =  queueConnection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE );//
+        QueueSession queueSession =  queueConnection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE );
 
         Queue queue = (Queue)ctx.lookup(queueName);
 
@@ -76,7 +76,7 @@ public class ZeroTTLSend {
 
 
     public String getTCPConnectionURL(String username, String password) {
-        // amqp://{username}:{password}@carbon/carbon?brokerlist='tcp://{hostname}:{port}'
+        
         return new StringBuffer()
                 .append("amqp://").append(username).append(":").append(password)
                 .append("@").append(CARBON_CLIENT_ID)

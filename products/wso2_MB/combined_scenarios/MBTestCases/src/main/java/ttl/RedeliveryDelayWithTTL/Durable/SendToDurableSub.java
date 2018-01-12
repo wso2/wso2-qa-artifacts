@@ -47,7 +47,7 @@ public class SendToDurableSub {
             // create the message to send
 
             TextMessage message = topicSession.createTextMessage("Text Message with"+TTL+"::Published From IP::"+CARBON_DEFAULT_HOSTNAME);
-            //message.setStringProperty("msgID",TTL.toString());
+            
             javax.jms.TopicPublisher topicPublisher = topicSession.createPublisher(topic);
             topicPublisher.publish(message);
 
@@ -61,7 +61,7 @@ public class SendToDurableSub {
         topicConnection.close();
     }
     public String getTCPConnectionURL(String username, String password) {
-        // amqp://{username}:{password}@carbon/carbon?brokerlist='tcp://{hostname}:{port}'
+        
         return new StringBuffer()
                 .append("amqp://").append(username).append(":").append(password)
                 .append("@").append(CARBON_CLIENT_ID)

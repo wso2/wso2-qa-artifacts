@@ -61,7 +61,7 @@ public class TTLTopicSend {
 
     }
     public String getTCPConnectionURL(String username, String password) {
-        // amqp://{username}:{password}@carbon/carbon?brokerlist='tcp://{hostname}:{port}'
+        
         return new StringBuffer()
                 .append("amqp://").append(username).append(":").append(password)
                 .append("@").append(CARBON_CLIENT_ID)
