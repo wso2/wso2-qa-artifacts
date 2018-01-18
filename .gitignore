@@ -60,3 +60,6 @@ local.properties
 
 # ignore target directories
 target/
+
+# ignore unwanted OS file 
+.DS_Store
