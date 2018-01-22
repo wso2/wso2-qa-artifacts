@@ -26,7 +26,7 @@ Can be used on a stand alone setup as well as in a cluster
 ### Script parameters
 DOWNTIME = Once the server is killed, script sleeps for the defined time. You can provide the DOWNTIME in minutes . eg DOWNTIME=2m.
 UPTIME = Once the server is started, script sleeps for the defined time. In other words, server runs for the length defined in UPTIME. eg UPTIME=10m
-
+SERVERHOME = Please provide the absolute path to the bin directory of your WSO2 product. 
 
 ### Pre-conditions
 - Update the absolute path to your [$HOME]/bin location in line 7 and 11 of the script prior to execution
