@@ -1,0 +1,162 @@
+'''
+ * Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+'''
+
+import RPi.GPIO as GPIO
+import time
+ 
+#GPIO Mode (BOARD / BCM)
+GPIO.setmode(GPIO.BCM)
+ 
+#set GPIO Pins
+GPIO_TRIGGER = 18
+GPIO_ECHO = 24
+ 
+#set GPIO direction (IN / OUT)
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN)
+
+import base64
+import subprocess
+import json
+import threading
+import random
+import sys
+import paho.mqtt.client as mqtt
+
+global Client
+
+print('\n')
+print('----------------------------------------------------')
+print('|                   MQTT SAMPLE 2                  |')
+print('----------------------------------------------------')
+
+# Reading config.json
+try:
+    config = json.loads(open('Configuration/config.json').read())
+except:
+    print ("Cannot read the configuration file")
+    sys.exit(0)
+
+DEVICE_ID = config['deviceId']
+DEVICE_TYPE = config['type']
+ACCESS_TOKEN = config['accessToken']
+MQTT_GATEWAY = config['mqttGateway'].split(":")
+MQTT_IP = MQTT_GATEWAY[1].replace('//', '')
+MQTT_PORT = int(MQTT_GATEWAY[2])
+
+'''
+    Using clientId and clientSecret to generate new access token
+    Since we are generating access token each time, no need of a refresh token 
+'''
+
+
+def getNewAccessToken():
+    CLIENT_ID = config['clientId']
+    CLIENT_SECRET = config['clientSecret']
+
+    encodedCredentials = base64.b64encode(CLIENT_ID + ':' + CLIENT_SECRET)
+
+    bash_com = 'curl -k -d "grant_type=password&username=admin&password=admin&scope=perm:admin:device-type perm:device-types:events perm:device-types:events:view perm:device-types:types perm:devices:operations" -H "Authorization: Basic ' + \
+               encodedCredentials + '" -H "Content-Type: application/x-www-form-urlencoded" https://' + MQTT_IP + ':8243/token'
+    subprocess.Popen(bash_com, shell=True)
+    output = subprocess.check_output(['bash', '-c', bash_com])
+    output = json.loads(output)
+
+    print("New access token : " + output['access_token'])
+    print("New refresh token : " + output['refresh_token'])
+
+    # Updating access token
+    global ACCESS_TOKEN
+    ACCESS_TOKEN = output['access_token']
+
+
+# Change this appropiately
+SENSOR_NAME = "distance"
+
+# Publish and subscribe topics
+publishTopic = 'carbon.super/' + DEVICE_TYPE + '/' + DEVICE_ID + '/events'
+subscribeTopic = 'carbon.super/' + DEVICE_TYPE + '/' + DEVICE_ID + '/operation/#'
+
+
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code " + str(rc))
+    client.subscribe(subscribeTopic)
+    # If connection successful start publishing data
+    if rc == 0:
+        publishTempData()
+    elif rc == 4:
+        getNewAccessToken()
+        createMQTTConnection()
+        publishTempData()
+
+
+def on_message(client, userdata, msg):
+    print("Message Received: " + str(msg.payload))
+
+
+# Publish random temp data between 10-100
+def publishData():
+
+    # set Trigger to HIGH
+    GPIO.output(GPIO_TRIGGER, True)
+ 
+    # set Trigger after 0.01ms to LOW
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
+ 
+    StartTime = time.time()
+    StopTime = time.time()
+ 
+    # save StartTime
+    while GPIO.input(GPIO_ECHO) == 0:
+        StartTime = time.time()
+ 
+    # save time of arrival
+    while GPIO.input(GPIO_ECHO) == 1:
+        StopTime = time.time()
+ 
+    # time difference between start and arrival
+    TimeElapsed = StopTime - StartTime
+    # multiply with the sonic speed (34300 cm/s)
+    # and divide by 2, because there and back
+    distance = (TimeElapsed * 34300) / 2
+	
+    #num = random.randint(10, 100)
+    message = '{"' + SENSOR_NAME + '":' + str(int(round(distance))) + '}'
+    print("Publish Data: " + message)
+    Client.publish(publishTopic, message)
+
+
+def publishTempData():
+    publishData()
+    threading.Timer(5.0, publishTempData).start()
+
+
+def createMQTTConnection():
+    client = mqtt.Client(DEVICE_ID)
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.username_pw_set(ACCESS_TOKEN, password="")
+    client.connect(MQTT_IP, MQTT_PORT, 60, bind_address="")
+    global Client
+    Client = client
+    Client.loop_forever()
+
+
+getNewAccessToken()
+createMQTTConnection()
