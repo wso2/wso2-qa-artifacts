@@ -1,0 +1,11 @@
+{
+    "type": "DistanceDetector",
+    "deviceId": "123457",
+    "clientId": "Wc4WIFPvX7yS0hRvsS83NTxDXvYa",
+    "clientSecret": "jJ0EIEnV8Q6SxI5QRrOVj7mH1xUa",
+    "accessToken": "6331f884-4b64-3b87-bdce-92743b1824e1",
+    "refreshToken": "0948e349-67c5-3944-a557-a8da038d09f9",
+    "mqttGateway": "tcp://192.168.8.103:1886",
+    "httpsGateway": "https://192.168.8.103:8243",
+    "httpGateway": "http://192.168.8.103:8280"
+}
