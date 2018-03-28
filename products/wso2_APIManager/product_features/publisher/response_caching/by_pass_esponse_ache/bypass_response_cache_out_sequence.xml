@@ -1,0 +1,9 @@
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="bypass_response_cache_out_sequence">
+   <filter source="boolean(get-property('BypassCache'))" regex="false">
+      <cache scope="per-host" collector="true" />
+   </filter>
+   <class name="org.wso2.carbon.apimgt.gateway.handlers.analytics.APIMgtResponseHandler" />
+   <send />
+</sequence>
+
+
