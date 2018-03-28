@@ -1,0 +1,10 @@
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="bypass_response_cache_in_sequence">
+   <property name="BypassCache" type="BOOLEAN" expression="$trp:X-Bypass-Cache" />
+   <filter source="boolean(get-property('BypassCache'))" regex="false">
+      <cache scope="per-host" collector="false" hashGenerator="org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator" timeout="60">
+         <implementation type="memory" maxSize="500" />
+      </cache>
+   </filter>
+</sequence>
+
+
