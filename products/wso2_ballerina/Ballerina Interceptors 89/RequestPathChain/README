@@ -1,0 +1,7 @@
+////README////
+
+this scenario passed the message context through a request path chain, at each step payload is accessed and manipulated before passing on.
+
+1.create the folder<BALLERIA_HOME>/interceptors and copy the bmz files inside.
+2.replace the deployment.yaml found with the one provided.
+3.run helloworldservice and verifythe scenario.

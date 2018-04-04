@@ -1,0 +1,8 @@
+README
+
+ copy the bmz files into <BALLERINA_HOME>/interceptors
+
+copy the deployment.yaml to <BALLERINA_HOME>/bre/conf
+
+
+ compatible with ballerina .89 GA
